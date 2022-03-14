@@ -1,6 +1,6 @@
 package timo.week01;
 
-public class LoopAssignment {
+public class Zählen {
     public static void main(String[] args) {
 
         int limit = 11;
