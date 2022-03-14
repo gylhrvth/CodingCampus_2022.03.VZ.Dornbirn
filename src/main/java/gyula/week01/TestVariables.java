@@ -1,6 +1,6 @@
 package gyula.week01;
 
-public class TestVariablen {
+public class TestVariables {
     public static void main(String[] args) {
         int counter1 = 0;
         int counter2 = 0;
