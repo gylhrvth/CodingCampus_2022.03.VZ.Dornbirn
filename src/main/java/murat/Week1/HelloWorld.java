@@ -1,5 +1,5 @@
 
-package murat.week01;
+package murat.Week1;
 
 public class HelloWorld {
 
@@ -35,5 +35,6 @@ public class HelloWorld {
 		for(int counter2 =0; counter2<5; ++counter2){
 			System.out.print("A");
 		}
+
 	}
 }

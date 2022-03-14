@@ -1,4 +1,4 @@
-package murat.week01;
+package murat.Week1;
 
 public class Operators {
 
@@ -29,5 +29,6 @@ public class Operators {
 		System.out.println("more or equal: " + (valueA >= valueB));
 		System.out.println("more or equal: " + (valueA == valueB));
 		System.out.println("not equal: " + (valueA != valueB));
+
 	}
 }
