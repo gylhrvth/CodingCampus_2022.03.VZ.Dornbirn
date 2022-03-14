@@ -1,4 +1,4 @@
-package murat.week01;
+package murat.Week1;
 
 public class Operators {
 
