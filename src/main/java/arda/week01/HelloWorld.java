@@ -2,7 +2,7 @@ package arda.week01;
 
 public class HelloWorld {
     public static void main(String[] arg) {
-        int number = 3;
+        int number = 5;
         System.out.println("Hello World " + number);
 
         // Line Comment
