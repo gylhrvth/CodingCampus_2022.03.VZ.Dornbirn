@@ -57,5 +57,4 @@ public class CountTo10 {
 		task3Simpler("TASK 3-Simpler", 10);     // Display the even numbers between 0-10
 		task4("TASK 4", -10);                   // Count backwards from 10 to -10 and display
 	}
-
 }
