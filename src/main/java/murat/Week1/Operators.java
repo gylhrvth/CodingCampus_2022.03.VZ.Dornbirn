@@ -29,5 +29,6 @@ public class Operators {
 		System.out.println("more or equal: " + (valueA >= valueB));
 		System.out.println("more or equal: " + (valueA == valueB));
 		System.out.println("not equal: " + (valueA != valueB));
+
 	}
 }
