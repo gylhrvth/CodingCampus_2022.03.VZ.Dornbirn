@@ -16,7 +16,25 @@ public class HelloWorld {
         System.out.println("World");
 
         // If-Statement
+        if (number > 5) {
+            System.out.println("Number is more than 5");
+        } else {
+            System.out.println("Number is less or equal 5");
+        }
 
-        // For-Statement
+        // while- and for-Statement
+        int counter = 0;
+        int limit = 5;
+        while (counter < limit){
+            System.out.println(counter + " Cemil");
+
+            ++counter;
+            //counter +=1;
+            //counter = counter + 1;
+        }
+
+        for (int counter2 = 0; counter2 < limit; ++counter2){
+            System.out.print("A");
+        }
     }
 }
