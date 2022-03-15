@@ -23,9 +23,22 @@ public class MethodsAndLoops {
         }
     }
 
+    // Task 3 - Print Rectangle
+    public static void printRect(String x, int horizontal, int vertical) {
+
+        System.out.println("Task 3 - Print Rectangle: ");
+        for (int i = 1; i <= vertical; ++i) {
+            for (int j = 1; j <= horizontal-1; ++j) {
+                System.out.print(x);
+            }
+            System.out.println(x);
+        }
+    }
+
     public static void main(String[] args) {
-        // printChars("b", 5);
-        // printSquare("M", 4);
+        //  printChars("M", 5);
+        //  printSquare("S", 4);
+        //  printRect("R",10,3);
     }
 
 }
