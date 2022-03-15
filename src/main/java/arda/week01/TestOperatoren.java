@@ -33,17 +33,17 @@ public class TestOperatoren {
 
         System.out.println("----------------------------------");
 
-        System.out.println("less: " +(valueA < valueB));
+        System.out.println("less: " + (valueA < valueB));
 
-        System.out.println("more: " +(valueA > valueB));
+        System.out.println("more: " + (valueA > valueB));
 
-        System.out.println("less or equal: " +(valueA <= valueB));
+        System.out.println("less or equal: " + (valueA <= valueB));
 
-        System.out.println("more or equal: " +(valueA >= valueB));
+        System.out.println("more or equal: " + (valueA >= valueB));
 
-        System.out.println("equal: " +(valueA == valueB));
+        System.out.println("equal: " + (valueA == valueB));
 
-        System.out.println("not equal: " +(valueA != valueB));
+        System.out.println("not equal: " + (valueA != valueB));
 
     }
 }
