@@ -24,12 +24,12 @@ public class MethodsAndLoops {
     }
 
     // Task 3 - Print Rectangle
-    public static void printRect(String x, int horizontalSize, int verticalSize) {
+    public static void printRect(String text, int horizontalSize, int verticalSize) {
 
         System.out.println("Task 3 - Print Rectangle: ");
         for (int i = 0; i < verticalSize; ++i) {
             for (int j = 0; j < horizontalSize; ++j) {
-                System.out.print(x);
+                System.out.print(text);
             }
             System.out.println();
         }
@@ -49,7 +49,7 @@ public class MethodsAndLoops {
     }
 
     // Task 5 - Print Triangle Top Left
-    public static void printTriangleTopLeft(int size, String text) {
+    public static void printTriangleTopLeft(String text,int size) {
 
         System.out.println("Task 5 - Print Triangle Top Left: ");
         for (int i = 0; i < size; ++i) {
@@ -61,12 +61,13 @@ public class MethodsAndLoops {
         }
     }
 
+
     public static void main(String[] args) {
         // printChars("M ", 5);
         // printSquare("S ", 4);
         // printRect("R ",10,3);
-        // printTriangleBottomLeft("M ", 4);
-        // printTriangleTopLeft(5, "M ");
+        //printTriangleBottomLeft("M ", 4);
+        printTriangleTopLeft("M ", 5);
     }
 
 }
