@@ -37,6 +37,11 @@ public class HelloWorld{
             System.out.print( "A");
         }
         System.out.println();
+        int counter5 = 10;
+        for (counter5 = 10; counter5 >= -10; counter5 = counter5 - 1){
+
+        }
+            System.out.println(counter5);
 
     }
 
