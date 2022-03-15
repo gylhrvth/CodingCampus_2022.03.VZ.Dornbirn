@@ -57,18 +57,21 @@ public class DrawingChars {
     public static void printTriangleTopRight(String text, int size){
         for (int i = 0; i < size ; i++) {
             for (int j = 0; j < size; j++) {
-                System.out.print(text);
-            }
+                if (j < i) {
+                    System.out.print(". ");
+                } else {
+                        System.out.print(text);
+                }
+                 }
             System.out.println();
 
         }
-
     }
 
         public static void main (String[]args){
         printChars("A ", 10);
             System.out.println();
-        printSquare("B ", 7);
+        printSquare("B ", 10);
             System.out.println();
         printRect( "C ", 10, 3);
             System.out.println();
