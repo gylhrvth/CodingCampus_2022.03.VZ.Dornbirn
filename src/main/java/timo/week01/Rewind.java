@@ -5,8 +5,7 @@ public class Rewind {
 
         int limit = -10;
 
-        for (int counter = 10; counter < 10; --counter) {
-            if (counter <= limit)
+        for (int counter = 10; counter >= limit; --counter) {
             System.out.println(counter);
         }
     }
