@@ -5,10 +5,10 @@ public class CountToTen {
         int limit = 11;
         int counter2 = 0;
 
-        for (int counter = 0; counter < limit; ++counter ){
+        for (int counter = 0; counter < limit; ++counter )
             System.out.println(counter);
 
-        }
+
 
         while (counter2 < limit) {
             System.out.println(counter2);
