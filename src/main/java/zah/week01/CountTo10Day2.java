@@ -25,9 +25,6 @@ public class CountTo10Day2 {
     }
 
 
-
-
-
     public static void main(String[] args){
         task1(0, 10);
         System.out.println("-------------------------------");
@@ -36,6 +33,8 @@ public class CountTo10Day2 {
         task3(0,10);
         System.out.println("---------------");
         task4(10,-10);
+        System.out.println("-----------------------");
+
 
 
 
