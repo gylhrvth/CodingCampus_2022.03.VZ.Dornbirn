@@ -3,56 +3,70 @@ package murat.Week1;
 public class MethodsAndLoops {
 
     // Task 1 - Print Chars
-    public static void printChars(String x, int counter) {
+    public static void printChars(String text, int size) {
 
         System.out.println("Task 1 - Print Chars: ");
-        for (int i = 0; i < counter; i++) {
-            System.out.print(x);
+        for (int i = 0; i < size; i++) {
+            System.out.print(text);
         }
     }
 
     // Task 2 - Print Square
-    public static void printSquare(String x, int counter) {
+    public static void printSquare(String text, int size) {
 
         System.out.println("Task 2 - Print Square: ");
-        for (int i = 1; i <= counter; ++i) {
-            for (int j = 1; j <= counter-1; ++j) {
-                System.out.print(x);
+        for (int i = 0; i < size; ++i) {
+            for (int j = 0; j < size; ++j) {
+                System.out.print(text);
             }
-            System.out.println(x);
+            System.out.println();
         }
     }
 
     // Task 3 - Print Rectangle
-    public static void printRect(String x, int horizontal, int vertical) {
+    public static void printRect(String x, int horizontalSize, int verticalSize) {
 
         System.out.println("Task 3 - Print Rectangle: ");
-        for (int i = 1; i <= vertical; ++i) {
-            for (int j = 1; j <= horizontal-1; ++j) {
+        for (int i = 0; i < verticalSize; ++i) {
+            for (int j = 0; j < horizontalSize; ++j) {
                 System.out.print(x);
             }
-            System.out.println(x);
+            System.out.println();
         }
     }
 
     // Task 4 - Print Triangle Bottom Left
-    public static void printTriangleBottomLeft(String x, int counter) {
+    public static void printTriangleBottomLeft(String text, int size) {
 
         System.out.println("Task 4 - Print Triangle Bottom Left: ");
-        for (int i = 1; i <= counter; ++i) {
+        for (int i = 0; i < size; ++i) {
 
-            for (int j = counter-i+1; j <= counter-1; ++j) {
-                System.out.print(x);
+            for (int j = size-i; j <= size; ++j) {
+                System.out.print(text);
             }
-            System.out.println(x);
+            System.out.println();
+        }
+    }
+
+    // Task 5 - Print Triangle Top Left
+    public static void printTriangleTopLeft(int size, String text) {
+
+        System.out.println("Task 5 - Print Triangle Top Left: ");
+        for (int i = 0; i < size; ++i) {
+
+            for (int j = i; j < size; ++j) {
+                System.out.print(text);
+            }
+            System.out.println();
         }
     }
 
     public static void main(String[] args) {
-        //  printChars("M", 5);
-        //  printSquare("S", 4);
-        //  printRect("R",10,3);
-        printTriangleBottomLeft("M", 4);
+        // printChars("M ", 5);
+        // printSquare("S ", 4);
+        // printRect("R ",10,3);
+        // printTriangleBottomLeft("M ", 4);
+        // printTriangleTopLeft(5, "M ");
     }
 
 }
