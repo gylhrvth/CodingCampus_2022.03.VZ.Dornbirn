@@ -1,6 +1,6 @@
 package murat.Week1;
 
-public class DiffBetwPlusPlusCounterUndCounterPlusPlus {
+public class DiffBetwPlusPlusCounterAndCounterPlusPlus {
 
 	public static void main(String[] args) {
 
