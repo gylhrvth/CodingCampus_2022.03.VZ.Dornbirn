@@ -23,14 +23,14 @@ public class HelloWorld {
             //while- and for- Statement
             int counter = 0;
             int limit = 5;
-            while (counter < limit){
+            while (counter < limit) {
                 System.out.println(counter + " Arda");
                 ++counter;
                 //counter = counter + 1;
                 //counter += 1;
             }
 
-            for (int counter2 = 0; counter2 < limit; ++counter2){
+            for (int counter2 = 0; counter2 < limit; ++counter2) {
                 System.out.print("A");
             }
             System.out.println();

@@ -2,7 +2,7 @@ package murat.Week1;
 
 public class CountTo10 {
 
-	// Task 1
+    // Task 1
 	public static void task1(String name, int start, int limit) {
 
 		System.out.println("---" + name + "---");
@@ -60,13 +60,60 @@ public class CountTo10 {
 		}
 	}
 
-	public static void main(String[] args) {
 
-		task1("TASK 1", 0,10);                    // Count to 10 with FOR and WHILE
-		task2("TASK 2", 0,10);                    // Count to 10 with FOR exclusively 10
+    // Task 5 Upwards
+    public static void task5Upwards(int start, int target) {
+
+        if (target < start) {                 // To change the start and target
+            int storedValue = 0;
+            storedValue = target;
+            target = start;
+            start = storedValue;
+        }
+
+        if (start == target) {
+            System.out.println(" Please enter a different number");
+        } else {
+            System.out.println("---TASK 5 Upwards---");
+            for (int i = start; i <= target; ++i) {
+
+                System.out.println("Number: " + i);
+            }
+        }
+    }
+
+    // Task 5 Downwards
+    public static void task5Downwards(int start, int target) {
+
+        if (target > start) {                             // To change the start and target
+            int storedValue = 0;
+            storedValue = target;
+            target = start;
+            start = storedValue;
+        }
+
+        if (start == target) {
+            System.out.println(" Please enter a different number");
+        } else {
+
+            System.out.println("---TASK 5 Downwards---");
+            for (int i = start; i >= target; --i) {
+
+                System.out.println("Number: " + i);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+
+		task1("TASK 1", 0,10);                      // Count to 10 with FOR and WHILE
+		task2("TASK 2", 0,10);                       // Count to 10 with FOR exclusively 10
 		task3("TASK 3", 0,10, 2);                    // Count to 10 and display the even numbers, Modulo Method
-		task3Simpler("TASK 3-Simpler", 0,10);     // Display the even numbers between 0-10
-		task4("TASK 4", 10,-10);                   // Count backwards from 10 to -10 and display
-	}
+		task3Simpler("TASK 3-Simpler", 0,10);        // Display the even numbers between 0-10
+		task4("TASK 4", 10,-10);                     // Count backwards from 10 to -10 and display
+        task5Upwards(10,10);
+        task5Downwards(5, 10);
+
+    }
 
 }
