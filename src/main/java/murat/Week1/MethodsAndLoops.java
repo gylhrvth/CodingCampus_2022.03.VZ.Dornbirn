@@ -35,10 +35,24 @@ public class MethodsAndLoops {
         }
     }
 
+    // Task 4 - Print Triangle Bottom Left
+    public static void printTriangleBottomLeft(String x, int counter) {
+
+        System.out.println("Task 4 - Print Triangle Bottom Left: ");
+        for (int i = 1; i <= counter; ++i) {
+
+            for (int j = counter-i+1; j <= counter-1; ++j) {
+                System.out.print(x);
+            }
+            System.out.println(x);
+        }
+    }
+
     public static void main(String[] args) {
         //  printChars("M", 5);
         //  printSquare("S", 4);
         //  printRect("R",10,3);
+        printTriangleBottomLeft("M", 4);
     }
 
 }
