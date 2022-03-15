@@ -41,7 +41,7 @@ public class MethodsAndLoops {
         System.out.println("Task 4 - Print Triangle Bottom Left: ");
         for (int i = 0; i < size; ++i) {
 
-            for (int j = size-i; j <= size; ++j) {
+            for (int j = size - i; j <= size; ++j) {
                 System.out.print(text);
             }
             System.out.println();
@@ -49,7 +49,7 @@ public class MethodsAndLoops {
     }
 
     // Task 5 - Print Triangle Top Left
-    public static void printTriangleTopLeft(String text,int size) {
+    public static void printTriangleTopLeft(String text, int size) {
 
         System.out.println("Task 5 - Print Triangle Top Left: ");
         for (int i = 0; i < size; ++i) {
@@ -61,13 +61,31 @@ public class MethodsAndLoops {
         }
     }
 
+    // Task 6 - Print Triangle Top Right
+    public static void printTriangleTopRight(String text, int size) {
+
+        System.out.println("Task 6 - Print Triangle Top Right: ");
+        for (int i = 0; i < size; ++i) {
+
+            for (int k = i; k <size-1; ++k) {
+                System.out.print("Kleer");
+            }
+
+            for (int j = i; j < size; ++j) {
+                System.out.print(text);
+            }
+
+            System.out.println();
+        }
+    }
 
     public static void main(String[] args) {
         // printChars("M ", 5);
         // printSquare("S ", 4);
         // printRect("R ",10,3);
-        //printTriangleBottomLeft("M ", 4);
-        printTriangleTopLeft("M ", 5);
+        // printTriangleBottomLeft("M ", 4);
+        // printTriangleTopLeft("M ", 5);
+        printTriangleTopRight("M ", 5);
     }
 
 }
