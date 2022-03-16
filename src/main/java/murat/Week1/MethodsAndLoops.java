@@ -129,6 +129,7 @@ public class MethodsAndLoops {
 
         // Switch is a key to change the tasks
         // True: Left diagonal False: Right diagonal
+        System.out.println("Task 9 - Print Slash: ");
         if (switcher) {
             for (int i = 0; i < size; ++i) {            // Left diagonal block
 
@@ -159,6 +160,30 @@ public class MethodsAndLoops {
         }
     }
 
+    // Task 10 - Print Triangle
+    public static void printTriangle(String text, int size) {
+
+        System.out.println("Task 10 - Print Triangle: ");
+
+        // Formating the size for the base number For Example: Size 3, but base is 5
+        int newSize = (size * 2) - 1;
+
+
+        for (int i = 0; i < newSize; ++i) {
+            for (int j = 0; j < newSize; ++j) {
+
+                if ((((i == j) && !(i + j < size)) || ((i + j == newSize - 1) && (i >= j))) || i==newSize-1) {
+                    System.out.print("B");
+                } else {
+                    System.out.print(" ");
+                }
+
+            }
+            System.out.println();
+        }
+
+    }
+
     public static void main(String[] args) {
         // printChars("M ", 5);                      // Task 1 - Print Chars
         // printSquare("S ", 4);                     // Task 2 - Print Square
@@ -168,7 +193,8 @@ public class MethodsAndLoops {
         // printTriangleTopRight("M", 6);            // Task 6 - Print Triangle Top Right
         // printTriangleTBottomRight("M", 5);        // Task 7 - Print Triangle Bottom Right
         // printEmptySquare("M", 5);                 // Task 8 - Print Empty Square
-        // printSlash("M", 5, false);   // Task 9 - Print Slash
+        // printSlash("M", 3, false);                // Task 9 - Print Slash
+        printTriangle("M", 20);
     }
 }
 
