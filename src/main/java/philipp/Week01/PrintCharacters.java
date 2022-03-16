@@ -5,11 +5,11 @@ public class PrintCharacters {
         //printChars("A ", 3);
         //printSquare("B ", 5);
         //printRect("C ", 5, 2);
-        //printTriangleBottomLeft("D ", 4);
-        //System.out.println();
-        //printTriangleTopLeft("E ", 5);
-        //System.out.println();
-        printTriangleTopRight("F", 5);
+        printTriangleBottomLeft("D ", 4);
+        System.out.println();
+        printTriangleTopLeft("E ", 5);
+        System.out.println();
+        printTriangleTopRight("F ", 5);
         System.out.println();
     }
 
@@ -62,7 +62,7 @@ public class PrintCharacters {
         for (int i = 0; i < amount; i++) {
             for (int j = 0; j < amount; j++) {
                 if (j < i) {
-                    System.out.print(" ");
+                    System.out.print("  ");
                 } else {
                     System.out.print(name);
                 }
