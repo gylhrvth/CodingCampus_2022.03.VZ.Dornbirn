@@ -65,6 +65,7 @@ public class MethodenSchleifen {
     }
 
     public static void printTriangleBottomRight(String letter, int size) {
+
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size - 1 - i; j++) {
                 System.out.print(" ");
@@ -77,13 +78,27 @@ public class MethodenSchleifen {
     }
 
     public static void printEmptySquare(String letter, int size) {
+
+        //Deckel
         for (int i = 0; i < size; i++) {
-            if (i == 1 || i == size-1) {
-                System.out.println("--------");
-                }
-            for (int j = 0; j <= size; j++) {
+            System.out.print(letter);
+        }
+        System.out.println();
+
+        //Body
+        for (int i = 0; i < size - 2; i++) {
+            System.out.print(letter);
+            for (int j = 0; j < size - 2; j++) {
+                System.out.print(" ");
             }
             System.out.println(letter);
         }
+
+        //Boden
+        for (int i = 0; i < size; i++) {
+            System.out.print(letter);
+        }
     }
+
+    public static void printSlash()
 }
