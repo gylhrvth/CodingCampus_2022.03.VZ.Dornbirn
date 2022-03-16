@@ -88,8 +88,37 @@ public class MethodsAndLoops {
                 System.out.print(" ");
             }
 
-            for (int k = 0; k < i+1; ++k) {
+            for (int k = 0; k < i + 1; ++k) {
                 System.out.print(text);
+            }
+            System.out.println();
+        }
+    }
+
+    // Task 8 - Print Empty Square
+    public static void printEmptySquare(String text, int size) {
+
+        System.out.println("Task 8 - Print Empty Square: ");
+        for (int i = 0; i < size; ++i) {
+
+            // Die erste vertikale Linie
+            for (int j = 0; j < 1; ++j) {
+                System.out.print("J");
+            }
+
+            // Die mittlere vertikale Linien
+            for (int k = 1; k < size; ++k) {
+
+                if(i==0 || i==size-1) {
+                    System.out.print("F");   // Obere und untere mittlere Zellen"
+                } else{
+                    System.out.print(" ");   // Mittlere Zellen
+                }
+            }
+
+            // Die letzte vertikale linie
+            for (int x = 0; x < 1; ++x) {
+                System.out.print("X");
             }
             System.out.println();
         }
@@ -103,7 +132,7 @@ public class MethodsAndLoops {
         // printTriangleTopLeft("M ", 5);
         // printTriangleTopRight("M", 5);   // Funktioniert nicht, ich muss nochmal bearbeiten
         // printTriangleTBottomRight("M", 5);
+        printEmptySquare("M", 5);
     }
-
 }
 
