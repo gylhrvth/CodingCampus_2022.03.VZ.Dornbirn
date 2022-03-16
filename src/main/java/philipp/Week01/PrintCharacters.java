@@ -5,11 +5,15 @@ public class PrintCharacters {
         //printChars("A ", 3);
         //printSquare("B ", 5);
         //printRect("C ", 5, 2);
-        printTriangleBottomLeft("D ", 4);
-        System.out.println();
-        printTriangleTopLeft("E ", 5);
-        System.out.println();
-        printTriangleTopRight("F ", 5);
+        //printTriangleBottomLeft("D ", 4);
+        //System.out.println();
+        //printTriangleTopLeft("E ", 5);
+        //System.out.println();
+        //printTriangleTopRight("F ", 5);
+        //System.out.println();
+        //printTriangleBottomRight("G ", 5);
+        //System.out.println();
+        printEmptySquare("H ", 10);
         System.out.println();
     }
 
@@ -68,10 +72,42 @@ public class PrintCharacters {
                 }
             }
             System.out.println();
+        }
+    }
 
+    public static void printTriangleBottomRight(String x, int size) {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size - 1 - i; j++) {
+                System.out.print("  ");
+            }
+            for (int k = 0; k < i + 1; k++) {
+                System.out.print(x);
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printEmptySquare(String x, int size) {
+        for (int i = 0; i < size; i++) {
+            if (i == 0 || i==size-1) {
+                for (int j = 0; j < size; j++) {
+                    System.out.print(x);
+                }
+            } else {
+                for (int j = 0; j < size; j++) {
+                    if (j > 0 && j < size - 1) {
+                        System.out.print("* ");
+                    } else {
+                        System.out.print(x);
+                    }
+                }
+            }
+            System.out.println();
         }
     }
 }
+
+
 
 
 
