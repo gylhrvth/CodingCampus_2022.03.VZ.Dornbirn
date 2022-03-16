@@ -67,12 +67,12 @@ public class MethodsAndLoops {
         System.out.println("Task 6 - Print Triangle Top Right: ");
         for (int i = 0; i < size; ++i) {
 
-            for (int j = 0; j < size - i; ++j) {
-                System.out.print(text);
-            }
-
-            for (int k = i; k < size; ++k) {
-                System.out.print(" ");
+            for (int j = 0; j < size; ++j) {
+                if (j < i) {
+                    System.out.print(" ");  // Obere rechte Zelle
+                } else {
+                    System.out.print("K");  // Untere linke Zelle
+                }
             }
             System.out.println();
         }
@@ -109,9 +109,9 @@ public class MethodsAndLoops {
             // Die mittlere vertikale Linien
             for (int k = 1; k < size; ++k) {
 
-                if(i==0 || i==size-1) {
+                if (i == 0 || i == size - 1) {
                     System.out.print("F");   // Obere und untere mittlere Zellen"
-                } else{
+                } else {
                     System.out.print(" ");   // Mittlere Zellen
                 }
             }
@@ -125,14 +125,14 @@ public class MethodsAndLoops {
     }
 
     public static void main(String[] args) {
-        // printChars("M ", 5);
-        // printSquare("S ", 4);
-        // printRect("R ",10,3);
-        // printTriangleBottomLeft("M ", 4);
-        // printTriangleTopLeft("M ", 5);
-        // printTriangleTopRight("M", 5);   // Funktioniert nicht, ich muss nochmal bearbeiten
-        // printTriangleTBottomRight("M", 5);
-        printEmptySquare("M", 5);
+        // printChars("M ", 5);                      // Task 1 - Print Chars
+        // printSquare("S ", 4);                     // Task 2 - Print Square
+        // printRect("R ",10,3);                     // Task 3 - Print Rectangle
+        // printTriangleBottomLeft("M ", 4);         // Task 4 - Print Triangle Bottom Left
+        // printTriangleTopLeft("M ", 5);            // Task 5 - Print Triangle Top Left
+        // printTriangleTopRight("M", 6);            // Task 6 - Print Triangle Top Right
+        // printTriangleTBottomRight("M", 5);        // Task 7 - Print Triangle Bottom Right
+        // printEmptySquare("M", 10);                // Task 8 - Print Empty Square
     }
 }
 
