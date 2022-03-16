@@ -130,27 +130,27 @@ public class MethodsAndLoops {
         // Switch is a key to change the tasks
         // True: Left diagonal False: Right diagonal
         if (switcher) {
-            for (int i = 0; i < size; ++i) {            // Left diagonal
+            for (int i = 0; i < size; ++i) {            // Left diagonal block
 
                 for (int j = 0; j < size; ++j) {
 
-                    if (i == j) {
-                        System.out.print("S");
+                    if (i == j) {                       // left diagonal
+                        System.out.print(text);
                     } else {
                         System.out.print(" ");
                     }
                 }
                 System.out.println();
             }
-        } else {                                        // Right diagonal
+        } else {                                        // Right diagonal block
             for (int i = 0; i < size; ++i) {
 
                 for (int j = 0; j < size - i; ++j) {
 
-                    if (i+j==size-1) {
-                        System.out.print("K");
+                    if (i + j == size - 1) {           // i + j is always the same with the size
+                        System.out.print(text);
                     } else {
-                        System.out.print(" ");
+                        System.out.print(" ");         // Emptying upper left side
                     }
                 }
 
