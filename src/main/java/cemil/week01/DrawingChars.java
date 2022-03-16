@@ -108,7 +108,7 @@ public class DrawingChars {
     }
 
     public static void printSlash(String text, int size, boolean turn) {
-        if (turn){
+        if (turn) {
             for (int i = 0; i < size; ++i) {
                 for (int j = 0; j < size; ++j) {
                     if (i == j) {
@@ -119,8 +119,8 @@ public class DrawingChars {
                 }
                 System.out.println();
             }
-    }else {
-            for (int j = 0; j < size; ++j) {
+        } else {
+            for (int j = 1; j < size; ++j) {
                 for (int k = 0; k < size - j; ++k) {
                     if (j + k == size - 1) {
                         System.out.print(text);
@@ -132,9 +132,19 @@ public class DrawingChars {
             }
         }
 
+    }
+
+    public static void printTriangle(String text, int size) {
+        for (int i = 1; i < size; i++) {
+            System.out.print(text);
+            for (int j = 0; j < size; j++) {
+                System.out.println(text);
+
+            }
+
         }
 
-
+    }
 
 
     public static void main(String[] args) {
@@ -154,7 +164,9 @@ public class DrawingChars {
         System.out.println();
         printEmptySquare("H", 3);
         System.out.println();
-        printSlash("I", 5, true);
+        printSlash("I", 5, false);
+        System.out.println();
+        printTriangle("J", 3);
         System.out.println();
 
 
