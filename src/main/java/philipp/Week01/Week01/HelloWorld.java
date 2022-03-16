@@ -1,4 +1,4 @@
-package sergej.philipp.Week01;
+package philipp.Week01.Week01;
 
 public class HelloWorld {
     public static void main(String[] args) {
