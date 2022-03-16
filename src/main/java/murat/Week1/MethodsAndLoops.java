@@ -103,14 +103,14 @@ public class MethodsAndLoops {
 
             // Die erste vertikale Linie
             for (int j = 0; j < 1; ++j) {
-                System.out.print("J");
+                System.out.print(text);
             }
 
             // Die mittlere vertikale Linien
-            for (int k = 1; k < size; ++k) {
+            for (int k = 1; k < size - 1; ++k) {
 
                 if (i == 0 || i == size - 1) {
-                    System.out.print("F");   // Obere und untere mittlere Zellen"
+                    System.out.print(text);   // Obere und untere mittlere Zellen"
                 } else {
                     System.out.print(" ");   // Mittlere Zellen
                 }
@@ -118,9 +118,44 @@ public class MethodsAndLoops {
 
             // Die letzte vertikale linie
             for (int x = 0; x < 1; ++x) {
-                System.out.print("X");
+                System.out.print(text);
             }
             System.out.println();
+        }
+    }
+
+    // Task 9 - Print Slash
+    public static void printSlash(String text, int size, boolean switcher) {
+
+        // Switch is a key to change the tasks
+        // True: Left diagonal False: Right diagonal
+        if (switcher) {
+            for (int i = 0; i < size; ++i) {            // Left diagonal
+
+                for (int j = 0; j < size; ++j) {
+
+                    if (i == j) {
+                        System.out.print("S");
+                    } else {
+                        System.out.print(" ");
+                    }
+                }
+                System.out.println();
+            }
+        } else {                                        // Right diagonal
+            for (int i = 0; i < size; ++i) {
+
+                for (int j = 0; j < size - i; ++j) {
+
+                    if (i+j==size-1) {
+                        System.out.print("K");
+                    } else {
+                        System.out.print(" ");
+                    }
+                }
+
+                System.out.println();
+            }
         }
     }
 
@@ -132,7 +167,8 @@ public class MethodsAndLoops {
         // printTriangleTopLeft("M ", 5);            // Task 5 - Print Triangle Top Left
         // printTriangleTopRight("M", 6);            // Task 6 - Print Triangle Top Right
         // printTriangleTBottomRight("M", 5);        // Task 7 - Print Triangle Bottom Right
-        // printEmptySquare("M", 10);                // Task 8 - Print Empty Square
+        // printEmptySquare("M", 5);                 // Task 8 - Print Empty Square
+        printSlash("M", 5, false);   // Task 9 - Print Slash
     }
 }
 
