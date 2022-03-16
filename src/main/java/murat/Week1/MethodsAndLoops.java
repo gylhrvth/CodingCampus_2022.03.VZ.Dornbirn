@@ -168,7 +168,7 @@ public class MethodsAndLoops {
         // printTriangleTopRight("M", 6);            // Task 6 - Print Triangle Top Right
         // printTriangleTBottomRight("M", 5);        // Task 7 - Print Triangle Bottom Right
         // printEmptySquare("M", 5);                 // Task 8 - Print Empty Square
-        printSlash("M", 5, false);   // Task 9 - Print Slash
+        // printSlash("M", 5, false);   // Task 9 - Print Slash
     }
 }
 
