@@ -20,10 +20,10 @@ public class PrintCharacters {
         System.out.println();
         printEmptySquare2("I ", 5);
         System.out.println();
-        printSlash("J ", 3, true);
-        System.out.println();
-        printSlash("K ", 4, false);
-        System.out.println();
+        //printSlash("J ", 3, true);
+        //System.out.println();
+        //printSlash("K ", 4, false);
+        //System.out.println();
         //printTriangle("L ", 3);
         //System.out.println();
     }
