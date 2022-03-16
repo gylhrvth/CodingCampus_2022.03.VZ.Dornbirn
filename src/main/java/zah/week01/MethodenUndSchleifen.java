@@ -47,7 +47,13 @@ public class MethodenUndSchleifen {
         }
     }
 
-    public static void printTest(String text, int size) {
+
+    public static void printEmptySquare(String text, int size) {
+        for (int i = 0; i < size; i++) {
+            System.out.print(text);
+        }
+        // Had
+        System.out.println();
         for (int j = 0; j < size; j++) {
             if (j == 0 || j == size - 1) {
                 System.out.print(text);
@@ -56,31 +62,26 @@ public class MethodenUndSchleifen {
             }
         }
         System.out.println();
-    }
-    public static void printEmptySquare(String text, int size) {
-        for (int i = 0; i < size; i++) {
-            System.out.print(text);
-        }
-        // Had
-        System.out.println();
         for (int j = 0; j< size-2;j++) {
-            printTest(text, size);
+
         }
         //body
 
-
-
-
-
-
-
-
         for (int i = 0; i < size; i++) {
             System.out.print(text);
         }
         System.out.println();
 
     }
+    //end
+
+    public static void printSlash(String text, int size){
+
+
+
+    }
+
+
 
 
     public static void main(String[] args) {
@@ -91,6 +92,7 @@ public class MethodenUndSchleifen {
         //printTriangleTopLeft("x", 5);
         //printTriangleTopRight("x", 5);
         printEmptySquare("M", 5);
+
 
     }
 }
