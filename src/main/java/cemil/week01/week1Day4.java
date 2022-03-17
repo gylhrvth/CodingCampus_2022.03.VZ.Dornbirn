@@ -57,10 +57,34 @@ public class week1Day4 {
             System.out.println();
         }
         printChars(text, size * 2 - 1);
+        System.out.println();
+    }
+
+
+    public static void printRhombus(String text, int size) {
+        System.out.println();
+
+        for (int i = 0; i < size - 3; i++) {
+            printChars(".", size - 4 - i);
+            System.out.print(text);
+            if (i > 0) {
+                printChars(".", i * 2 - 1);
+                System.out.print(text);
+            }
+            System.out.println();
+        }
+        for (int i = 0; i < size - 1; i++) {
+            System.out.print(text);
+
+        }
+
+        System.out.println();
+
     }
 
     public static void main(String[] args) {
-        printTriangle("X", 5);
+        printTriangle("A", 7);
+        printRhombus("X", 7);
     }
 
 }
