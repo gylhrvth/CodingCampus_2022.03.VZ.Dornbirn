@@ -11,9 +11,8 @@ public class MethodenSchleifen {
         //printTriangleBottomLeft("x ", 4);
         //printTriangleTopLeft("x ", 5);
         //printTriangleBottomRight("x", 5);
-        printEmptySquare("x", 10);
-
-
+        //printEmptySquare("A", 3);
+        printSlash("x", 3, true);
     }
 
     public static void printChars(String letter, int number) {
@@ -23,6 +22,7 @@ public class MethodenSchleifen {
         }
         System.out.println();
     }
+
 
     public static void printSquare(String letter, int size) {
 
@@ -34,6 +34,7 @@ public class MethodenSchleifen {
         }
     }
 
+
     public static void printRectangle(String letter, int row, int col) {
 
         for (int i = 0; i < col; i++) {
@@ -43,6 +44,7 @@ public class MethodenSchleifen {
             System.out.println();
         }
     }
+
 
     public static void printTriangleBottomLeft(String letter, int size) {
 
@@ -54,6 +56,7 @@ public class MethodenSchleifen {
         }
     }
 
+
     public static void printTriangleTopLeft(String letter, int size) {
 
         for (int i = 0; i < size; i++) {
@@ -63,6 +66,7 @@ public class MethodenSchleifen {
             System.out.println();
         }
     }
+
 
     public static void printTriangleBottomRight(String letter, int size) {
 
@@ -76,6 +80,7 @@ public class MethodenSchleifen {
             System.out.println();
         }
     }
+
 
     public static void printEmptySquare(String letter, int size) {
 
@@ -100,5 +105,18 @@ public class MethodenSchleifen {
         }
     }
 
-    public static void printSlash()
+
+    public static void printSlash(String letter, int size, boolean backslash) {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                if (j == i) {
+                    System.out.print(letter);
+                }
+                System.out.print(" ");
+            }
+            System.out.println();
+        }
+    }
+
+
 }
