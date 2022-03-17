@@ -9,6 +9,8 @@ public class MethodsAndLoops {
         for (int i = 0; i < size; i++) {
             System.out.print(text);
         }
+        System.out.println();
+        System.out.println();
     }
 
     // Task 2 - Print Square
@@ -21,6 +23,7 @@ public class MethodsAndLoops {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     // Task 3 - Print Rectangle
@@ -33,6 +36,7 @@ public class MethodsAndLoops {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     // Task 4 - Print Triangle Bottom Left
@@ -46,6 +50,7 @@ public class MethodsAndLoops {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     // Task 5 - Print Triangle Top Left
@@ -59,6 +64,7 @@ public class MethodsAndLoops {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     // Task 6 - Print Triangle Top Right
@@ -69,13 +75,14 @@ public class MethodsAndLoops {
 
             for (int j = 0; j < size; ++j) {
                 if (j < i) {
-                    System.out.print(" ");  // Obere rechte Zelle
+                    System.out.print(" ");  // TOp Right
                 } else {
-                    System.out.print("K");  // Untere linke Zelle
+                    System.out.print("K");  // Bottom left
                 }
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     // Task 7 - Print Triangle Bottom Right
@@ -93,6 +100,7 @@ public class MethodsAndLoops {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     // Task 8 - Print Empty Square
@@ -122,6 +130,7 @@ public class MethodsAndLoops {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     // Task 9 - Print Slash
@@ -157,6 +166,7 @@ public class MethodsAndLoops {
                 System.out.println();
             }
         }
+        System.out.println();
     }
 
     // Task 10 - Print Triangle
@@ -180,6 +190,29 @@ public class MethodsAndLoops {
             }
             System.out.println();
         }
+        System.out.println();
+    }
+
+    // Task 11 - Print Rhombus
+    public static void printRhombus(String text, int size) {
+
+        System.out.println("Task 11 - Print Rhombus: ");
+
+        // Creating a full rectangle with the new base
+        for (int i = 0; i < size; ++i) {
+            for (int j = 0; j < size; ++j) {
+
+                // Bottom left or top right or top left or bottom right
+                // Example: Size= 9   Bottom Left: i-j = 4   Top Right: j-i = 4  Top Left: i+j=4  Bottom Right: i+j = 1
+                if ((i - j == ((size - 1) / 2)) || (j - i == ((size - 1) / 2)) || ((i + j) == ((size - 1) / 2)) || ((i + j) == ((size-1)+((size-1)/2)))) {
+                    System.out.print(text);
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 
     // Task 12 - Print X
@@ -200,20 +233,34 @@ public class MethodsAndLoops {
             }
             System.out.println();
         }
+        System.out.println();
+    }
+
+    // Print a full rectangle to see the indices
+    public static void printIndices (String text, int size){
+        for (int i = 0; i < size; ++i) {
+            for (int j = 0; j < size; ++j) {
+                    System.out.print(" A"+ i+j);         // Empty cells
+
+            }
+            System.out.println();
+        }
     }
 
     public static void main(String[] args) {
-        // printChars("M ", 5);                      // Task 1 - Print Chars
-        // printSquare("S ", 4);                     // Task 2 - Print Square
-        // printRect("R ",10,3);                     // Task 3 - Print Rectangle
-        // printTriangleBottomLeft("M ", 4);         // Task 4 - Print Triangle Bottom Left
-        // printTriangleTopLeft("M ", 5);            // Task 5 - Print Triangle Top Left
-        // printTriangleTopRight("M", 6);            // Task 6 - Print Triangle Top Right
-        // printTriangleTBottomRight("M", 5);        // Task 7 - Print Triangle Bottom Right
-        // printEmptySquare("M", 5);                 // Task 8 - Print Empty Square
-        // printSlash("M", 3, false);                // Task 9 - Print Slash
-        // printTriangle("M", 20);                   // Task 10 - Print Triangle
-        printX("M", 5);                      // Task 12 - Print X
+        // printChars("M", 5);                          // Task 1 - Print Chars
+        // printSquare("M", 4);                         // Task 2 - Print Square
+        // printRect("M",10,3);                         // Task 3 - Print Rectangle
+        // printTriangleBottomLeft("M", 4);             // Task 4 - Print Triangle Bottom Left
+        // printTriangleTopLeft("M", 5);                // Task 5 - Print Triangle Top Left
+        //printTriangleTopRight("M", 6);                // Task 6 - Print Triangle Top Right
+        // printTriangleTBottomRight("M", 5);            // Task 7 - Print Triangle Bottom Right
+        // printEmptySquare("M", 5);                     // Task 8 - Print Empty Square
+        // printSlash("M", 3, false);                    // Task 9 - Print Slash
+        // printTriangle("M", 7);                        // Task 10 - Print Triangle
+        printRhombus("M", 7);                    // Task 11 - Print Rhombus
+        // printX("M", 5);                               // Task 12 - Print X
+        // printIndices("M", 9);                         // Test function for Murat
     }
 }
 
