@@ -204,7 +204,7 @@ public class MethodsAndLoops {
 
                 // Bottom left or top right or top left or bottom right
                 // Example: Size= 9   Bottom Left: i-j = 4   Top Right: j-i = 4  Top Left: i+j=4  Bottom Right: i+j = 1
-                if ((i - j == ((size - 1) / 2)) || (j - i == ((size - 1) / 2)) || ((i + j) == ((size - 1) / 2)) || ((i + j) == ((size-1)+((size-1)/2)))) {
+                if ((i - j == ((size - 1) / 2)) || (j - i == ((size - 1) / 2)) || ((i + j) == ((size - 1) / 2)) || ((i + j) == ((size - 1) + ((size - 1) / 2)))) {
                     System.out.print(text);
                 } else {
                     System.out.print(" ");
@@ -236,12 +236,41 @@ public class MethodsAndLoops {
         System.out.println();
     }
 
-    // Print a full rectangle to see the indices
-    public static void printIndices (String text, int size){
-        for (int i = 0; i < size; ++i) {
-            for (int j = 0; j < size; ++j) {
-                    System.out.print(" A"+ i+j);         // Empty cells
+    // Task 13 - Print Christmas Tree
+    public static void printChristmasTree(int size) {
 
+        System.out.println("Task 13 - Print Christmas Tree: ");
+
+        // Formating the size for the base number For Example:The size is 3, but the base is 5
+        int newSize = (size * 2) - 1;
+        int peakOFTree = (newSize - 1) / 2;
+
+        // Beginning from the peak point of the tree we generate it to the bottom.
+        for (int i = peakOFTree; i < newSize; ++i) {
+            for (int j = 0; j <= i; ++j) {
+                if (((i + j) <= (peakOFTree * 2 - 1))) {
+                    System.out.print(" ");             // Shoving the tree to the right, otherwise we have a triangle leaning to the left.
+                } else {
+                    System.out.print("*");             // Tree leaves
+                }
+            }
+            System.out.println();
+        }
+
+        // Bottom - Null
+        for (int z = 0; z < newSize; ++z) {
+            System.out.print("O");
+        }
+        System.out.println();
+
+        // Bottom - Plus
+        for (int x = 0; x < 2; ++x) {
+            for (int y = 0; y < newSize; ++y) {
+                if (y < peakOFTree - 2 || y > newSize - peakOFTree + 1) {
+                    System.out.print(" ");     // Blank cells
+                } else {
+                    System.out.print("+");     // Plus cells
+                }
             }
             System.out.println();
         }
@@ -258,9 +287,9 @@ public class MethodsAndLoops {
         // printEmptySquare("M", 5);                     // Task 8 - Print Empty Square
         // printSlash("M", 3, false);                    // Task 9 - Print Slash
         // printTriangle("M", 7);                        // Task 10 - Print Triangle
-        printRhombus("M", 7);                    // Task 11 - Print Rhombus
+        // printRhombus("M", 101);                       // Task 11 - Print Rhombus
         // printX("M", 5);                               // Task 12 - Print X
-        // printIndices("M", 9);                         // Test function for Murat
+        // printChristmasTree(15);                       // Task 13 - Print Christmas Tree
     }
 }
 

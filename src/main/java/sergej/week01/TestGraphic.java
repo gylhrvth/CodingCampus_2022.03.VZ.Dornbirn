@@ -76,7 +76,7 @@ public class TestGraphic {
     public static void printBacksSlash(String text, int size) {
         for (int i = 0; i < size; ++i) {
             for (int j = 0; j < size; ++j) {
-                if (i == j  ) {
+                if (i == j) {
                     System.out.print(text);
                 } else {
                     System.out.print(".");
@@ -89,17 +89,113 @@ public class TestGraphic {
 
     public static void printFrontSlash(String text, int size) {
         for (int i = 0; i < size; ++i) {
-            for (int j = 0; j < size; ++j) {
-                if (i == j  ) {
+            for (int j = 0; j < size - i; ++j) {
+                if (i == size - 1 - j) {
                     System.out.print(text);
                 } else {
                     System.out.print(".");
                 }
             }
             System.out.println();
+        }
 
+    }
+
+    public static void printSlash(String text, int size, boolean slash) {
+        if (slash == true) {
+            TestGraphic.printBacksSlash(text, size);
+        } else {
+            TestGraphic.printFrontSlash(text, size);
         }
     }
+
+    public static void printTriangle(String text, int size) {
+
+        for (int i = 0; i < size - 1; i++) {
+            for (int j = 0; j < size * 2 - 1; j++) {
+                if (i == size - 1 - j) {
+                    System.out.print(text);
+                } else if (i == j - size + 1) {
+                    System.out.print(text);
+                } else {
+                    System.out.print(" ");
+                }
+
+
+            }
+            System.out.println();
+        }
+
+
+        //Bottom
+        // printChars(text, 2 * size - 1);
+
+
+    }
+
+    public static void printTriangle2(String text, int size) {
+
+        for (int i = 0; i < size / 2; i++) {
+            for (int j = 0; j < size * 2 - 1; j++) {
+                if (i == size - 1 - j) {
+                    System.out.print(text);
+                } else if (i == j - size + 1) {
+                    System.out.print(text);
+                } else {
+                    System.out.print(" ");
+                }
+
+
+            }
+            System.out.println();
+        }
+
+
+        //Bottom
+        // printChars(text, 2 * size - 1);
+    }
+
+
+    public static void printRhombus(String text, int size) {
+        printTriangle2(text, size);
+
+        for (int i = size / 2; i >= 0; i--) {
+            for (int j = 0; j < size * 2 - 1; j++) {
+                if (i == size - 1 - j) {
+                    System.out.print(text);
+                } else if (i == j - size + 1) {
+                    System.out.print(text);
+                } else {
+                    System.out.print(" ");
+                }
+
+
+            }
+            System.out.println();
+        }
+
+
+    }
+
+    public static void printX(String text, int size){
+
+        for (int i = size / 2; i >= 0; i--) {
+            for (int j = 0; j < size * 2 - 1; j++) {
+                if (i == size - 1 - j) {
+                    System.out.print(text);
+                } else if (i == j - size + 1) {
+                    System.out.print(text);
+                } else {
+                    System.out.print(" ");
+                }
+
+
+            }
+            System.out.println();
+        }
+
+    }
+
 
     public static void main(String[] args) {
         // printChars("x",10);
@@ -110,8 +206,13 @@ public class TestGraphic {
         // printTriangleBottomRight("x",5);
         //printEmptySquare("x", 10);
         //printEmptySquare("a",3);
-        printBacksSlash("x",5);
-        //printSlash("x", 5, true);
+        //printBacksSlash("x",5);
+        // printFrontSlash("x", 5);
+        // printSlash("x", 5, true);
+        // printSlash("y",4,false);
+        //printTriangle("x", 5);
+        printRhombus("x", 7);
+        //printX("x",5);
     }
 }
 

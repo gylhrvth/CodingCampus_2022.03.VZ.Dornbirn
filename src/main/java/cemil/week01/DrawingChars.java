@@ -74,7 +74,6 @@ public class DrawingChars {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size - 1 - i; j++) {
                 System.out.print("  ");
-
             }
             for (int j = 0; j < i + 1; j++) {
                 System.out.print(text);
@@ -135,36 +134,38 @@ public class DrawingChars {
     }
 
     public static void printTriangle(String text, int size) {
-        for (int i = 1; i < size; i++) {
-            System.out.print(text);
-            for (int j = 0; j < size; j++) {
-                System.out.println(text);
-
+        int newSize = (size * 2) - 1;
+        for (int i = 0; i < newSize; i++) {
+            for (int j = 0; j < newSize; j++) {
+                if ((((i == j) && !(i + j <= size)) || ((i + j == newSize - 1) && (i >= j))) || i == newSize - 1) {
+                    System.out.print(text);
+                } else {
+                    System.out.print(" ");
+                }
             }
-
+            System.out.println();
         }
-
     }
 
 
     public static void main(String[] args) {
-        printChars("A ", 10);
-        System.out.println();
-        printSquare("B ", 10);
-        System.out.println();
-        printRect("C ", 10, 3);
-        System.out.println();
-        printTriangleBottomLeft("D ", 4);
-        System.out.println();
-        printTriangleTopLeft("E ", 4);
-        System.out.println();
-        printTriangleTopRight("F ", 5);
-        System.out.println();
-        printTriangleBottomRight("G ", 5);
-        System.out.println();
-        printEmptySquare("H", 3);
-        System.out.println();
-        printSlash("I", 5, false);
+//        printChars("A ", 10);
+//        System.out.println();
+//        printSquare("B ", 10);
+//        System.out.println();
+//        printRect("C ", 10, 3);
+//        System.out.println();
+//        printTriangleBottomLeft("D ", 4);
+//        System.out.println();
+//        printTriangleTopLeft("E ", 4);
+//        System.out.println();
+//        printTriangleTopRight("F ", 5);
+//        System.out.println();
+//        printTriangleBottomRight("G ", 5);
+//        System.out.println();
+//        printEmptySquare("H", 3);
+//        System.out.println();
+//        printSlash("I", 5, false);
         System.out.println();
         printTriangle("J", 3);
         System.out.println();
