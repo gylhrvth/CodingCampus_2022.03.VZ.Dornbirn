@@ -149,11 +149,16 @@ public class MethodenSchleifen {
 
         //Body
         for (int i = 0; i < size - 1; i++) {
-            for (int j = 0; j < size - i; j++) {
+            for (int j = 0; j < size * 2 -1; j++) {
                 if (i == size - 1 - j) {
                     System.out.print(letter);
+                } else if (i == j - size + 1) {
+                    System.out.print(letter);
+                } else {
+                    System.out.print(" ");
                 }
-                System.out.print(" ");
+
+
             }
             System.out.println();
         }
