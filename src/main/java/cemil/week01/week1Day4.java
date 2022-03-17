@@ -30,6 +30,7 @@ public class week1Day4 {
 //        }
 //        System.out.println();
 //    }
+        System.out.println();
 
         for (int i = 0; i < size - 1; i++) {
             printChars(" ", size - 1 - i);
