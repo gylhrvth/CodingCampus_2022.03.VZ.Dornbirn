@@ -1,4 +1,4 @@
-package philipp.Week01.gyula.week01;
+package gyula.week01;
 
 public class TestVariables {
     public static void main(String[] args) {
