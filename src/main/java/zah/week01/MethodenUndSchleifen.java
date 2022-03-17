@@ -47,7 +47,9 @@ public class MethodenUndSchleifen {
         }
     }
 
+    public static void printTest(String text, int size) {
 
+    }
     public static void printEmptySquare(String text, int size) {
         for (int i = 0; i < size; i++) {
             System.out.print(text);
@@ -63,7 +65,7 @@ public class MethodenUndSchleifen {
         }
         System.out.println();
         for (int j = 0; j< size-2;j++) {
-
+            printTest(text, size);
         }
         //body
 
@@ -73,13 +75,7 @@ public class MethodenUndSchleifen {
         System.out.println();
 
     }
-    //end
-
-    public static void printSlash(String text, int size){
-
-
-
-    }
+    //down
 
 
 
@@ -91,8 +87,7 @@ public class MethodenUndSchleifen {
         //printTriangleTopRight("x", 5);
         //printTriangleTopLeft("x", 5);
         //printTriangleTopRight("x", 5);
-        printEmptySquare("M", 5);
-
+        //printEmptySquare("M", 5);
 
     }
 }
