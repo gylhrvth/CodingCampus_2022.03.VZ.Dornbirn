@@ -165,23 +165,22 @@ public class MethodsAndLoops {
 
         System.out.println("Task 10 - Print Triangle: ");
 
-        // Formating the size for the base number For Example: Size 3, but base is 5
+        // Formating the size for the base number For Example:The size is 3, but the base is 5
         int newSize = (size * 2) - 1;
 
-
+        // Creating a full rectangle with the new base
         for (int i = 0; i < newSize; ++i) {
             for (int j = 0; j < newSize; ++j) {
 
-                if ((((i == j) && !(i + j < size)) || ((i + j == newSize - 1) && (i >= j))) || i==newSize-1) {
-                    System.out.print("B");
+                // (Slash bottom right && slash top left) or (Backslash bottom left && backslash top right)
+                if ((((i == j) && !(i + j < newSize)) || ((i + j == newSize - 1) && (i >= j))) || i == newSize - 1) {
+                    System.out.print(text);
                 } else {
                     System.out.print(" ");
                 }
-
             }
             System.out.println();
         }
-
     }
 
     public static void main(String[] args) {
@@ -194,7 +193,7 @@ public class MethodsAndLoops {
         // printTriangleTBottomRight("M", 5);        // Task 7 - Print Triangle Bottom Right
         // printEmptySquare("M", 5);                 // Task 8 - Print Empty Square
         // printSlash("M", 3, false);                // Task 9 - Print Slash
-        printTriangle("M", 20);
+         printTriangle("M", 20);                   // Task 10 - Print Triangle
     }
 }
 
