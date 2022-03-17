@@ -171,11 +171,31 @@ public class MethodsAndLoops {
         for (int i = 0; i < newSize; ++i) {
             for (int j = 0; j < newSize; ++j) {
 
-                // (Slash bottom right && slash top left) or (Backslash bottom left && backslash top right)
+                // (Slash bottom right && slash top left) or (Backslash bottom left && backslash top right) or (Base line)
                 if ((((i == j) && !(i + j < newSize)) || ((i + j == newSize - 1) && (i >= j))) || i == newSize - 1) {
                     System.out.print(text);
                 } else {
                     System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    // Task 12 - Print X
+    public static void printX(String text, int size) {
+
+        System.out.println("Task 12 - Print X: ");
+
+        // Creating a full rectangle with the new base
+        for (int i = 0; i < size; ++i) {
+            for (int j = 0; j < size; ++j) {
+
+                // Creating respectively slash and backslash
+                if ((i == j) || (i + j == size - 1)) {
+                    System.out.print(text);        // Full cells
+                } else {
+                    System.out.print(" ");         // Empty cells
                 }
             }
             System.out.println();
@@ -193,6 +213,7 @@ public class MethodsAndLoops {
         // printEmptySquare("M", 5);                 // Task 8 - Print Empty Square
         // printSlash("M", 3, false);                // Task 9 - Print Slash
         // printTriangle("M", 20);                   // Task 10 - Print Triangle
+        printX("M", 5);                      // Task 12 - Print X
     }
 }
 
