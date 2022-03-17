@@ -16,16 +16,24 @@ public class PrintCharacters {
         //System.out.println();
         //printEmptySquare("H ", 10);
         //System.out.println();
-        printEmptySquare("I ", 5);
+        //printEmptySquare("I ", 5);
+        //System.out.println();
+        //printEmptySquare2("I ", 5);
+        //System.out.println();
+        printSlash2("J ", 3, true);
         System.out.println();
-        printEmptySquare2("I ", 5);
+        printSlash2("K ", 4, false);
         System.out.println();
-        //printSlash("J ", 3, true);
-        //System.out.println();
-        //printSlash("K ", 4, false);
-        //System.out.println();
-        //printTriangle("L ", 3);
-        //System.out.println();
+        printSlashSimple("L ", 3, true);
+        System.out.println();
+        printSlashSimple("M ", 4, false);
+        System.out.println();
+    }
+
+    public static void printCharsNoNewLine(String name, int amount) {
+        for (int i = 0; i < amount; i++) {
+            System.out.print(name);
+        }
     }
 
     public static void printChars(String name, int amount) {
@@ -139,8 +147,50 @@ public class PrintCharacters {
         printChars(x, size);
     }
 
+    public static void printBackSlash(String x, int size) {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                if (j != i) {
+                    System.out.print("  ");
+                } else {
+                    System.out.print(x);
+                }
+            }
+            System.out.println();
+        }
+//        for (int i = 0; i < size; i++) {
+//            printCharsNoNewLine(" ", i);
+//            System.out.println(x);
+//        }
+    }
 
-    public static void printSlash(String x, int size, boolean b) {
+    public static void printSlash(String x, int size) {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                if (j != size - 1 - i) {
+                    System.out.print("  ");
+                } else {
+                    System.out.print(x);
+                }
+            }
+            System.out.println();
+        }
+
+//        for (int i = 0; i < size; i++) {
+//            printCharsNoNewLine(" ", size - i);
+//            System.out.println(x);
+//        }
+    }
+
+    public static void printSlashSimple(String x, int size, boolean b) {
+        if (b) {
+            printBackSlash(x, size);
+        } else {
+            printSlash(x, size);
+        }
+    }
+
+    public static void printSlash2(String x, int size, boolean b) {
         if (b) {
             for (int i = 0; i < size; i++) {
                 for (int j = 0; j < size; j++) {
@@ -165,21 +215,8 @@ public class PrintCharacters {
             }
         }
     }
-
-    public static void printTriangle(String x, int size) {
-        for (int i = 1; i < size; i++) {
-            for (int j = 0; j < size * 2 - 1; j++) {
-                if (i == size * 2 - 1) {
-                    System.out.print(x);
-                } else {
-                    System.out.print("  ");
-                }
-            }
-            System.out.println();
-        }
-        printChars(x, size * 2 - 1);
-    }
 }
+
 
 
 
