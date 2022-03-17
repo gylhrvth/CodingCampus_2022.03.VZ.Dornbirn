@@ -135,7 +135,7 @@ public class MethodsAndLoops {
 
                 for (int j = 0; j < size; ++j) {
 
-                    if (i == j) {                       // left diagonal
+                    if (i == j) {                       // Left diagonal
                         System.out.print(text);
                     } else {
                         System.out.print(" ");
@@ -146,15 +146,14 @@ public class MethodsAndLoops {
         } else {                                        // Right diagonal block
             for (int i = 0; i < size; ++i) {
 
-                for (int j = 0; j < size - i; ++j) {
+                for (int j = 0; j < size; ++j) {
 
                     if (i + j == size - 1) {           // i + j is always the same with the size
                         System.out.print(text);
                     } else {
-                        System.out.print(" ");         // Emptying upper left side
+                        System.out.print(" ");         // Leaving empty spaces
                     }
                 }
-
                 System.out.println();
             }
         }
@@ -193,7 +192,7 @@ public class MethodsAndLoops {
         // printTriangleTBottomRight("M", 5);        // Task 7 - Print Triangle Bottom Right
         // printEmptySquare("M", 5);                 // Task 8 - Print Empty Square
         // printSlash("M", 3, false);                // Task 9 - Print Slash
-         printTriangle("M", 20);                   // Task 10 - Print Triangle
+        // printTriangle("M", 20);                   // Task 10 - Print Triangle
     }
 }
 
