@@ -10,10 +10,13 @@ public class MethodenSchleifen {
         //printRectangle("x ", 10, 3);
         //printTriangleBottomLeft("x ", 4);
         //printTriangleTopLeft("x ", 5);
-        //printTriangleBottomRight("x", 5);
+        //printTriangleBottomRight("x", 10);
         //printEmptySquare("A", 3);
         //printSlash("y", 4, false);
-        printTriangle("x", 5);
+        //printTriangle("x", 5);
+        //printRhombus("x", 7);
+        //printX("x", 5);
+        printChristmasTree(9);
 
     }
 
@@ -108,9 +111,8 @@ public class MethodenSchleifen {
     }
 
 
-
-    public  static void printSlash(String letter, int size, boolean backslash) {
-        if(backslash) {
+    public static void printSlash(String letter, int size, boolean backslash) {
+        if (backslash) {
             printBackslash(letter, size);
         } else {
             printSlash(letter, size);
@@ -143,13 +145,9 @@ public class MethodenSchleifen {
 
     public static void printTriangle(String letter, int size) {
 
-        //Top
-
-
-
         //Body
         for (int i = 0; i < size - 1; i++) {
-            for (int j = 0; j < size * 2 -1; j++) {
+            for (int j = 0; j < size * 2 - 1; j++) {
                 if (i == size - 1 - j) {
                     System.out.print(letter);
                 } else if (i == j - size + 1) {
@@ -157,16 +155,98 @@ public class MethodenSchleifen {
                 } else {
                     System.out.print(" ");
                 }
+            }
+            System.out.println();
+        }
+
+        //Bottom
+        printChars(letter, 2 * size - 1);
+    }
 
 
+    public static void printRhombusTop(String letter, int size) {
+
+        for (int i = 0; i < size / 2; i++) {
+            for (int j = 0; j < size * 2 - 1; j++) {
+                if (i == size - 1 - j) {
+                    System.out.print(letter);
+                } else if (i == j - size + 1) {
+                    System.out.print(letter);
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printRhombus(String letter, int size) {
+        printRhombusTop(letter, size);
+
+        for (int i = size / 2; i >= 0; i--) {
+            for (int j = 0; j < size * 2 - 1; j++) {
+                if (i == size - 1 - j) {
+                    System.out.print(letter);
+                } else if (i == j - size + 1) {
+                    System.out.print(letter);
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printX(String letter, int size) {
+
+        //TopHalf
+        for (int i = size / 2; i >= 0; i--) {
+            for (int j = 0; j < size * 2 - 1; j++) {
+                if (i == size - 1 - j) {
+                    System.out.print(letter);
+                } else if (i == j - size + 1) {
+                    System.out.print(letter);
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+
+        //BottomHalf
+        for (int i = 0; i < size / 2; i++) {
+            for (int j = 0; j < size * 2 - 1; j++) {
+                if (i == size - 2 - j) {
+                    System.out.print(letter);
+                } else if (i == j - size) {
+                    System.out.print(letter);
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+
+    public static void printChristmasTree(int size) {
+
+
+        //Top
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j <= i; j++) {
+                System.out.print("*");
             }
             System.out.println();
         }
 
 
+        //Middle
+        printChars("O ", size);
 
 
         //Bottom
-        printChars(letter, 2 * size - 1);
+        printRectangle("+", size-4, 2);
     }
+
 }
