@@ -1,4 +1,4 @@
-package murat.Week1;
+package murat.week1;
 
 public class MethodsAndLoops {
 
@@ -276,6 +276,39 @@ public class MethodsAndLoops {
         }
     }
 
+    // Task 14 - Print Circle with Pythagoras
+    public static void printCirclePythagoras(int size) {
+
+        System.out.println("Task 14 - Print Circle with Pythagoras");
+
+        int newSize = size * 2;    // Circle size is 1 line less than the original size
+
+        double xAxis;
+        double yAxis;
+        System.out.println("Size: " + size);
+
+        for (int i = 0; i < newSize; i++) {
+            yAxis = i;
+
+            // if X axis increases, y axis should be less in accordance with Pytagoras
+            int diverge = (int) (Math.sqrt(newSize * newSize - yAxis * yAxis));
+            for (int j = 0; j < diverge; ++j) {
+
+                //System.out.print(" i" + i + " j" + j);
+                //System.out.print(" A" + i + j);
+
+                // TEST if each horizontal line is less than size, than leave a space
+               /* if (diverge < newSize) {
+                    for (int k = 0; k < newSize-diverge; k++){
+                        System.out.print("");
+                    }
+                }*/
+                System.out.print("A");
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
         // printChars("M", 5);                          // Task 1 - Print Chars
         // printSquare("M", 4);                         // Task 2 - Print Square
@@ -290,6 +323,7 @@ public class MethodsAndLoops {
         // printRhombus("M", 101);                       // Task 11 - Print Rhombus
         // printX("M", 5);                               // Task 12 - Print X
         // printChristmasTree(15);                       // Task 13 - Print Christmas Tree
+        printCirclePythagoras(4);
     }
 }
 
