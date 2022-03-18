@@ -234,19 +234,31 @@ public class MethodenSchleifen {
 
         //Top
         for (int i = 0; i < size; i++) {
-            for (int j = 0; j <= i; j++) {
-                System.out.print("*");
+            for (int j = i; j < size - 1; j++) {
+
+                System.out.print(" ");
             }
-            System.out.println();
+            if (i > 0) {
+                System.out.print("*");
+                for (int k = 0; k < i * 2 - 1; k++) {
+                    System.out.print("*");
+                }
+            }
+            System.out.println("*");
         }
-
-
         //Middle
         printChars("O ", size);
 
 
         //Bottom
-        printRectangle("+", size-4, 2);
-    }
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < size - 4; j++) {
+                System.out.print("-");
+            }
 
-}
+                }
+                System.out.println();
+            }
+        }
+
+
