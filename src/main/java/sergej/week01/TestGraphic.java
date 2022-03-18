@@ -157,7 +157,7 @@ public class TestGraphic {
 
 
     public static void printRhombus(String text, int size) {
-        printTriangle2(text, size);
+       printTriangle2(text, size);
 
         for (int i = size / 2; i >= 0; i--) {
             for (int j = 0; j < size * 2 - 1; j++) {
@@ -177,7 +177,7 @@ public class TestGraphic {
 
     }
 
-    public static void printX(String text, int size){
+    public static void printX(String text, int size) {
 
         for (int i = size / 2; i >= 0; i--) {
             for (int j = 0; j < size * 2 - 1; j++) {
@@ -186,13 +186,35 @@ public class TestGraphic {
                 } else if (i == j - size + 1) {
                     System.out.print(text);
                 } else {
-                    System.out.print(" ");
+                    System.out.print(".");
+                }
+
+            }
+            System.out.println();
+        }
+        for (int i = 0 ; i < size / 2 ; i++) {
+            for (int j = 0; j < size * 2 - 1; j++) {
+                if (i == size  - 2 - j) {
+                    System.out.print(text);
+                } else if (i == j - size ) {
+                    System.out.print(text);
+                } else {
+                    System.out.print(".");
                 }
 
 
             }
             System.out.println();
         }
+
+        //printTriangle2(text, size);
+
+    }
+
+    public static void printChristmasTree1(int size){
+
+
+        printChars("O ",size);
 
     }
 
@@ -203,7 +225,7 @@ public class TestGraphic {
         //printRect("x",3,10);
         //printTriangleBottomLeft("x",5);
         //printTriangleTopLeft("x",5);
-        // printTriangleBottomRight("x",5);
+        //printTriangleBottomRight("x ",5);
         //printEmptySquare("x", 10);
         //printEmptySquare("a",3);
         //printBacksSlash("x",5);
@@ -212,7 +234,9 @@ public class TestGraphic {
         // printSlash("y",4,false);
         //printTriangle("x", 5);
         printRhombus("x", 7);
-        //printX("x",5);
+        //printX("x", 10);
+       // printChristmasTree(9);
+
     }
 }
 
