@@ -31,8 +31,18 @@ public class ChristmasTree {
 
     public static void printChristmasTreeStump(int size) {
 
+        int number = 0;
+
+        if (size % 2 == 0) {
+            number = 2;
+
+        } else {
+            number = 3;
+        }
+
+
         for (int i = 0; i < size / 4; ++i) {
-            for (int j = 0; j < (size / 4 )* 3; ++j) {
+            for (int j = 0; j < (size / 4) * number; ++j) {
                 System.out.print(" ");
             }
 
@@ -57,7 +67,7 @@ public class ChristmasTree {
         //printChristmasTreeMid(9);
         //printChristmasTreeStump(9);
 
-        printChristmasTreeFinal(9);
+        printChristmasTreeFinal(10);
 
 
     }
