@@ -16,7 +16,7 @@ public class MethodenSchleifen {
         //printTriangle("x", 5);
         //printRhombus("x", 7);
         //printX("x", 5);
-        printChristmasTree(9);
+        printChristmasTree(21);
 
     }
 
@@ -246,19 +246,21 @@ public class MethodenSchleifen {
             }
             System.out.println("*");
         }
+
         //Middle
         printChars("O ", size);
 
-
         //Bottom
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < size - 4; j++) {
-                System.out.print("-");
+        for (int i = 0; i < size / 4; i++) {
+            for (int j = 0; j < (size * 2 - 1 - size / 2) / 2; j++) {
+                System.out.print(" ");
             }
-
-                }
-                System.out.println();
+            for (int k = 0; k <= size / 2; k++) {
+                System.out.print("+");
             }
+            System.out.println();
         }
+    }
+}
 
 
