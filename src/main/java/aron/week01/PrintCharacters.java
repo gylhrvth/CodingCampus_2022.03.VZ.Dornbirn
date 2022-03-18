@@ -34,7 +34,7 @@ public class PrintCharacters {
         System.out.println();
         //printX("O", 5);
         System.out.println();
-        printChristmastree("P", 9);
+        printChristmastree("*", 9);
         System.out.println();
     }
 
@@ -254,24 +254,36 @@ public class PrintCharacters {
 
     public static void printChristmastree(String x, int size) {
         for (int i = 0; i < size; i++) {
-            for (int j = i; j < size; j++) {
+            for (int j = i; j < size-1; j++) {
 
                 System.out.print(" ");
             }
             if (i > 0) {
                 System.out.print(x);
                 for (int k = 0; k < i  * 2 - 1; k++) {
-                    System.out.print("P");
+                    System.out.print("*");
                 }
             }
             System.out.println(x);
         }
-        printChars(x , size * 2 - 1);
-        printRect("C", 5, 2);
-    }
+        printChars("o" , size * 2 - 1);
+
+        for (int i = 0; i < size/4; i++) {
+
+            for (int j = 0; j< (size/4)*3; j++) {
+                System.out.print(" ");
+
+            }
 
 
-}
+            for (int j = -1; j< size/2; j++) {
+                System.out.print(x);
+
+            }
+            System.out.println(" ");
+        }
+        }}
+
 
 
 
