@@ -18,7 +18,7 @@ public class PrintCharacters {
         //printRhombus("x", 5);
         //printRhombus2("O", 5);
         //printX("x", 5);
-        printChristmasTree(9)
+        printChristmasTree(9);
     }
 
     public static void printChars(String c, int size) {

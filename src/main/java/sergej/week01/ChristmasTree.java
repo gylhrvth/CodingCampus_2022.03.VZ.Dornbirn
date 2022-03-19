@@ -59,7 +59,7 @@ public class ChristmasTree {
         //printChristmasTreeMid(9);
         //printChristmasTreeStump(9);
 
-        printChristmasTreeFinal(33);
+        printChristmasTreeFinal(11);
 
 
     }

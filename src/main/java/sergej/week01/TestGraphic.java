@@ -233,8 +233,8 @@ public class TestGraphic {
         // printSlash("x", 5, true);
         // printSlash("y",4,false);
         //printTriangle("x", 5);
-       //printRhombus("x", 8);
-        //printX("x", 10);
+       printRhombus("x", 5);
+       // printX("x", 10);
        // printChristmasTree(9);
 
     }
