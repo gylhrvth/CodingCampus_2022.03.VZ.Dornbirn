@@ -22,6 +22,11 @@ public class Pythagoras {
         for (int i = -radius; i <= radius; i++) {
 
             y = Math.sqrt((double) radius * radius - i * i);
+            if (y < radius){
+                for (int k = 0; k < radius - y;++k){
+                    System.out.print(" ");
+                }
+            }
             for (int j = 0; j < y * 2; j++) {
                 System.out.print("x");
             }
