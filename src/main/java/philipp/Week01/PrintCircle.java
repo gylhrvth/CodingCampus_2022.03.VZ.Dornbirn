@@ -7,14 +7,11 @@ public class PrintCircle {
         System.out.println();
     }
 
-    public static void printCirclePythagoras(int radius) {
+        public static void printCirclePythagoras(int radius) {
         //a2+b2=c2
         for (int i = 0; i < radius * 2; i++) {
             for (int j = 0; j < radius * 2; j++) {
-                double a = Math.sqrt((radius * radius) - ((radius - i) * (radius - i)));
-                double b = Math.sqrt((radius * radius) - ((radius - j) * (radius - j)));
-
-                if ((radius * radius) < (a * a) + (b * b)) {
+                if ((radius * radius) > ((radius - i) * (radius - i)) + ((radius - j) * (radius - j))) {
                     System.out.print("X");
                 } else {
                     System.out.print(" ");
