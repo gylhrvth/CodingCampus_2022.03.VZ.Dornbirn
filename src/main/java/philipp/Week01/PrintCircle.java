@@ -1,6 +1,6 @@
 package philipp.Week01;
 
-public class PrintCircle2 {
+public class PrintCircle {
 
     public static void main(String[] args) {
         printCirclePythagoras(10);
@@ -14,7 +14,7 @@ public class PrintCircle2 {
                 double a = Math.sqrt((radius * radius) - (radius - i) * (radius - i));
                 double b = Math.sqrt((radius * radius) - (radius - j) * (radius - j));
 
-                if ((radius+radius)==(a*a)+(b*b)) {
+                if ((radius + radius) == (a * a) + (b * b)) {
                     System.out.print("X");
                 } else {
                     System.out.print("O");
@@ -25,6 +25,7 @@ public class PrintCircle2 {
         }
     }
 }
+
 
 
 
