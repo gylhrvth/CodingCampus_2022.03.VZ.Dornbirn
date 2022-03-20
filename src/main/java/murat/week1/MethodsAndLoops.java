@@ -278,32 +278,53 @@ public class MethodsAndLoops {
 
     // Task 14 - Print Circle with Pythagoras
     public static void printCirclePythagoras(int size) {
+        /* I divided the circle into 2 semicircles as upper and lower part.
+        Then I created the full cells.
+        Pushing the empty cells to the right gives us a semicircle */
 
         System.out.println("Task 14 - Print Circle with Pythagoras");
+        int newSize = size * 2;    // Size is radius. An upper part requires 2*size in with or so called X Axis
+        int xAxis;          // Width
+        double yAxis;       // Height
 
-        int newSize = size * 2;    // Circle size is 1 line less than the original size
+        // Upper semicircle
+        for (int i = newSize / 2; i >= 1; i--) {
+            yAxis = i;           // Top to the bottom, lowered by 1
 
-        double xAxis;
-        double yAxis;
-        System.out.println("Size: " + size);
+            // if X axis decreases, X axis should be more in accordance with Pythagoras
+            xAxis = (int) Math.round(Math.sqrt(size * size - yAxis * yAxis));            // Rounding the X Axis (Width) to the nearest number.
 
-        for (int i = 0; i < newSize; i++) {
-            yAxis = i;
+            // Empty cells push the full cells to the right
+            if (i != size) {         // To erase the empty upper line
+                for (int k = 0; k < size - xAxis; ++k) {
+                    System.out.print(".");
+                }
+            }
 
-            // if X axis increases, y axis should be less in accordance with Pytagoras
-            int diverge = (int) (Math.sqrt(newSize * newSize - yAxis * yAxis));
-            for (int j = 0; j < diverge; ++j) {
-
-                //System.out.print(" i" + i + " j" + j);
-                //System.out.print(" A" + i + j);
-
-                // TEST if each horizontal line is less than size, than leave a space
-               /* if (diverge < newSize) {
-                    for (int k = 0; k < newSize-diverge; k++){
-                        System.out.print("");
-                    }
-                }*/
+            // Full cells
+            for (int j = 1; j <= xAxis * 2; ++j) {
                 System.out.print("A");
+            }
+            System.out.println();
+        }
+
+        // Lower semicircle
+        for (int i = 1; i <= newSize / 2; i++) {
+            yAxis = i;           // Top to the bottom, increased by 1
+
+            // if X axis increases, Y axis should be less in accordance with Pythagoras
+            xAxis = (int) Math.round(Math.sqrt(size * size - yAxis * yAxis));    // Rounding the X Axis (Width) to the nearest number.
+
+            // Empty cells push the full cells to the right
+            if (i != size) {      // To erase the empty bottom line
+                for (int k = 0; k < (size - xAxis); ++k) {
+                    System.out.print(",");
+                }
+            }
+
+            // Full cells
+            for (int j = 1; j <= xAxis * 2; ++j) {
+                System.out.print("B");
             }
             System.out.println();
         }
@@ -321,9 +342,9 @@ public class MethodsAndLoops {
         // printSlash("M", 3, false);                    // Task 9 - Print Slash
         // printTriangle("M", 7);                        // Task 10 - Print Triangle
         // printRhombus("M", 101);                       // Task 11 - Print Rhombus
-        // printX("M", 5);                               // Task 12 - Print X
+        // printX("M", 10);                               // Task 12 - Print X
         // printChristmasTree(15);                       // Task 13 - Print Christmas Tree
-        printCirclePythagoras(4);
+        printCirclePythagoras(10);
     }
 }
 
