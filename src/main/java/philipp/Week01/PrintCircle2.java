@@ -11,12 +11,10 @@ public class PrintCircle2 {
         //a2+b2=c2
         for (int i = -radius; i < radius; i++) {
             for (int j = -radius; j < radius; j++) {
-                System.out.print("A");
                 double a = Math.sqrt((radius * radius) - (radius - i) * (radius - i));
                 double b = Math.sqrt((radius * radius) - (radius - j) * (radius - j));
 
-
-                if ((a * a) + (b * b) == radius * radius) {
+                if ((radius+radius)==(a*a)+(b*b)) {
                     System.out.print("X");
                 } else {
                     System.out.print("O");
