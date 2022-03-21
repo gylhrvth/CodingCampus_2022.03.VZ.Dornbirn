@@ -16,7 +16,7 @@ public class MethodenSchleifen {
         //printTriangle("x", 5);
         //printRhombus("x", 7);
         //printX("x", 5);
-        printChristmasTree(21);
+        printChristmasTree(50);
 
     }
 
@@ -119,6 +119,7 @@ public class MethodenSchleifen {
         }
     }
 
+
     public static void printSlash(String letter, int size) {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size - i; j++) {
@@ -142,6 +143,7 @@ public class MethodenSchleifen {
             System.out.println();
         }
     }
+
 
     public static void printTriangle(String letter, int size) {
 
@@ -196,6 +198,7 @@ public class MethodenSchleifen {
             System.out.println();
         }
     }
+
 
     public static void printX(String letter, int size) {
 
@@ -261,6 +264,7 @@ public class MethodenSchleifen {
             System.out.println();
         }
     }
+
 }
 
 
