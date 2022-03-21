@@ -1,6 +1,6 @@
 package murat.week2.day1;
 
-public class dataTypesTask3CalculatingPiWithNilakantha {
+public class dataTypesTask4CalculatingPiWithNilakantha {
     public static void main(String[] args) {
 
         calculatingPiNilakantha(1000);
