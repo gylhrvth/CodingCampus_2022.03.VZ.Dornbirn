@@ -330,14 +330,6 @@ public class MethodsAndLoops {
         }
     }
 
-    // Task 15 - Print Circle with Sinus and Cosinus
-    public static void printCircleSinCos(int size){
-
-        double dene = Math.sin(0);
-
-        System.out.println(dene);
-
-    }
 
     public static void main(String[] args) {
         // printChars("M", 5);                          // Task 1 - Print Chars
@@ -354,7 +346,7 @@ public class MethodsAndLoops {
         // printX("M", 10);                               // Task 12 - Print X
         // printChristmasTree(15);                       // Task 13 - Print Christmas Tree
         // printCirclePythagoras(10);                    // Task 14 - Print Circle with Pythagoras
-        printCircleSinCos(5);
+
     }
 }
 
