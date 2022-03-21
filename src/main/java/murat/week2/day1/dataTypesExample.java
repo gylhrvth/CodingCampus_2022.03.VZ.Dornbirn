@@ -1,4 +1,4 @@
-package murat.week2;
+package murat.week2.day1;
 
 public class dataTypesExample {
 
