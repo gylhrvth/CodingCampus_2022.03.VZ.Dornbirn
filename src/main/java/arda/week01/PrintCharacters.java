@@ -15,7 +15,10 @@ public class PrintCharacters {
         //printTriangle1("x", 3);
         //printTriangle2("x", 5);
         //printTriangle3("x", 1);
-        printRhombus("x", 7);
+        //printRhombus("x", 5);
+        //printRhombus2("O", 5);
+        //printX("x", 5);
+        printChristmasTree(9);
     }
 
     public static void printChars(String c, int size) {
@@ -210,8 +213,15 @@ public class PrintCharacters {
     }
 
     public static void printRhombus(String c, int size) {
-        for (int i = 0; i < size; i++) {
-            for (int k = 0; k < size - i - 1; k++) {
+        printRhombusTop(c, size);
+        printRhombusBottom(c, size);
+    }
+
+
+    private static void printRhombusTop(String c, int size) {
+        int localSize = (size+1) / 2;
+        for (int i = 0; i < localSize; i++) {
+            for (int k = 0; k < localSize - i - 1; k++) {
                 System.out.print(" ");
             }
             System.out.print(c);
@@ -222,18 +232,56 @@ public class PrintCharacters {
 
             System.out.println();
         }
-        for (int i = 0; i < size; i++) {
-            for (int k = 0; k <= i; k++) {
-                System.out.print(".");
+    }
+
+    private static void printRhombusBottom(String c, int size) {
+        int localSize = size / 2;
+        for (int i = localSize-1; i >= 0; i--) {
+            for (int k = 0; k < localSize - i - (1 - size % 2); k++) {
+                System.out.print(" ");
             }
             System.out.print(c);
-            if (i <= size) {
-                //printChars(".", i + 9);
-                for (int n = 0; n < i; n++){
-                    System.out.print(".");
-                }
-                System.out.println();
+            if (i > 0) {
+                printChars(" ", i * 2 - 1 );
+                System.out.print(c);
             }
+
+            System.out.println();
         }
+    }
+
+
+    public static void printRhombus2(String text, int size){
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size - (1 - size%2); j++) {
+                if ((i+j == (size-1)/2) ||
+                        (i-j == size/2) ||
+                        (j-i == (size-1)/2) ||
+                        (i+j == size/2+2*((size-1)/2))){
+                    System.out.print(text);
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printX(String c, int size) {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                if ((i + j == size - 1) ||
+                    (i==j)){
+                    System.out.print(c);
+                }else{
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printChristmasTree(int size){  //9*2-1
+
     }
 }

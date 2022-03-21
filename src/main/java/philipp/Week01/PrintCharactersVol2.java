@@ -149,7 +149,7 @@ public class PrintCharactersVol2 {
         }
         for (int i = 0; i < (size - 1) / 2; i++) {
             for (int j = 0; j < size; j++) {
-                if (j == 1 + i || j == (size - 2) - i) {
+                if (j == 1 + i || j == size - 2 - i) {
                     System.out.print(x);
                 } else {
                     printCharsNoNewLine(" ", x.length());
