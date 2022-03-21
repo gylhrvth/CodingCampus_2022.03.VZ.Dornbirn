@@ -7,7 +7,8 @@ public class NativeDatatypes {
         //floatCounter(100);
         //divide();
         //piLeibniz(100);
-        piNilakantha(100);
+        //piNilakantha(100);
+        secretRow(1.0);
     }
 
 
@@ -59,13 +60,29 @@ public class NativeDatatypes {
                 myPi = myPi - (4.0 / (denominatorA * denominatorB * denominatorC));
             }
 
-        denominatorA = denominatorA + 2;
-        denominatorB = denominatorB + 2;
-        denominatorC = denominatorC + 2;
+            denominatorA = denominatorA + 2;
+            denominatorB = denominatorB + 2;
+            denominatorC = denominatorC + 2;
 
         }
         System.out.println(myPi);
     }
 
 
+    public static void secretRow(double value) {
+
+        for (int i = 0; i < 100; i++) {
+
+            value = value / 2 + 1 / value;
+            {
+                System.out.println(value);
+            }
+        }
+
+    }
+
+    public static void guessingGame(double root) {
+
+
+    }
 }
