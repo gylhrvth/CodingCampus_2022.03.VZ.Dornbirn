@@ -14,8 +14,7 @@ public class dataTypesTask3CalculatingPiWithLeibnizVersion2 {
 
         for (int i = 3; i < iteration; i += 2) {
 
-            // Example: (3-1)/2 = 1 to sum,  (5-1)/2 = 2 = substract, (7-1)/2 = 3 sum
-            if (((i - 1) / 2) % 2 == 0) {
+            if (i % 4 == 1) {
                 myPi = myPi + (constant / i);
             } else {
                 myPi = myPi - (constant / i);
