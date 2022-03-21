@@ -330,13 +330,22 @@ public class MethodsAndLoops {
         }
     }
 
+    // Task 15 - Print Circle with Sinus and Cosinus
+    public static void printCircleSinCos(int size){
+
+        double dene = Math.sin(0);
+
+        System.out.println(dene);
+
+    }
+
     public static void main(String[] args) {
         // printChars("M", 5);                          // Task 1 - Print Chars
         // printSquare("M", 4);                         // Task 2 - Print Square
         // printRect("M",10,3);                         // Task 3 - Print Rectangle
         // printTriangleBottomLeft("M", 4);             // Task 4 - Print Triangle Bottom Left
         // printTriangleTopLeft("M", 5);                // Task 5 - Print Triangle Top Left
-        //printTriangleTopRight("M", 6);                // Task 6 - Print Triangle Top Right
+        // printTriangleTopRight("M", 6);                // Task 6 - Print Triangle Top Right
         // printTriangleTBottomRight("M", 5);            // Task 7 - Print Triangle Bottom Right
         // printEmptySquare("M", 5);                     // Task 8 - Print Empty Square
         // printSlash("M", 3, false);                    // Task 9 - Print Slash
@@ -344,7 +353,8 @@ public class MethodsAndLoops {
         // printRhombus("M", 101);                       // Task 11 - Print Rhombus
         // printX("M", 10);                               // Task 12 - Print X
         // printChristmasTree(15);                       // Task 13 - Print Christmas Tree
-        printCirclePythagoras(10);
+        // printCirclePythagoras(10);                    // Task 14 - Print Circle with Pythagoras
+        printCircleSinCos(5);
     }
 }
 
