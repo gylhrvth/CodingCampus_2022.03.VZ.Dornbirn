@@ -1,6 +1,7 @@
-package murat.week2;
+package murat.week2.day1;
 
-public class DataTypeExample {
+public class dataTypeExamples {
+
     public static void main(String[] args) {
 
         // intVariables();
@@ -40,9 +41,9 @@ public class DataTypeExample {
         fVariable = 1.55f;
         double dVariable = 2.25;
         System.out.println(2 * fVariable);
-        System.out.println(fVariable-10);
-        System.out.println(fVariable*5);
-        System.out.println(fVariable/1234);
-
+        System.out.println(fVariable - 10);
+        System.out.println(fVariable * 5);
+        System.out.println(fVariable / 1234);
     }
 }
+
