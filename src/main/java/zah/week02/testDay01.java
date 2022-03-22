@@ -6,7 +6,8 @@ public class testDay01 {
         //divide(4);
         //leibnitz(100);
         //Nilakantha();
-        GeheimeReihe();
+        //GeheimeReihe();
+        GuessPlay(100);
 
 
     }
@@ -55,15 +56,35 @@ public class testDay01 {
 
 
     }
-    public static void GeheimeReihe(){
-        double value= 1.0;
-        for (int i = 0; i <100 ; i++) {
-            value= value / 2+1 / value;
-            System.out.println(value);
 
+    public static void GeheimeReihe() {
+        double value = 1.0;
+        for (int i = 0; i < 100; i++) {
+            value = value / 2 + 1 / value;
+            System.out.println(value);
         }
     }
 
+    public static void GuessPlay(double input) {
+        double min = 1.0;
+        double max = input;
+        double target = 0.0;
 
+        //for (int i = 0; i < 100; i++)
+        while(target*target!=input)
+        {
+             target = min + (max-min) / 2;
+            if (target * target > input) {
+                max=target;
+                System.out.println(target);
+            } else {
+                min=target;
+                System.out.println(target);
+            }
+
+
+        }
+
+    }
 }
 
