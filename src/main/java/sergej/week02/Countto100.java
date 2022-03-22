@@ -63,12 +63,28 @@ public class Countto100 {
         }
     }
 
-    public static void secretRow(){
+    public static void secretRow(int limit){
+            double value = 1.0;
 
-        double start = 1;
+            for (int i = 0; i < limit; i++) {
+                value = (value / 2 + (1 / value));
+                System.out.println(value);
+            }
+        }
 
-        for(int i = 0; i < 100;++i){
+    public static void task06(double inputvalue) {
+        double max = inputvalue;
+        double min = 1;
+        double mid = 0;
 
+        while (mid * mid != inputvalue) {
+            mid = (min + max) / 2;
+            if (mid*mid > inputvalue) {
+                max = mid;
+            } else {
+                min = mid;
+            }
+            System.out.println(mid);
         }
     }
 
@@ -78,6 +94,7 @@ public class Countto100 {
         //leibniz(10000);
         // System.out.println((4 / 1) - (4 / 3) + (4 / 5));
         //nilakantha();
+        task06(5);
 
     }
 }

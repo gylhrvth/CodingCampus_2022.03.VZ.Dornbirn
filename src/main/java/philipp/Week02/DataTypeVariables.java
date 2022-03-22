@@ -16,7 +16,7 @@ public class DataTypeVariables {
         System.out.println();
         SecretRow();
         System.out.println();
-        GuessingGame(9);
+        guessingGame(25);
     }
 
     public static void intVariables() {
@@ -91,7 +91,6 @@ public class DataTypeVariables {
             denotiator = denotiator + 2;
         }
         System.out.println(myPi);
-
     }
 
     public static void Nilakantha() {
@@ -116,22 +115,24 @@ public class DataTypeVariables {
         }
     }
 
-    public static void GuessingGame(double input) {
-        for (int i = 0; i < 100000; i++) {
-            double w = input / 2.0;
+    public static void guessingGame(double root) {
 
-            if (w * w == input) {
-                System.out.println(w);
+        double max = root;
+        double min = 1.0;
+        double x = 0.0;
 
-            } else if (w * w > input) {
-                input = w;
+        while (x * x != root) {
+
+            x = min + ((max - min) / 2);
+
+            if (x * x > root) {
+                max = x;
             } else {
-                w = 1+w;
+                min = x;
             }
-            System.out.println(w);
+            System.out.println(x);
         }
     }
-
 }
 
 
