@@ -6,7 +6,7 @@ public class PrintCharacters {
     public static void main(String[] args) {
         //printChars("A ", 3);
         System.out.println();
-        //printSquare("B ", 5);
+        printSquare("B ", 5);
         System.out.println();
         //printRect("C", 5, 2);
         System.out.println();
@@ -34,7 +34,7 @@ public class PrintCharacters {
         System.out.println();
         //printX("O", 5);
         System.out.println();
-        printChristmastree("*", 19);
+        //printChristmastree("*", 9);
         System.out.println();
     }
 
@@ -223,31 +223,15 @@ public class PrintCharacters {
     public static void printX(String x, int size) {
 
 
-        for (int i = size / 2; i >= 0; i--) {
-            for (int j = i; j < size; j++) {
-
-                System.out.print(" ");
-            }
-            if (i > 0) {
-                System.out.print(x);
-                for (int k = 0; k < i * 2 - 1; k++) {
+        for (int row = 0; row < size; row++) {
+            for (int col = 0; col < size; col++) {
+                if (row == col || row + col == size - 1) {
+                    System.out.print(x);
+                } else {
                     System.out.print(" ");
                 }
             }
-        }
-        System.out.println(x);
-        for (int i = 0; i < size / 2; i++) {
-            for (int j = i; j < size; j++) {
-
-                System.out.print(" ");
-            }
-            if (i > 0) {
-                System.out.print(x);
-                for (int k = 0; k < i * 2 - 1; k++) {
-                    System.out.print(" ");
-                }
-            }
-            System.out.println(x);
+            System.out.println();
         }
 
     }
