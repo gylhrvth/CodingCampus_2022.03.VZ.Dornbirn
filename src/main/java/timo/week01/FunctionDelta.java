@@ -1,6 +1,6 @@
 package timo.week01;
 
-public class FunctionSimple {
+public class FunctionDelta {
 
     public static void main(String[] args) {
         simple1(10, 15);
