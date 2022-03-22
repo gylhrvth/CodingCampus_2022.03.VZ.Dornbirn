@@ -94,7 +94,7 @@ public class Countto100 {
         //leibniz(10000);
         // System.out.println((4 / 1) - (4 / 3) + (4 / 5));
         //nilakantha();
-        task06(5);
+       // task06(5);
 
     }
 }

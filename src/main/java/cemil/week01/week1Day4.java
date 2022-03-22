@@ -7,6 +7,11 @@ public class week1Day4 {
 
         }
     }
+//    public static void printChars1 (String letter, int counter){
+//        for (int i = 0; i == counter ; i++) {
+//            System.out.println(letter);
+//        }
+//    }
 
     public static void printTriangle(String text, int size) {
 
@@ -64,8 +69,8 @@ public class week1Day4 {
     public static void printRhombus(String text, int size) {
         System.out.println();
 
-        for (int i = 0; i < size - 3; i++) {
-            printChars(".", size - 4 - i);
+        for (int i = 0; i < (size / 2) + 1 ; i++) {
+            printChars(".", (size / 2) - i);
             System.out.print(text);
             if (i > 0) {
                 printChars(".", i * 2 - 1);
@@ -73,18 +78,21 @@ public class week1Day4 {
             }
             System.out.println();
         }
-        for (int i = 0; i < size - 1; i++) {
-            System.out.print(text);
-
-        }
-
+//        for (int i = 0; i < (size - 1) / 2; i++) {
+//            for (int j = 0; j < size; j++) {
+//                if (j == 1 + i || j == (size - 2) - i) {
+//                    System.out.print(text);
+//                } else {
+//                    System.out.print(".");
+//                }
+//            }
+//        }
         System.out.println();
-
     }
 
     public static void main(String[] args) {
-        printTriangle("A", 7);
-        printRhombus("X", 7);
+        printTriangle("A", 5);
+        printRhombus("X", 9);
     }
 
 }
