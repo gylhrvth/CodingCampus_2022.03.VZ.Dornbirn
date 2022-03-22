@@ -16,7 +16,7 @@ public class DataTypeVariables {
         System.out.println();
         SecretRow();
         System.out.println();
-        guessingGame(25);
+        guessingGame(144);
     }
 
     public static void intVariables() {
@@ -115,17 +115,13 @@ public class DataTypeVariables {
         }
     }
 
-    public static void guessingGame(double root) {
-
-        double max = root;
+    public static void guessingGame(double input) {
+        double max = input;
         double min = 1.0;
         double x = 0.0;
-
-        while (x * x != root) {
-
+        while (x * x != input) {
             x = min + ((max - min) / 2);
-
-            if (x * x > root) {
+            if (x * x > input) {
                 max = x;
             } else {
                 min = x;
