@@ -1,8 +1,6 @@
 package timo.week01;
 
-import java.sql.SQLOutput;
-
-public class MethodenSchleifen {
+public class LoopMethods {
 
     public static void main(String[] args) {
         //printChars("x ", 5);

@@ -1,6 +1,6 @@
 package timo.week01;
 
-public class ZaehlenMitTrick {
+public class CountingTrick {
     public static void main(String[] args) {
 
 
