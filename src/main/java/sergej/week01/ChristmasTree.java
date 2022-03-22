@@ -1,5 +1,7 @@
 package sergej.week01;
 
+import java.util.Scanner;
+
 public class ChristmasTree {
 
 
@@ -53,13 +55,35 @@ public class ChristmasTree {
 
     }
 
+
+    public static void xmas(){
+        Scanner sc = new Scanner(System.in);
+        int value = Integer.MIN_VALUE;
+
+        System.out.println("Hello please enter a number for the size of The Xmas Tree: ");
+
+        while (value == Integer.MIN_VALUE){
+            try {
+                String text = sc.nextLine();
+                value = Integer.parseInt(text);
+            } catch (NumberFormatException nfe) {
+                System.out.println("please enter valid number");
+
+            }
+        }
+        System.out.println("Here is your XmasTree");
+        printChristmasTreeFinal(value);
+    }
+
     public static void main(String[] args) {
 
         //printChristmasTreeTop(9);
         //printChristmasTreeMid(9);
         //printChristmasTreeStump(9);
 
-        printChristmasTreeFinal(11);
+       // printChristmasTreeFinal(11);
+        xmas();
+
 
 
     }

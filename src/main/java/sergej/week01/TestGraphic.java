@@ -102,7 +102,7 @@ public class TestGraphic {
     }
 
     public static void printSlash(String text, int size, boolean slash) {
-        if (slash == true) {
+        if (slash) {
             TestGraphic.printBacksSlash(text, size);
         } else {
             TestGraphic.printFrontSlash(text, size);
