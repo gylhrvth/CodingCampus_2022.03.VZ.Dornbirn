@@ -5,7 +5,8 @@ public class testDay01 {
         //couter(100);
         //divide(4);
         //leibnitz(100);
-        Nilakantha();
+        //Nilakantha();
+        GeheimeReihe();
 
 
     }
@@ -53,6 +54,14 @@ public class testDay01 {
         System.out.println(myPi);
 
 
+    }
+    public static void GeheimeReihe(){
+        double value= 1.0;
+        for (int i = 0; i <100 ; i++) {
+            value= value / 2+1 / value;
+            System.out.println(value);
+
+        }
     }
 
 
