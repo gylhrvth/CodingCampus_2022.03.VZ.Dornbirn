@@ -119,7 +119,6 @@ public class DataTypeVariables {
     public static void GuessingGame(double input) {
         for (int i = 0; i < 100000; i++) {
             double w = input / 2.0;
-
             if (w * w == input) {
                 System.out.println(w);
 

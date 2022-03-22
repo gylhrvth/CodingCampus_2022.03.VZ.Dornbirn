@@ -8,7 +8,9 @@ public class NativeDatatypes {
         //divide();
         //piLeibniz(100);
         //piNilakantha(100);
-        secretRow(1.0);
+        //secretRow(1.0);
+        guessingGame(100);
+
     }
 
 
@@ -83,6 +85,21 @@ public class NativeDatatypes {
 
     public static void guessingGame(double root) {
 
+        double max = root;
+        double min = 1.0;
+        double x = 0.0;
+
+        while (x * x != root) {
+
+            x = min + ((max - min) / 2);
+
+            if (x * x > root) {
+                max = x;
+            } else {
+                min = x;
+            }
+            System.out.println(x);
+        }
 
     }
 }
