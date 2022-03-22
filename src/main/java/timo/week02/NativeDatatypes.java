@@ -9,7 +9,7 @@ public class NativeDatatypes {
         //piLeibniz(100);
         //piNilakantha(100);
         //secretRow(1.0);
-        guessingGame(100);
+        guessingGame(2);
 
     }
 

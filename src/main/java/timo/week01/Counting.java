@@ -1,6 +1,6 @@
 package timo.week01;
 
-public class Zaehlen {
+public class Counting {
     public static void main(String[] args) {
 
         int limit = 11;
