@@ -10,8 +10,8 @@ public class dataTypesTask2DivideEtImpera {
 
     public static void DivideEtImpera(int number) {
 
-        float oneThird = number / 3f;            // Divide the number with 3
-        float oneForth = number / 4f;            // Divide the number with 4
+        float oneThird =  number / 3f;            // Divide the number with 3
+        float oneForth =  number / 4f;            // Divide the number with 4
         float oneSeventh = number / 7f;          // Divide the number with 7
 
         DecimalFormat df = new DecimalFormat("#.##");

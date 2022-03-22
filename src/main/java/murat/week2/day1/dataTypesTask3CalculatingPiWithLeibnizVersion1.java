@@ -3,7 +3,7 @@ package murat.week2.day1;
 public class dataTypesTask3CalculatingPiWithLeibnizVersion1 {
     public static void main(String[] args) {
 
-        calculatingPi(1000000000);
+        calculatingPi(100000000);
     }
 
     public static void calculatingPi(int iteration) {
