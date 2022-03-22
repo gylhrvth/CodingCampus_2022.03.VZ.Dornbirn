@@ -4,29 +4,34 @@ public class dataTypesTask6GuessingGame {
 
     public static void main(String[] args) {
 
-        guessingGame(100);
+        guessingGame(0.01);
     }
 
-    public static void guessingGame(double root) {
+    public static void guessingGame(double target) {
 
-        double half = 0;
-        double max = 0;
-        double min = 0;
+        double max = target;
+        double min = 1;
+        double test = 0;
+        double testOld = -1;
 
-        for (int i = 0; i < 10; i++) {
-
-            half = root / 2;
-            root = Math.sqrt(root);
-
-            System.out.println(" Root: " + root + " Half: " + half);
-            root = half;
-
-            if (root > half) {
-                max = half;
-            } else {
-                min = half;
-            }
+        // If target is smaller than 1
+        if (target < 1) {
+            min = target;
+            max = 1;
         }
-        System.out.println(" Min: " + min + " Max: " + max);
+
+        // If we reach the target and for infinite loops (For Example Target:2)
+        while ((test * test != target) && (test != testOld)) {
+
+            testOld = test;
+            test = min + (max - min) / 2;   // (Max + Min)/2
+
+            if (test * test > target) {
+                max = test;
+            } else {
+                min = test;
+            }
+            System.out.println("Target: " + target + " Test: " + test + " Max: " + max + " Min: " + min);
+        }
     }
 }

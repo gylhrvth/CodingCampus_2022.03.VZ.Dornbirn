@@ -3,7 +3,7 @@ package murat.week2.day1;
 public class dataTypesTask4CalculatingPiWithNilakantha {
     public static void main(String[] args) {
 
-        calculatingPiNilakantha(1000);
+       calculatingPiNilakantha(1000000);
     }
 
     public static void calculatingPiNilakantha(int iteration) {
@@ -15,9 +15,10 @@ public class dataTypesTask4CalculatingPiWithNilakantha {
 
             if (i % 4 == 0) {
                 muratPi = muratPi - (constant / (i * (i + 1) * (i + 2)));
-
+                System.out.println("Minus: " + muratPi + " " + constant + " "+ i + " " + " "+ (i+1) + " " + (i+2));
             } else {
                 muratPi = muratPi + (constant / (i * (i + 1) * (i + 2)));
+                System.out.println("Plus: " + muratPi + " " + constant + " "+ i + " " + " "+ (i+1) + " " + (i+2));
             }
         }
         System.out.println("Pi: " + muratPi);

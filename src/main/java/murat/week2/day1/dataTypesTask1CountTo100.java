@@ -5,7 +5,7 @@ import java.text.DecimalFormat;
 public class dataTypesTask1CountTo100 {
     public static void main(String[] args) {
 
-        countToAValueWith01Method1(100);
+        //countToAValueWith01Method1(100);
         countToAValueWith01Method2(100);
 
     }
@@ -31,7 +31,7 @@ public class dataTypesTask1CountTo100 {
             //Changing the decimal format
             DecimalFormat df = new DecimalFormat("#.##");
 
-            System.out.println("Method 2: " + df.format((change)));
+            System.out.println("Method 2: " + df.format(change));
         }
     }
 }
