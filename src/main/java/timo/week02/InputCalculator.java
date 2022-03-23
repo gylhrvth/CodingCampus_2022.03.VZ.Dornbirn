@@ -1,70 +1,92 @@
 package timo.week02;
 
-import javax.management.OperationsException;
 import java.util.Scanner;
 
 public class InputCalculator {
+
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
+        boolean execution = true;
 
-        float value1 = Float.MAX_VALUE;
-        float value2 = Float.MAX_VALUE;
-        String operator = "";
-        //boolean operatorInput = true
+        System.out.println("Hello I am a calculator!");
+        while (execution) {
+            float number1 = readFloatFromConsole(sc, "Please enter the first number");
+            String operator = readOperatorFromConsole(sc, "Please enter operator (+, -, *, /, ^)");
+            float number2 = readFloatFromConsole(sc, "Please enter the second number");
+            float result = calculateResult(number1, operator, number2);
+            System.out.println(number1 + " " + operator + " " + number2 + " = " + result);
 
-        System.out.println("Enter first number");
+            execution = restartCalculator(sc);
+        }
+    }
 
-        while (value1 == Float.MAX_VALUE) {
+    public static float readFloatFromConsole(Scanner sc, String message) {
+        float number = Float.MAX_VALUE;
 
+        System.out.println(message);
+        while (number == Float.MAX_VALUE) {
             try {
                 String text = sc.nextLine();
-                value1 = Float.parseFloat(text);
-
+                number = Float.parseFloat(text);
             } catch (NumberFormatException nfe) {
-                System.out.println("Enter valid number");
+                System.out.println("Enter a valid number you clown");
             }
         }
-        System.out.println("Enter operator");
+        return number;
+    }
+
+    public static String readOperatorFromConsole(Scanner sc, String message) {
+        System.out.println(message);
+        String operator = "";
 
         while (operator.length() != 1) {
+            operator = sc.nextLine();
 
-            try {
-                operator = sc.nextLine();
-            } catch (NumberFormatException nfe) {
-                System.out.println("Enter valid operator");
-
+            if (!operator.equals("+") && !operator.equals("-") && !operator.equals("*") && !operator.equals("/") && !operator.equals("^")) {
+                System.out.println("very funny");
+                operator = "";
             }
         }
-        System.out.println("Enter second number");
+        return operator;
+    }
 
-        while (value2 == Float.MAX_VALUE) {
+    public static boolean restartCalculator(Scanner sc) {
+        System.out.println("Do you want to calculate again boss? \nPlease enter y or n");
+        boolean calculateAgainScanner = true;
+        boolean execution = true;
 
-            try {
-                String text = sc.nextLine();
-                value2 = Float.parseFloat(text);
+        while (calculateAgainScanner) {
+            String answer = sc.nextLine();
 
-            } catch (NumberFormatException nfe) {
-                System.out.println("Enter valid number");
+            if (answer.equals("y")) {
+                execution = true;
+                calculateAgainScanner = false;
+            } else if (answer.equals("n")) {
+                execution = false;
+                calculateAgainScanner = false;
+            } else {
+                System.out.println("Stop playing around bro");
             }
         }
+        return execution;
+    }
+
+    public static float calculateResult(float input1, String operator, float input2) {
+        float result = 0;
 
         if (operator.equals("+")) {
-            System.out.println("The result is " + (value1 + value2));
+            result = input1 + input2;
+        } else if (operator.equals("-")) {
+            result = input1 - input2;
+        } else if (operator.equals("*")) {
+            result = input1 * input2;
+        } else if (operator.equals("/")) {
+            result = input1 / input2;
+        } else if (operator.equals("^")) {
+            result = (float) Math.pow(input1, input2);
+        } else {
+            System.out.println("Invalid operator (must be +, -, *, /, ^)");
         }
-        if (operator.equals("-")) {
-            System.out.println("The result is " + (value1 - value2));
-        }
-        if (operator.equals("*")) {
-            System.out.println("The result is " + (value1 * value2));
-        }
-        if (operator.equals("/")) {
-            System.out.println("The result is " + (value1 / value2));
-        }
-        if (operator.equals("^")) {
-            System.out.println("The result is " + Math.pow(value1, value2));
-        }
-
-
+        return result;
     }
 }
