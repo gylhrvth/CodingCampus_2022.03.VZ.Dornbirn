@@ -16,7 +16,7 @@ public class PrintCircle {
                 if ((radius * radius) > ((radius - j) * (radius - j)) + (((radius - i)*2.6) * ((radius - i)*2.6))) {
                     System.out.print("X");
                 } else {
-                    System.out.print(" ");
+                    System.out.print(".");
                 }
             }
             System.out.println();

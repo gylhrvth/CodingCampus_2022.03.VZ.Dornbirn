@@ -1,14 +1,10 @@
-package zah.week02;
-
-
-import sergej.week01.Pythagoras;
-import zah.week01.day04.Methods;
+package timo.week02;
 
 import java.util.Scanner;
 
-public class Input {
+public class ConsoleInput {
     public static void main(String[] args) {
-        String chracter = "";
+
         Scanner sc = new Scanner(System.in);
         int value = Integer.MIN_VALUE;
 
@@ -18,22 +14,9 @@ public class Input {
                 String text = sc.nextLine();
                 value = Integer.parseInt(text);
             } catch (NumberFormatException nfe) {
-                System.out.println("A number is requested");
+                System.out.println("A DECIMAL NUMBER is requested you dumbass!");
             }
         }
-        System.out.println(" Please enter character");
-        while (chracter.length() != 1) {
-            chracter = sc.nextLine();
-        }
-        Methods.printTriangle(chracter, value);
-        Pythagoras.userInputPyth();
+        System.out.println("OBVIOUSLY the value is " + value);
     }
-
 }
-
-
-
-
-
-
-

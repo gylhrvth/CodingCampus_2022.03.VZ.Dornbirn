@@ -6,7 +6,7 @@ public class PrintCharacters {
     public static void main(String[] args) {
         //printChars("A ", 3);
         System.out.println();
-        printSquare("B ", 5);
+        //printSquare("B ", 5);
         System.out.println();
         //printRect("C", 5, 2);
         System.out.println();
@@ -34,7 +34,7 @@ public class PrintCharacters {
         System.out.println();
         //printX("O", 5);
         System.out.println();
-        //printChristmastree("*", 9);
+        printChristmastree("A", 9);
         System.out.println();
     }
 
@@ -243,17 +243,17 @@ public class PrintCharacters {
         for (int i = 0; i < size; i++) {
             for (int j = i; j < size-1; j++) {
 
-                System.out.print(" ");
+                System.out.print(" ".repeat(x.length()));
             }
             if (i > 0) {
                 System.out.print(x);
                 for (int k = 0; k < i  * 2 - 1; k++) {
-                    System.out.print("*");
+                    System.out.print(x);
                 }
             }
             System.out.println(x);
         }
-        printChars("o" , sizeOfBalls);
+        printChars("o".repeat(x.length()) , sizeOfBalls);
 
 
 
@@ -261,7 +261,7 @@ public class PrintCharacters {
         for (int i = 0; i < size/4; i++) {
 
             for (int j = 0; j< (sizeOfBalls - sizeOfTrunk)/2; j++) {
-                System.out.print(" ");
+                System.out.print(" ".repeat(x.length()));
 
             }
 
@@ -270,7 +270,7 @@ public class PrintCharacters {
                 System.out.print(x);
 
             }
-            System.out.println(" ");
+            System.out.println(" ".repeat(x.length()));
         }
         }}
 
