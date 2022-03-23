@@ -45,8 +45,8 @@ public class Calucultor {
             System.out.print("your result is " + Math.pow(num1, num2));
         }
 
-    System.out.println("Would you enter the calculation?");
-        System.out.println("would you like to calculate again ? , please enter yes or no (y/n)");
+
+
             answer = "";
             while (answer.length() != 1) {
                 answer = sc.nextLine();
@@ -61,7 +61,7 @@ public class Calucultor {
 
 
                 } else {
-                    System.out.println("please enter yes or no");
+                    System.out.println("would you like to calculate again ? , please enter yes or no (y/n)");
                     answer = "";
 
                 }
