@@ -1,18 +1,15 @@
-package zah.week02;
-
-
-import sergej.week01.Pythagoras;
-import zah.week01.day04.Methods;
+package cemil.week02;
 
 import java.util.Scanner;
 
-public class Input {
+public class inputSC {
+
     public static void main(String[] args) {
-        String chracter = "";
+
         Scanner sc = new Scanner(System.in);
         int value = Integer.MIN_VALUE;
 
-        System.out.println("Enter a decimal number:");
+        System.out.println("Enter your decimal number ");
         while (value == Integer.MIN_VALUE) {
             try {
                 String text = sc.nextLine();
@@ -21,19 +18,9 @@ public class Input {
                 System.out.println("A number is requested");
             }
         }
-        System.out.println(" Please enter character");
-        while (chracter.length() != 1) {
-            chracter = sc.nextLine();
-        }
-        Methods.printTriangle(chracter, value);
-        Pythagoras.userInputPyth();
+        System.out.println("The value is: " + value);
     }
 
 }
-
-
-
-
-
 
 
