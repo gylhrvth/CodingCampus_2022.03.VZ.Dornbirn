@@ -2,32 +2,12 @@ package murat.week2.day3;
 
 import java.util.Scanner;
 
-public class InputTask4CalculatorExtended {
+public class BasicCalculatorOptimal {
 
     public static void main(String[] args) {
 
-        Scanner scan = new Scanner(System.in);   // Input Scanner
-        continueOrNot(scan, "Want more?Then please press enter, if not press any key", "Calculator stops");
-
-    }
-
-    public static void continueOrNot(Scanner sc, String question, String message) {
-
-        boolean userNeedsNewOperations = false;
         calculator();
 
-        while (!userNeedsNewOperations) {
-
-            System.out.println(question);
-            String enter = sc.nextLine();
-
-            if ((enter.equals(""))) {             // If the user wants to continue, presses Enter
-                calculator();
-            } else {
-                System.out.println(message);
-                userNeedsNewOperations = true;    // If the user do not want to continue, presses any other key
-            }
-        }
     }
 
     public static void calculator() {
