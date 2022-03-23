@@ -3,26 +3,29 @@ package murat.week2.day3;
 import java.util.Scanner;
 
 public class InputTask4CalculatorExtended {
+
     public static void main(String[] args) {
-        // User uses the calculator
-        // When it stops, it asks if the user wants to continue
-        // When the user approves, the user must press Enter
-        // If not, any other key
+
+        Scanner scan = new Scanner(System.in);   // Input Scanner
+        continueOrNot(scan, "Want more?Then please press enter, if not press any key", "Calculator stops");
+
+    }
+
+    public static void continueOrNot(Scanner sc, String question, String message) {
 
         boolean userNeedsNewOperations = false;
         calculator();
 
         while (!userNeedsNewOperations) {
-            String enter = "";
-            System.out.println("Want more?Then please press enter, if not press any key");
-            Scanner scan = new Scanner(System.in);   // Reads the key enter
-            enter = scan.nextLine();
 
-            if ((enter.equals(""))) {             // If the user wants to continue
+            System.out.println(question);
+            String enter = sc.nextLine();
+
+            if ((enter.equals(""))) {             // If the user wants to continue, presses Enter
                 calculator();
             } else {
-                System.out.println("Calculator stops");
-                userNeedsNewOperations = true;    // If the user do not want to continue
+                System.out.println(message);
+                userNeedsNewOperations = true;    // If the user do not want to continue, presses any other key
             }
         }
     }
@@ -30,63 +33,76 @@ public class InputTask4CalculatorExtended {
     public static void calculator() {
 
         Scanner scan = new Scanner(System.in);
-        float usersFirstNumber = Float.MAX_VALUE;
-        float usersSecondNumber = Float.MAX_VALUE;
-        String usersOperator = "";
-        boolean loopExcapeforOperator = false;
 
         System.out.println("Please enter the first value: ");
-        while (usersFirstNumber == Float.MAX_VALUE) {
-            try {
-                String userEntersAnything = scan.nextLine();
-                usersFirstNumber = Float.parseFloat(userEntersAnything);
-            } catch (NumberFormatException firstError) {
-                System.out.println("A number is requested.");
-            }
-        }
+        float usersFirstNumber = readANumberFromConsole(scan, "A number is required!");
 
         System.out.println("Please enter the operator: ");
-        while (!loopExcapeforOperator) {
-            try {
-                usersOperator = scan.nextLine();
-
-                if (usersOperator.equals("+") || usersOperator.equals("-") || usersOperator.equals("*") || usersOperator.equals("/")) {
-                    loopExcapeforOperator = true;
-                } else {
-                    System.out.println("Please enter just an operator (+,-,*,/) ");
-                }
-
-            } catch (NumberFormatException secondError) {
-                System.out.println("Please enter an operator (+,-,*,/): ");
-            }
-        }
+        String usersOperator = readAnOperatorFromConsole(scan, "Please enter an operator (+,-,*,/): ", "An operator (+,-,*,/) is required!");
 
         System.out.println("Please enter the second value: ");
-        while (usersSecondNumber == Float.MAX_VALUE) {
-            try {
-                String userEntersAnything = scan.nextLine();
-                usersSecondNumber = Float.parseFloat(userEntersAnything);
+        float usersSecondNumber = readANumberFromConsole(scan, "A number is required!");
 
-                // Avoids the zero division
-                if(usersSecondNumber==0){
-                    System.out.println("Please enter another number different than 0 (Zero)");
-                    usersSecondNumber = Float.MAX_VALUE;
-                }
-
-            } catch (NumberFormatException thirdError) {
-                System.out.println("A number is requested.");
-            }
-        }
         operations(usersFirstNumber, usersOperator, usersSecondNumber);
     }
 
-    public static void operations(float firstNumber, String operator, float secondNumber) {
+    public static float readANumberFromConsole(Scanner sc, String errorMessage) {
+
+        float aNumberToRead = Float.MAX_VALUE;
+        while (aNumberToRead == Float.MAX_VALUE) {
+            try {
+                String userEntersAnything = sc.nextLine();
+                aNumberToRead = Float.parseFloat(userEntersAnything);
+            } catch (NumberFormatException thirdError) {
+                System.out.println(errorMessage);
+            }
+        }
+        return aNumberToRead;
+    }
+
+    public static String readAnOperatorFromConsole(Scanner sc, String errorMessage1, String errormessage2) {
+
+        String AnOperator = "";
+        boolean loopExcapeforOperator = false;
+
+        while (!loopExcapeforOperator) {
+            try {
+                AnOperator = sc.nextLine();
+
+                if (AnOperator.equals("+") || AnOperator.equals("-") || AnOperator.equals("*") || AnOperator.equals("/")) {
+                    loopExcapeforOperator = true;
+                } else {
+                    System.out.println(errormessage2);
+                }
+            } catch (NumberFormatException secondError) {
+                System.out.println(errorMessage1);
+            }
+        }
+        return AnOperator;
+    }
+
+    public static float operations(float firstNumber, String operator, float secondNumber) {
+
+        float result = 0;
 
         switch (operator) {
-            case "+" -> System.out.println("Sum: " + (firstNumber + secondNumber));
-            case "-" -> System.out.println("Subtraction: " + (firstNumber - secondNumber));
-            case "*" -> System.out.println("Multiplication: " + (firstNumber * secondNumber));
-            case "/" -> System.out.println("Division: " + (firstNumber / secondNumber));
+            case "+" -> {
+                result = firstNumber + secondNumber;
+                System.out.println("Sum: " + result);
+            }
+            case "-" -> {
+                result = firstNumber - secondNumber;
+                System.out.println("Subtraction: " + result);
+            }
+            case "*" -> {
+                result = firstNumber * secondNumber;
+                System.out.println("Multiplication: " + result);
+            }
+            case "/" -> {
+                result = firstNumber / secondNumber;
+                System.out.println("Division: " + result);
+            }
         }
+        return result;
     }
 }
