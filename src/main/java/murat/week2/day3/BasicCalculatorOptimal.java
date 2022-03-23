@@ -6,20 +6,24 @@ public class BasicCalculatorOptimal {
 
     public static void main(String[] args) {
 
+        calculator();
+
+    }
+
+    public static void calculator() {
+
         Scanner scan = new Scanner(System.in);
-        float usersFirstNumber = Float.MAX_VALUE;
-        float usersSecondNumber = Float.MAX_VALUE;
 
         System.out.println("Please enter the first value: ");
-        usersFirstNumber = readANumberFromConsole(scan, "A number is required!");
+        float usersFirstNumber = readANumberFromConsole(scan, "A number is required!");
 
         System.out.println("Please enter the operator: ");
         String usersOperator = readAnOperatorFromConsole(scan, "Please enter an operator (+,-,*,/): ", "An operator (+,-,*,/) is required!");
 
         System.out.println("Please enter the second value: ");
-        usersSecondNumber = readANumberFromConsole(scan, "A number is required!");
+        float usersSecondNumber = readANumberFromConsole(scan, "A number is required!");
 
-        operations(usersFirstNumber, usersOperator, usersSecondNumber);
+      operations(usersFirstNumber, usersOperator, usersSecondNumber);
     }
 
     public static float readANumberFromConsole(Scanner sc, String errorMessage) {
@@ -57,13 +61,20 @@ public class BasicCalculatorOptimal {
         return AnOperator;
     }
 
-    public static void operations(float firstNumber, String operator, float secondNumber) {
+    public static float operations(float firstNumber, String operator, float secondNumber) {
+
+        float result=0;
 
         switch (operator) {
-            case "+" -> System.out.println("Sum: " + (firstNumber + secondNumber));
-            case "-" -> System.out.println("Subtraction: " + (firstNumber - secondNumber));
-            case "*" -> System.out.println("Multiplication: " + (firstNumber * secondNumber));
-            case "/" -> System.out.println("Division: " + (firstNumber / secondNumber));
+            case "+" -> { result = firstNumber + secondNumber;
+                System.out.println("Sum: " + result);}
+            case "-" -> { result = firstNumber - secondNumber;
+                System.out.println("Subtraction: " + result);}
+            case "*" -> { result = firstNumber * secondNumber;
+                System.out.println("Multiplication: " + result);}
+            case "/" -> {result = firstNumber / secondNumber;
+                System.out.println("Division: " + result);}
         }
+        return result;
     }
 }
