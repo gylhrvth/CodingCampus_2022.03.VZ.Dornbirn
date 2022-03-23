@@ -137,14 +137,15 @@ public class AlphaCalculator {
             boolean equals = true;
 
             while (equals) {
-                operator = operatorInput();
                 System.out.println("press the equal sign to get the result(=) or press any key to continue");
                 String input = sc.nextLine();
+
                 if (input.equals("=")) {
                     equals = false;
-                    System.out.println("your result = " + result);
+                   //System.out.println("your result = " + result);
 
                 } else {
+                    operator = operatorInput();
                     num2 = numberInput();
                     result = calculationReturn(operator, result, num2);
                 }
