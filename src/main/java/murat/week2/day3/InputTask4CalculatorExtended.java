@@ -20,7 +20,6 @@ public class InputTask4CalculatorExtended {
 
             if ((enter.equals(""))) {             // If the user wants to continue
                 calculator();
-                userNeedsNewOperations = false;
             } else {
                 System.out.println("Calculator stops");
                 userNeedsNewOperations = true;    // If the user do not want to continue
@@ -67,6 +66,13 @@ public class InputTask4CalculatorExtended {
             try {
                 String userEntersAnything = scan.nextLine();
                 usersSecondNumber = Float.parseFloat(userEntersAnything);
+
+                // Avoids the zero division
+                if(usersSecondNumber==0){
+                    System.out.println("Please enter another number different than 0 (Zero)");
+                    usersSecondNumber = Float.MAX_VALUE;
+                }
+
             } catch (NumberFormatException thirdError) {
                 System.out.println("A number is requested.");
             }
