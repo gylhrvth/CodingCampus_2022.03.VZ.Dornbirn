@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Input {
     public static void main(String[] args) {
-        String chracter= "";
+        String chracter = "";
         Scanner sc = new Scanner(System.in);
         int value = Integer.MIN_VALUE;
 
@@ -21,22 +21,14 @@ public class Input {
                 System.out.println("A number is requested");
             }
         }
-        System.out.println(" Please enter character" );
-        while (chracter.length()!= 1){
-            try {
-                 chracter = sc.nextLine();
-            } catch (NumberFormatException nfe) {
-                System.out.println("A number is requested");
-            }
+        System.out.println(" Please enter character");
+        while (chracter.length() != 1) {
+            chracter = sc.nextLine();
         }
         Methods.printTriangle(chracter, value);
         Pythagoras.userInputPyth();
-
-
-
-
-
     }
+
 }
 
 
