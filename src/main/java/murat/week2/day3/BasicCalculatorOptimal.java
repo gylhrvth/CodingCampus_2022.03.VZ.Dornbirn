@@ -23,7 +23,7 @@ public class BasicCalculatorOptimal {
         System.out.println("Please enter the second value: ");
         float usersSecondNumber = readANumberFromConsole(scan, "A number is required!");
 
-      operations(usersFirstNumber, usersOperator, usersSecondNumber);
+        operations(usersFirstNumber, usersOperator, usersSecondNumber);
     }
 
     public static float readANumberFromConsole(Scanner sc, String errorMessage) {
@@ -63,17 +63,25 @@ public class BasicCalculatorOptimal {
 
     public static float operations(float firstNumber, String operator, float secondNumber) {
 
-        float result=0;
+        float result = 0;
 
         switch (operator) {
-            case "+" -> { result = firstNumber + secondNumber;
-                System.out.println("Sum: " + result);}
-            case "-" -> { result = firstNumber - secondNumber;
-                System.out.println("Subtraction: " + result);}
-            case "*" -> { result = firstNumber * secondNumber;
-                System.out.println("Multiplication: " + result);}
-            case "/" -> {result = firstNumber / secondNumber;
-                System.out.println("Division: " + result);}
+            case "+" -> {
+                result = firstNumber + secondNumber;
+                System.out.println("Sum: " + result);
+            }
+            case "-" -> {
+                result = firstNumber - secondNumber;
+                System.out.println("Subtraction: " + result);
+            }
+            case "*" -> {
+                result = firstNumber * secondNumber;
+                System.out.println("Multiplication: " + result);
+            }
+            case "/" -> {
+                result = firstNumber / secondNumber;
+                System.out.println("Division: " + result);
+            }
         }
         return result;
     }
