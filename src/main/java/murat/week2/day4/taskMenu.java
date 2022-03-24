@@ -5,28 +5,44 @@ import java.util.Scanner;
 public class taskMenu {
     public static void main(String[] args) {
 
-        System.out.println("Welcome to my tasks");
-        System.out.println("What would you like to draw?");
-        System.out.println("1 - A Christmas Tree");
-        System.out.println("2 - A Square");
-        System.out.println("3 - A Rhombus");
-        System.out.println("Please choose one of above.");
-        Scanner input = new Scanner(System.in);
+        boolean exitDoor = false;
 
-        int chosenShape = readANumberBetw13(input);
-        System.out.println("Please enter a size between [3-50].");
-        int chosenSize = chooseTheSize(input);
-        System.out.println("Please enter the symbol to display the shape. (The first character will be displayed)");
-        char chosenSymbol = chooseTheSymbol(input);
+        while (!exitDoor) {
+            System.out.println("Welcome to my tasks");
+            System.out.println("What would you like to draw?");
+            System.out.println("1 - A Christmas Tree");
+            System.out.println("2 - A Square");
+            System.out.println("3 - A Rhombus");
+            System.out.println("Please choose one of above.");
+            Scanner input = new Scanner(System.in);
 
-        switch (chosenShape){
-            case 1 -> no1printChristmasTree(chosenSymbol, chosenSize);
-            case 2 -> no2printSquare(chosenSymbol, chosenSize);
-            case 3 -> no3printRhombus(chosenSymbol, chosenSize);
+            int chosenShape = readANumberBetween1And3(input);
+            System.out.println("Please enter a size between [3-50].");
+            int chosenSize = chooseTheSize(input);
+            System.out.println("Please enter the symbol to display the shape. (The first character will be displayed)");
+            char chosenSymbol = chooseTheSymbol(input);
+
+            switch (chosenShape) {
+                case 1 -> no1printChristmasTree(chosenSymbol, chosenSize);
+                case 2 -> no2printSquare(chosenSymbol, chosenSize);
+                case 3 -> no3printRhombus(chosenSymbol, chosenSize);
+            }
+            System.out.println("Would you like to try again?");
+            System.out.println("To continue press Enter, to exit press any key");
+            String enterPress = "";
+            if (!enterPress.equals(readUserInputAsString(input))){
+                System.out.println("Game Over");
+                exitDoor = true;
+            }
         }
     }
 
-    public static int readANumberBetw13(Scanner sc) {
+    public static String readUserInputAsString(Scanner sc) {
+
+        return sc.nextLine();
+    }
+
+    public static int readANumberBetween1And3(Scanner sc) {
 
         int number = Integer.MAX_VALUE;
         while (number == Integer.MAX_VALUE) {
