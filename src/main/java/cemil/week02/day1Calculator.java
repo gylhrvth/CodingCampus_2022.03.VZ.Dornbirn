@@ -13,24 +13,25 @@ public class day1Calculator {
         int coounter2 = Integer.parseInt(Calculator.nextLine());
 
         System.out.println();
-            if (operator.equals("+")) {
-                System.out.println(" " + (counter1 + coounter2));
-            } else {
-            }
-            if (operator.equals("-")) {
-                System.out.println(" " + (counter1 - coounter2));
-            } else {
-            }
-            if (operator.equals("*")) {
-                System.out.println(" " + (counter1 * coounter2));
-            } else {
-            }
-            if (operator.equals("/")) {
-                System.out.println(" " + (counter1 / coounter2));
-            } else {
-            }
+        if (operator.equals("+")) {
+            System.out.println(" " + (counter1 + coounter2));
+        } else {
+        }
+        if (operator.equals("-")) {
+            System.out.println(" " + (counter1 - coounter2));
+        } else {
+        }
+        if (operator.equals("*")) {
+            System.out.println(" " + (counter1 * coounter2));
+        } else {
+        }
+        if (operator.equals("/")) {
+            System.out.println(" " + (counter1 / coounter2));
+        } else {
+        }
 
 
     }
+
 }
 

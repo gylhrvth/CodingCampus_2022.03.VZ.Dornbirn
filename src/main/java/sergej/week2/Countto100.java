@@ -1,4 +1,4 @@
-package sergej.week02;
+package sergej.week2;
 
 public class Countto100 {
 
