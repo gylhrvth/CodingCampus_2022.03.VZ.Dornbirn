@@ -1,4 +1,4 @@
-package sergej.week02;
+package sergej.week2;
 
 import java.util.Scanner;
 
@@ -17,7 +17,6 @@ public class ReadNumberScanner {
                 value = Integer.parseInt(text);
             } catch (NumberFormatException nfe) {
                 System.out.println("please enter valid number");
-
             }
         }
         System.out.println("the value is : "+value);

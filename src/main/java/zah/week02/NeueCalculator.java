@@ -1,26 +1,26 @@
-package timo.week02;
+package zah.week02;
 
 import java.util.Scanner;
 
-public class InputCalculator {
-
+public class NeueCalculator {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean execution = true;
 
         System.out.println("Hello I am a calculator!");
-
-        float number1 = readFloatFromConsole(sc, "Enter a number");
-
-
+        float number1 = readFloatFromConsole(sc, "Please enter the first number");
         while (execution) {
-
-            String operator = readOperatorFromConsole(sc, "Enter an operator (\"+\", \"-\", \"*\", \"/\", \"^\")");
-            float number2 = readFloatFromConsole(sc, "Enter a number");
+            String operator = readOperatorFromConsole(sc, "Please enter operator (+, -, *, /, ^)");
+            float number2 = readFloatFromConsole(sc, "Please enter the second number");
             float result = calculateResult(number1, operator, number2);
-            number1 = result;
-            System.out.println("Your result is " + result);
+                number1=result;
+            System.out.println(result);
+
+
+
+
             execution = restartCalculator(sc);
+
         }
     }
 
@@ -33,7 +33,7 @@ public class InputCalculator {
                 String text = sc.nextLine();
                 number = Float.parseFloat(text);
             } catch (NumberFormatException nfe) {
-                System.out.println("Stop goofing around bro");
+                System.out.println("Enter a valid number you clown");
             }
         }
         return number;
@@ -47,15 +47,17 @@ public class InputCalculator {
             operator = sc.nextLine();
 
             if (!operator.equals("+") && !operator.equals("-") && !operator.equals("*") && !operator.equals("/") && !operator.equals("^")) {
-                System.out.println("very funny");
+                System.out.println("Pleas enter a operator!");
                 operator = "";
             }
         }
         return operator;
     }
 
+
+
     public static boolean restartCalculator(Scanner sc) {
-        System.out.println("Continue calculating with your result? \nEnter \"y\" to continue or \"n\" to stop");
+        System.out.println("Do you want to calculate again? If yes  press y, if no press n");
         boolean calculateAgainScanner = true;
         boolean execution = true;
 
@@ -66,15 +68,15 @@ public class InputCalculator {
                 execution = true;
                 calculateAgainScanner = false;
             } else if (answer.equals("n")) {
-                System.out.println("Hasta la vista, baby!");
                 execution = false;
                 calculateAgainScanner = false;
             } else {
-                System.out.println("Can you read?");
+                System.out.println("Stop playing around bro");
             }
         }
         return execution;
     }
+
 
     public static float calculateResult(float input1, String operator, float input2) {
         float result = 0;
@@ -94,4 +96,9 @@ public class InputCalculator {
         }
         return result;
     }
+
+
 }
+
+
+
