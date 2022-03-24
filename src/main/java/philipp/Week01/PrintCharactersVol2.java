@@ -2,35 +2,32 @@ package philipp.Week01;
 
 public class PrintCharactersVol2 {
     public static void main(String[] args) {
-        //printEmptySquare2("X ", 6);
-        //System.out.println();
-        //printTriangle("X ", 3);
-        //System.out.println();
-        //printTriangle("X ", 5);
-        //System.out.println();
-        //printTriangle2("X ", 3);
-        //System.out.println();
-        //printTriangle2("X ", 5);
-        //System.out.println();
-        //printTriangle2("X ", 7);
-        //System.out.println();
-        //printTriangle2("X ", 9);
-        //System.out.println();
-        //printTriangle3("X ", 5);
-        //System.out.println();
-        //printTriangle4("X ", 5);
-        //printX("X", 5);
-        //System.out.println();
-        //printX("X ", 3);
-        //System.out.println();
-        //printX("X  ", 5);
+        printEmptySquare2("X ", 6);
+        System.out.println();
+        printTriangle("X ", 3);
+        System.out.println();
+        printTriangle("X ", 5);
+        System.out.println();
+        printTriangle2("X ", 3);
+        System.out.println();
+        printTriangle2("X ", 5);
+        System.out.println();
+        printTriangle2("X ", 7);
+        System.out.println();
+        printTriangle2("X ", 9);
+        System.out.println();
+        printTriangle3("X ", 5);
+        System.out.println();
+        printTriangle4("X ", 5);
+        printX("X", 5);
+        System.out.println();
         printX("Gabriel", 15);
         System.out.println();
         printX("Romeu", 15);
         System.out.println();
-        printRhombus("X ", 7);
+        printRhombus("X ", 14);
         System.out.println();
-        printRhombus2("X ", 7);
+        printRhombus2("X ", 6);
         System.out.println();
     }
 
@@ -52,7 +49,8 @@ public class PrintCharactersVol2 {
         for (int j = 0; j < size - 2; j++) {
             System.out.print(x);
             for (int k = 0; k < size - 2; k++) {
-                System.out.print("  ");
+                printCharsNoNewLine(" ", x.length());
+                //System.out.print(" ");
             }
             System.out.println(x);
         }
@@ -147,15 +145,29 @@ public class PrintCharactersVol2 {
             }
             System.out.println();
         }
-        for (int i = 0; i < (size - 1) / 2; i++) {
-            for (int j = 0; j < size; j++) {
-                if (j == 1 + i || j == size - 2 - i) {
-                    System.out.print(x);
-                } else {
-                    printCharsNoNewLine(" ", x.length());
+        if (size % 2 != 0) {
+            for (int i = 0; i < (size - 1) / 2; i++) {
+                for (int j = 0; j < size; j++) {
+                    if (j == 1 + i || j == size - 2 - i) {
+                        System.out.print(x);
+                    } else {
+                        printCharsNoNewLine(" ", x.length());
+                    }
                 }
+                System.out.println();
             }
-            System.out.println();
+        } else {
+            for (int i = 0; i < size / 2; i++) {
+                for (int j = 0; j < size; j++) {
+                    if (j == i || j == size - 2 - i) {
+                        System.out.print(x);
+                    } else {
+                        printCharsNoNewLine(" ", x.length());
+                    }
+                }
+                System.out.println();
+            }
+
         }
     }
 
@@ -169,7 +181,7 @@ public class PrintCharactersVol2 {
                         printCharsNoNewLine(" ", x.length());
                     }
                 } else {
-                    if (i == (size - 1) / 2 + j || j == size +((size-2)/2)-i) {
+                    if (i == (size - 1) / 2 + j || j == size + ((size - 2) / 2) - i) {
                         System.out.print(x);
                     } else {
                         printCharsNoNewLine(" ", x.length());

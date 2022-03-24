@@ -22,7 +22,7 @@ public class InputCalculatorCalcFurther {
             System.out.println();
             boolean further = true;
             while (further) {
-                further = calcAgain(sc, further, "Calculate further? Y/N");
+                further = calcAgain(sc, further, "Calculate further? Y/N", " Please enter Y or N!");
                 if (!further) {
                     break;
                 } else {
@@ -33,7 +33,7 @@ public class InputCalculatorCalcFurther {
                     System.out.println();
                 }
             }
-            restart = calcAgain(sc, restart, "New calculation? Y/N");
+            restart = calcAgain(sc, restart, "New calculation? Y/N", "Please enter Y or n!");
         }
     }
 }
