@@ -99,6 +99,25 @@ public class Usermenue {
 
     }
 
+    public static boolean continueYN(Scanner sc) {
+        boolean userYN = true;
+        while (true) {
+            String userChoice = sc.nextLine();
+            if (userChoice.equals("y")) {
+                userYN = true;
+            } else if (userChoice.equals("n")) {
+                System.out.println("Ok, Good Bye!");
+                userYN = false;
+            } else {
+                System.out.println("please enter either y or n! >>>" + userChoice + "<<<");
+                userYN = true;
+            }
+            return userYN;
+        }
+
+
+    }
+
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -108,15 +127,7 @@ public class Usermenue {
             int choice = menu(sc);
             userInput(choice, sc);
             System.out.println("Would you like to draw again ? (y/n)");
-            String userChoice = sc.nextLine();
-            if (userChoice.equals("y")) {
-                start = true;
-            } else if (userChoice.equals("n")) {
-                System.out.println("Ok, Good Bye!");
-                start = false;
-            } else {
-                System.out.println("please enter either y or n! >>>" + userChoice + "<<<");
-            }
+            start = continueYN(sc);
 
         }
 
