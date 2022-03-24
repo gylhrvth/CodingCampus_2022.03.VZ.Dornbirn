@@ -9,13 +9,17 @@ public class InputCalculator {
         boolean execution = true;
 
         System.out.println("Hello I am a calculator!");
-        while (execution) {
-            float number1 = readFloatFromConsole(sc, "Please enter the first number");
-            String operator = readOperatorFromConsole(sc, "Please enter operator (+, -, *, /, ^)");
-            float number2 = readFloatFromConsole(sc, "Please enter the second number");
-            float result = calculateResult(number1, operator, number2);
-            System.out.println(number1 + " " + operator + " " + number2 + " = " + result);
 
+        float number1 = readFloatFromConsole(sc, "Enter a number");
+
+
+        while (execution) {
+
+            String operator = readOperatorFromConsole(sc, "Enter an operator (\"+\", \"-\", \"*\", \"/\", \"^\")");
+            float number2 = readFloatFromConsole(sc, "Enter a number");
+            float result = calculateResult(number1, operator, number2);
+            number1 = result;
+            System.out.println("Your result is " + result);
             execution = restartCalculator(sc);
         }
     }
@@ -29,7 +33,7 @@ public class InputCalculator {
                 String text = sc.nextLine();
                 number = Float.parseFloat(text);
             } catch (NumberFormatException nfe) {
-                System.out.println("Enter a valid number you clown");
+                System.out.println("Stop goofing around bro");
             }
         }
         return number;
@@ -51,7 +55,7 @@ public class InputCalculator {
     }
 
     public static boolean restartCalculator(Scanner sc) {
-        System.out.println("Do you want to calculate again boss? \nPlease enter y or n");
+        System.out.println("Continue calculating with your result? \nEnter \"y\" to continue or \"n\" to stop");
         boolean calculateAgainScanner = true;
         boolean execution = true;
 
@@ -62,10 +66,11 @@ public class InputCalculator {
                 execution = true;
                 calculateAgainScanner = false;
             } else if (answer.equals("n")) {
+                System.out.println("Hasta la vista, baby!");
                 execution = false;
                 calculateAgainScanner = false;
             } else {
-                System.out.println("Stop playing around bro");
+                System.out.println("Can you read?");
             }
         }
         return execution;
