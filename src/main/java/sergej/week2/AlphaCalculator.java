@@ -1,13 +1,13 @@
-package sergej.week02;
+package sergej.week2;
 
 import java.util.Scanner;
 
 public class AlphaCalculator {
 
 
-    public static double numberInput() {
+    public static double numberInput(Scanner sc) {
 
-        Scanner sc = new Scanner(System.in);
+        //Scanner sc = new Scanner(System.in);
 
         double num = Double.MAX_VALUE;
         boolean validOp = true;
@@ -32,17 +32,16 @@ public class AlphaCalculator {
 
         Scanner sc = new Scanner(System.in);
         String operator = "";
-        boolean validOp = true;
+        boolean validOp = false;
 
         System.out.println("Please enter a math operator  (+,-,*,^,/)");
 
-        while (validOp) {
+        while (!validOp) {
             operator = sc.nextLine();
             if (!(operator.equals("+") || operator.equals("-") || operator.equals("*") || operator.equals("/") || operator.equals("^"))) {
                 System.out.println("Please enter valid operator");
-
             } else {
-                validOp = false;
+                validOp = true;
             }
         }
         return operator;
@@ -100,24 +99,18 @@ public class AlphaCalculator {
         double result = 0;
         if (operator.equals("+")) {
             result = num1 + num2;
-            return result;
         }
         if (operator.equals("-")) {
             result = num1 - num2;
-            return result;
         }
         if (operator.equals("*")) {
             result = num1 * num2;
-            return result;
         }
         if (operator.equals("/")) {
             result = num1 / num2;
-            return result;
         }
         if (operator.equals("^")) {
             result = Math.pow(num1, num2);
-            return result;
-
         }
         return result;
     }
@@ -128,28 +121,29 @@ public class AlphaCalculator {
         boolean run = true;
         // boolean equals = false;
 
-        while (run = askUser()) {
-
-            double num1 = numberInput();
+        while (run) {
+            double num1 = numberInput(sc);
             String operator = operatorInput();
-            double num2 = numberInput();
+            double num2 = numberInput(sc);
             double result = calculationReturn(operator, num1, num2);
             boolean equals = true;
 
             while (equals) {
-                operator = operatorInput();
                 System.out.println("press the equal sign to get the result(=) or press any key to continue");
                 String input = sc.nextLine();
+
                 if (input.equals("=")) {
                     equals = false;
-                    System.out.println("your result = " + result);
+                   //System.out.println("your result = " + result);
 
                 } else {
-                    num2 = numberInput();
+                    operator = operatorInput();
+                    num2 = numberInput(sc);
                     result = calculationReturn(operator, result, num2);
                 }
             }
             System.out.println("your result = " + result);
+            run = askUser();
         }
     }
 }

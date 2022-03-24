@@ -4,11 +4,18 @@ import java.util.Scanner;
 
 public class Taschenrechner {
     public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
         taschenrechner();
+        boolean execution = true;
+        while (execution){
+        execution = restartCalculator(sc);
 
     }
+    }
 
-    public static float readFloatFromConsole(Scanner sc, String message, String messageForError){
+
+    public static float readFloatFromConsole(Scanner sc, String message, String messageForError) {
         float result = Float.MIN_VALUE;
 
         System.out.println(message);
@@ -21,28 +28,37 @@ public class Taschenrechner {
             }
         }
         return result;
+
+
+    }
+    public static boolean restartCalculator(Scanner sc) {
+        System.out.println("Do you want to calculate again boss? \nPlease enter y or n");
+        boolean calculateAgainScanner = true;
+        boolean execution = true;
+
+        while (calculateAgainScanner) {
+            String answer = sc.nextLine();
+
+            if (answer.equals("y")) {
+                execution = true;
+                calculateAgainScanner = false;
+            } else if (answer.equals("n")) {
+                execution = false;
+                calculateAgainScanner = false;
+            } else {
+                System.out.println("Stop playing around bro");
+            }
+        }
+        return execution;
     }
 
     public static void taschenrechner() {
         String operator = "";
 
         Scanner sc = new Scanner(System.in);
-        //float value = Float.MIN_VALUE;
         String errorMessageForFloat = "You\'d use a valid float number";
         float num1 = readFloatFromConsole(sc, "Enter a number", errorMessageForFloat);
 
-        /*
-        System.out.println("Enter a number:");
-
-        while ((num1 == Float.MIN_VALUE) && (num2== Float.MIN_VALUE)){
-            try {
-                String text = sc.nextLine();
-                num1 = Float.parseFloat(text);
-                num2 = Float.parseFloat(text);
-            } catch (NumberFormatException nfe) {
-            }
-        }
-         */
         System.out.println("Enter a operator");
 
         while (operator.length() == 0) {
@@ -53,17 +69,7 @@ public class Taschenrechner {
             }
         }
         float num2 = readFloatFromConsole(sc, "Enter the second number", errorMessageForFloat);
-/*
-        System.out.println("Enter a valid number");
-        while (num2 == Float.MIN_VALUE) {
-            try {
-                String text = sc.nextLine();
-                num2 = Float.parseFloat(text);
-            } catch (NumberFormatException nfe) {
-                System.out.println("The result is:");
-            }
-        }
-*/
+
         float result = 0;
         if (operator.equals("+") || (operator.equals("plus"))) {
             result = num1 + num2;
@@ -80,6 +86,7 @@ public class Taschenrechner {
 
 
     }
+
 
 }
 
