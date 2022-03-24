@@ -8,6 +8,9 @@ public class UserInput {
         Scanner sc = new Scanner(System.in);
         double number = readNumber(sc);
         System.out.println(" your number is " + number);
+
+        double numberElegant = readNumberVariantElegant(sc);
+        System.out.println(" your number is " + numberElegant);
     }
 
     private static void readString() {
@@ -58,7 +61,6 @@ public class UserInput {
     }
 
     private static double readNumber(Scanner sc){
-
         System.out.println("Enter number:");
         
         double number;
@@ -72,5 +74,15 @@ public class UserInput {
             }
         }
         return number;
+    }
+
+    private static double readNumberVariantElegant(Scanner sc){
+        System.out.println("Enter number:");
+
+        while(!sc.hasNextDouble()) {
+            sc.next();
+            System.out.println("Please enter a number!!!:");
+        }
+        return sc.nextDouble();
     }
 }
