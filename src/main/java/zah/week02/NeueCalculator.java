@@ -57,7 +57,7 @@ public class NeueCalculator {
 
 
     public static boolean restartCalculator(Scanner sc) {
-        System.out.println("Do you want to calculate again?");
+        System.out.println("Do you want to calculate again? If yes  press y, if no press n");
         boolean calculateAgainScanner = true;
         boolean execution = true;
 
