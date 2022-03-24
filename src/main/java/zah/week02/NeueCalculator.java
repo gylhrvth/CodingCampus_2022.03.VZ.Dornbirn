@@ -8,15 +8,19 @@ public class NeueCalculator {
         boolean execution = true;
 
         System.out.println("Hello I am a calculator!");
+        float number1 = readFloatFromConsole(sc, "Please enter the first number");
         while (execution) {
-            float number1 = readFloatFromConsole(sc, "Please enter the first number");
             String operator = readOperatorFromConsole(sc, "Please enter operator (+, -, *, /, ^)");
             float number2 = readFloatFromConsole(sc, "Please enter the second number");
             float result = calculateResult(number1, operator, number2);
+                number1=result;
             System.out.println(result);
 
 
-            //execution = restartCalculator(sc);
+
+
+            execution = restartCalculator(sc);
+
         }
     }
 
@@ -43,15 +47,17 @@ public class NeueCalculator {
             operator = sc.nextLine();
 
             if (!operator.equals("+") && !operator.equals("-") && !operator.equals("*") && !operator.equals("/") && !operator.equals("^")) {
-                System.out.println("Plea enter a operator!");
+                System.out.println("Pleas enter a operator!");
                 operator = "";
             }
         }
         return operator;
     }
 
+
+
     public static boolean restartCalculator(Scanner sc) {
-        System.out.println("Do you want to calculate again? \nPlease enter y or n");
+        System.out.println("Do you want to calculate again?");
         boolean calculateAgainScanner = true;
         boolean execution = true;
 
@@ -70,6 +76,7 @@ public class NeueCalculator {
         }
         return execution;
     }
+
 
     public static float calculateResult(float input1, String operator, float input2) {
         float result = 0;
@@ -90,5 +97,8 @@ public class NeueCalculator {
         return result;
     }
 
+
 }
+
+
 
