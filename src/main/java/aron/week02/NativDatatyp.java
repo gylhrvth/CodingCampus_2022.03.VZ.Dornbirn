@@ -11,9 +11,11 @@ public class NativDatatyp {
         //printLeibniz(100);
         //System.out.println("*********************************************");
         //System.out.println(Math.PI);
-        printNilakantha(100);
+        // printNilakantha(100);
         System.out.println();
-        printsecretRow(100);
+        //printsecretRow();
+        System.out.println();
+        printGuessPlay(100);
     }
 
     public static void printstep(float Value) {
@@ -71,18 +73,36 @@ public class NativDatatyp {
         }
     }
 
-    public static void printsecretRow(double value) {
-
+    public static void printsecretRow() {
+        double value = 1.0;
         for (int i = 0; i < 100; i++) {
-
             value = value / 2 + 1 / value;
-            {
-                System.out.println(value);
-            }
+            System.out.println(value);
         }
 
     }
+
+    public static void printGuessPlay(double input) {
+        double min = 1.0;
+        double max = input;
+        double target = 0.0;
+
+        //for (int i = 0; i < 100; i++)
+        while (target * target != input) {
+            target = min + (max - min) / 2;
+            if (target * target > input) {
+                max = target;
+                System.out.println(target);
+            } else {
+                min = target;
+                System.out.println(target);
+            }
+        }
+    }
 }
+
+
+
 
 
 

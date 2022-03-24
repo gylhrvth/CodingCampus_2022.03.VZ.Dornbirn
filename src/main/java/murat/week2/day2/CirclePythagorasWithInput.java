@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class CirclePythagorasWithInput {
     public static void main(String[] args) {
 
+        System.out.println("Please enter an integer.");
         Scanner sc = new Scanner(System.in);
 
         int userValue = Integer.MAX_VALUE;          // Assign a value that user can not enter
@@ -17,13 +18,12 @@ public class CirclePythagorasWithInput {
                 userValue = Integer.parseInt(userEntryAsAText);   // Convert the text into an integer if the user enters a text
 
                 if ((userValue > 50) || (userValue <= 2)) {        // Limit the entry between 2 and 50
-                    System.out.println("Please enter a value between 2 and 50");
+                    System.out.println("Please enter a value between 3 and 50");
                     userValue = Integer.MAX_VALUE;                // if the user enters a value other than 2-50, keep the loop work
                 } else {
                     printCirclePythagoras(userValue);             // If all the conditions are met, execute the circle
                     System.out.println("A circle with the size of " + userValue + " is created.");
                 }
-
             } catch (NumberFormatException entryError) {
                 System.out.println("Please enter an integer!");
             }
