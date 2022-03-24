@@ -16,7 +16,7 @@ public class Usermenue {
         String character = "";
         String pattern = "";
 
-        int value = Integer.MIN_VALUE;
+        int value = 0;
 
         if (choosen == 1) {
             pattern = square;
@@ -29,7 +29,7 @@ public class Usermenue {
 
         System.out.println("Please enter the size of the " + pattern);
 
-        while (value == Integer.MIN_VALUE) {
+        while (true) {
             try {
                 String number = sc.nextLine();
                 value = Integer.parseInt(number);
@@ -38,6 +38,7 @@ public class Usermenue {
 
             }
             System.out.println("you choose: " + value);
+            break;
         }
 
         System.out.println("Which character would you like to use? ");
@@ -101,19 +102,24 @@ public class Usermenue {
 
     public static boolean continueYN(Scanner sc) {
         boolean userYN = true;
-        while (true) {
+        boolean run = true;
+        while (run) {
             String userChoice = sc.nextLine();
             if (userChoice.equals("y")) {
                 userYN = true;
+                run = false;
             } else if (userChoice.equals("n")) {
                 System.out.println("Ok, Good Bye!");
                 userYN = false;
+                run = false;
             } else {
                 System.out.println("please enter either y or n! >>>" + userChoice + "<<<");
                 userYN = true;
+                run = true;
             }
-            return userYN;
+
         }
+        return userYN;
 
 
     }
