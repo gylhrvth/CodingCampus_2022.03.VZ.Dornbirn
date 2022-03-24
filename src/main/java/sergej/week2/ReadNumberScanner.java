@@ -17,7 +17,6 @@ public class ReadNumberScanner {
                 value = Integer.parseInt(text);
             } catch (NumberFormatException nfe) {
                 System.out.println("please enter valid number");
-
             }
         }
         System.out.println("the value is : "+value);

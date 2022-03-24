@@ -19,7 +19,7 @@ public class InputCalculatorImproved {
             System.out.println();
             result = calculate(number1, operator, number2, result);
             System.out.println();
-            restart = calcAgain(sc, restart,"New calculation? Y/N");
+            restart = calcAgain(sc, restart,"New calculation? Y/N", " please enter Y or N!");
         }
     }
 
@@ -66,7 +66,7 @@ public class InputCalculatorImproved {
         return result;
     }
 
-    public static Boolean calcAgain(Scanner sc, boolean restart, String text) {
+    public static Boolean calcAgain(Scanner sc, boolean restart, String text, String error) {
         System.out.println(text);
         boolean loop = true;
         String aga = "";
@@ -76,7 +76,7 @@ public class InputCalculatorImproved {
                     Objects.equals(aga, "N") || Objects.equals(aga, "n")) {
                 loop = false;
             } else {
-                System.out.println("Please enter Y or N");
+                System.out.println(error);
             }
         }
         if (aga.equals("N") || aga.equals("n")) {

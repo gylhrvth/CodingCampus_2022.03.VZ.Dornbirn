@@ -231,8 +231,6 @@ public class LoopMethods {
 
 
     public static void printChristmasTree(int size) {
-
-
         //Top
         for (int i = 0; i < size; i++) {
             for (int j = i; j < size - 1; j++) {
