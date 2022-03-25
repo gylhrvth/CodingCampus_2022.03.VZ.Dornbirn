@@ -8,7 +8,7 @@ public class GuessingRandomNumber {
         // The user chooses a number between 0-100 and guesses the random number.
 
         Scanner input = new Scanner(System.in);
-        int randomNumber = new Random().nextInt(0, 100);
+        int randomNumber = new Random().nextInt(100);
         int tries = 1;
         System.out.println("Welcome to our guessing game");
 
