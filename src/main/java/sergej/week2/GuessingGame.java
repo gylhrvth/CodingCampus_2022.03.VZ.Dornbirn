@@ -48,43 +48,20 @@ public class GuessingGame {
         return guess;
     }
 
-    public static void checkNumber(int guess, int target, int targetSize) {
+    public static void checkNumber(int guess, int target) {
 
         int correct = 0;
         int almost = 0;
 
-        String targetStr = Integer.toString(target);
-        String guessStr = Integer.toString(guess);
+        int fourthDigit = guess % 10; // last digit
+        int thirdDigit = guess % 100; // third digit
+        int secondDigit = guess % 1000; // second digit
+        int firstDigit = guess % 10000; // first digit
 
-        Scanner scanTarget = new Scanner(targetStr).useDelimiter("");
-        int aT = scanTarget.nextInt();
-        int bT = scanTarget.nextInt();
-        int cT = scanTarget.nextInt();
-        int dT = scanTarget.nextInt();
-
-        Scanner scanGuess = new Scanner(guessStr).useDelimiter("");
-        int aG = scanGuess.nextInt();
-        int bG = scanGuess.nextInt();
-        int cG = scanGuess.nextInt();
-        int dG = scanGuess.nextInt();
-
-        for (int i = 0; i < targetSize; ++i) {
-            if (aT == aG || aT == bG || aT == cG || aT == dG) {
-                correct = correct + 1;
-                System.out.println(correct);
-                break;
-            } else {
-                System.out.println("test");
-            }
-        }
-
-        if (aT == aG) {
-            correct = correct + 1;
-            System.out.println("you Won!");
-
-        } else if (bT == bG) {
-            System.out.println("try again..");
-        }
+        System.out.println("modulo>" + fourthDigit);
+        System.out.println("modulo>"+ thirdDigit);
+        System.out.println("modulo>"+ secondDigit);
+        System.out.println("modulo>"+ firstDigit);
 
     }
 
@@ -99,7 +76,7 @@ public class GuessingGame {
         System.out.println(size);
         int guess = userGuess(sc, size);
         System.out.println(guess);
-        checkNumber(guess, target, size);
+        checkNumber(guess, target);
         //int singleChar = sc.nextInt(target).charAt(0);
 
         //String input = "1234";
