@@ -17,8 +17,8 @@ public class GuessingRandomNumberGameOverTryAgain {
 
             int chosenNumber = readNumberFromUser(input);
 
-            if (tries == 3) {
-                System.out.println("3 Tries - GAME OVER");
+            if (tries == 10) {
+                System.out.println("10 Tries - GAME OVER");
                 System.out.println("Would you like to play again? Then press enter, otherwise press any other key");
                 String again;
                 again = input.nextLine();
@@ -37,7 +37,7 @@ public class GuessingRandomNumberGameOverTryAgain {
             } else if (randomNumber > chosenNumber) {
                 System.out.println("Too small, please try again!");
                 tries++;
-            } else if (randomNumber == chosenNumber) {
+            } else {
                 System.out.println("After " + tries + " tries you won :)");
                 break;
             }
