@@ -16,9 +16,6 @@ public class NeueCalculator {
                 number1=result;
             System.out.println(result);
 
-
-
-
             execution = restartCalculator(sc);
 
         }

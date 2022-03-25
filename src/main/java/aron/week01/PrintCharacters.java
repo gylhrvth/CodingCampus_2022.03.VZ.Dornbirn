@@ -238,41 +238,36 @@ public class PrintCharacters {
 
     public static void printChristmastree(String x, int size) {
         int sizeOfBalls = size * 2 - 1;
-        int sizeOfTrunk = 2*(size/4)+1;
+        int sizeOfTrunk = 2 * (size / 4) + 1;
 
         for (int i = 0; i < size; i++) {
-            for (int j = i; j < size-1; j++) {
+            for (int j = i; j < size - 1; j++) {
 
                 System.out.print(" ".repeat(x.length()));
             }
             if (i > 0) {
                 System.out.print(x);
-                for (int k = 0; k < i  * 2 - 1; k++) {
+                for (int k = 0; k < i * 2 - 1; k++) {
                     System.out.print(x);
                 }
             }
             System.out.println(x);
         }
-        printChars("o".repeat(x.length()) , sizeOfBalls);
+        printChars("o".repeat(x.length()), sizeOfBalls);
 
+        for (int i = 0; i < size / 4; i++) {
 
-
-
-        for (int i = 0; i < size/4; i++) {
-
-            for (int j = 0; j< (sizeOfBalls - sizeOfTrunk)/2; j++) {
+            for (int j = 0; j < (sizeOfBalls - sizeOfTrunk) / 2; j++) {
                 System.out.print(" ".repeat(x.length()));
-
             }
-
-
-            for (int j = 0; j< sizeOfTrunk; j++) {
+            for (int j = 0; j < sizeOfTrunk; j++) {
                 System.out.print(x);
-
             }
             System.out.println(" ".repeat(x.length()));
         }
-        }}
+    }
+}
+
 
 
 

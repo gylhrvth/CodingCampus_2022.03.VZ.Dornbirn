@@ -15,6 +15,7 @@ public class Usermenue {
         String circle = "Circle";
         String character = "";
         String pattern = "";
+        boolean run = true;
 
         int value = 0;
 
@@ -29,17 +30,13 @@ public class Usermenue {
 
         System.out.println("Please enter the size of the " + pattern);
 
-        while (true) {
-            try {
-                String number = sc.nextLine();
-                value = Integer.parseInt(number);
-            } catch (NumberFormatException nfe) {
-                System.out.println("please enter valid number");
-
-            }
-            System.out.println("you choose: " + value);
-            break;
+        while (!sc.hasNextInt()) {
+            sc.nextLine();
+            System.out.println("please enter valid number");
         }
+        value = Integer.parseInt(sc.nextLine());
+        System.out.println("you choose: " + value);
+
 
         System.out.println("Which character would you like to use? ");
 
