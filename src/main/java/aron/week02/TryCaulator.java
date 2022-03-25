@@ -113,20 +113,20 @@ public class TryCaulator {
         System.out.println(result);
 
 
-//           while (equals) {
-//                System.out.println("press the equal sign to get the result(=) or press any key to continue");
-//                String input = sc.nextLine();
-//
-//                if (input.equals("=")) {
-//                    equals = false;
-//                   //System.out.println("your result = " + result);
-//                } else {
-//                    operator = valiuOP();
-//                    num2 = numInput(sc);
-//                    result = calculationReturn(operator, result, num2);
-//                }
-//            }
-//            System.out.println("your result = " + result);
+           while (equals) {
+                System.out.println("press the equal sign to get the result(=) or press any key to continue");
+                String input = sc.nextLine();
+
+                if (input.equals("=")) {
+                    equals = false;
+                   //System.out.println("your result = " + result);
+                } else {
+                    operator = valiuOP();
+                    num2 = numInput(sc);
+                    result = calculationReturn(operator, result, num2);
+                }
+            }
+            System.out.println("your result = " + result);
 
         }
     }
