@@ -28,7 +28,7 @@ public class GuessingRandomNumberGameOver {
             } else if (randomNumber > chosenNumber) {
                 System.out.println("Too small, please try again!");
                 tries++;
-            } else if (randomNumber == chosenNumber) {
+            } else {
                 System.out.println("After " + tries + " tries you won :)");
                 break;
             }
@@ -39,12 +39,14 @@ public class GuessingRandomNumberGameOver {
 
         int number = Integer.MAX_VALUE;
         System.out.println("Please choose a number between 0-100.");
-        String readAString = scan.nextLine();
 
-        try {
-            number = Integer.parseInt(readAString);
-        } catch (NumberFormatException nfe) {
-            System.out.println("A number is required");
+        while (number == Integer.MAX_VALUE) {
+            try {
+                String readAString = scan.nextLine();
+                number = Integer.parseInt(readAString);
+            } catch (NumberFormatException nfe) {
+                System.out.println("A number is required");
+            }
         }
         return number;
     }
