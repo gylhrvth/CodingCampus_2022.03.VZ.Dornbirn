@@ -19,72 +19,16 @@ public class Calucultor {
         while (run) {
 
 
-        System.out.println("Please enter your first number:");
+            double number = TryCaulator.numInput(sc);
 
-        TryCaulator.num1(num1);
-        System.out.println("Please enter a math operator  (+,-,*,^,/)");
+            TryCaulator.valiuOP();
 
-     TryCaulator.valiuOP(valiuOp);
-     System.out.println("Please enter your second number:");
+            TryCaulator.askUser();
 
-
-
-        if (operator.equals("+")) {
-            System.out.print("your result is " + (num1 + num2));
-        }
-        if (operator.equals("-")) {
-            System.out.print("your result is " + (num1 - num2));
-        }
-        if (operator.equals("*")) {
-            System.out.print("your result is " + (num1 * num2));
-        }
-        if (operator.equals("/")) {
-            System.out.print("your result is " + (num1 / num2));
-        }
-        if (operator.equals("^")) {
-            System.out.print("your result is " + Math.pow(num1, num2));
-        }
-
-
-
-            answer = "";
-            while (answer.length() != 1) {
-                answer = sc.nextLine();
-                if (answer.equals("y") || answer.equals("yes")) {
-                    answer = "y";
-
-
-
-                } else if (answer.equals("n") || answer.equals("no")) {
-                    answer = "n";
-                    run = false;
-
-
-                } else {
-                    System.out.println("would you like to calculate again ? , please enter yes or no (y/n)");
-                    answer = "";
-
-                }
-            }
-            answer = "";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            TryCaulator.calculationReturn(operator, num1, num2);
 
 
 
         }
-
     }
 }
