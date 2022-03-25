@@ -2,7 +2,7 @@ package murat.week2.day4;
 
 import java.util.Scanner;
 
-public class taskMenu {
+public class TaskMenu {
     public static void main(String[] args) {
 
         boolean exitDoor = false;
