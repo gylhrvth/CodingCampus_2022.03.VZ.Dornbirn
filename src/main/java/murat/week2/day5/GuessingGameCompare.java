@@ -24,12 +24,19 @@ public class GuessingGameCompare {
 
         int tries = 1;    // Start of tries
 
+        System.out.println("Welcome to the game!");
+        System.out.println("Guess the randomly generated number and win a prize!");
+
         // Ask user if he wants to play...
         while (true) {
 
+            // Read the number from user
             int usersNumber = readANumberFromUser(input, lengthOfRandomNumber, bound);
 
-            System.out.println("Users Number: " + usersNumber);
+            // If the user presses "N", it returns an impossible number and exits, for example bound+1 (upper limit +1)
+            if (usersNumber == (bound + 1)) {
+                break;
+            }
 
             int rightNumbers = 0;
             int positionOfRightNumber;
@@ -45,7 +52,7 @@ public class GuessingGameCompare {
                     System.out.println(positionOfRightNumber + ". position is right");
                 }
 
-                // Take the next number on the left
+                // Take the next number on the left to compare
                 randomNumber /= 10;
                 usersNumber /= 10;
             }
@@ -63,40 +70,40 @@ public class GuessingGameCompare {
             }
 
             System.out.println("In total " + rightNumbers + " numbers are correct");
-            System.out.println("Would you like to try again? Then press ENTER, otherwise any other key");
+            System.out.println((tries + 1) + ". try");
 
-            // Again? Press Enter
-
-            String again;
-            again = input.nextLine();
-            if (!again.equals("")) {
-                System.out.println("OFF");
-                break;
-            } else {
-                System.out.println((tries + 1) + ". try");
-                tries++;
-                randomNumber = randomNumberConstant;
-            }
+            tries++;
+            randomNumber = randomNumberConstant;
         }
     }
 
     public static int readANumberFromUser(Scanner sc, int upperLimit, int bound) {
 
-        System.out.println("Please enter a " + upperLimit + " digit number");
+        System.out.println("Please enter a " + upperLimit + " digit number or N to exit");
         int number = Integer.MAX_VALUE;
+        String anyTextUserEnters = "";
 
         while (number == Integer.MAX_VALUE) {
             try {
-                String anyTextUserEnters = sc.nextLine();
+                anyTextUserEnters = sc.nextLine();
                 number = Integer.parseInt(anyTextUserEnters);
-                int lenghtOfNumber = getANumbersLength(bound, number);
-                if (lenghtOfNumber != upperLimit) {
+                int lengthOfNumber = getANumbersLength(bound, number);
+
+                // If the random number has 4 digits and users number x digits
+                if (lengthOfNumber != upperLimit) {
                     System.out.println("Please enter a " + upperLimit + " digit number");
                     number = Integer.MAX_VALUE;
                 }
 
             } catch (NumberFormatException nfe) {
-                System.out.println("A number is required!");
+
+                // If the user presses "N", it returns an impossible number and exits, for example bound+1 (upper limit +1)
+                if (anyTextUserEnters.equals("N")) {
+                    number = bound + 1;
+                    System.out.println("SWITCH OFF");
+                } else {
+                    System.out.println("A number is required!");    // If the user enters letters instead of numbers
+                }
             }
         }
         return number;
