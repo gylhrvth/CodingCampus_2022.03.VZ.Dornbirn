@@ -2,7 +2,7 @@ package murat.week2.day4;
 
 import java.util.Scanner;
 
-public class calculatorContBetterVersion {
+public class CalculatorContBetterVersion {
     // Asks user after every operator, if he continues with an operator or presses any key to exit.
 
     public static void main(String[] args) {
