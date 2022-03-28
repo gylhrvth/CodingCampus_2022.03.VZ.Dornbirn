@@ -10,7 +10,7 @@ public class Task5RandomNumberArrayCount {
         int size = 100;
         int upperLimit = 30;
         int randomNumber;
-        int counter = 0;
+
         Random rand = new Random();
         int[] muratArray = new int[size];
 
@@ -18,11 +18,21 @@ public class Task5RandomNumberArrayCount {
             randomNumber = rand.nextInt(size);
             muratArray[i] = randomNumber;
             System.out.print(muratArray[i] + " ");
-            if (muratArray[i] > upperLimit) {
+        }
+
+        System.out.println();
+        System.out.println(countTheNumbers(muratArray, upperLimit) + " numbers are bigger than " + upperLimit);
+
+    }
+
+    public static int countTheNumbers(int[] anArray, int upperLimit) {
+
+        int counter = 0;
+        for (int i = 0; i < anArray.length; i++) {
+            if (anArray[i] > upperLimit) {
                 counter++;
             }
         }
-        System.out.println();
-        System.out.println(counter + " numbers are bigger than " + upperLimit);
+        return counter;
     }
 }
