@@ -28,7 +28,7 @@ public class Task8BubbleSortWithNumbersDescending {
     public static int[] bubbleSort(int[] anArray) {
 
         for (int i = 0; i < anArray.length; i++) {                 // Sort it throughout its length
-            for (int j = 0; j < anArray.length - 1; j++) {         // Sort it once
+            for (int j = 0; j < anArray.length - 1-i; j++) {         // Sort it once
 
                 if (anArray[j] < anArray[j + 1]) {                 // Ascending or descending!!!
                     int temporary = anArray[j + 1];                // Create an idle variable to store for a swap
