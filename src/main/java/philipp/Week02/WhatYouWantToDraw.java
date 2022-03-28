@@ -19,24 +19,12 @@ public class WhatYouWantToDraw {
                     "2) Quader\n" +
                     "3) Rhombus");
             System.out.println("Bitte wählen Sie nun!");
-            choise = inputChoise(sc, "Bitte 1, 2 oder 3 wählen!");
-            while (choise < 1 || choise > 3) {
-                System.out.println("Bitte 1, 2 oder 3 wählen!");
-                choise = inputChoise(sc, "Bitte 1, 2 oder 3 wählen!");
-            }
+            choise = inputChoise(sc, "Bitte 1, 2 oder 3 wählen!", 1, 3);
             System.out.println("Wie groß soll die Zeichnung werden?(Bitte eine Zahl zwischen 5 und 50 eingeben)");
-            size = inputChoise(sc, "Bitte eine Zahl zwischen 5 und 50 eingeben!");
-            while (size < 5 || size > 50) {
-                System.out.println("Bitte eine Zahl zwischen 5 und 50 eingeben!");
-                size = inputChoise(sc, "Bitte eine Zahl zwischen 5 und 50 eingeben!");
-            }
-            while (sign.isEmpty() == true) {
+            size = inputChoise(sc, "Bitte eine Zahl zwischen 5 und 50 eingeben!", 5, 50);
+            while (sign.isEmpty() || sign.length() > 5) {
                 System.out.println("Welches Zeichen soll verwendet werden? (Max. 5 Zeichen)");
-                sign = sc.nextLine();
-            }
-            while (sign.length() > 5) {
-                System.out.println("Bitte max. 5 Zeichen eingeben!");
-                sign = sc.nextLine();
+                sign = sc.nextLine().trim();
             }
             outputChoise(choise, size, sign);
             sign = "";
@@ -45,12 +33,16 @@ public class WhatYouWantToDraw {
         }
     }
 
-    private static int inputChoise(Scanner sc, String alertMessage) {
+    private static int inputChoise(Scanner sc, String alertMessage, int sizeMin, int sizeMax) {
         int n = Integer.MIN_VALUE;
         while (n == Integer.MIN_VALUE) {
             try {
                 String text = sc.nextLine();
                 n = Integer.parseInt(text);
+                if (n < sizeMin || n > sizeMax) {
+                    n = Integer.MIN_VALUE;
+                    System.out.println(alertMessage);
+                }
             } catch (NumberFormatException nfe) {
                 System.out.println(alertMessage);
             }
