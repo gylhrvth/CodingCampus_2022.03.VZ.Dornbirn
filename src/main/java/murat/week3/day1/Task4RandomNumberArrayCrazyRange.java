@@ -18,7 +18,6 @@ public class Task4RandomNumberArrayCrazyRange {
             int randomNumber = -50 + rand.nextInt(size);
             muratArray[i] = randomNumber;
             System.out.print((i + 1) + "No " + muratArray[i] + " ");
-
         }
     }
 }
