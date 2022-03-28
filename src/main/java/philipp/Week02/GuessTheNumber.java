@@ -7,7 +7,7 @@ public class GuessTheNumber {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Random rand = new Random();
-        int value = rand.nextInt(1000, 9999);
+        int value = rand.nextInt(10000);
         int inputNo;
         int guesses = 5;
 

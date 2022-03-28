@@ -37,7 +37,7 @@ public class MenuExample {
     }
 
 
-    private static int readNumber(Scanner sc, String message, int minValue, int maxValue){
+    public static int readNumber(Scanner sc, String message, int minValue, int maxValue){
         int result = Integer.MIN_VALUE;
 
         while ((result < minValue) || (result > maxValue)) {
