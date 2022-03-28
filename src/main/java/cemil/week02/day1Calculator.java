@@ -10,23 +10,21 @@ public class day1Calculator {
         System.out.println("Gib deine Rechnung ein ");
         int counter1 = Integer.parseInt(Calculator.nextLine());
         String operator = Calculator.nextLine();
-        int coounter2 = Integer.parseInt(Calculator.nextLine());
+        int counter2 = Integer.parseInt(Calculator.nextLine());
 
         System.out.println();
         if (operator.equals("+")) {
-            System.out.println(" " + (counter1 + coounter2));
-        } else {
-        }
-        if (operator.equals("-")) {
-            System.out.println(" " + (counter1 - coounter2));
-        } else {
-        }
-        if (operator.equals("*")) {
-            System.out.println(" " + (counter1 * coounter2));
-        } else {
-        }
-        if (operator.equals("/")) {
-            System.out.println(" " + (counter1 / coounter2));
+            System.out.println("Deine Zahl ist: " + (counter1 + counter2));
+        } else if (operator.equals("-")) {
+            System.out.println("Deine Zahl ist: " + (counter1 - counter2));
+        } else if (operator.equals("*")) {
+            System.out.println("Deine Zahl ist: " + (counter1 * counter2));
+        } else if (operator.equals("/")) {
+            if (counter2 == 0){
+                System.out.println("Teilen durch Zero ist nicht möglich");
+            } else {
+                System.out.println("Deine Zahl ist: " + (counter1 / counter2));
+            }
         } else {
         }
 
