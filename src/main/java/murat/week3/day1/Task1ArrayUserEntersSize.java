@@ -3,7 +3,7 @@ package murat.week3.day1;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class ArrayUserEntersSize {
+public class Task1ArrayUserEntersSize {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
