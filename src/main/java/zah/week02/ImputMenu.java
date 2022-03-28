@@ -10,4 +10,20 @@ public class ImputMenu {
                 "Was möchten Sie zeichnen?");
 
     }
+    public static int readNumber(Scanner sc, int min, int max){
+        int result = Integer.MIN_VALUE;
+
+        while ((result< min) || (result>max )){
+            System.out.println();
+            String number= sc.nextLine();
+            try {
+                result= Integer.parseInt(number);
+
+            }catch (NumberFormatException nfs){
+                //
+            }
+        }
+        return result;
+
+    }
 }
