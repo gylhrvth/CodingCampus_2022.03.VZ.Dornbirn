@@ -8,7 +8,7 @@ public class GuessingGame {
 
     public static int targetNumber() {
         Random rand = new Random();
-        int target = rand.nextInt(1000, 10000);
+        int target = rand.nextInt( 10000);
 
         return target;
     }

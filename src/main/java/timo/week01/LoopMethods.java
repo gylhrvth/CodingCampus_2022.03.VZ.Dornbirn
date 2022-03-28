@@ -106,6 +106,7 @@ public class LoopMethods {
         for (int i = 0; i < size; i++) {
             System.out.print(letter);
         }
+        System.out.println();
     }
 
 
