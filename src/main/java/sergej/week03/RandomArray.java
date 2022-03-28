@@ -78,18 +78,46 @@ public class RandomArray {
 
     }
 
-    public static int sumArray(int[] array){
+    public static int sumArray(int[] array) {
         int sum = 0;
         int[] mylist = array;
-        for (int i = 0; i < mylist.length;i++){
+        for (int i = 0; i < mylist.length; i++) {
             sum += mylist[i];
         }
         return sum;
     }
 
+    public static int minimum(int[] array) {
+        int minimum = array[0];
+        int[] mylist = array;
+        for (int i = 0; i < mylist.length; i++) {
+            if (mylist[i] < minimum) {
+                minimum = mylist[i];
+            }
+        }
+        return minimum;
+    }
+
+    public static int maximum(int[] array) {
+        int maximum = array[0];
+        int[] mylist = array;
+        for (int i = 0; i < mylist.length; i++) {
+            if (mylist[i] > maximum) {
+                maximum = mylist[i];
+            }
+        }
+        return maximum;
+    }
+
+    public static int meanValue(int[] array) {
+        int sum = sumArray(array);
+        int mean = sum / array.length;
+        return mean;
+    }
+
     public static void main(String[] args) {
 
-        int[] randomList = randomList(10);
+        int[] randomList = randomList(5);
         System.out.println(randomList);
         //loopIndex(randomList);
         //loopIndexSecond(randomList);
@@ -100,12 +128,21 @@ public class RandomArray {
         //System.out.println("count > 30");
         //System.out.println();
         //countHighX(10, 30);
-        int counter = counter(randomList,30);
+        int counter = counter(randomList, 30);
         System.out.println("how manny numbers are higher then x:");
         System.out.println(counter);
         int sum = sumArray(randomList);
         System.out.println("sum of array:");
         System.out.println(sum);
+        int min = minimum(randomList);
+        System.out.println("Min value of array:");
+        System.out.println(min);
+        int max = maximum(randomList);
+        System.out.println("Max value of array:");
+        System.out.println(max);
+        int mean = meanValue(randomList);
+        System.out.println("The mean Value of the array:");
+        System.out.println(mean);
 
 
     }
