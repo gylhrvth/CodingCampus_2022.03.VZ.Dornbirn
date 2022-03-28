@@ -8,9 +8,7 @@ public class GuessingGame {
 
     public static int targetNumber() {
         Random rand = new Random();
-        int target = rand.nextInt(10000);
-        String length = Integer.toString(target);
-        int targetSize = length.length();
+        int target = rand.nextInt(1000, 10000);
 
         return target;
     }
@@ -48,43 +46,61 @@ public class GuessingGame {
         return guess;
     }
 
-    public static void checkNumber(int guess, int target, int targetSize) {
+    public static int checkNumber(int guess, int target, int wincondition) {
 
-        int correct = 0;
-        int almost = 0;
+        int correctPos = 0;
+        int wrongPos = 0;
 
-        String targetStr = Integer.toString(target);
-        String guessStr = Integer.toString(guess);
+        int firstDigiGuess = (guess / 1000) % 10;
+        int secondDigiGuess = (guess / 100) % 10;
+        int thirdDigiGuess = (guess / 10) % 10;
+        int fourthDigiGuess = guess % 10;
 
-        Scanner scanTarget = new Scanner(targetStr).useDelimiter("");
-        int aT = scanTarget.nextInt();
-        int bT = scanTarget.nextInt();
-        int cT = scanTarget.nextInt();
-        int dT = scanTarget.nextInt();
+        int firstDigiTarget = (target / 1000) % 10;
+        int secondDigiTarget = (target / 100) % 10;
+        int thirdDigiTarget = (target / 10) % 10;
+        int fourthDigiTarget = target % 10;
 
-        Scanner scanGuess = new Scanner(guessStr).useDelimiter("");
-        int aG = scanGuess.nextInt();
-        int bG = scanGuess.nextInt();
-        int cG = scanGuess.nextInt();
-        int dG = scanGuess.nextInt();
 
-        for (int i = 0; i < targetSize; ++i) {
-            if (aT == aG || aT == bG || aT == cG || aT == dG) {
-                correct = correct + 1;
-                System.out.println(correct);
-                break;
-            } else {
-                System.out.println("test");
-            }
+        if (firstDigiGuess == firstDigiTarget) {
+            correctPos = correctPos + 1;
+        }
+        if (secondDigiGuess == secondDigiTarget) {
+            correctPos = correctPos + 1;
+        }
+        if (thirdDigiGuess == thirdDigiTarget) {
+            correctPos = correctPos + 1;
+        }
+        if (fourthDigiGuess == fourthDigiTarget) {
+            correctPos = correctPos + 1;
         }
 
-        if (aT == aG) {
-            correct = correct + 1;
-            System.out.println("you Won!");
-
-        } else if (bT == bG) {
-            System.out.println("try again..");
+        if (firstDigiGuess == secondDigiTarget || firstDigiGuess == thirdDigiTarget || firstDigiGuess == fourthDigiTarget) {
+            wrongPos = wrongPos + 1;
         }
+
+        if (secondDigiGuess == thirdDigiTarget || secondDigiGuess == fourthDigiTarget || secondDigiGuess == firstDigiTarget) {
+            wrongPos = wrongPos + 1;
+        }
+
+        if (thirdDigiGuess == secondDigiTarget || thirdDigiGuess == firstDigiTarget || thirdDigiGuess == fourthDigiTarget) {
+            wrongPos = wrongPos + 1;
+        }
+        if (fourthDigiGuess == secondDigiTarget || fourthDigiGuess == thirdDigiTarget || fourthDigiGuess == firstDigiTarget) {
+            wrongPos = wrongPos + 1;
+        }
+
+        if (firstDigiGuess == firstDigiTarget && secondDigiGuess == secondDigiTarget && thirdDigiGuess == thirdDigiTarget && fourthDigiGuess == fourthDigiTarget) {
+            System.out.println("You Won! Congratulations! the target number was: " + target);
+            wincondition = 1;
+        }
+
+
+        System.out.println("You got " + correctPos + " correct numbers in correct position");
+        System.out.println("You got " + wrongPos + " correct numbers in wrong position");
+
+        return wincondition;
+
 
     }
 
@@ -93,24 +109,41 @@ public class GuessingGame {
 
         Scanner sc = new Scanner(System.in);
 
-        int target = targetNumber();
-        System.out.println(target);
-        int size = targetSize(target);
-        System.out.println(size);
-        int guess = userGuess(sc, size);
-        System.out.println(guess);
-        checkNumber(guess, target, size);
-        //int singleChar = sc.nextInt(target).charAt(0);
+        boolean run = true;
+        int tries = 19;
 
-        //String input = "1234";
-        // Scanner s = new Scanner(input).useDelimiter("");
-        //int a = s.nextInt();
-        //int b = s.nextInt();
-        //int c = s.nextInt();
-        //int d = s.nextInt();
+        while (run) {
 
-        // System.out.println(a + "<" + b + "<" + c);
+            System.out.println("Welcome to Guess the Number Game!");
 
+            int target = targetNumber();
+            //System.out.println(target);
+
+            for (int i = tries; i >= 0; --i) {
+                int size = targetSize(target);
+                int guess = userGuess(sc, size);
+                System.out.println(guess);
+                int wincondition = checkNumber(guess, target, tries);
+                System.out.println("you got " + i + " tries left");
+                if (i == 0) {
+                    System.out.println("You have no tries left, you lost! the correct number was: " + target);
+                }
+                if (wincondition == 1) {
+                    break;
+                }
+            }
+            System.out.println("Do you want to play another round?");
+            String answer = sc.nextLine();
+            // sc.nextLine();
+            answer = sc.nextLine();
+            if (answer.equals("y") || answer.equals("yes") || answer.equals("j") || answer.equals("ja")) {
+                run = true;
+            }
+            if (answer.equals("n") || answer.equals("no") || answer.equals("nein")) {
+                System.out.println("OK! Goodbye!");
+                run = false;
+            }
+        }
     }
 
 }
