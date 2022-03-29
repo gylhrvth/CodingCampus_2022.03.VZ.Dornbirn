@@ -7,9 +7,8 @@ public class RandomNumberArray {
     static Random rand = new Random();
 
     public static void main(String[] args) {
-        int[] randomArray = randomNUmberArray(20);
+        int[] randomArray = randomNUmberArray(29);
         System.out.println(Arrays.toString(randomArray));
-
 
         printArray(randomArray);
         System.out.println(randomArray[1] + " " + randomArray[4] + " " + randomArray[9]);
@@ -20,8 +19,11 @@ public class RandomNumberArray {
 
         System.out.println("Count \">30\" is " + countBiggerThen(randomArray, 30));
 
-        System.out.println(" The sum is:" + countTheNumber(crazy));
+        System.out.println("The summe is:" + summeOfArray(crazy));
 
+        System.out.println("Minimum is: " + arrayMin(randomArray));
+        System.out.println("Maximum is: " + arrayMax(randomArray));
+        System.out.println("Average is: " + arrayAvg(randomArray));
 
     }
 
@@ -31,7 +33,6 @@ public class RandomNumberArray {
             number[i] = 1 + rand.nextInt(100);
         }
         return number;
-
     }
 
     public static void printArray(int[] data) {
@@ -48,7 +49,6 @@ public class RandomNumberArray {
         System.out.println("]");
     }
 
-
     public static void printEverySecondArray(int[] data) {
         for (int i = 1; i < data.length; i = i + 2) {
             if (i == 1) {
@@ -56,9 +56,7 @@ public class RandomNumberArray {
             } else {
                 System.out.print(", ");
             }
-
             System.out.print(data[i]);
-
         }
         System.out.println("]");
     }
@@ -67,7 +65,6 @@ public class RandomNumberArray {
         int[] data = new int[size];
         for (int i = 0; i < data.length; i++) {
             data[i] = rand.nextInt(101) - 50;
-
         }
         return data;
     }
@@ -82,7 +79,7 @@ public class RandomNumberArray {
         return counter;
     }
 
-    public static int countTheNumber(int[] data) {
+    public static int summeOfArray(int[] data) {
         int sum = 0;
         for (int i = 0; i < data.length; i++) {
             sum += data[i];
@@ -91,4 +88,32 @@ public class RandomNumberArray {
         return sum;
     }
 
+    public static int arrayMin(int[] data) {
+        int minimum = Integer.MAX_VALUE;
+        for (int i = 0; i < data.length; i++) {
+            if (data[i] < minimum) {
+                minimum = data[i];
+            }
+        }
+        return minimum;
+    }
+
+    public static int arrayMax(int[] data) {
+        int maximum = Integer.MIN_VALUE;
+        for (int i = 0; i < data.length; i++) {
+            if (data[i] > maximum) {
+                maximum = data[i];
+            }
+        }
+        return maximum;
+    }
+
+    public static float arrayAvg(int[] data) {
+        int sum = 0;
+        for (int i = 0; i < data.length; i++) {
+            sum += data[i];
+        }
+        return (float) sum / data.length;
+    }
 }
+
