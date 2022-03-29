@@ -24,7 +24,7 @@ public class SelectionSort {
 
     public static void main(String[] args) {
 
-        int[] newList = RandomArray.randomList(10000);
+        int[] newList = RandomArray.randomList(10);
         selectionSort(newList);
 
     }
