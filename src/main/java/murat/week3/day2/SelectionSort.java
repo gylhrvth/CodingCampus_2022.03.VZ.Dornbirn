@@ -32,9 +32,7 @@ public class SelectionSort {
             }
 
             // Swap min with index
-            int temporary = anArray[min];
-            anArray[min] = anArray[i];
-            anArray[i] = temporary;
+            CocktailShakerSort.swapTwoNumbers(anArray, i, min);
         }
         return anArray;
     }
