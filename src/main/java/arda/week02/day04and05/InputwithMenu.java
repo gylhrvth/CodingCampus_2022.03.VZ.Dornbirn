@@ -1,4 +1,4 @@
-package arda.week02.day04;
+package arda.week02.day04and05;
 
 import arda.week01.PrintCharacters;
 

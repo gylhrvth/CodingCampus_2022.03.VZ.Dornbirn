@@ -1,4 +1,4 @@
-package arda.week02.day02;
+package arda.week02.day02and03;
 
 import java.util.Scanner;
 

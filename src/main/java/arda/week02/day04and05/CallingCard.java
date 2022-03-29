@@ -9,11 +9,11 @@ public class CallingCard {
         //while()
         System.out.println("welcome to the calling card creator!");
         String name = userInput(sc, 30);
-        String birthday = inputBirthday(sc,10);
+        //String birthday = inputBirthday(sc);
     }
 
     public static String userInput(Scanner sc, int characterlength) {
-        System.out.println("please enter your name full name to begin");
+        System.out.println("please enter your name to begin");
         String name = "";
         boolean b = true;
         while (b) {
@@ -21,15 +21,20 @@ public class CallingCard {
             if (name.length() > characterlength) {
                 System.out.println("your name cannot exceed" + characterlength + "characters");
             } else {
-                System.out.println("nice to meet you" + name);
+                System.out.println("nice to meet you " + name);
                 b = false;
             }
         }
         return name;
     }
-    public static String inputBirthday(Scanner sc, int characterlength2){
+    /*
+    public static String inputBirthday(Scanner sc){
         System.out.println("please enter your date of birth");
+        String birthday = userInput(sc,10);
     }
+    return birthday; //return String doesnt work for some reason???
+
+     */
 }
 // todo: make user input work with custom messages and add function to next two methods also try to fit user input
 // todo: into empty square

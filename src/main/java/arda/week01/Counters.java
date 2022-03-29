@@ -24,7 +24,7 @@ public class Counters {
 
     public static void task2(int limitStart, int limitEnd) {
         System.out.println("========Task2=========");
-        for (int i = limitStart; i < limitEnd; i++) {
+        for (int i = limitStart; i <= limitEnd; i++) {
             System.out.println(i);
         }
     }
