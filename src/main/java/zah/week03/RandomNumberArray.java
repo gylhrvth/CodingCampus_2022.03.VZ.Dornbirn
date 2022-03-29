@@ -7,7 +7,7 @@ public class RandomNumberArray {
     static Random rand = new Random();
 
     public static void main(String[] args) {
-        int[] randomArray = randomNUmberArray(29);
+        int[] randomArray = randomNUmberArray(10);
         System.out.println(Arrays.toString(randomArray));
 
         printArray(randomArray);
@@ -24,6 +24,7 @@ public class RandomNumberArray {
         System.out.println("Minimum is: " + arrayMin(randomArray));
         System.out.println("Maximum is: " + arrayMax(randomArray));
         System.out.println("Average is: " + arrayAvg(randomArray));
+        System.out.println("Index minimum is:" + indexMin(randomArray));
 
     }
 
@@ -114,6 +115,20 @@ public class RandomNumberArray {
             sum += data[i];
         }
         return (float) sum / data.length;
+    }
+
+    public static int indexMin(int[] data) {
+        int minimum = Integer.MAX_VALUE;
+        int index = 0;
+        for (int i = 0; i < data.length; i++) {
+            if ( data[i] < minimum ) {
+                minimum = data[i];
+                index = i;
+            }
+
+        }
+        return index;
+
     }
 }
 
