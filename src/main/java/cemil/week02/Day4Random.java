@@ -8,13 +8,13 @@ public class Day4Random {
         Scanner sc = new Scanner(System.in);
 
         Random random = new Random();
-        int nu1 = readInt(sc, "Wie groß soll die Zahl sein?");
+        int nu1 = readInt(sc, "Wie groß soll die Zahl sein?", 10 ,100);
         int number = random.nextInt(nu1);
 
         int counter = 1;
 
         while (counter <= 10) {
-            int nu = readInt(sc, "Gib deine Zahl ein");
+            int nu = readInt(sc, "Gib deine Zahl ein", 0, 100);
             if (nu == number) {
                 System.out.println("Du hast gewonnen" + " " + counter + " " + "Versuche hast du gebraucht");
                 break;
@@ -29,11 +29,20 @@ public class Day4Random {
         }
     }
 
-    public static int readInt(Scanner sc, String message) {
+    public static int readInt(Scanner sc, String message, int minValue, int maxValue) {
         System.out.println(message);
         while (true) {
             if (sc.hasNextInt()) {
-                return sc.nextInt();
+                int result = sc.nextInt();
+                if (sc.hasNextLine()){
+                    sc.nextLine();
+                }
+                if ((result >= minValue) && (result <= maxValue)) {
+                    return result;
+                } else {
+                    System.out.println("Die Zahl muss größer gleich " + minValue + " und kleiner gleich " + maxValue + " sein.");
+                }
+
             } else {
                 System.out.println("Hey das ist keine Zahl");
                 sc.next();

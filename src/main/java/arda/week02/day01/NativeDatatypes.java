@@ -74,7 +74,7 @@ public class NativeDatatypes {
 
         while (mid * mid != inputvalue) {
             mid = (min + max) / 2;
-            if (mid*mid > inputvalue) {
+            if (mid * mid > inputvalue) {
                 max = mid;
             } else {
                 min = mid;

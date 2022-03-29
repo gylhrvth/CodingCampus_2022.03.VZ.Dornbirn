@@ -7,17 +7,18 @@ public class day1 {
 //            System.out.println(i );
 //        }
         System.out.println();
-        for (int i = 0; i <= 10*limit; i++) {
-            System.out.println(i/10.0);
+        for (int i = 0; i <= 10 * limit; i++) {
+            System.out.println(i / 10.0);
 
         }
     }
-    public static void DivideetImpera(){
+
+    public static void DivideetImpera() {
 
     }
 
     public static void main(String[] args) {
-        ZeroToHundred(100);
+        ZeroToHundred(20);
         System.out.println();
 //        DivideetImpera(4);
 
