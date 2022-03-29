@@ -24,8 +24,13 @@ public class ArraysRandom {
         System.out.println("The sum is: " + arraySum(myArray));
 
         System.out.println("The average value is: " + arrayAvg(myArray));
+
         System.out.println("The lowest value is: " + arrayMin(myArray));
+        System.out.println("The index of the lowest value is: " + arrayIndexMin(myArray));
+
         System.out.println("The highest value is: " + arrayMax(myArray));
+        System.out.println("The index of the highest value is: " + arrayIndexMax(myArray));
+
     }
 
 
@@ -110,12 +115,26 @@ public class ArraysRandom {
 
     public static int arrayIndexMin(int[] data) {
         int min = Integer.MAX_VALUE;
+        int j = 0;
         for (int i = 0; i < data.length; i++) {
             if (data[i] < min){
                 min = data[i];
+                j = i;
             }
         }
-        return min;
+        return j;
+    }
+
+    public static int arrayIndexMax(int[] data) {
+        int max = Integer.MIN_VALUE;
+        int j = 0;
+        for (int i = 0; i < data.length; i++) {
+            if (data[i] > max){
+                max = data[i];
+                j = i;
+            }
+        }
+        return j;
     }
 
 

@@ -147,7 +147,7 @@ public class RandomArray {
         //System.out.println(maximum(countBeerToday));
 
 
-        int[] randomList = {}; //randomList(50);
+        int[] randomList = randomList(10);
         System.out.println(randomList);
         //loopIndex(randomList);
         //loopIndexSecond(randomList);
