@@ -26,9 +26,7 @@ public class InsertionSort {
             while (j > 0 && anArray[j - 1] > anArray[j]) {
 
                 //Swap the new number with the back number
-                int temporary = anArray[j];
-                anArray[j] = anArray[j - 1];
-                anArray[j - 1] = temporary;
+                CocktailShakerSort.swapTwoNumbers(anArray, j - 1, j);
 
                 // Move backwards in each step to compare the new number with the others
                 j = j - 1;
