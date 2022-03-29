@@ -80,44 +80,74 @@ public class RandomArray {
 
     public static int sumArray(int[] array) {
         int sum = 0;
-        int[] mylist = array;
-        for (int i = 0; i < mylist.length; i++) {
-            sum += mylist[i];
+        for (int i = 0; i < array.length; i++) {
+            sum += array[i];
         }
         return sum;
     }
 
     public static int minimum(int[] array) {
-        int minimum = array[0];
-        int[] mylist = array;
-        for (int i = 0; i < mylist.length; i++) {
-            if (mylist[i] < minimum) {
-                minimum = mylist[i];
+        int minimum = Integer.MAX_VALUE;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] < minimum) {
+                minimum = array[i];
             }
         }
         return minimum;
     }
 
     public static int maximum(int[] array) {
-        int maximum = array[0];
-        int[] mylist = array;
-        for (int i = 0; i < mylist.length; i++) {
-            if (mylist[i] > maximum) {
-                maximum = mylist[i];
+        int maximum = Integer.MIN_VALUE;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > maximum) {
+                maximum = array[i];
             }
         }
         return maximum;
     }
 
-    public static int meanValue(int[] array) {
-        int sum = sumArray(array);
-        int mean = sum / array.length;
+    public static float meanValue(int[] array) {
+        float sum = sumArray(array);
+        float mean = sum / array.length;
+
+        if (array.length == 0) {
+            return Float.NaN;
+        }
         return mean;
     }
 
-    public static void main(String[] args) {
+    public static int getIndexMin(int[] array) {
+        int minimum = Integer.MAX_VALUE;
+        int index = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] < minimum) {
+                minimum = array[i];
+                index = i;
+            }
 
-        int[] randomList = randomList(5);
+        }
+        return index;
+    }
+
+    public static int getIndexMax(int[] array) {
+        int maximum = Integer.MIN_VALUE;
+        int index = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > maximum) {
+                maximum = array[i];
+                index = i;
+            }
+
+        }
+        return index;
+    }
+
+    public static void main(String[] args) {
+        // int[] countBeerToday = new int[0];
+        //System.out.println(maximum(countBeerToday));
+
+
+        int[] randomList = {}; //randomList(50);
         System.out.println(randomList);
         //loopIndex(randomList);
         //loopIndexSecond(randomList);
@@ -140,9 +170,15 @@ public class RandomArray {
         int max = maximum(randomList);
         System.out.println("Max value of array:");
         System.out.println(max);
-        int mean = meanValue(randomList);
+        float mean = meanValue(randomList);
         System.out.println("The mean Value of the array:");
         System.out.println(mean);
+        int minIndex = getIndexMin(randomList);
+        System.out.println("The Index of the Minimum value :");
+        System.out.println(minIndex);
+        int maxIndex = getIndexMax(randomList);
+        System.out.println("The Index of the Maximum value :");
+        System.out.println(maxIndex);
 
 
     }
