@@ -51,11 +51,6 @@ public class ArrayExersices {
         System.out.println();
 
         printArray(randomNo);
-//        System.out.print("[");
-//        for (int i = 0; i < randomNo.length - 1; i++) {
-//            System.out.print(randomNo[i] + ", ");
-//        }
-//        System.out.println(randomNo[randomNo.length - 1] + "]");
 
         System.out.println();
         System.out.print(randomNo[2] + " ");
@@ -70,15 +65,9 @@ public class ArrayExersices {
         System.out.println();
 
         System.out.println("Random Number Array Crazy Range");
-        //arraySize = 10;
         //arraySize = readNumber(sc, "Please enter a number between 1 and 10:", "Please enter a number between 1 and 10", 0, 11);
         int[] randomCrazy = randomNo(10, 101);
         for (int i = 0; i < randomCrazy.length; i++) {
-////            int r = rn.nextInt();
-////            while (r < -50 || r > 50) {
-////                r = rn.nextInt();
-////            }
-////            randomCrazy[i] = r;
             randomCrazy[i] = rn.nextInt(101) - 50;
         }
         for (int j : randomCrazy) {
@@ -86,11 +75,6 @@ public class ArrayExersices {
         }
         System.out.println();
         printArray(randomCrazy);
-//        System.out.print("[");
-//        for (int i = 0; i < randomCrazy.length - 1; i++) {
-//            System.out.print(randomCrazy[i] + ", ");
-//        }
-//        System.out.println(randomCrazy[randomCrazy.length - 1] + "]");
         System.out.println();
 
         System.out.println("Random Number Array Count >=30");
@@ -128,9 +112,10 @@ public class ArrayExersices {
         int[] d = randomNo(10, 101);
         System.out.println(Arrays.toString(d));
         System.out.println("Number Min: " + numberMin(d));
+        System.out.println("Index Min: " + numberMinIndex(d));
         System.out.println("Number Max: " + numberMax(d));
+        System.out.println("Index Max: " + numberMaxIndex(d));
         System.out.println("Number Avg: " + numberAvg(d));
-
     }
 
     private static int[] randomNo(int arraySize, int bound) {
@@ -144,7 +129,7 @@ public class ArrayExersices {
 
     private static void printArray(int[] arrayInput) {
         System.out.print("[");
-        for (int i = 0; i +1< arrayInput.length; i++) {
+        for (int i = 0; i + 1 < arrayInput.length; i++) {
             System.out.print(arrayInput[i] + ", ");
             if (i + 2 == arrayInput.length) {
                 System.out.println(arrayInput[i + 1] + "]");
@@ -162,8 +147,20 @@ public class ArrayExersices {
         return min;
     }
 
+    private static int numberMinIndex(int[] arrayInput) {
+        int min = Integer.MAX_VALUE;
+        int minIndex = Integer.MAX_VALUE;
+        for (int i = 0; i < arrayInput.length; i++) {
+            if (arrayInput[i] < min) {
+                min = arrayInput[i];
+                minIndex = i;
+            }
+        }
+        return minIndex;
+    }
+
     private static int numberMax(int[] arrayInput) {
-        int max = 0;
+        int max = Integer.MIN_VALUE;
         for (int j = 0; j < arrayInput.length; j++) {
             if (arrayInput[j] > max) {
                 max = arrayInput[j];
@@ -172,13 +169,24 @@ public class ArrayExersices {
         return max;
     }
 
-    private static int numberAvg(int[] arrayInput) {
-        int avg = 0;
-        for (int j = 0; j < arrayInput.length; j++) {
-            avg = avg + arrayInput[j];
+    private static int numberMaxIndex(int[] arrayInput) {
+        int max = Integer.MIN_VALUE;
+        int maxIndex = 0;
+        for (int i = 0; i < arrayInput.length; i++) {
+            if (arrayInput[i] > max) {
+                max = arrayInput[i];
+                maxIndex = i;
+            }
         }
-        avg = avg / arrayInput.length;
-        return avg;
+        return maxIndex;
+    }
+
+    private static float numberAvg(int[] arrayInput) {
+        int sum = 0;
+        for (int j = 0; j < arrayInput.length; j++) {
+            sum = sum + arrayInput[j];
+        }
+        return (float) sum / arrayInput.length;
     }
 
     private static int[] makeACopy(int[] original) {
