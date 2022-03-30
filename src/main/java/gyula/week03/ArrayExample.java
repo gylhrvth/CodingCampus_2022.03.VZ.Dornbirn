@@ -22,9 +22,9 @@ public class ArrayExample {
 
         try {
             temperature[100] = 10;
-        } catch (ArrayIndexOutOfBoundsException aiob){
+        } catch (IndexOutOfBoundsException iob){
             //aiob.printStackTrace();
-            System.out.println(aiob.getMessage());
+            System.out.println(iob.getMessage());
         }
 
         int size = gyula.week02.MenuExample.readNumber(sc, "Gib mir eine Größe ein:", 1, 10);

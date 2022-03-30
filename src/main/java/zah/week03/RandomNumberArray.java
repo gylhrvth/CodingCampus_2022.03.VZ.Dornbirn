@@ -7,14 +7,14 @@ public class RandomNumberArray {
     static Random rand = new Random();
 
     public static void main(String[] args) {
-        int[] randomArray = randomNUmberArray(29);
+        int[] randomArray = randomNUmberArray(20);
         System.out.println(Arrays.toString(randomArray));
 
         printArray(randomArray);
         System.out.println(randomArray[1] + " " + randomArray[4] + " " + randomArray[9]);
         printEverySecondArray(randomArray);
 
-        int[] crazy = crazyNUmber(10);
+        int[] crazy = crazyNUmber(20);
         printArray(crazy);
 
         System.out.println("Count \">30\" is " + countBiggerThen(randomArray, 30));
@@ -24,6 +24,7 @@ public class RandomNumberArray {
         System.out.println("Minimum is: " + arrayMin(randomArray));
         System.out.println("Maximum is: " + arrayMax(randomArray));
         System.out.println("Average is: " + arrayAvg(randomArray));
+        System.out.println("Index minimum is:" + indexMin(randomArray));
 
     }
 
@@ -115,5 +116,20 @@ public class RandomNumberArray {
         }
         return (float) sum / data.length;
     }
+
+    public static int indexMin(int[] data) {
+        int minimum = Integer.MAX_VALUE;
+        int index = 0;
+        for (int i = 0; i < data.length; i++) {
+            if ( data[i] < minimum ) {
+                minimum = data[i];
+                index = i;
+            }
+
+        }
+        return index;
+
+    }
+
 }
 

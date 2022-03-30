@@ -147,7 +147,7 @@ public class RandomArray {
         //System.out.println(maximum(countBeerToday));
 
 
-        int[] randomList = {}; //randomList(50);
+        int[] randomList = randomList(10);
         System.out.println(randomList);
         //loopIndex(randomList);
         //loopIndexSecond(randomList);
@@ -158,7 +158,7 @@ public class RandomArray {
         //System.out.println("count > 30");
         //System.out.println();
         //countHighX(10, 30);
-        int counter = counter(randomList, 30);
+        int counter = counter(randomList, 10);
         System.out.println("how manny numbers are higher then x:");
         System.out.println(counter);
         int sum = sumArray(randomList);
