@@ -143,5 +143,10 @@ public class Day1 {
         return sum;
     }
 
+//    public static int minValueMaxValueAverageValue(int[] arrays, int minV, int maxV, int aveV){
+//
+//    }
+
 }
+
 
