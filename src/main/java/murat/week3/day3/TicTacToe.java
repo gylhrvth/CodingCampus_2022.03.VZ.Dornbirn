@@ -23,6 +23,7 @@ public class TicTacToe {
         int user = 1;
         while (!finish) {
 
+            // Change user turn
             if (user > 2) {
                 user = 1;
             }
@@ -30,6 +31,8 @@ public class TicTacToe {
             int rowNo = readUserNumber(input);
             System.out.println("User " + user + " : " + "Enter Column between 1-3 (Left to right");
             int colNo = readUserNumber(input);
+
+            // For User 1 enter 1, for user 2 enter 2
             if (user == 1) {
                 gameMatrix[rowNo - 1][colNo - 1] = 1;
             } else {
@@ -38,6 +41,8 @@ public class TicTacToe {
 
             printAMatrix(gameMatrix);
             finish = winCriterion(gameMatrix);
+
+            // If someone wins, game finishes.
             if (finish) {
                 System.out.println("USER " + user + " wins");
             } else {
