@@ -4,7 +4,8 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-// User enters the size of a matrix between [2,50]
+// User enters the size of the row of a matrix between [2,50]
+// User enters the size of the column of a matrix between [2,50]
 // User chooses to sum the rows or columns (For row R or r, for column C or c)
 // The algorithm calculates and prints the sums of columns or rows
 
@@ -14,11 +15,14 @@ public class TwoDArray {
         Random rand = new Random();
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Please enter the dimension of the 2 D Array:");
-        int size = readUserNumber(input);
+        System.out.println("Please enter the size of the rows: ");
+        int sizeOfRows = readUserNumber(input);
+
+        System.out.println("Please enter the size of the columns: ");
+        int sizeOfColumns = readUserNumber(input);
 
         // Create the matrix with random numbers
-        int[][] userMatrix = createA2DArrayWithRandNumbers(rand, size);
+        int[][] userMatrix = createA2DArrayWithRandNumbers(rand, sizeOfRows, sizeOfColumns);
 
         System.out.println();
         System.out.println("Please press R for row sum, C for column sum");
@@ -26,26 +30,26 @@ public class TwoDArray {
 
         // If the user chooses R for Rows and C for Columns
         if (userChoice.equals("R") || userChoice.equals("r")) {
-            int[] accumulatedRows = accumulateTheNumbersOfRows(userMatrix, size);
+            int[] accumulatedRows = accumulateTheNumbersOfRows(userMatrix);
 
             System.out.println("Accumulated rows");
             printAnArray(accumulatedRows, userChoice);
 
         } else {
-            int[] accumulatedColumns = accumulateTheNumbersOfColumn(userMatrix, size);
-            System.out.println("Accumulated rows");
+            int[] accumulatedColumns = accumulateTheNumbersOfColumn(userMatrix);
+            System.out.println("Accumulated columns");
             printAnArray(accumulatedColumns, userChoice);
         }
 
     }
 
-    public static int[][] createA2DArrayWithRandNumbers(Random rand, int size) {
+    public static int[][] createA2DArrayWithRandNumbers(Random rand, int size1, int size2) {
 
-        int[][] twoDArray = new int[size][size];
+        int[][] twoDArray = new int[size1][size2];
         int randomNumber;
 
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
+        for (int i = 0; i < size1; i++) {
+            for (int j = 0; j < size2; j++) {
                 randomNumber = rand.nextInt(100);
                 twoDArray[i][j] = randomNumber;
                 System.out.print(twoDArray[i][j] + " ");
@@ -92,27 +96,26 @@ public class TwoDArray {
         return userText;
     }
 
-    public static int[] accumulateTheNumbersOfColumn(int[][] matrix, int size) {
+    public static int[] accumulateTheNumbersOfColumn(int[][] matrix) {
 
-        int[] sumOfColumnsArray = new int[size];
+        int[] sumOfColumnsArray = new int[matrix[0].length];
 
         int sum = 0;
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
                 sumOfColumnsArray[j] = sumOfColumnsArray[j] + matrix[i][j];
-
             }
         }
         return sumOfColumnsArray;
     }
 
-    public static int[] accumulateTheNumbersOfRows(int[][] matrix, int size) {
+    public static int[] accumulateTheNumbersOfRows(int[][] matrix) {
 
-        int[] sumOfRowsArray = new int[size];
+        int[] sumOfRowsArray = new int[matrix.length];
 
         int sum = 0;
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
                 sumOfRowsArray[i] = sumOfRowsArray[i] + matrix[i][j];
             }
         }
