@@ -20,37 +20,30 @@ public class TicTacToe {
         // gameMatrix[2][0] = 1; gameMatrix[2][1] = 2; gameMatrix[2][2] = 1;
 
         boolean finish = false;
-
+        int user = 1;
         while (!finish) {
 
-            // USER 1
-            System.out.println("User 1: Enter Row between 1-3 (Top to bottom)");
+            if (user > 2) {
+                user = 1;
+            }
+            System.out.println("User " + user + " : " + " Enter Row between 1-3 (Top to bottom)");
             int rowNo = readUserNumber(input);
-            System.out.println("User 1: Enter Column between 1-3 (Left to right");
+            System.out.println("User " + user + " : " + "Enter Column between 1-3 (Left to right");
             int colNo = readUserNumber(input);
-            gameMatrix[rowNo - 1][colNo - 1] = 1;
-            printAMatrix(gameMatrix);
-            finish = winCriterion(gameMatrix);
-            if (finish) {
-                System.out.println("USER 1 wins");
+            if (user == 1) {
+                gameMatrix[rowNo - 1][colNo - 1] = 1;
+            } else {
+                gameMatrix[rowNo - 1][colNo - 1] = 2;
             }
 
-            // USER 2
-            System.out.println("User 2: Enter Row (Top to bottom)");
-            rowNo = readUserNumber(input);
-            System.out.println("User 2: Enter Column (Left to right");
-            colNo = readUserNumber(input);
-            gameMatrix[rowNo - 1][colNo - 1] = 2;
             printAMatrix(gameMatrix);
             finish = winCriterion(gameMatrix);
             if (finish) {
-                System.out.println("USER 2 wins");
+                System.out.println("USER " + user + " wins");
+            } else {
+                user++;
             }
         }
-
-        // printAMatrix(gameMatrix, size);
-        //  winCriterion(gameMatrix);
-
     }
 
     public static void createANullMatrix(int[][] aMatrix) {
