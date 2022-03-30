@@ -39,9 +39,9 @@ public class QuickSort {
 
          CocktailShakerSort.swapTwoNumbers(anArray, q, right);
 
-        for (int i = 0; i < right-1; i++) {
+        /*for (int i = 0; i < right-1; i++) {
             if(anArray)  // Ab Morgen...
-        }
+        }*/
 
         return anArray;
     }
