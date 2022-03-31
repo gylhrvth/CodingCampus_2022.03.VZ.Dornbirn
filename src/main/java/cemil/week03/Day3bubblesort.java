@@ -29,13 +29,15 @@ public class Day3bubblesort {
         for (int i = 0; i < data.length; i++) {
             for (int j = 0; j < data.length - 1; j++) {
 
-                if (data[j] < data[j+1]) {
+                if (data[j] < data[j + 1]) {
                     swap(data, j, j + 1);
                 }
             }
 
         }
     }
+
+
 
     public static void main(String[] args) {
         int[] testArray = new int[20];
@@ -51,6 +53,7 @@ public class Day3bubblesort {
         System.out.println("Reversal");
         bubbleSortReversal(testArray);
         System.out.println(Arrays.toString(testArray));
+
 
     }
 }
