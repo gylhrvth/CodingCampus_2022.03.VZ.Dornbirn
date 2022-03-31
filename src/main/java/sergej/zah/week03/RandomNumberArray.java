@@ -1,4 +1,4 @@
-package zah.week03;
+package sergej.zah.week03;
 
 import java.util.Arrays;
 import java.util.Random;

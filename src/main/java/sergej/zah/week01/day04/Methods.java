@@ -1,4 +1,4 @@
-package zah.week01.day04;
+package sergej.zah.week01.day04;
 
 public class Methods {
 

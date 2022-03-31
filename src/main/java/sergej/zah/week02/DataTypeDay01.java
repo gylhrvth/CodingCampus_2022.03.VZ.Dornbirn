@@ -1,4 +1,4 @@
-package zah.week02;
+package sergej.zah.week02;
 
 public class DataTypeDay01 {
     public static void main(String[] args) {

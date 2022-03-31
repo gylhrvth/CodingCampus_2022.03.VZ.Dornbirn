@@ -1,4 +1,4 @@
-package zah.week01;
+package sergej.zah.week01;
 
 public class CountToTen {
     public static void main(String[] args) {
