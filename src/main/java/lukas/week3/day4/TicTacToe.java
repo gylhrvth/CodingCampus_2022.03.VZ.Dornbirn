@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class TicTacToe {
     public static void main(String[] args) {
+
         int[][] gameField = new int[3][3];
 
         Scanner sc = new Scanner(System.in);
