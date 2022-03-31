@@ -8,31 +8,40 @@ public class TicTacToe {
     public static void main(String[] args) {
 
         int size = 3;
+        boolean someoneWins = false;
+        boolean itIsADraw = false;
+        int user = 1;
 
         Scanner input = new Scanner(System.in);
         int[][] gameMatrix = new int[size][size];
 
         createANullMatrix(gameMatrix);
         printAMatrix(gameMatrix);
-        // TEST Values
-        // gameMatrix[0][0] = 1; gameMatrix[0][1] = 2; gameMatrix[0][2] = 1;
-        // gameMatrix[1][0] = 2; gameMatrix[1][1] = 0; gameMatrix[1][2] = 1;
-        // gameMatrix[2][0] = 1; gameMatrix[2][1] = 2; gameMatrix[2][2] = 1;
 
-        boolean finish = false;
-        int user = 1;
-        while (!finish) {
+        while (!someoneWins && !itIsADraw) {
 
             // Change user turn
             if (user > 2) {
                 user = 1;
             }
+
             System.out.println("User " + user + " : " + " Enter Row between 1-3 (Top to bottom)");
             int rowNo = readUserNumber(input);
+
             System.out.println("User " + user + " : " + "Enter Column between 1-3 (Left to right");
             int colNo = readUserNumber(input);
 
-            // For User 1 enter 1, for user 2 enter 2
+            // If the cells are already filled! (if the value other than 0 is)
+            while (gameMatrix[rowNo - 1][colNo - 1] != 0) {
+                System.out.println("Please fill the empty cells (zeros)");
+                System.out.println("User " + user + " : " + " Enter Row between 1-3 (Top to bottom)");
+                rowNo = readUserNumber(input);
+
+                System.out.println("User " + user + " : " + "Enter Column between 1-3 (Left to right");
+                colNo = readUserNumber(input);
+            }
+
+            // For User 1 overwrite 1, for user 2 overwrite 2
             if (user == 1) {
                 gameMatrix[rowNo - 1][colNo - 1] = 1;
             } else {
@@ -40,11 +49,15 @@ public class TicTacToe {
             }
 
             printAMatrix(gameMatrix);
-            finish = winCriterion(gameMatrix);
 
             // If someone wins, game finishes.
-            if (finish) {
+            someoneWins = winCriterion(gameMatrix);
+            itIsADraw = drawOrNot(gameMatrix);
+
+            if (someoneWins) {
                 System.out.println("USER " + user + " wins");
+            } else if (itIsADraw) {
+                System.out.println("DRAW");
             } else {
                 user++;
             }
@@ -101,6 +114,27 @@ public class TicTacToe {
         }
 
         return won;
+    }
+
+    public static boolean drawOrNot(int[][] aMatrix) {
+
+        boolean thereIsNoZero = true;
+        boolean draw = false;
+
+        for (int i = 0; i < aMatrix.length; i++) {
+            for (int j = 0; j < aMatrix[i].length; j++) {
+                if (aMatrix[i][j] == 0) {
+                    thereIsNoZero = false;
+                    break;
+                }
+            }
+        }
+
+        // There is a 0-cell in matrix? If not, it is a draw
+        if (thereIsNoZero) {
+            draw = true;
+        }
+        return draw;
     }
 
     public static int readUserNumber(Scanner sc) {
