@@ -10,39 +10,69 @@ public class TicTacToe {
         int size = 3;
         boolean someoneWins = false;
         boolean itIsADraw = false;
-        int user = 1;
+        int userTurn = 1;
 
         Scanner input = new Scanner(System.in);
+
+        System.out.println("Please enter the name of the 1st Player");
+        String firstPlayer = readUserText(input);
+
+        System.out.println("Please enter the name of the 2nd Player");
+        String secondPlayer = readUserText(input);
+
         int[][] gameMatrix = new int[size][size];
 
         createANullMatrix(gameMatrix);
+
+        System.out.println("LET'S BEGIN");
         printAMatrix(gameMatrix);
 
         while (!someoneWins && !itIsADraw) {
 
-            // Change user turn
-            if (user > 2) {
-                user = 1;
+            // Change userTurn turn
+            if (userTurn > 2) {
+                userTurn = 1;
             }
 
-            System.out.println("User " + user + " : " + " Enter Row between 1-3 (Top to bottom)");
+            // Enter row number
+            if (userTurn == 1) {
+                System.out.println(firstPlayer + " please enter the ROW number between 1-3 (Top to bottom)");
+            } else {
+                System.out.println(secondPlayer + " please enter the ROW number between 1-3 (Top to bottom)");
+            }
             int rowNo = readUserNumber(input);
 
-            System.out.println("User " + user + " : " + "Enter Column between 1-3 (Left to right");
+            // Enter column number
+            if (userTurn == 1) {
+                System.out.println(firstPlayer + " please enter the COLUMN number between 1-3 (Left to right)");
+            } else {
+                System.out.println(secondPlayer + " please enter the COLUMN number between 1-3 (Left to right)");
+            }
             int colNo = readUserNumber(input);
 
             // If the cells are already filled! (if the value other than 0 is)
             while (gameMatrix[rowNo - 1][colNo - 1] != 0) {
+
+                // Enter row number
                 System.out.println("Please fill the empty cells (zeros)");
-                System.out.println("User " + user + " : " + " Enter Row between 1-3 (Top to bottom)");
+                if (userTurn == 1) {
+                    System.out.println(firstPlayer + " please enter the ROW number between 1-3 (Top to bottom)");
+                } else {
+                    System.out.println(secondPlayer + " please enter the ROW number between 1-3 (Top to bottom)");
+                }
                 rowNo = readUserNumber(input);
 
-                System.out.println("User " + user + " : " + "Enter Column between 1-3 (Left to right");
+                // Enter column number
+                if (userTurn == 1) {
+                    System.out.println(firstPlayer + " please enter the COLUMN number between 1-3 (Left to right)");
+                } else {
+                    System.out.println(secondPlayer + " please enter the COLUMN number between 1-3 (Left to right)");
+                }
                 colNo = readUserNumber(input);
             }
 
-            // For User 1 overwrite 1, for user 2 overwrite 2
-            if (user == 1) {
+            // For User 1 overwrite 1, for userTurn 2 overwrite 2
+            if (userTurn == 1) {
                 gameMatrix[rowNo - 1][colNo - 1] = 1;
             } else {
                 gameMatrix[rowNo - 1][colNo - 1] = 2;
@@ -55,11 +85,11 @@ public class TicTacToe {
             itIsADraw = drawOrNot(gameMatrix);
 
             if (someoneWins) {
-                System.out.println("USER " + user + " wins");
+                System.out.println("USER " + userTurn + " wins");
             } else if (itIsADraw) {
                 System.out.println("DRAW");
             } else {
-                user++;
+                userTurn++;
             }
         }
     }
@@ -155,6 +185,10 @@ public class TicTacToe {
         }
 
         return number;
+    }
+
+    public static String readUserText(Scanner sc) {
+        return sc.nextLine();
     }
 
 }
