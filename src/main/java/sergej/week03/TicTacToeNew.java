@@ -64,7 +64,6 @@ public class TicTacToeNew {
                 }
                 count += 1;
                 draw = draw(count);
-                System.out.println("Draw");
                 run = checkBoard(board, 1);
                 for (int i = 0; i < board.length; i++) {
                     System.out.println(Arrays.toString(board[i]));
@@ -86,7 +85,6 @@ public class TicTacToeNew {
                 }
                 count += 1;
                 draw = draw(count);
-                System.out.println("Draw");
                 run = checkBoard(board, 2);
                 for (int i = 0; i < board.length; i++) {
                     System.out.println(Arrays.toString(board[i]));
@@ -103,6 +101,7 @@ public class TicTacToeNew {
         boolean draw = true;
         if(count==9){
             draw = false;
+            System.out.println("Draw");
         }
         return draw;
     }
