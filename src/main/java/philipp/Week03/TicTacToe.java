@@ -1,6 +1,5 @@
 package philipp.Week03;
 
-import java.util.Objects;
 import java.util.Scanner;
 
 public class TicTacToe {
@@ -23,7 +22,7 @@ public class TicTacToe {
                 System.out.println("Player 1 has won!");
                 break;
             }
-            if (drawcheck(input)) {
+            if (drawCheck(input)) {
                 philipp.Week03.Array2D.printArray(input);
                 System.out.println("Draw!!");
                 break;
@@ -35,7 +34,7 @@ public class TicTacToe {
                 System.out.println("Player 2 has won!");
                 break;
             }
-            if (drawcheck(input)) {
+            if (drawCheck(input)) {
                 philipp.Week03.Array2D.printArray(input);
                 System.out.println("Draw!!");
                 break;
@@ -43,7 +42,7 @@ public class TicTacToe {
         }
     }
 
-    private static boolean drawcheck(int[][] input) {
+    private static boolean drawCheck(int[][] input) {
         boolean drawCheck = true;
         for (int i = 0; i < input.length; i++) {
             for (int j = 0; j < input[i].length; j++) {
@@ -59,7 +58,7 @@ public class TicTacToe {
         return false;
     }
 
-    private static int turn(int userNo, int[][] input, int boardSize) {
+    private static void turn(int userNo, int[][] input, int boardSize) {
         int row;
         int col;
         while (true) {
@@ -74,7 +73,6 @@ public class TicTacToe {
                 break;
             }
         }
-        return userNo;
     }
 
     private static boolean resultOutput(int[][] input, int playerNumber) {
