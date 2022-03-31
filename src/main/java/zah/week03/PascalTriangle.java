@@ -13,8 +13,13 @@ public class PascalTriangle {
         Scanner sc = new Scanner(System.in);
         int[][] number = twoArray(picNumber(sc, 0, 20, "Enter a row number:"), (picNumber(sc, 0, 20, "Enter a column number:")));
 
-        for (int i = 0; i < number.length; i++) {
-            System.out.println(Arrays.toString(number[i]));
+        for (int y = 0; y < number.length; y++) {
+            for (int x = 0; x <number[y].length ; x++) {
+                int []row = number[y];
+                int col = row[x];
+                System.out.printf("%1$8d",col );
+            }
+            System.out.println();
         }
     }
 
