@@ -6,26 +6,36 @@ import java.util.Scanner;
 public class TicTacToe {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int[][] gameField = new int[3][3];
-        print(gameField);
+        boolean execution = true;
 
-        while (true) {
-            turn(1, gameField, sc);
+        while (execution) {
+            int[][] gameField = new int[3][3];
+            boolean retaratGame = true;
             print(gameField);
-            if (checkForWin(gameField, 1)) {
-                System.out.println("player 1 has won");
-                break;
+
+
+            while (true) {
+                turn(1, gameField, sc);
+                print(gameField);
+                if (checkForWin(gameField, 1)) {
+                    System.out.println("player 1 has won");
+                    System.out.println(" Do you what play again? y/n");
+                    retaratGame = false;
+                    break;
+                }
+                turn(2, gameField, sc);
+                print(gameField);
+                if (checkForWin(gameField, 2)) {
+                    System.out.println("Player 2 has won");
+                    System.out.println(" Do you what play again? y/n");
+                    retaratGame = false;
+                    break;
+                }
             }
-            turn(2, gameField, sc);
-            print(gameField);
-            if (checkForWin(gameField, 2)) {
-                System.out.println("Player 2 has won");
-                break;
-            }
+          break;
         }
-
-
     }
+
 
     public static boolean checkForWin(int[][] gameField, int player) {
         for (int y = 0; y < gameField.length; y++) {
@@ -65,7 +75,8 @@ public class TicTacToe {
         if (!lost) {
             return true;
         }
-        lost = false; {
+        lost = false;
+        {
             for (int x = 0; x < gameField.length; x++) {
                 int y = gameField.length - 1 - x;
                 if (gameField[y][x] != player) {
@@ -83,8 +94,8 @@ public class TicTacToe {
 
     public static void turn(int player, int[][] gameField, Scanner sc) {
         while (true) {
-            int row = readNumber(0, 2, "Plyer " + player + " Please enter row: ", sc);
-            int col = readNumber(0, 2, "Plyer " + player + " Please enter col: ", sc);
+            int row = readNumber(1, 3, "Plyer " + player + " Please enter row: ", sc) - 1;
+            int col = readNumber(1, 3, "Plyer " + player + " Please enter col: ", sc) - 1;
             if (gameField[row][col] == 0) {
                 gameField[row][col] = player;
                 break;

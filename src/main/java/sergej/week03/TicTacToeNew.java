@@ -182,7 +182,7 @@ public class TicTacToeNew {
         Scanner sc = new Scanner(System.in);
         int[][] board = gameBoard();
         updateBoard(sc, board);
-        System.out.println();
+
 
     }
 }
