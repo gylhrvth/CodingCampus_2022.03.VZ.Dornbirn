@@ -6,25 +6,38 @@ import java.util.Scanner;
 public class TicTacToe {
     public static void main(String[] args) {
 
-        int[][] battlefield = new int[3][3];
-
         Scanner sc = new Scanner(System.in);
 
-        while (true) {
-            turn(1, battlefield, sc);
-            print(battlefield);
-            if (checkForWin(battlefield, 1)) {
-                System.out.println("Player 1 has won");
-                break;
+        boolean executiongame = true;
+        while (executiongame) {
+            int[][] battlefield = new int[3][3];
+            boolean execution = true;
+
+            while (execution) {
+                turn(1, battlefield, sc);
+                print(battlefield);
+                if (checkForWin(battlefield, 1)) {
+                    System.out.println("Player 1 has won");
+                    execution = true;
+                    break;
+
+
+                }
+                turn(2, battlefield, sc);
+                print(battlefield);
+                if (checkForWin(battlefield, 2)) {
+                    System.out.println("Player 2 has won");
+                    execution = true;
+                    break;
+
+                }
 
             }
-            turn(2, battlefield, sc);
-            print(battlefield);
-            if (checkForWin(battlefield, 2)) {
-                System.out.println("Player 2 has won");
-                break;
-            }
+            executiongame = restartGame(sc);
+
+
         }
+
     }
 
     private static boolean checkForWin(int[][] battlefield, int player) {
@@ -112,12 +125,34 @@ public class TicTacToe {
         }
     }
 
-    private static void print(int[][] gameField) {
+    private static void print(int[][] gameField){
         for (int y = 0; y < gameField.length; y++) {
             for (int x = 0; x < gameField[y].length; x++) {
                 System.out.print(gameField[y][x] + " ");
             }
             System.out.println();
         }
+    }
+
+    public static boolean restartGame (Scanner sc) {
+
+        System.out.println("Do want play again? Yes or No");
+        boolean restart = true;
+        boolean execution = true;
+
+        while (restart) {
+            String answer = sc.nextLine();
+
+            if (answer.equals("yes")) {
+                execution = true;
+                restart = false;
+            } else if (answer.equals("no")) {
+                execution = false;
+                restart = false;
+            } else {
+                System.out.println("Try it Again");
+            }
+        }
+        return execution;
     }
 }
