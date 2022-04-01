@@ -32,7 +32,7 @@ public class Taschenrechner {
 
     }
     public static boolean restartCalculator(Scanner sc) {
-        System.out.println("Do you want to calculate again boss? \nPlease enter y or n");
+        System.out.println("Do you want to calculate again? \nPlease enter y or n");
         boolean calculateAgainScanner = true;
         boolean execution = true;
 

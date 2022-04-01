@@ -2,6 +2,8 @@ package cemil.week02;
 
 import cemil.week03.Day4PascalDreieck;
 
+import java.util.Scanner;
+
 public class Day4TicTacToe {
     public static void ticTacToe(int[][] data) {
         for (int y = 0; y < data.length; y++) {
@@ -17,6 +19,20 @@ public class Day4TicTacToe {
     private static int[][] creTicTakToe(int size) {
         return new int[size][size];
 
+    }
+
+    private static int readNumber(int min, int max, String massage, Scanner sc) {
+        while (true) {
+            System.out.println(massage);
+            if (sc.hasNextInt()) {
+                int number = sc.nextInt();
+                if (number <= max && number >= min) {
+                    return number;
+                }
+            } else {
+                sc.next();
+            }
+        }
     }
 
 
