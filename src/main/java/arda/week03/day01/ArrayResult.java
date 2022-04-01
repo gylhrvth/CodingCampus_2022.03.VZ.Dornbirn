@@ -9,9 +9,9 @@ public class ArrayResult {
         int result = 0;
         for (int i = 0; i < array.length; i++) {
             array[i] = random.nextInt(100) + 1;
-            System.out.print(array[i] + " ");//give out the result of the values. probably element + element and so on.
+            System.out.print(array[i] + " ");
 
-           result = result + array[i];
+           result = result + array[i];  //Note: shouldve been in a function!
         }
         System.out.print("\nthe resut of all elements are " + result);
     }
