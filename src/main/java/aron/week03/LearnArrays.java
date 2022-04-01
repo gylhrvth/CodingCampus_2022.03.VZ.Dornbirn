@@ -3,6 +3,7 @@ package aron.week03;
 import gyula.week03.ArrayExample;
 
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class LearnArrays {
@@ -69,7 +70,23 @@ public class LearnArrays {
                 ++testArray[i];
             }
         }
+    static Random rand = new Random();
+
+    public static void twoD(String[] args) {
+        int [][] matrix = new  int [20][];
+        for (int i = 0; i < matrix.length; i++){
+            matrix[i] = new int[1+i];
+            for (int j = 0; j < matrix [i].length;j++){
+                matrix[i][j] = rand.nextInt(1000);
+            }
+        }
+        for (int i = 0; i < matrix.length; i++){
+            System.out.println(Arrays.toString(matrix[i]));
+        }
+
     }
+}
+
 
 
 

@@ -28,7 +28,7 @@ public class TwoDimensionalArrayCemil {
             System.out.println("Column " + iColumn + ": " + sum);
         }
     }
-//    Pascal Dreieck machen!!!
+
 
 
     public static int sumRow(int[][] data, int iRow) {
