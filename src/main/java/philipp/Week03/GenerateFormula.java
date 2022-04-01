@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class GenerateFormula {
     static Scanner sc = new Scanner(System.in);
 
-
     public static void main(String[] args) {
         System.out.println("Please enter the requested exponent of (a+b):");
         int exponent = readInput(sc, "Please enter a number higher than 1", 0, Integer.MAX_VALUE);
@@ -15,52 +14,51 @@ public class GenerateFormula {
         System.out.println();
         System.out.println(Arrays.toString(consonants));
         printFormula(consonants);
-
     }
 
     private static void printFormula(int[] input) {
-        int i = 0;
         for (int f = 0; f < input.length; f++) {
             if (input.length == 1) {
                 System.out.println("1");
                 break;
             }
-            if (input.length == 2) {
-                System.out.println("a + b");
-                break;
+            if (f > 0 && f !=input.length-1) {
+                System.out.print(input[f]);
             }
-            if (input.length == 3) {
-                System.out.println("a^2 + 2ab + b^2");
-                break;
+            if ((input.length - 1 - f) > 1) {
+                System.out.print("a^" + (input.length - 1 - f));
+            } else if ((input.length - 1 - f) == 1) {
+                System.out.print("a");
             }
-            if (f == 0) {
-                System.out.print("a^" + (input.length - 1) + " + ");
-            } else if (f == input.length - 1) {
-                System.out.println("b^" + (input.length - 1));
+            if (f > 1) {
+                System.out.print("b^" + f);
             } else if (f == 1) {
-                System.out.print(input[f] + "a^" + (input.length - 1 - f) + "b + ");
-            } else if (f == input.length - 2) {
-                System.out.print(input[f] + "ab^" + f + " + ");
-            } else {
-                System.out.print(input[f] + "a^" + (input.length - 1 - f) + "b^" + f + " + ");
+                System.out.print("b");
             }
-//            else if (f == input.length - 2) {
-//                System.out.print(input[f] + "ab^" + (input.length - 2) + " + ");
+            if (f != input.length - 1) {
+                System.out.print(" + ");
+            }
+//            if (input.length == 2) {
+//                System.out.println("a + b");
+//                break;
 //            }
-//            else if (input.length % 2 != 0) {
-//                if (f <= ((input.length) / 2)) {
-//                    System.out.print(input[f] + "a^" + (f + 2) + "b^" + f + " + ");
-//                } else if (f > ((input.length) / 2)) {
-//                    System.out.print(input[f] + "a^" + (f - 2) + "b^" + f + " + ");
-//                }
-//            }else if (input.length % 2 == 0) {
-//                if (f < ((input.length) / 2)) {
-//                    System.out.print(input[f] + "a^" + (f + 1) + "b^" + f + " + ");
-//                } else if (f >= ((input.length) / 2)) {
-//                    System.out.print(input[f] + "a^" + (f - 1) + "b^" + f + " + ");
-//                }
+//            if (input.length == 3) {
+//                System.out.println("a^2 + 2ab + b^2");
+//                break;
+//            }
+//            if (f == 0) {
+//                System.out.print("a^" + (input.length - 1) + " + ");
+//            } else if (f == input.length - 1) {
+//                System.out.println("b^" + (input.length - 1));
+//            } else if (f == 1) {
+//                System.out.print(input[f] + "a^" + (input.length - 1 - f) + "b + ");
+//            } else if (f == input.length - 2) {
+//                System.out.print(input[f] + "ab^" + f + " + ");
+//            } else {
+//                System.out.print(input[f] + "a^" + (input.length - 1 - f) + "b^" + f + " + ");
 //            }
         }
+        System.out.println();
     }
 
     private static int[] consonants(int[][] input, int exponent) {
