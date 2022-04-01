@@ -1,4 +1,4 @@
-package zah.week02;
+package sergej.zah.week02;
 
 public class Day2Bolean {
     public static void main(String[] args) {

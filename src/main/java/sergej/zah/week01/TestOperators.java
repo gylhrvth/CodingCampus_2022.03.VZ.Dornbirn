@@ -1,4 +1,4 @@
-package zah.week01;
+package sergej.zah.week01;
 
 public class TestOperators {
     public static void main(String[] args){

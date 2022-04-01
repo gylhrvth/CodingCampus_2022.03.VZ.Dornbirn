@@ -1,8 +1,8 @@
-package zah.week02;
+package sergej.zah.week02;
 
 
 import sergej.week01.Pythagoras;
-import zah.week01.day04.Methods;
+import sergej.zah.week01.day04.Methods;
 
 import java.util.Scanner;
 
