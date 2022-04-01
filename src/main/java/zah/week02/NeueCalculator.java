@@ -68,7 +68,7 @@ public class NeueCalculator {
                 execution = false;
                 calculateAgainScanner = false;
             } else {
-                System.out.println("Stop playing around");
+                //
             }
         }
         return execution;
