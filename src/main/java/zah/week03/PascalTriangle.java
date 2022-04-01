@@ -21,6 +21,7 @@ public class PascalTriangle {
             }
             System.out.println();
         }
+
     }
 
     public static int[][] twoArray(int row, int colum) {
@@ -53,4 +54,5 @@ public class PascalTriangle {
         }
         return result;
     }
+
 }
