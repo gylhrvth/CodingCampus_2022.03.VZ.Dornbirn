@@ -95,6 +95,7 @@ public class TicTacToe {
             }
 
         }
+        return 0;
     }
 
     private static int readNumber(int min, int max, String message, Scanner sc) {
