@@ -2,6 +2,7 @@ package aron.week03;
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 
 public class BubblesordWithNumbers {
@@ -37,6 +38,29 @@ public class BubblesordWithNumbers {
             }
 
         }
+    }
+
+    public static boolean restartGame (Scanner sc){
+
+        System.out.println("Do want play again? Yes or No");
+        boolean restart =true;
+        boolean execution = true;
+
+        while (restart){
+            String answer = sc.nextLine();
+
+            if (answer.equals("yes")){
+                execution = true;
+                restart = false;
+            }else if (answer.equals("no")){
+                execution = false;
+                restart = false;
+            }else {
+                System.out.println("Try it Again");
+            }
+        }
+        return  execution;
+
     }
 
     public static void main(String[] args) {

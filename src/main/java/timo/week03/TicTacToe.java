@@ -31,6 +31,7 @@ public class TicTacToe {
                     System.out.println("***** It's a draw! *****");
                     System.out.println();
                     System.out.println("- Game Over -");
+                    System.out.println();
                     executionGame = false;
                     break;
                 }
@@ -43,7 +44,6 @@ public class TicTacToe {
                 turncount++;
             }
             execution = restartGame(sc);
-            System.out.println();
         }
     }
 
@@ -141,6 +141,7 @@ public class TicTacToe {
         System.out.println("***** PLAYER " + player + " has won! *****");
         System.out.println();
         System.out.println("- Game Over -");
+        System.out.println();
     }
 
     public static boolean restartGame(Scanner sc) {
