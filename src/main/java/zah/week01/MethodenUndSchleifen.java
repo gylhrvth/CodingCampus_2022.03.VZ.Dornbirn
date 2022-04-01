@@ -1,4 +1,4 @@
-package sergej.zah.week01;
+package zah.week01;
 
 
 import java.sql.SQLOutput;

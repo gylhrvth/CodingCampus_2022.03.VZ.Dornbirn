@@ -1,4 +1,4 @@
-package sergej.zah.week03;
+package zah.week03;
 
 import java.util.Arrays;
 import java.util.Scanner;
