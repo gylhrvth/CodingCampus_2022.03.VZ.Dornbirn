@@ -17,7 +17,7 @@ public class TicTacToe {
         while (true) {
             philipp.Week03.Array2D.printArray(input);
             turn(1, input, boardSize);
-            if (resultOutput(input, 1)) {
+            if (checkWin(input, 1)) {
                 philipp.Week03.Array2D.printArray(input);
                 System.out.println("Player 1 has won!");
                 break;
@@ -29,7 +29,7 @@ public class TicTacToe {
             }
             philipp.Week03.Array2D.printArray(input);
             turn(2, input, boardSize);
-            if (resultOutput(input, 2)) {
+            if (checkWin(input, 2)) {
                 philipp.Week03.Array2D.printArray(input);
                 System.out.println("Player 2 has won!");
                 break;
@@ -75,7 +75,7 @@ public class TicTacToe {
         }
     }
 
-    private static boolean resultOutput(int[][] input, int playerNumber) {
+    private static boolean checkWin(int[][] input, int playerNumber) {
         for (int i = 0; i < input.length; i++) {
             boolean lost = false;
             for (int j = 0; j < input[i].length; j++) {
