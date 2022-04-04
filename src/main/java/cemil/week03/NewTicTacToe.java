@@ -95,11 +95,10 @@ public class NewTicTacToe {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        boolean execution = true;
 
-        while (execution) {
+
+        while (true) {
             int[][] gameField = new int[3][3];
-            boolean executionGame = true;
             print(gameField);
 
 
