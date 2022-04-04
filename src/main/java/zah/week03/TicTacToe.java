@@ -1,15 +1,18 @@
 package zah.week03;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
+
 public class TicTacToe {
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean execution = true;
 
+
         while (execution) {
             int[][] gameField = new int[3][3];
+
             boolean retaratGame = true;
             print(gameField);
 
@@ -19,25 +22,48 @@ public class TicTacToe {
                 print(gameField);
                 if (checkForWin(gameField, 1)) {
                     System.out.println("player 1 has won");
-                    System.out.println(" Do you what play again? y/n");
+
                     retaratGame = false;
+
+
                     break;
                 }
                 turn(2, gameField, sc);
                 print(gameField);
                 if (checkForWin(gameField, 2)) {
                     System.out.println("Player 2 has won");
-                    System.out.println(" Do you what play again? y/n");
                     retaratGame = false;
                     break;
                 }
             }
-          break;
+            execution = restartGame(sc);
         }
     }
 
 
+    public static boolean restartGame(Scanner sc) {
+        System.out.println("Do you want to play again? \nPlease enter y or n!");
+        boolean playAgainScanner = true;
+        boolean execution = true;
+
+        while (playAgainScanner) {
+            String answer = sc.nextLine();
+            if (answer.equals("y")) {
+                execution = true;
+                playAgainScanner = false;
+            } else if (answer.equals("n")) {
+                execution = false;
+                playAgainScanner = false;
+            } else {
+                System.out.println();
+            }
+        }
+        return execution;
+    }
+
     public static boolean checkForWin(int[][] gameField, int player) {
+
+
         for (int y = 0; y < gameField.length; y++) {
             boolean lost = false;
             for (int x = 0; x < gameField[y].length; x++) {
@@ -49,7 +75,6 @@ public class TicTacToe {
             if (!lost) {
                 return true;
             }
-
         }
         for (int y = 0; y < gameField.length; y++) {
             boolean lost = false;
@@ -62,7 +87,6 @@ public class TicTacToe {
             if (!lost) {
                 return true;
             }
-
         }
         boolean lost = false;
         for (int y = 0; y < gameField.length; y++) {
@@ -70,26 +94,25 @@ public class TicTacToe {
                 lost = true;
                 break;
             }
-
         }
         if (!lost) {
             return true;
         }
         lost = false;
-        {
-            for (int x = 0; x < gameField.length; x++) {
-                int y = gameField.length - 1 - x;
-                if (gameField[y][x] != player) {
-                    lost = true;
-                    break;
-                }
+
+        for (int x = 0; x < gameField.length; x++) {
+            int y = gameField.length - 1 - x;
+            if (gameField[y][x] != player) {
+                lost = true;
+                break;
             }
-            if (!lost) {
-                return true;
-            }
-            return false;
+        }
+        if (!lost) {
+            return true;
         }
 
+
+        return false;
     }
 
     public static void turn(int player, int[][] gameField, Scanner sc) {
@@ -129,8 +152,6 @@ public class TicTacToe {
 
         }
     }
-
-
 }
 
 
