@@ -12,20 +12,24 @@ public class HowManySundaysHaveTheMonth {
      * @return
      */
     public static int getSundays(int year, int month) {
-        GregorianCalendar firstOfMonth = new GregorianCalendar(year, month - 1, 1);
-        int lastOfMoth = firstOfMonth.getActualMaximum(Calendar.DAY_OF_MONTH);
-        int counter = 0;
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
-        System.out.println(sdf.format(firstOfMonth.getTime()));
+        int counter = 0;
+
+        GregorianCalendar firstOfMonth = new GregorianCalendar(year, month - 1, 1);
+        SimpleDateFormat sdf2 = new SimpleDateFormat("MMMM");
+        System.out.println(sdf2.format(firstOfMonth.getTime()));
+        int lastOfMoth = firstOfMonth.getActualMaximum(Calendar.DAY_OF_MONTH);
         System.out.println(lastOfMoth);
 
-        for (int i = 1; i <= lastOfMoth; i++) {
-   firstOfMonth.set(year, month);
+        for (int dayConter = 1; dayConter <= lastOfMoth; dayConter++) {
+            firstOfMonth.set(year, month - 1, dayConter);
+
             if (firstOfMonth.DAY_OF_MONTH == firstOfMonth.SUNDAY) {
                 counter++;
             }
         }
+
         System.out.println(counter);
 
         return 0;
@@ -37,7 +41,7 @@ public class HowManySundaysHaveTheMonth {
         System.out.println(getSundays(2021, 10));
         System.out.println(getSundays(2021, 9));
 
+
     }
 }
-
 
