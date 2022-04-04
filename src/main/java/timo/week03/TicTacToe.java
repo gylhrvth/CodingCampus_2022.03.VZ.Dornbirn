@@ -9,36 +9,27 @@ import static timo.week03.PascalArray.print2DArray;
 public class TicTacToe {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
         boolean execution = true;
 
         while (execution) {
             int[][] game = ticTacToeField();
-            boolean executionGame = true;
             print2DArray(game);
             int turncount = 0;
 
-            while (executionGame) {
+            while (true) {
                 turn(game, sc, 1, "PLAYER 1");
                 if (checkForWin(game, 1)) {
                     displayWinMessage(1);
-                    executionGame = false;
                     break;
                 }
                 turncount++;
                 if (turncount == 9) {
-                    System.out.println();
-                    System.out.println("***** It's a draw! *****");
-                    System.out.println();
-                    System.out.println("- Game Over -");
-                    System.out.println();
-                    executionGame = false;
+                    displayDrawMessage();
                     break;
                 }
                 turn(game, sc, 2, "PLAYER 2");
                 if (checkForWin(game, 2)) {
                     displayWinMessage(2);
-                    executionGame = false;
                     break;
                 }
                 turncount++;
@@ -139,6 +130,14 @@ public class TicTacToe {
     public static void displayWinMessage(int player) {
         System.out.println();
         System.out.println("***** PLAYER " + player + " has won! *****");
+        System.out.println();
+        System.out.println("- Game Over -");
+        System.out.println();
+    }
+
+    public static void displayDrawMessage() {
+        System.out.println();
+        System.out.println("***** It's a draw! *****");
         System.out.println();
         System.out.println("- Game Over -");
         System.out.println();
