@@ -5,7 +5,7 @@ import java.util.GregorianCalendar;
 
 public class MyCalendar {
 
-    public static void getWorkdays(int year, int month) {
+    public static void newCalendar(int year, int month) {
 
         GregorianCalendar gc = new GregorianCalendar(year, month - 1, 1);
 
@@ -39,7 +39,7 @@ public class MyCalendar {
 
     public static void main(String[] args) {
 
-        getWorkdays(2022, 4);
+        newCalendar(2022, 4);
 
     }
 }
