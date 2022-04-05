@@ -66,7 +66,6 @@ public class getDay {
             try {
                 return format.parse(dataText);
             } catch (ParseException e) {
-
                 System.out.println(text);
             }
         }

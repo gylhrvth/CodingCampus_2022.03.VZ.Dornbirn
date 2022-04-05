@@ -23,8 +23,8 @@ public class Kalendar {
 
         while (gc.get(Calendar.DAY_OF_WEEK) != Calendar.SUNDAY) {
             gc.add(Calendar.DAY_OF_MONTH, 1);
-
         }
+
         System.out.println(sdf.format(gc.getTime()));
         System.out.println(getSundays(2021, 10));
         System.out.println(getSundays(2021, 9));
