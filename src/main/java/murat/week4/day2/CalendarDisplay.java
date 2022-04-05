@@ -10,7 +10,7 @@ public class CalendarDisplay {
     public static void main(String[] args) {
 
         int userYear = 1987;
-        int userMonth = 1;
+        int userMonth = 3;
         int userDay = 14;
 
         displayCalendar(userYear, userMonth, userDay);
