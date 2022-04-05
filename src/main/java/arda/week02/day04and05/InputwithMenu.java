@@ -23,6 +23,7 @@ public class InputwithMenu {
     public static int readUserInput(Scanner sc, int minvalue, int maxvalue) {
         int userinput = Integer.MIN_VALUE;
         boolean b = true;
+
         while (b) {
             try {
                 String text = sc.nextLine();
