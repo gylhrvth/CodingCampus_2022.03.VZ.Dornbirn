@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class MyCalendarImproved {
+public class MyCalendarAllRegions {
 
     public static void main(String[] args) {
         Locale.setDefault(new Locale.Builder().setRegion("TH").setLanguage("th").build());
