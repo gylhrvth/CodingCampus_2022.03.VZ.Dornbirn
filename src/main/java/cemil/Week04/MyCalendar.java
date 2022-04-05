@@ -50,8 +50,8 @@ public class MyCalendar {
         System.out.println(getWorkDays(2021, 2));
         System.out.println();
         System.out.println("Birthday");
-
-//        readBirthdayAndPrintDay();
+        System.out.println();
+        readBirthdayAndPrintDay();
         readOneLine();
 
 
@@ -92,14 +92,14 @@ public class MyCalendar {
         }
         return countOfSundays;
     }
-    public static void readOneLine (){
+
+    public static void readOneLine() {
         Scanner sc = new Scanner(System.in);
-        Date date = readDate(sc,"Gib dein Geburtsdatum ein (Tag.Monat.Jahr): ");
+        Date date = readDate(sc, "Gib dein Geburtsdatum ein (Tag.Monat.Jahr): ");
         Calendar gc = Calendar.getInstance();
         gc.setTime(date);
-        System.out.println(date);
         SimpleDateFormat format = new SimpleDateFormat("EEEE");
-        System.out.println(format.format(gc.getTime()));
+        System.out.println("Du bist am " + format.format(gc.getTime()) + " geboren.");
 
 
     }
@@ -119,7 +119,7 @@ public class MyCalendar {
         Calendar gc = Calendar.getInstance();
         gc.set(year, month - 1, day);
         SimpleDateFormat format = new SimpleDateFormat("EEEE");
-        System.out.println(format.format(gc.getTime()));
+        System.out.println("Du bist am " + format.format(gc.getTime()) + " geboren.");
     }
 
     private static Date readDate(Scanner sc, String text) {
