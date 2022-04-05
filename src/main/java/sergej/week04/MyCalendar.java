@@ -11,11 +11,19 @@ public class MyCalendar {
 
         int daysInMonth = gc.getActualMaximum(Calendar.DAY_OF_MONTH);
 
-        System.out.println("MO DI MI DO FR SA SO");
+        System.out.println("|MO| |DI| |MI| |DO| |FR| |SA| |SO|");
 
+        int isSunday = Calendar.SUNDAY;
         String initialSpace = "";
-        for (int i = 0; i < gc.get(Calendar.DAY_OF_WEEK) - 2; i++) {
-            initialSpace += "   ";
+
+        if (isSunday == gc.get(Calendar.DAY_OF_WEEK)) {
+            for (int i = 0; i < 6; i++) {
+                initialSpace += "|  |" + " ";
+            }
+        } else {
+            for (int i = 0; i < gc.get(Calendar.DAY_OF_WEEK) - 2; i++) {
+                initialSpace += "|  |" + " ";
+            }
         }
         System.out.print(initialSpace);
 
@@ -27,10 +35,12 @@ public class MyCalendar {
             if (dayofweek - 1 == Calendar.SUNDAY) {
                 System.out.println();
             }
+
             if (day < 10) {
-                System.out.print(" ");
+                System.out.print("| " + dayofmonth + "| ");
+                continue;
             }
-            System.out.print(dayofmonth + " ");
+            System.out.print("|" + dayofmonth + "| ");
 
         }
 
