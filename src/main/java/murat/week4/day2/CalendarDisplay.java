@@ -9,9 +9,9 @@ import java.util.GregorianCalendar;
 public class CalendarDisplay {
     public static void main(String[] args) {
 
-        int userYear = 1986;
-        int userMonth = 0;
-        int userDay = 28;
+        int userYear = 1987;
+        int userMonth = 1;
+        int userDay = 14;
 
         displayCalendar(userYear, userMonth, userDay);
 
@@ -51,7 +51,11 @@ public class CalendarDisplay {
                 if (blank == -1) {         // If Sunday
                     blank = 6;
 
-                    lastRow = 6;   // If sunday, there need to one extra row.
+                    // If the month starts with sunday and the month is february, there is an exception.
+                    // We have not many days and don't need an extra row
+                    if (karenda.get(Calendar.MONTH) != Calendar.FEBRUARY) {
+                        lastRow = 6;   // If sunday, there need to one extra row.
+                    }
                 }
 
                 // Print blanks
