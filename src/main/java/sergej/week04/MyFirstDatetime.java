@@ -58,6 +58,7 @@ public class MyFirstDatetime {
         try {
             Date date1 = formatter.parse(date);
             GregorianCalendar birthDay = new GregorianCalendar();
+            birthDay.setTimeInMillis(0);
             birthDay.setTime(date1);
             String dayWeekText = new SimpleDateFormat("EEEE").format(birthDay.getTime());
             System.out.println("Your day of Birth is: " + dayWeekText);
