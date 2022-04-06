@@ -7,31 +7,31 @@ import java.util.Locale;
 public class MyCalendarAllRegions {
 
     public static void main(String[] args) {
+        Calendar now = Calendar.getInstance();
+        System.out.println();
+        System.out.print("Today is: ");
+        System.out.println((now.getTime()));
+        System.out.println();
+
+        int monthOfCal =4;
+        //Locale wird auf Thailand gesetzt, hier wird der Buddistische Kalender verwendet
         Locale.setDefault(new Locale.Builder().setRegion("TH").setLanguage("th").build());
-        myCalendar2(4);
+        myCalendar2(monthOfCal);
+
+        //Locale wird auf Deutschland gesetzt, hier wird der Gregorianische Kalender verwendet
+        Locale.setDefault(Locale.GERMANY);
+        myCalendar2(monthOfCal);
     }
 
     private static void myCalendar2(int month) {
         month = month - 1;
         Calendar today = Calendar.getInstance();
-//        System.out.println(today);
-        System.out.println();
-        System.out.print("Today is: ");
-        System.out.println((today.getTime()));
-        System.out.println();
+        today.set(today.get(Calendar.YEAR),today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH),0,0,0);
+        today.set(Calendar.MILLISECOND, 0);
 
         Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.MONTH, month);
-        cal.set(Calendar.DAY_OF_MONTH, 1);
-        cal.set(Calendar.HOUR_OF_DAY, 0);
-        cal.set(Calendar.MINUTE, 0);
-        cal.set(Calendar.SECOND, 0);
+        cal.set(cal.get(Calendar.YEAR),month, 1,0,0,0);
         cal.set(Calendar.MILLISECOND, 0);
-
-        today.set(Calendar.HOUR_OF_DAY, 0);
-        today.set(Calendar.MINUTE, 0);
-        today.set(Calendar.SECOND, 0);
-        today.set(Calendar.MILLISECOND, 0);
 
         SimpleDateFormat sdf = new SimpleDateFormat(" MM");
         System.out.print(cal.get(Calendar.YEAR));
@@ -46,7 +46,6 @@ public class MyCalendarAllRegions {
 
         printEmptySpotsBefore(firstDayOfWeek, cal);
 
-        firstDayOfWeek = cal.getFirstDayOfWeek();
         int maxDayOfMonth = cal.getActualMaximum(Calendar.DAY_OF_MONTH);
         for (int day = 1; day <= maxDayOfMonth; day++) {
             cal.set(Calendar.DAY_OF_MONTH, day);
@@ -56,15 +55,14 @@ public class MyCalendarAllRegions {
         printEmptySpotsAfter(cal, firstDayOfWeek);
 
         System.out.println();
-//        System.out.println(cal.getTime());
-//        System.out.println(today.getTime());
+        System.out.println();
     }
 
     private static void printCal(int firstDayOfWeek, Calendar cal, Calendar today) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd");
-        int lastDayOfWeek = 7;
-        if (2 == firstDayOfWeek) {
-            lastDayOfWeek = 1;
+        int lastDayOfWeek = Calendar.SATURDAY;
+        if (Calendar.MONDAY == firstDayOfWeek) {
+            lastDayOfWeek = Calendar.SUNDAY;
         }
         if (cal.get(Calendar.DAY_OF_WEEK) == lastDayOfWeek) {
             if (cal.equals(today)) {
@@ -80,34 +78,31 @@ public class MyCalendarAllRegions {
     }
 
     private static void printEmptySpotsBefore(int firstDayOfWeek, Calendar cal) {
-        int empty = cal.get(Calendar.DAY_OF_WEEK);
-        if (2 == firstDayOfWeek) {
-            if (empty == 1) {
-                empty += 7;
-            }
-        } else {
-            if (empty == 0) {
-                empty += 7;
+        int fdow = firstDayOfWeek;
+        int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+        if (Calendar.MONDAY == firstDayOfWeek) {
+            if (dayOfWeek == Calendar.SUNDAY) {
+                dayOfWeek += 7;
             }
         }
-        while (firstDayOfWeek < empty) {
+        while (fdow < dayOfWeek) {
             System.out.print("|    ");
-            firstDayOfWeek++;
+            fdow++;
         }
     }
 
     private static void printEmptySpotsAfter(Calendar cal, int firstDayOfWeek) {
         int lastDayOfMonth = cal.get(Calendar.DAY_OF_WEEK) + (cal.getActualMaximum(Calendar.DAY_OF_WEEK) % 7);
-        if (2 == firstDayOfWeek) {
-            if (lastDayOfMonth != 1) {
+        if (Calendar.MONDAY == firstDayOfWeek) {
+            if (lastDayOfMonth != Calendar.SUNDAY) {
                 System.out.print("|");
             }
-            while (lastDayOfMonth <= 7 && lastDayOfMonth != 1) {
+            while (lastDayOfMonth <= 7 && lastDayOfMonth != Calendar.SUNDAY) {
                 System.out.print("    |");
                 lastDayOfMonth++;
             }
         } else {
-            if (lastDayOfMonth != 7) {
+            if (lastDayOfMonth != Calendar.SATURDAY) {
                 System.out.print("|");
             }
             while (lastDayOfMonth < 7) {
