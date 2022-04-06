@@ -18,7 +18,7 @@ public class NeueKalender {
      * @return
      */
     public static void dayInCalendar(int year, int month) {
-        System.out.println("| Mo| Di| MI| Do| Fr| Sa| So|");
+        System.out.println(COLORS[2] +"| Mo | Di | MI | Do | Fr | Sa | So |" + RESET);
 
         Calendar gc = Calendar.getInstance();
         int toDay = gc.get(Calendar.DAY_OF_MONTH);
@@ -39,7 +39,7 @@ public class NeueKalender {
             if (i > 10) {
                 line = "| ";
             } else {
-                line = "| " + "  ";
+                line = "|    ";
             }
             System.out.print(line);
         }
@@ -48,12 +48,16 @@ public class NeueKalender {
             String line;
             String star = "";
             if (toDay == i) {
-                star = "*";
+                star = COLORS[5]+"*"+RESET;
+            }else {
+                star=" ";
             }
-            if (i > 10) {
+            if (i >= 10) {
+
                 line = "| " + i;
             } else {
-                line = "| " + i + " ";
+
+                line = "|  " + i ;
             }
             System.out.print(line + star);
 
@@ -66,4 +70,14 @@ public class NeueKalender {
             gc.add(Calendar.DAY_OF_MONTH, 1);
         }
     }
+    public static final String RESET = "\u001B[0m";
+    public static final String[] COLORS = new String[]{
+            "\u001B[31m",
+            "\u001B[32m",
+            "\u001B[33m",
+            "\u001B[34m",
+            "\u001B[35m",
+            "\u001B[36m",
+            "\u001B[37m"
+    };
 }
