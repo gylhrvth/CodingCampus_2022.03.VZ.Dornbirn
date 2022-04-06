@@ -2,7 +2,10 @@ package aron.Week04;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
+import java.util.TimeZone;
 
 public class TryCalender {
     public static void main(String[] args) {
@@ -34,6 +37,10 @@ public class TryCalender {
             if (counter % 7 == 0) {
                 System.out.println();
             }
+            Calendar currentDay = Calendar.getInstance(TimeZone.getDefault());
+            Date date = currentDay.getTime();
+            int day = currentDay.get(Calendar.DATE);
+            System.out.println(day);
         }
     }
 }
