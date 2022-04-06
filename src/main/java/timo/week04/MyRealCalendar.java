@@ -1,5 +1,7 @@
 package timo.week04;
 
+import lukas.week4.day3.Color;
+
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Calendar;
@@ -8,13 +10,13 @@ import java.util.GregorianCalendar;
 public class MyRealCalendar {
     public static void main(String[] args) {
 
-        myCoolCalendar(2016, 3);
+        myCoolCalendar(2022, 4);
     }
 
     public static void myCoolCalendar(int year, int month) {
         GregorianCalendar gc = new GregorianCalendar(year, month - 1, 1);
-        System.out.println(new SimpleDateFormat("YYYY MMMM").format(gc.getTime()));
-        System.out.println("| Mo |" + " Di |" + " Mi |" + " Do |" + " Fr |" + " Sa |" + " So |");
+        System.out.println(COLORS[3] + year + RESET + " " + COLORS[5] + new SimpleDateFormat("MMMM").format(gc.getTime()) + RESET);
+        System.out.println(Color.BACKGROUND_COLORS[0] + "| Mo |" + " Tu |" + " We |" + " Th |" + " Fr " + COLORS[0] + "| Sa |" + " Su |" + RESET);
 
         int currentDayNumber = gc.get(Calendar.DAY_OF_WEEK);
         int maxDayOfMonth = gc.getActualMaximum(Calendar.DAY_OF_MONTH);
@@ -35,7 +37,7 @@ public class MyRealCalendar {
                 System.out.print(" ");
             }
             if (dateOfMonth == currentDate) {
-                System.out.print(dateOfMonth + "*");
+                System.out.print(COLORS[2] + dateOfMonth + RESET + " ");
             } else {
                 System.out.print(dateOfMonth + " ");
             }
@@ -55,5 +57,16 @@ public class MyRealCalendar {
             gc.add(Calendar.DAY_OF_WEEK, 1);
         }
     }
+    public static final String RESET = "\u001B[0m";
+    public static final String[] COLORS = new String[]{
+            "\u001B[31m",
+            "\u001B[32m",
+            "\u001B[33m",
+            "\u001B[34m",
+            "\u001B[35m",
+            "\u001B[36m",
+            "\u001B[37m"
+    };
+
 
 }
