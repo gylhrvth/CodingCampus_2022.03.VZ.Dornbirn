@@ -16,7 +16,7 @@ public class CalendarDisplayOptimized {
 
     public static void displayCalendar(int year, int month, int day) {
 
-        int inc = 1;            // Day increment
+        int inc = 1;        // Day increment
         int blank;          // Number of blanks in calendar
         GregorianCalendar kalender = new GregorianCalendar(year, month, day);
 
@@ -25,6 +25,7 @@ public class CalendarDisplayOptimized {
             return;
         }
 
+        // Print today
         System.out.println();
         System.out.println("TODAY is: " + kalender.getTime());
         System.out.println();
