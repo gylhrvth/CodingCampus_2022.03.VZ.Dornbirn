@@ -1,5 +1,6 @@
 package timo.week04;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -30,7 +31,7 @@ public class MyCalendar {
         int workdays3 = getWorkdays(2021, 2);
         System.out.println(workdays3);
 
-         returnBirthday();
+        returnBirthday();
 
     }
 
@@ -54,7 +55,7 @@ public class MyCalendar {
         int count = 0;
 
         for (int days = 1; days <= gc.getActualMaximum(Calendar.DAY_OF_MONTH); days++) {
-           gc.set(year, month - 1, days);
+            gc.set(year, month - 1, days);
             int dayofweek = gc.get(Calendar.DAY_OF_WEEK);
             if (dayofweek != Calendar.SATURDAY && dayofweek != Calendar.SUNDAY) {
                 count++;
@@ -66,17 +67,20 @@ public class MyCalendar {
 
     public static void returnBirthday() {
         Scanner sc = new Scanner(System.in);
+        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
 
-        System.out.println("Please enter year of birth");
-        int year = sc.nextInt();
-        System.out.println("Please enter month of birth");
-        int month = sc.nextInt();
-        System.out.println("Please enter date of birth");
-        int day = sc.nextInt();
+        System.out.println("Please enter date of birth:");
+        String userDate = sc.nextLine();
+        try {
+            Date date1 = formatter.parse(userDate);
+            GregorianCalendar birthDay = new GregorianCalendar();
+            birthDay.setTimeInMillis(0);
+            birthDay.setTime(date1);
+            String dayOfBirth = new SimpleDateFormat("EEEE").format(birthDay.getTime());
+            System.out.println("Your day of birth is " + dayOfBirth);
 
-        GregorianCalendar birthDay = new GregorianCalendar(year, month - 1, day);
-
-        System.out.println("Your birthday is " + birthDay.get(Calendar.DAY_OF_WEEK));
+        } catch (ParseException pe) {
+        }
 
 
     }
