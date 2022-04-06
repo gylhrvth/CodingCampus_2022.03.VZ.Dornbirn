@@ -12,17 +12,16 @@ public class CalendarTasks {
         int userYear = 2021;
         int userMonth = 2;
 
-        // task1NextSunday(gc);
+        task1NextSunday(gc);
         // task2HowManySundays(userYear, userMonth);
-        task3WorkdaysInAMonth(userYear, userMonth);
+        // task3WorkdaysInAMonth(userYear, userMonth);
     }
 
     public static void task1NextSunday(GregorianCalendar gc) {
 
-        gc.add(Calendar.DAY_OF_MONTH, (8 - gc.get(Calendar.DAY_OF_WEEK)) % 7);
+        gc.add(Calendar.DAY_OF_MONTH, (8 - gc.get(Calendar.DAY_OF_WEEK) % 7));
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyy, E, h:mm:s");
         System.out.println(sdf.format(gc.getTime()));
-
     }
 
     // @param month 1 = January to 12 = December
@@ -48,7 +47,7 @@ public class CalendarTasks {
         return howManySundays;
     }
 
-     // @param month 1 = January to 12 = December
+    // @param month 1 = January to 12 = December
     public static int task3WorkdaysInAMonth(int year, int month) {
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy, E, h:mm:s");
