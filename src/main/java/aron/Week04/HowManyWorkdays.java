@@ -4,16 +4,15 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-public class HowManySundaysHaveTheMonth {
+public class HowManyWorkdays {
 
-    /**
-     * @param year
-     * @param month from 1 = January to 12 = December
-     * @return
-     */
-    public static int getSundays(int year, int month) {
+    public static void main(String[] args) {
+        System.out.println(getWorkday(2021, 6));
+        System.out.println(getWorkday(2021, 3));
+        System.out.println(getWorkday(2021, 2));
+    }
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+    public static int getWorkday(int year, int month){
         int counter = 0;
 
         GregorianCalendar firstOfMonth = new GregorianCalendar(year, month - 1, 1);
@@ -25,23 +24,22 @@ public class HowManySundaysHaveTheMonth {
         for (int dayConter = 1; dayConter <= lastOfMoth; dayConter++) {
             firstOfMonth.set(year, month - 1, dayConter);
 
-            if (firstOfMonth.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
+            int dayOfWeek = firstOfMonth.get(Calendar.DAY_OF_WEEK);
+            if (dayOfWeek != Calendar.SUNDAY && dayOfWeek != Calendar.SATURDAY) {
                 counter++;
             }
         }
 
-        System.out.println(counter);
 
-        return 0;
+        return counter;
     }
 
 
-    public static void main(String[] args) {
-
-        System.out.println(getSundays(2021, 10));
-        System.out.println(getSundays(2021, 9));
 
 
-    }
+
+
+
+
+
 }
-
