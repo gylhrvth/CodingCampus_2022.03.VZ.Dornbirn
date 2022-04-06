@@ -11,4 +11,14 @@ public class Color {
             "\u001B[36m",
             "\u001B[37m"
     };
+
+    public static final String[] BACKGROUND_COLORS = new String[]{
+            "\033[40m",
+            "\033[41m",
+            "\033[42m",
+            "\033[43m",
+            "\033[44m",
+            "\033[45m",
+            "\033[46m"
+    };
 }
