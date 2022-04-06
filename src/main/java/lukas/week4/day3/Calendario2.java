@@ -6,7 +6,7 @@ import java.util.Locale;
 
 public class Calendario2 {
     public static void main(String[] args) {
-        System.out.println(new Date().toString().replace("Apr", Color.COLORS[4] + "Apr" + Color.RESET));
+        System.out.println(new Date().toString().replace("Apr", Color.BACKGROUND_COLORS[4] + Color.COLORS[2]+ "Apr" + Color.RESET));
         System.out.println(Calendar.getInstance().getTime());
 
         Locale.setDefault(new Locale.Builder().setRegion("TH").setLanguage("th").build());
