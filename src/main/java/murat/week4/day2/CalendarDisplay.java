@@ -9,9 +9,9 @@ import java.util.GregorianCalendar;
 public class CalendarDisplay {
     public static void main(String[] args) {
 
-        int userYear = 1987;
-        int userMonth = 3;
-        int userDay = 14;
+        int userYear = 2009;
+        int userMonth = 1;
+        int userDay = 5;
 
         displayCalendar(userYear, userMonth, userDay);
 
@@ -21,13 +21,18 @@ public class CalendarDisplay {
 
         GregorianCalendar karenda = new GregorianCalendar(year, month, day);
 
+        if (month != karenda.get(Calendar.MONTH)) {
+            System.out.println("Date is not valid!!!");
+            return;
+        }
+
         System.out.println("TODAY is: " + karenda.getTime());
         System.out.println();
         SimpleDateFormat sdf1 = new SimpleDateFormat("dd");
 
         int howManyDaysInAMonth = karenda.getActualMaximum(Calendar.DAY_OF_MONTH);
 
-        int inc = 0;            // Day increment
+        int inc = 1;            // Day increment
         String s = "|    ";     // Template for the blanks
         int blank = 0;          // Number of blanks in calendar
         int lastRow = 5;        // Start for usual 5 rows (if necessary, increase it)
@@ -67,8 +72,13 @@ public class CalendarDisplay {
             // Fill the rows (left to right)
             for (int j = 0; j < 7 - blank; j++) {
 
+                // Exception: If the month is too big, create a new row. Ex: 2022 January
+                if (inc < howManyDaysInAMonth && i == 4 && j == 6) {
+                    lastRow = 6;
+                }
+
                 // If the month ends, stop the days and enter blanks
-                if (inc + 1 > howManyDaysInAMonth) {
+                if (inc > howManyDaysInAMonth) {
 
                     for (int k = 0; k <= (7 - blank) - j; k++) {
                         System.out.print(s);
@@ -86,10 +96,16 @@ public class CalendarDisplay {
 
                 inc++;       // Increase the days
                 karenda.add(Calendar.DAY_OF_MONTH, 1);
+
+                // Exception: If the last day sunday is, add another line to the end of the line.
+                // EX: 2004 February and 2021 January
+                if (inc == howManyDaysInAMonth + 1 && i == 4 && j == 6) {
+                    System.out.println("|");
+                }
             }
 
             // If the month ends, don't print the last line
-            if ((inc + 1) <= howManyDaysInAMonth) {
+            if (inc <= howManyDaysInAMonth) {
                 System.out.println("|");
             }
 
