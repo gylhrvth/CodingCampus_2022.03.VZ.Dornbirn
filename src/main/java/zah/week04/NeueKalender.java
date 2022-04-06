@@ -7,7 +7,7 @@ public class NeueKalender {
     public static void main(String[] args) {
         Calendar gc = Calendar.getInstance();
         gc.setTime(new Date());
-        dayInCalendar(2022, 10);
+        dayInCalendar(2022, 4);
 
 
     }
@@ -22,7 +22,9 @@ public class NeueKalender {
 
 
         Calendar gc = Calendar.getInstance();
+        int toDay = gc.get(Calendar.DAY_OF_MONTH);
         gc.set(year, month - 1, 1);
+
 
         int lastDayOfMonth = gc.getActualMaximum(Calendar.DAY_OF_MONTH);
 
@@ -48,12 +50,17 @@ public class NeueKalender {
 
         for (int i = 1; i <= lastDayOfMonth; i++) {
             String line;
+            String star = "";
+            if (toDay == i) {
+                star = "*";
+            }
             if (i > 10) {
                 line = "| " + i;
             } else {
                 line = "| " + i + " ";
             }
-            System.out.print(line);
+            System.out.print(line + star);
+
 
             if (gc.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
                 System.out.println("|");
