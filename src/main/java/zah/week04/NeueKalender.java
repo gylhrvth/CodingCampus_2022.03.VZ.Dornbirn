@@ -20,14 +20,11 @@ public class NeueKalender {
     public static void dayInCalendar(int year, int month) {
         System.out.println("| Mo| Di| MI| Do| Fr| Sa| So|");
 
-
         Calendar gc = Calendar.getInstance();
         int toDay = gc.get(Calendar.DAY_OF_MONTH);
         gc.set(year, month - 1, 1);
 
-
         int lastDayOfMonth = gc.getActualMaximum(Calendar.DAY_OF_MONTH);
-
         int currentWeekDay = gc.get(Calendar.DAY_OF_WEEK);
 
         int blanks;
@@ -45,7 +42,6 @@ public class NeueKalender {
                 line = "| " + "  ";
             }
             System.out.print(line);
-
         }
 
         for (int i = 1; i <= lastDayOfMonth; i++) {
@@ -61,7 +57,6 @@ public class NeueKalender {
             }
             System.out.print(line + star);
 
-
             if (gc.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
                 System.out.println("|");
             }
@@ -69,9 +64,6 @@ public class NeueKalender {
                 System.out.println("|");
             }
             gc.add(Calendar.DAY_OF_MONTH, 1);
-
-
         }
-
     }
 }
