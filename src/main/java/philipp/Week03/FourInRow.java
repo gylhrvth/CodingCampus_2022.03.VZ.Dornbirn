@@ -1,28 +1,30 @@
 package philipp.Week03;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class FourInRow {
     static Scanner sc = new Scanner(System.in);
-    static Random rn = new Random();
 
     public static void main(String[] args) {
         //int[][] test = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-        play4InRow(board(6, 7), 7);
+        play4InRow(board(6, 7), 6, 7);
     }
 
-    private static void play4InRow(int[][] board, int cols) {
+    private static void play4InRow(int[][] board, int row, int cols) {
         int[] coord;
         while (true) {
             Array2D.printArray(board);
             coord = turn(1, board, cols);
-            if (winCheckRowCol(board, coord, 1)) {
+            if (winCheckRowCol(board, coord, 1)||winCheckDiagonal(board, coord, 1, row, cols)) {
                 Array2D.printArray(board);
                 System.out.println("Player 1 has won!");
                 return;
             }
-//          check win slash backslash
+//            if (winCheckDiagonal(board, coord, 1, row, cols)) {
+//                Array2D.printArray(board);
+//                System.out.println("Player 1 has won!");
+//                return;
+//            }
             if (drawCheck(board)) {
                 Array2D.printArray(board);
                 System.out.println("Draw!!");
@@ -30,12 +32,16 @@ public class FourInRow {
             }
             Array2D.printArray(board);
             coord = turn(2, board, cols);
-            if (winCheckRowCol(board, coord, 2)) {
+            if (winCheckRowCol(board, coord, 2)||winCheckDiagonal(board, coord, 2, row, cols)) {
                 Array2D.printArray(board);
                 System.out.println("Player 2 has won!");
                 return;
             }
-//          check win slash backslash
+//            if (winCheckDiagonal(board, coord, 2, row, cols)) {
+//                Array2D.printArray(board);
+//                System.out.println("Player 1 has won!");
+//                return;
+//            }
             if (drawCheck(board)) {
                 Array2D.printArray(board);
                 System.out.println("Draw!!");
@@ -60,7 +66,7 @@ public class FourInRow {
         int j = coord[1];
         int counter = 0;
         int x = 0;
-        while (x < board.length-1) {
+        while (x < board.length - 1) {
             if (board[x][j] == playerNo) {
                 counter++;
                 if (counter == 4) {
@@ -71,6 +77,7 @@ public class FourInRow {
             }
             x++;
         }
+        counter = 0;
         x = 0;
         while (x < board[i].length) {
             if (board[i][x] == playerNo) {
@@ -86,12 +93,71 @@ public class FourInRow {
         return false;
     }
 
-    private static boolean winCheckDiagonal(int[][] board, int[] coord, int playerNo){
+    private static boolean winCheckDiagonal(int[][] board, int[] coord, int playerNo, int row, int col) {
         int i = coord[0];
         int j = coord[1];
         int counter = 0;
-
-
+        //check backSlash up
+        while (i >= 0 && i < row && j >= 0 && j < col) {
+            if (board[i][j] == playerNo) {
+                counter++;
+                if (counter == 4) {
+                    return true;
+                }
+            } else {
+                counter = 0;
+            }
+            i--;
+            j--;
+        }
+        i++;
+        j++;
+        counter = 0;
+        //check backSlash down
+        while (i >= 0 && i < row && j >= 0 && j < col) {
+            if (board[i][j] == playerNo) {
+                counter++;
+                if (counter == 4) {
+                    return true;
+                }
+            } else {
+                counter = 0;
+            }
+            i++;
+            j++;
+        }
+        //check Slash up
+        i = coord[0];
+        j = coord[1];
+        counter = 0;
+        while (i >= 0 && i < row && j >= 0 && j < col) {
+            if (board[i][j] == playerNo) {
+                counter++;
+                if (counter == 4) {
+                    return true;
+                }
+            } else {
+                counter = 0;
+            }
+            i--;
+            j++;
+        }
+        i++;
+        j--;
+        counter = 0;
+        //check Slash down
+        while (i >= 0 && i < row && j >= 0 && j < col) {
+            if (board[i][j] == playerNo) {
+                counter++;
+                if (counter == 4) {
+                    return true;
+                }
+            } else {
+                counter = 0;
+            }
+            i++;
+            j--;
+        }
         return false;
     }
 
@@ -112,7 +178,6 @@ public class FourInRow {
         int[] coordinates = {i, j};
         return coordinates;
     }
-
 
     private static int[][] board(int row, int col) {
         int[][] board = new int[row][col];
