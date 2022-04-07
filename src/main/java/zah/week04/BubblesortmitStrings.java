@@ -34,13 +34,22 @@ public class BubblesortmitStrings {
 
         System.out.println(Arrays.toString(data));
         System.out.println("----------------");
-        String[] names = new String[]{"Philipp", "Arda", "Murat", "Jimmy", "McGill", "Sergej", "Razvan", "Timo", "Aron", "Gyula", "Lukas" };
+        String[] names = new String[]{"Philipp", "Arda", "Murat", "Cemil", "Sergej", "Razvan", "Timo", "Aron", "Gyula", "Lukas" };
         System.out.println(Arrays.toString(names));
         ascending(names);
         System.out.println("--------------------------");
         System.out.println(Arrays.toString(names));
         descending(names);
         System.out.println(Arrays.toString(names));
+        System.out.println("---------------------------");
+        stringExtended(names, true);
+        System.out.println(Arrays.toString(names));
+        stringExtended(names, false);
+        System.out.println(Arrays.toString(names));
+        System.out.println("--------------------");
+        character(names,1);
+        System.out.println(Arrays.toString(names));
+
 
 
     }
@@ -58,7 +67,6 @@ public class BubblesortmitStrings {
         data[name1] = data[name2];
         data[name2] = swap;
 
-
     }
 
     public static void ascending(String[] asc) {
@@ -74,6 +82,7 @@ public class BubblesortmitStrings {
         }
 
     }
+
     public static void descending(String[] dsc) {
 
         for (int i = 0; i < dsc.length; i++) {
@@ -87,4 +96,38 @@ public class BubblesortmitStrings {
         }
 
     }
+
+    public static void stringExtended(String[] extend, boolean ascending) {
+        for (int i = 0; i < extend.length; i++) {
+            for (int j = 0; j < extend.length - 1 - i; j++) {
+                String name = extend[j];
+                String nextName = extend[j + 1];
+
+                if (ascending) {
+                    if (name.compareTo(nextName) > 0) {
+                        swap2(extend, j, j + 1);
+                    }
+                } else {
+                    if (name.compareTo(nextName) < 0) {
+                        swap2(extend, j, j + 1);
+
+                    }
+                }
+            }
+        }
+
+    }
+
+    public static void character(String[] text, int charCharacter) {
+        for (int i = 0; i < text.length; i++) {
+            for (int j = 0; j < text.length - 1 - i; j++) {
+                String name = text[j];
+                String nextName = text[j + 1];
+                if (name.charAt(charCharacter)>nextName.charAt(charCharacter)) {
+                    swap2(text, j, j + 1);
+                }
+            }
+        }
+    }
 }
+
