@@ -12,6 +12,9 @@ public class MuratSwap {
 
         System.out.println();
         System.out.println(swapTwoCharsInAString("Murat", 1, 2));
+
+        System.out.println();
+        System.out.println(reverseAString("Murat"));
     }
 
     public static void swapTwoStringsInArray(String[] anArray, int firstIndex, int secondIndex) {
@@ -26,6 +29,18 @@ public class MuratSwap {
         char anElement = charsOfAString[secondIndex];
         charsOfAString[secondIndex] = charsOfAString[firstIndex];
         charsOfAString[firstIndex] = anElement;
+        return new String(charsOfAString);
+    }
+
+    public static String reverseAString(String aString) {
+
+        char[] charsOfAString = aString.toCharArray();
+
+        for (int i = 0, j = aString.length() - 1; i < j; i++, j--) {
+            char first = charsOfAString[i];
+            charsOfAString[i] = charsOfAString[j];
+            charsOfAString[j] = first;
+        }
         return new String(charsOfAString);
     }
 }
