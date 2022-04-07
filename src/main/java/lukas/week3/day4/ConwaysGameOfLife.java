@@ -1,7 +1,7 @@
 package lukas.week3.day4;
 
 public class ConwaysGameOfLife {
-    private static final int[][] GLEITER = {
+    public static final int[][] GLEITER = {
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
@@ -14,7 +14,7 @@ public class ConwaysGameOfLife {
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     };
 
-    private static final int[][] SEGLER = {
+    public static final int[][] SEGLER = {
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
