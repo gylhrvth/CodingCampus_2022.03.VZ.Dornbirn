@@ -17,30 +17,15 @@ public class RandomReverse {
         char[] arr = text.toCharArray();
         System.out.println(Arrays.toString(arr));
 
-        StringBuilder rev = new StringBuilder();
-        for (int i = arr.length - 1; i >= 0; i--) {
-            rev.append(arr[i]);
+        int random = randomNum(arr.length);
+
+        for (int i = 0; i < arr.length - 1; i++) {
+            char swap = arr[i];
+            arr[i] = arr[random];
+            arr[random] = swap;
         }
-        String reversed = rev.toString();
-        char[] revChar = reversed.toCharArray();
-        System.out.println(Arrays.toString(revChar));
+        System.out.println(arr);
 
-        int random = randomNum(revChar.length);
-
-        for (int i = 0; i < revChar.length - 1; i++) {
-            char swap = revChar[i];
-            revChar[i] = revChar[i + 1];
-            revChar[i + 1] = swap;
-
-        }
-        System.out.println(revChar);
-
-    }
-
-    public static void swap(String[] array, int indexA, int indexB) {
-        String swap = array[indexA];
-        array[indexA] = array[indexB];
-        array[indexB] = swap;
     }
 
     public static int randomNum(int input) {
