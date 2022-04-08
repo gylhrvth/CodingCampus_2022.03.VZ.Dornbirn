@@ -5,9 +5,13 @@ import java.util.Date;
 
 public class NeueKalender {
     public static void main(String[] args) {
+        System.out.println(COLORS[1] +"| Mo | Di | MI | Do | Fr | Sa | So |" + RESET);
         Calendar gc = Calendar.getInstance();
         gc.setTime(new Date());
         dayInCalendar(2022, 4);
+
+
+
 
 
     }
@@ -18,7 +22,7 @@ public class NeueKalender {
      * @return
      */
     public static void dayInCalendar(int year, int month) {
-        System.out.println(COLORS[2] +"| Mo | Di | MI | Do | Fr | Sa | So |" + RESET);
+
 
         Calendar gc = Calendar.getInstance();
         int toDay = gc.get(Calendar.DAY_OF_MONTH);
@@ -46,17 +50,18 @@ public class NeueKalender {
 
         for (int i = 1; i <= lastDayOfMonth; i++) {
             String line;
-            String star = "";
+            String star ="";
             if (toDay == i) {
-                star = COLORS[5]+"*"+RESET;
+                star = COLORS[1]+"*"+RESET;
             }else {
                 star=" ";
             }
             if (i >= 10) {
-
+                if (toDay==i){
+                    System.out.println(COLORS[1]+i+RESET);
+                }
                 line = "| " + i;
             } else {
-
                 line = "|  " + i ;
             }
             System.out.print(line + star);
