@@ -11,7 +11,7 @@ public class Day4StringArray {
         ascendingOrDescending(names, false);
         System.out.println(Arrays.toString(names));
         System.out.println("***** Character Index *****");
-        characterIndex(names, 3, true);
+        characterIndex(names, 1, true);
         System.out.println(Arrays.toString(names));
 
 //        descending(names);
@@ -48,7 +48,7 @@ public class Day4StringArray {
                         swap(arr, j, j + 1);
                     }
                 }
-//               Ist falsch!!!  Falsche klammern {}!?!?!
+//               Ist falsch!?!?!  Falsche klammern {}!?!?!
 //               Guckstdu oben wo diese {} isch und unten diese {} isch
 //                if (asd) {
 //                    if (currentWord.charAt(charIndex) > nextWord.charAt(charIndex)) {
