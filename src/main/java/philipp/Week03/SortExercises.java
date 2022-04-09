@@ -3,7 +3,7 @@ package philipp.Week03;
 import java.util.Arrays;
 import java.util.Random;
 
-public class SortExersices {
+public class SortExercises {
     static Random rn = new Random();
 
     public static void main(String[] args) {
