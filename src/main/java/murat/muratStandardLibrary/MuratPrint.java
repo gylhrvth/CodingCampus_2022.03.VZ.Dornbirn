@@ -1,5 +1,7 @@
 package murat.muratStandardLibrary;
 
+import lukas.week3.day4.ConwaysGameOfLife;
+
 public class MuratPrint {
     public static void main(String[] args) {
 
@@ -8,6 +10,7 @@ public class MuratPrint {
 
         printAStringArray(names, true);
         printAnIntegerArray(numbers);
+        printAnInt2DArray(ConwaysGameOfLife.GLEITER);
     }
 
     public static void printAStringArray(String[] anArray, boolean horizontal) {
@@ -31,5 +34,15 @@ public class MuratPrint {
             System.out.print(anArray[i] + " ");
         }
         System.out.println();
+    }
+
+    public static void printAnInt2DArray(int[][] a2DArray) {
+
+        for (int i = 0; i < a2DArray.length; i++) {
+            for (int j = 0; j < a2DArray[i].length; j++) {
+                System.out.print(a2DArray[i][j]);
+            }
+            System.out.println();
+        }
     }
 }
