@@ -11,9 +11,9 @@ public class CountingLettersV1 {
 
         // Fill a char array with the characters in ASCII No: 32-126
         char letter;
-        char[] abc = new char[95];
+        char[] abc = new char[26];
         int inc = 0;
-        for (letter = ' '; letter <= '~'; letter++) {
+        for (letter = 'A'; letter <= 'Z'; letter++) {
             abc[inc] = letter;
             inc++;
         }
