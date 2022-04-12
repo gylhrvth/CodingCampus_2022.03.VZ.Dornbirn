@@ -64,16 +64,8 @@ public class CountLetters {
                     int swapInt = inputCounter[j];
                     inputCounter[j] = inputCounter[j+1];
                     inputCounter[j+1] = swapInt;
-
-
-
-
-
                 }
             }
-
         }
-
-
     }
 }
