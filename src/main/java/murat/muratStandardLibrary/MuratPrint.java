@@ -44,5 +44,6 @@ public class MuratPrint {
             }
             System.out.println();
         }
+        System.out.println();
     }
 }
