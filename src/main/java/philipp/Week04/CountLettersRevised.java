@@ -21,6 +21,19 @@ public class CountLettersRevised {
                 index = (index * 2);
                 lettersTemp = copyCharArray(lettersTemp, index);
                 lettersCounterTemp = copyIntArray(lettersCounterTemp, index);
+                int j = 0;
+                while (true) {
+                    if (lettersTemp[j] == text[i]) {
+                        lettersCounterTemp[j]++;
+                        break;
+                    } else if (lettersTemp[j] == 0) {
+                        lettersTemp[j] = text[i];
+                        lettersCounterTemp[j]++;
+                        break;
+                    } else {
+                        j++;
+                    }
+                }
             } else {
                 int j = 0;
                 while (true) {

@@ -30,40 +30,40 @@ public class CountLetters {
                 }
             }
         }
-        
-        int indexCounter=0;
+
+        int indexCounter = 0;
         for (int i = 0; i < lettersTemp.length; i++) {
-            if(lettersTemp[i]==0){
+            if (lettersTemp[i] == 0) {
                 break;
             }
             indexCounter++;
         }
         char[] letters = new char[indexCounter];
-        int[]lettersCounter= new int[indexCounter];
+        int[] lettersCounter = new int[indexCounter];
 
         for (int i = 0; i < letters.length; i++) {
-            letters[i]=lettersTemp[i];
-            lettersCounter[i]=lettersCounterTemp[i];
+            letters[i] = lettersTemp[i];
+            lettersCounter[i] = lettersCounterTemp[i];
         }
-        sortArrays(letters,lettersCounter);
-        
+        sortArrays(letters, lettersCounter);
+
         for (int i = 0; i < letters.length; i++) {
             System.out.print(letters[i] + " ");
             System.out.println(lettersCounter[i]);
         }
     }
 
-    private static void sortArrays(char[] inputLetters, int[]inputCounter){
-        for (int i = 0; i < inputLetters.length-1; i++) {
-            for (int j = 0; j < inputLetters.length-1-i; j++) {
-                if(inputLetters[j] >inputLetters[j+1]){
+    private static void sortArrays(char[] inputLetters, int[] inputCounter) {
+        for (int i = 0; i < inputLetters.length - 1; i++) {
+            for (int j = 0; j < inputLetters.length - 1 - i; j++) {
+                if (inputLetters[j] > inputLetters[j + 1]) {
                     char swap = inputLetters[j];
-                    inputLetters[j] = inputLetters[j+1];
-                    inputLetters[j+1] = swap;
+                    inputLetters[j] = inputLetters[j + 1];
+                    inputLetters[j + 1] = swap;
 
                     int swapInt = inputCounter[j];
-                    inputCounter[j] = inputCounter[j+1];
-                    inputCounter[j+1] = swapInt;
+                    inputCounter[j] = inputCounter[j + 1];
+                    inputCounter[j + 1] = swapInt;
                 }
             }
         }
