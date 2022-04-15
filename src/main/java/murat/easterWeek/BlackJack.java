@@ -16,9 +16,13 @@ public class BlackJack {
 
         Scanner input = new Scanner(System.in);
         int[][] gameDeck = createDeck();
-        System.out.println();
+
         shuffleTheCards(gameDeck);
-        System.out.println("-----------------------------------------------------------------------------------------------------------");
+        for (int i = 0; i < 100; i++) {
+            System.out.println();
+        }
+
+        System.out.println("Scroll up to see the deck----------------------------------------------------------------------------------");
         // Get first hands...
         int[][] dealerHand = new int[2][2];
         int[][] gamblerHand = new int[2][2];
@@ -27,19 +31,21 @@ public class BlackJack {
         int gamblerHandValue = getAHandsValue(gamblerHand);
         int dealerHandValue = getAHandsValue(dealerHand);
 
-        System.out.println("Dealer Hand: " + dealerHandValue);
-        printAHand(dealerHand);
+        System.out.println("Dealer Hand: ? One card is back facing!");
+        printASingleCard(dealerHand[0][0], dealerHand[1][0]);
+        printAnEmptyCard();
 
         System.out.println("Gambler Hand: " + gamblerHandValue);
         printAHand(gamblerHand);
 
-        System.out.println("-----------------------------------------------------------------------------------------------------------");
+        System.out.println("START------------------------------------------------------------------------------------------------------");
 
         if (dealerHandValue == 21) {
-            System.out.println("Dealer Blackjack");
+            printAHand(dealerHand);
+            System.out.println("Dealer BLACKJACK");
 
         } else if (gamblerHandValue == 21) {
-            System.out.println("Gambler Blackjack");
+            System.out.println("Gambler BLACKJACK");
 
         } else {
             String userDecision = readUserText(input);
@@ -55,18 +61,24 @@ public class BlackJack {
                     gamblerHandValue = getAHandsValue(gamblerHand);
                     System.out.println('\n' + "Gambler Hand: " + gamblerHandValue);
                     printAHand(gamblerHand);
-                    System.out.println("Dealer: " + getAHandsValue(dealerHand) + " Gambler: " + getAHandsValue(gamblerHand));
+                    System.out.println("Gambler: " + getAHandsValue(gamblerHand));
 
                     if (gamblerHandValue == 21) {
-                        System.out.println("Blackjack");
+                        System.out.println("Dealer Hand:");
+                        printAHand(dealerHand);
+                        System.out.println("Gambler BLACKJACK");
+                        System.out.println("Dealer: " + getAHandsValue(dealerHand) + " Gambler: " + getAHandsValue(gamblerHand));
                     } else if (gamblerHandValue > 21) {
-                        System.out.println(" Gambler Bust");
+                        System.out.println("Dealer Hand:");
+                        printAHand(dealerHand);
+                        System.out.println("Gambler Bust");
+                        System.out.println("Dealer: " + getAHandsValue(dealerHand) + " Gambler: " + getAHandsValue(gamblerHand));
                     } else {
-                        //System.out.println("Press H for Hit or S for Stand");
                         userDecision = readUserText(input);
                         if (userDecision.equals("S") || userDecision.equals("s")) {
 
                             dealerHandValue = dealersTurn(gameDeck, dealerHand, nextCard);
+                            System.out.println("Dealer: " + getAHandsValue(dealerHand) + " Gambler: " + getAHandsValue(gamblerHand));
                             if (gamblerHandValue > dealerHandValue) {
                                 System.out.println("Gambler wins");
                             } else if (dealerHandValue > gamblerHandValue && dealerHandValue < 21) {
@@ -78,6 +90,7 @@ public class BlackJack {
                 }
             } else {
                 dealerHandValue = dealersTurn(gameDeck, dealerHand, nextCard);
+                System.out.println("Dealer: " + getAHandsValue(dealerHand) + " Gambler: " + getAHandsValue(gamblerHand));
                 if (gamblerHandValue > dealerHandValue && gamblerHandValue < 21) {
                     System.out.println("Gambler wins");
                 } else if (dealerHandValue > gamblerHandValue && dealerHandValue < 21) {
@@ -106,6 +119,7 @@ public class BlackJack {
         }
 
         printTheDeck(deck);
+        System.out.println();
         return deck;
     }
 
@@ -185,7 +199,6 @@ public class BlackJack {
         for (int j = 0; j < aHand[0].length; j++) {
             printASingleCard(aHand[0][j], aHand[1][j]);
         }
-
     }
 
     public static int getARandomNumber() {
@@ -234,7 +247,7 @@ public class BlackJack {
             if (dealerHandValue > 17 && dealerHandValue < 21) {
                 return dealerHandValue;
             } else if (dealerHandValue == 21) {
-                System.out.println("Dealer Blackjack");
+                System.out.println("Dealer BLACKJACK");
                 return dealerHandValue;
             } else if (dealerHandValue > 21) {
                 System.out.println("Bust Dealer");
@@ -303,6 +316,40 @@ public class BlackJack {
             }
             System.out.println();
         }
+    }
+
+    public static void printAnEmptyCard() {
+
+        int length = 9;
+
+        // Upper body of the card - First 3 rows
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < length; j++) {
+                if (i == 0 || j == 0 || j == length - 1) {
+                    System.out.print("*");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+
+        // Card symbol
+        System.out.print("*   ?   *\n");
+        System.out.print("*   ?   *\n");
+
+        // Lower body of the card - Last 3 rows
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < length; j++) {
+                if (i == 2 || j == 0 || j == length - 1) {
+                    System.out.print("*");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+
     }
 
     public static final String ANSI_RED = "\u001B[31m";
