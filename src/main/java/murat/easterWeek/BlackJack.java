@@ -4,13 +4,13 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
+// To display the suit symbols Intellij-Help-Edit Custom VM Options, paste
+//-Dconsole.encoding=UTF-8
+//-Dfile.encoding=UTF-8
+// Then restart IntelliJ
+
+// Spade 1 is an ace and worth of 11 points
 public class BlackJack {
-
-    public static final String ANSI_RED = "\u001B[31m";
-
-    public static final String ANSI_BLACK = "\u001B[30m";
-
-    public static final String ANSI_RESET = "\u001B[0m";
 
     public static void main(String[] args) {
 
@@ -123,10 +123,10 @@ public class BlackJack {
 
         int valueOfAHand = 0;
         for (int j = 0; j < aHand[0].length; j++) {
-            if (aHand[0][j] >= 10 && aHand[0][j] <= 12) {
+            if (aHand[0][j] >= 10 && aHand[0][j] <= 13) {           // 10, Jack, Queen and King = 10 points
                 valueOfAHand = valueOfAHand + 10;
-            } else if (aHand[0][j] == 13) {
-                valueOfAHand = valueOfAHand + 11;
+            } else if (aHand[0][j] == 1 && aHand[1][j] == 4) {
+                valueOfAHand = valueOfAHand + 11;                   // Spade 1 is ACE = 11 points
             } else {
                 valueOfAHand = valueOfAHand + aHand[0][j];
             }
@@ -183,19 +183,9 @@ public class BlackJack {
     public static void printAHand(int[][] aHand) {
 
         for (int j = 0; j < aHand[0].length; j++) {
-
-            // Create suits 1-Heart, 2-Diamond, 3-Club, 4-Spade
-            if (aHand[1][j] == 1) {
-                System.out.println(ANSI_RED + aHand[0][j] + " Heart " + "\u2665" + ANSI_RESET);
-            } else if (aHand[1][j] == 2) {
-                System.out.println(ANSI_RED + aHand[0][j] + " Diamond " + "\u2666" + ANSI_RESET);
-            } else if (aHand[1][j] == 3) {
-                System.out.println(ANSI_BLACK + aHand[0][j] + " Club " + "\u2663" + ANSI_RESET);
-            } else {
-                System.out.println(ANSI_BLACK + aHand[0][j] + " Spade " + "\u2660" + ANSI_RESET);
-            }
+            printASingleCard(aHand[0][j], aHand[1][j]);
         }
-        System.out.println();
+
     }
 
     public static int getARandomNumber() {
@@ -208,7 +198,6 @@ public class BlackJack {
 
         for (int i = 0; i < 2; i++) {
             aMatrix[i] = Arrays.copyOf(aMatrix[i], aMatrix[i].length + 1);
-
         }
     }
 
@@ -255,5 +244,69 @@ public class BlackJack {
         dealerHandValue = getAHandsValue(dealerHand);
         return dealerHandValue;
     }
+
+    public static void printASingleCard(int number, int symbol) {
+
+        int length = 9;
+        String cardSymbol = "";
+
+        if (symbol == 1) {
+            cardSymbol = ANSI_RED + "\u2665" + ANSI_RESET;        // Heart - red
+        } else if (symbol == 2) {
+            cardSymbol = ANSI_RED + "\u2666" + ANSI_RESET;        // Diamond - red
+        } else if (symbol == 3) {
+            cardSymbol = ANSI_BLACK + "\u2663" + ANSI_RESET;      // Club - black
+        } else if (symbol == 4) {
+            cardSymbol = ANSI_BLACK + "\u2660" + ANSI_RESET;      // Spade - black
+        }
+
+        // Upper body of the card - First 3 rows
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < length; j++) {
+                if (i == 0 || j == 0 || j == length - 1) {
+                    System.out.print("*");
+                } else if ((i == 1 && j == 1) || (i == 1 && j == length - 2)) {
+                    System.out.print(cardSymbol);
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+
+        // Card number
+        if (number < 10) {
+            System.out.print("*   " + number + "   *\n");
+        } else if (number == 10) {
+            System.out.print("*  " + number + "   *\n");
+        } else if (number == 11) {
+            System.out.print("*   " + "J" + "   *\n");
+        } else if (number == 12) {
+            System.out.print("*   " + "D" + "   *\n");
+        } else if (number == 13) {
+            System.out.print("*   " + "K" + "   *\n");
+        }
+
+        // Card symbol
+        System.out.print("*   " + cardSymbol + "   *\n");
+
+        // Lower body of the card - Last 3 rows
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < length; j++) {
+                if (i == 2 || j == 0 || j == length - 1) {
+                    System.out.print("*");
+                } else if ((i == 1 && j == 1) || (i == 1 && j == length - 2)) {
+                    System.out.print(cardSymbol);
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_BLACK = "\u001B[30m";
+    public static final String ANSI_RESET = "\u001B[0m";
 }
 
