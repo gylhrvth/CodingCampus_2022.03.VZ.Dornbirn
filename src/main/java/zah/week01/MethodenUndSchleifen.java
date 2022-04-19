@@ -81,7 +81,7 @@ public class MethodenUndSchleifen {
 
 
     public static void main(String[] args) {
-        //printChars("x ", 10);
+        printChars("x ", 10);
         //printSquare("A ", 12);
         // printRect("x", 10, 3);
         //printTriangleTopRight("x", 5);

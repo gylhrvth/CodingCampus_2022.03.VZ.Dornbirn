@@ -8,7 +8,10 @@ public class BubblesortmitStrings {
         int[] data = new int[20];
         Random rand = new Random();
         for (int i = 0; i < data.length; i++) {
+            for (int j = 0; j < data.length ; j++) {
+            }
             data[i] = rand.nextInt(20);
+
 
         }
         for (int i = 0; i < data.length; i++) {
