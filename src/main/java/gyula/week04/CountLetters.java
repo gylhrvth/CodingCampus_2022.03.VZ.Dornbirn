@@ -18,7 +18,7 @@ public class CountLetters {
     public static int[] countLetters(String text){
         char[] chars = text.toCharArray();
 
-        int[] count = new int[256 + 1];
+        int[] count = new int[128 + 1];
 
         for (int i = 0; i < chars.length; i++) {
             if (((int)chars[i] >= 0) && ((int)chars[i] < count.length)){
