@@ -30,7 +30,7 @@ public class NeueCalculator {
                 String text = sc.nextLine();
                 number = Float.parseFloat(text);
             } catch (NumberFormatException nfe) {
-                System.out.println("Enter a valid number you clown");
+                System.out.println("Enter a valid number:");
             }
         }
         return number;
