@@ -1,15 +1,18 @@
 package zah.osterFerie;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
 public class TicTacToeCpu {
     public static Random rand = new Random();
+    static String[] playerSymbol = {"X", "O"};
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean execution = false;
         boolean draw = false;
+
 
 
         while (!execution && !draw) {
@@ -27,6 +30,7 @@ public class TicTacToeCpu {
                     System.out.println(" The game is tie");
                     break;
                 }
+                System.out.println(".....................");
                 turnCpu("cpu", gameField);
                 print(gameField);
                 if (checkForWin(gameField, 2)) {
