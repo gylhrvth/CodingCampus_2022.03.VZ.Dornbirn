@@ -1,7 +1,5 @@
 package philipp.Week04;
 
-import java.util.Arrays;
-
 public class CountLetters {
 
     public static void main(String[] args) {
