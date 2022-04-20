@@ -77,8 +77,9 @@ public class SearchingForHesseV2 {
         int counter = 0;
 
         System.out.println("Positions: ");
-        int i = textToAnalyse.indexOf("Hesse", 0);;
-        while (i >= 0){
+        int i = textToAnalyse.indexOf("Hesse", 0);
+
+        while (i >= 0) {
             System.out.print(i + " ");
             ++counter;
 
