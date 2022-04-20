@@ -1,6 +1,6 @@
 package murat.week5.day3;
 
-public class SearchingForHesse {
+public class SearchingForHesseV1 {
 
     private static final String textToAnalyse = "Zur Zeit des Zweiten Weltkriegs waren seine großen Werke Siddhartha und Der Steppenwolf noch verboten. Heute gehört Hermann Hesse zu den bekanntesten deutschen Schriftstellern. Mehr über den Weltveränderer lest ihr hier\n" +
             "Hermann Hesse\n" +
