@@ -7,7 +7,7 @@ public class ArrayNumber {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        ascendingNumbers(100);
+        ascendingNumbers(10);
 
     }
 
