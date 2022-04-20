@@ -121,7 +121,7 @@ public class RandomNumberArray {
         int minimum = Integer.MAX_VALUE;
         int index = 0;
         for (int i = 0; i < data.length; i++) {
-            if ( data[i] < minimum ) {
+            if (data[i] < minimum) {
                 minimum = data[i];
                 index = i;
             }
