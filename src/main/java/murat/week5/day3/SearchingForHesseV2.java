@@ -76,14 +76,13 @@ public class SearchingForHesseV2 {
 
         int counter = 0;
 
-        System.out.println("Positionen: ");
-        for (int i = 0; i < textToAnalyse.length(); i++) {
+        System.out.println("Positions: ");
+        int i = textToAnalyse.indexOf("Hesse", 0);;
+        while (i >= 0){
+            System.out.print(i + " ");
+            ++counter;
 
-            if (i < textToAnalyse.indexOf("Hesse", i)) {
-                i = textToAnalyse.indexOf("Hesse", i);
-                System.out.print(i + " ");
-                counter++;
-            }
+            i = textToAnalyse.indexOf("Hesse", 1 + i);
         }
 
         System.out.println("\nFrequency: " + counter);
