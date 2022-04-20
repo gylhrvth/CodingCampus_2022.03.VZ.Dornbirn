@@ -17,13 +17,15 @@ public class DisplayAsATable {
 
         //System.out.println(lengthFirstName + " " + lengthLastName + " " + lengthAge + " " + lengthPlace + " " + lengthDist);
 
-        System.out.println("-------------------------------------------------------------------");
+        System.out.println("*******************************************************************");
+        System.out.print("| FIRST NAME       | LAST NAME     | AGE | PLACE           | DIST |\n");
+        System.out.println("*******************************************************************");
         for (int i = 0; i < 5; i++) {
             System.out.printf("| %" + (-(lengthFirstName + 1)) + "s | %" + (-(lengthLastName + 1)) +
                     "s | %" + (lengthAge + 1) + "d | %" + (-(lengthPlace + 1)) +
                     "s |%" + (lengthDist + 3) + ".1f|%n", firstName[i], lastName[i], age[i], place[i], distanceFromCapital[i]);
         }
-
+        System.out.println("*******************************************************************");
     }
 
     public static int getMaxString(String[] text) {
