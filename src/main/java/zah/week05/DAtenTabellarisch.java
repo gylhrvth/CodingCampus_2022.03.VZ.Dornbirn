@@ -22,6 +22,7 @@ public class DAtenTabellarisch {
         String headerLine = String.format("| %-20s| %-20s|%5s | %-20s| %19s |", "First Name", "Last Name", "Age", "Place", "Distance");
         System.out.println(headerLine);
         System.out.println("|" + "-".repeat(headerLine.length() - 2) + "|");
+
         for (int i = 0; i < first.length; i++) {
 
             System.out.printf("| %-20s| %-20s|%5d | %-20s|%17.2f km |%n", first[i], last[i], age[i], place[i], distance[i]);
