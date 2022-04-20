@@ -1,6 +1,5 @@
 package lukas.week4.day4;
 
-import lukas.week4.day4.ShuffleArray;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
