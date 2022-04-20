@@ -1,8 +1,122 @@
-package murat.week5.day3;
+package philipp.week05;
 
-public class SearchingForHesseV2 {
 
-    private static final String textToAnalyse = "Zur Zeit des Zweiten Weltkriegs waren seine großen Werke Siddhartha und Der Steppenwolf noch verboten. Heute gehört Hermann Hesse zu den bekanntesten deutschen Schriftstellern. Mehr über den Weltveränderer lest ihr hier\n" +
+import java.util.Random;
+import java.util.Scanner;
+
+public class StringOperationExercises {
+    static Scanner sc = new Scanner(System.in);
+
+
+    public static void main(String[] args) {
+//        stringTabular();
+//        System.out.println();
+//        System.out.println("The search for Hesse:");
+//        searchHesse();
+//        System.out.println();
+//        System.out.println("Empasize Hesse");
+//        emphasizeHesse();
+//        System.out.println();
+        System.out.println("Longest common Substring:");
+//        longestCommonSubstring();
+
+    }
+
+    private static void stringTabular() {
+        String[] firstName = {"Alfonso", "Beatrix-Eleonor", "Cecil", "Daniel", "Elmar"};
+        String[] lastName = {"Klein", "Kinderdorfer", "Al Elmenar", "Schmidt", "Simma"};
+        int[] age = {40, 78, 5, 18, 81};
+        String[] place = {"Wien", "Schwarzach", "Wiener Neudorf", "Sankt Pölten", "Sankt Pölten"};
+        float[] distanceFromCapital = {0f, 654.4f, 12.457634366f, 120.0f, 119.9999f};
+
+        int fN = checkWordLengthString(firstName);
+        int lN = checkWordLengthString(lastName);
+        int pl = checkWordLengthString(place);
+
+        int repeat = fN + 3 + lN + 3 + pl + 3 + "age".length() + 3 + "Distance from Capital".length() + 7;
+        System.out.println("*".repeat(repeat));
+        System.out.printf("| %-" + fN + "s | %-" + lN + "s | %" + "age".length() + "s | %-" + pl + "s | %" + "  Distance from Capital".length() + "s  |%n", "First Name", "Last Name", "Age", "Place", "Distance from Capital");
+        System.out.println("-".repeat(repeat));
+        for (int i = 0; i < firstName.length; i++) {
+            System.out.printf("| %-" + fN + "s | %-" + lN + "s | %" + "age".length() + "d | %-" + pl + "s | %" + "Distance from Capital".length() + ".2f km |%n", firstName[i], lastName[i], age[i], place[i], distanceFromCapital[i]);
+        }
+        System.out.println("*".repeat(repeat));
+    }
+
+    private static int checkWordLengthString(String[] input) {
+        int charInput = Integer.MIN_VALUE;
+        for (int i = 0; i < input.length - 1; i++) {
+            if (charInput < input[i].length()) {
+                charInput = input[i].length();
+            }
+        }
+        return charInput;
+    }
+
+    /*
+        private static void searchHesse() {
+            int index = 0;
+            int counter = 0;
+            while (true) {
+                int a = textToAnalyse.indexOf("Hesse", index);
+                if (a == -1) {
+                    break;
+                }
+                System.out.print(a + ", ");
+                index = a + 1;
+                counter++;
+            }
+            System.out.println();
+            System.out.println(counter);
+        }
+    */
+    private static void searchHesse() {
+        int index = textToAnalyse.indexOf("Hesse");
+        int counter = 0;
+        while (index >= 0) {
+            counter++;
+            System.out.print(index + ", ");
+            index = textToAnalyse.indexOf("Hesse", 1 + index);
+        }
+        System.out.println();
+        System.out.println(counter);
+    }
+
+    private static void emphasizeHesse() {
+        String input = userInput(sc, "Please enter the word or letter you want to emphasize:");
+        String replaceString = "";
+        // case insensitive
+        for (int i = 0; i < input.length(); i++) {
+            String singleChar = input.substring(i, i + 1);
+            replaceString += ("[" + singleChar.toUpperCase() + singleChar.toLowerCase() + "]");
+        }
+        System.out.println(replaceString);
+
+        String newText = textToAnalyse.replaceAll(replaceString, input.toUpperCase());
+        System.out.print(newText);
+    }
+
+    private static String userInput(Scanner sc, String msg) {
+        System.out.println(msg);
+        String userInput = sc.nextLine();
+        return userInput;
+    }
+
+//    private static void longestCommonSubstring() {
+//        String a = userInput(sc, "Please enter a sentence");
+//        String b = userInput(sc, "Please enter another sentence");
+//        String longComSub = "";
+//        for (int i = 0; i < a.length(); i++) {
+//            for (int j = 0; j < b.length(); j++) {
+//
+//            }
+//
+//
+//        }
+//        System.out.println(longComSub);
+//    }
+
+    private static String textToAnalyse = "Zur Zeit des Zweiten Weltkriegs waren seine großen Werke Siddhartha und Der Steppenwolf noch verboten. Heute gehört Hermann Hesse zu den bekanntesten deutschen Schriftstellern. Mehr über den Weltveränderer lest ihr hier\n" +
             "Hermann Hesse\n" +
             "\n" +
             "Hermann Hesse erhielt den Nobelpreis für Literatur\n" +
@@ -69,23 +183,6 @@ public class SearchingForHesseV2 {
             "\n" +
             "\"Die Welt zu durchschauen, sie zu verachten, mag großer Denker Sache sein. Mir aber liegt einzig daran, die Welt lieben zu können, sie und mich und alle Wesen mit Liebe und Bewunderung und Ehrfurcht betrachten zu können.\"\n" +
             "Hermann Hesse\n";
-
-    public static void main(String[] args) {
-
-        //String murat = "murat Hesse hje sdfs hesse heSSe Hesse h jklö Hesse hse";
-
-        int counter = 0;
-
-        System.out.println("Positions: ");
-        int i = textToAnalyse.indexOf("Hesse", 0);
-
-        while (i >= 0) {
-            System.out.print(i + " ");
-            ++counter;
-
-            i = textToAnalyse.indexOf("Hesse", 1 + i);
-        }
-
-        System.out.println("\nFrequency: " + counter);
-    }
 }
+
+

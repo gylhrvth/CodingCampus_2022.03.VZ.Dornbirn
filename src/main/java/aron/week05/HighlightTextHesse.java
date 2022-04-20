@@ -1,8 +1,10 @@
-package murat.week5.day3;
+package aron.week05;
 
-public class SearchingForHesseV2 {
+import java.util.Scanner;
 
-    private static final String textToAnalyse = "Zur Zeit des Zweiten Weltkriegs waren seine großen Werke Siddhartha und Der Steppenwolf noch verboten. Heute gehört Hermann Hesse zu den bekanntesten deutschen Schriftstellern. Mehr über den Weltveränderer lest ihr hier\n" +
+public class HighlightTextHesse {
+
+    private static String textToAnalyse = "Zur Zeit des Zweiten Weltkriegs waren seine großen Werke Siddhartha und Der Steppenwolf noch verboten. Heute gehört Hermann Hesse zu den bekanntesten deutschen Schriftstellern. Mehr über den Weltveränderer lest ihr hier\n" +
             "Hermann Hesse\n" +
             "\n" +
             "Hermann Hesse erhielt den Nobelpreis für Literatur\n" +
@@ -72,20 +74,26 @@ public class SearchingForHesseV2 {
 
     public static void main(String[] args) {
 
-        //String murat = "murat Hesse hje sdfs hesse heSSe Hesse h jklö Hesse hse";
+        Scanner sc = new Scanner(System.in);
 
-        int counter = 0;
+        String name = "";
+        while (name.trim().length() == 0) {
+            System.out.println("Bitte geben Sie das Wort ein:");
+            name = sc.nextLine();
 
-        System.out.println("Positions: ");
-        int i = textToAnalyse.indexOf("Hesse", 0);
-
-        while (i >= 0) {
-            System.out.print(i + " ");
-            ++counter;
-
-            i = textToAnalyse.indexOf("Hesse", 1 + i);
         }
 
-        System.out.println("\nFrequency: " + counter);
+        String regEx = "";
+        for (int i = 0; i < name.length(); i++) {
+            String singleChar = name.substring(i, i+1);
+            regEx += ("[" + singleChar.toUpperCase() + singleChar.toLowerCase() + "]");
+        }
+        System.out.println(regEx);
+        // name.toLowerCase()
+        System.out.println(textToAnalyse.replaceAll(regEx, ANSI_RED + name.toUpperCase() + ANSI_RESET));
+
     }
+
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_RESET = "\u001B[0m";
 }

@@ -1,8 +1,8 @@
-package murat.week5.day3;
+package aron.week05;
 
-public class SearchingForHesseV2 {
+public class SearchForHesse {
 
-    private static final String textToAnalyse = "Zur Zeit des Zweiten Weltkriegs waren seine großen Werke Siddhartha und Der Steppenwolf noch verboten. Heute gehört Hermann Hesse zu den bekanntesten deutschen Schriftstellern. Mehr über den Weltveränderer lest ihr hier\n" +
+    private static String textToAnalyse = "Zur Zeit des Zweiten Weltkriegs waren seine großen Werke Siddhartha und Der Steppenwolf noch verboten. Heute gehört Hermann Hesse zu den bekanntesten deutschen Schriftstellern. Mehr über den Weltveränderer lest ihr hier\n" +
             "Hermann Hesse\n" +
             "\n" +
             "Hermann Hesse erhielt den Nobelpreis für Literatur\n" +
@@ -71,21 +71,14 @@ public class SearchingForHesseV2 {
             "Hermann Hesse\n";
 
     public static void main(String[] args) {
-
-        //String murat = "murat Hesse hje sdfs hesse heSSe Hesse h jklö Hesse hse";
-
+        int index = textToAnalyse.indexOf("Hesse");
         int counter = 0;
-
-        System.out.println("Positions: ");
-        int i = textToAnalyse.indexOf("Hesse", 0);
-
-        while (i >= 0) {
-            System.out.print(i + " ");
-            ++counter;
-
-            i = textToAnalyse.indexOf("Hesse", 1 + i);
+        while (index >= 0) {
+            counter++;
+            System.out.print( index + ",");
+            index = textToAnalyse.indexOf("Hesse", 1 + index);
         }
-
-        System.out.println("\nFrequency: " + counter);
+        System.out.println();
+        System.out.println(counter);
     }
 }
