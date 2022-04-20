@@ -11,11 +11,10 @@ public class DisplayAsATable {
 
         System.out.println("---------------------------------------------------------------------");
         for (int i = 0; i < 5; i++) {
-            System.out.printf("|%-16s |%-13s |%-3d |%-15s |%-13.9f", firstName[i], lastName[i], age[i], place[i], distanceFromCapital[i]);
-            System.out.print("|");
-            System.out.println();
+            System.out.printf("|%-16s |%-13s |%-3d |%-15s |%-13.9f|%n", firstName[i], lastName[i], age[i], place[i], distanceFromCapital[i]);
             System.out.println("---------------------------------------------------------------------");
 
         }
     }
+
 }
