@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class LongestSub {
 
-    public static void getLongestEqualword(String firstWord, String secondWord) {
+    public static String getLongestEqualword(String firstWord, String secondWord) {
 
         String[] first = firstWord.split(" ");
         String[] second = secondWord.split(" ");
@@ -18,7 +18,7 @@ public class LongestSub {
                 }
             }
         }
-        System.out.println("The longest matching word is: " + word);
+        return word;
     }
 
     public static void main(String[] args) {
@@ -27,7 +27,7 @@ public class LongestSub {
         String word1 = "test fest klar etwas timokant";
         String word2 = "test mist timokant etwas";
 
-        getLongestEqualword(word1, word2);
+        System.out.println("The longest matching word is: " + getLongestEqualword(word1, word2));
 
     }
 }
