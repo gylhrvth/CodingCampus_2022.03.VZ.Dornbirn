@@ -40,6 +40,7 @@ public class LongestCommonLetterGroup {
         for (int i = 0; i < firstText.length(); i++) {
             for (int j = 0; j < secondText.length(); j++) {
 
+                // System.out.println("i:" + i + " j:" + j + " - " + firstText.charAt(i) + " " + secondText.charAt((j)));
                 // If there are two characters which are the same
                 if (firstText.charAt(i) == secondText.charAt(j)) {
 
@@ -54,6 +55,7 @@ public class LongestCommonLetterGroup {
                     commonLetters = new StringBuilder(); // If there is just one pair of chars, then form a new container
                 }
             }
+            commonLetters = new StringBuilder();  // Everytime the second word ends, start from the beginning.
         }
 
         // If there is no common text
@@ -64,19 +66,22 @@ public class LongestCommonLetterGroup {
     }
 
     // If there are 2 same chars, then search for the next chars beginning from the index which we left
-    public static void findTheFollowers(String firstText, String secondText, int i, int j, StringBuilder common) {
+    public static StringBuilder findTheFollowers(String firstText, String secondText, int i, int j, StringBuilder common) {
 
         for (int iSub = i, jSub = j; iSub < firstText.length() && jSub < secondText.length(); iSub++, jSub++) {
 
             // If the next elements are the same, append it
             if (firstText.charAt(iSub) == secondText.charAt(jSub)) {
                 common.append(firstText.charAt(iSub));
+               // System.out.println("isub:" + iSub + " jsub:" + jSub + " common:" + common);
             } else {
-                break;      // If not, end the search
+                return common;      // If not, end the search
             }
         }
+        return common;
     }
 
     public static final String ANSI_RED = "\u001B[31m";
+
     public static final String ANSI_RESET = "\u001B[0m";
 }
