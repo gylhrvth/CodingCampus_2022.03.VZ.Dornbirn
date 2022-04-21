@@ -5,13 +5,13 @@ import lukas.week4.day3.Color;
 
 public class LongestSubstringIllustrated {
     public static void main(String[] args) {
-        System.out.println(longestSubsequenceWrong("abcd gfhijkl mnopqrs", "mno qrs fhijk"));
+        System.out.println(longestSubsequence("abcd gfhijkl mnopqrs", "mno qrs fhijk"));
     }
 
-    public static String longestSubsequenceWrong(String lhs, String rhs) {
+    public static String longestSubsequence(String lhs, String rhs) {
         String maxWord = "";
         for (int i = 0; i < lhs.length(); i++) {
-            String longestSubsequence = longestSubsequenceWrong(lhs, rhs, i, maxWord);
+            String longestSubsequence = longestSubsequence(lhs, rhs, i, maxWord);
             if (longestSubsequence.length() > maxWord.length()) {
                 maxWord = longestSubsequence;
             }
@@ -19,7 +19,7 @@ public class LongestSubstringIllustrated {
         return maxWord;
     }
 
-    public static String longestSubsequenceWrong(String lhs, String rhs, int index, String maxWord) {
+    public static String longestSubsequence(String lhs, String rhs, int index, String maxWord) {
         String longestSubsequence = "";
         String tmp = "";
         for (int k = 0; k < rhs.length(); k++) {
