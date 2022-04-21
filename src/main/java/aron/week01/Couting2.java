@@ -57,11 +57,16 @@ public class Couting2 {
         }
 
     public static void main(String[] args){
-        //task1(0, 10);
-        //task2(0,10);
-        //task3(0,10);
-        //task4(10,-10);
-        //task5(-8,8);
+//        task1(0, 10);
+        System.out.println("=================");
+//        task2(0,10);
+        System.out.println("=================");
+//        task3(0,10);
+        System.out.println("=================");
+        task4(10,-10);
+        System.out.println("=================");
+        task5(-8,8);
+        System.out.println("=================");
         task6(2,-2);
     }
 }

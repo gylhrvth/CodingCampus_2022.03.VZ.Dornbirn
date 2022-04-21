@@ -5,8 +5,9 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class StringArrays {
+    static Random rand = new Random();
     public static void main(String[] args) {
-
+        Scanner sc = new Scanner(System.in);
         String[] names = new String[]{"Philipp", "Arda", "Murat", "Jimmy \"Cemil\" McGill", "Sergej", "Razvan", "Timo", "Aron", "Gyula", "Lukas"};
         //  System.out.println(Arrays.toString(names));
 
@@ -21,10 +22,13 @@ public class StringArrays {
         bubbleSortStringChar(names, true, 3);
         //  System.out.println(Arrays.toString(names));
 
-        Scanner sc = new Scanner(System.in);
-        reverseString(sc);
 
-        // randomizeString(sc);
+       System.out.println(reverseString(userInput(sc)));
+
+        String text = userInput(sc);
+        System.out.println("\"" + text + "\"");
+        System.out.println("\"" + randomizeString(text) + "\"");
+
 
 
     }
@@ -56,7 +60,6 @@ public class StringArrays {
             System.out.println("CHARACTER TO BIG");
             return;
         }
-
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array.length - i - 1; j++) {
                 if (ascending) {
@@ -81,42 +84,38 @@ public class StringArrays {
     }
 
     public static String userInput(Scanner sc) {
-        System.out.println("Please enter a String to be reversed:");
+        System.out.println("Please enter a String:");
         String input = sc.nextLine();
         return input;
     }
 
-    public static void reverseString(Scanner sc) {
-        String text = userInput(sc);
-        char[] arr = text.toCharArray();
-        System.out.println(Arrays.toString(arr));
+    public static String reverseString(String text) {
+        char[] chars = text.toCharArray();
+        char[] result = new char[chars.length];
+        System.out.println(Arrays.toString(chars));
 
-        String empty = "";
-
-        for (int i = arr.length - 1; i >= 0; i--) {
-            empty += arr[i];
+        for (int i = 0; i < result.length; i++) {
+            result[i] = chars[chars.length - 1 - i];
         }
-        System.out.println(empty);
+        return new String(result);
     }
 
 
-    public static void randomizeString(Scanner sc) {
-        String text = userInput(sc);
-        char[] arr = text.toCharArray();
-        System.out.println(Arrays.toString(arr));
+    public static String randomizeString(String text) {
+        char[] randomChars = text.toCharArray();
 
-        Random rand = new Random();
+        for (int i = 0; i < 10 * randomChars.length; i++) {
+            int random1 = rand.nextInt(randomChars.length);
+            int random2 = rand.nextInt(randomChars.length);
 
-        for (int i = arr.length - 1; i >= 0; i--) {
-
-            //   int swapWith = rand.nextInt(i);
-            //   int swap = arr[i];
-            //  arr[i] = arr[swapWith];
-            //  arr[swapWith] = arr[swap];
+            char swap = randomChars[random2];
+            randomChars[random2] = randomChars[random1];
+            randomChars[random1] = swap;
         }
+        return new String(randomChars);
     }
-
-
 }
+
+
 
 
