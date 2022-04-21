@@ -13,7 +13,7 @@ public class DateTable {
 
 
 
-        table(firstName, lastName, age, place, distanceFromCapital);
+        printDateTable(firstName, lastName, age, place, distanceFromCapital);
     }
 
     public static int getStringLength(String[] array) {
@@ -52,7 +52,7 @@ public class DateTable {
         return (int)Math.max(1 + Math.log10(value), 1);
     }
 
-    public static void table(String[] name1, String[] name2, int[] age, String[] place, float[] distance) {
+    public static void printDateTable(String[] name1, String[] name2, int[] age, String[] place, float[] distance) {
         String distanceHeader = "Distance to the next capital";
 
 
