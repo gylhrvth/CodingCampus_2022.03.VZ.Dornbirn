@@ -10,10 +10,11 @@ public class LongestSub {
         String[] second = secondWord.split(" ");
         String word = "";
 
-        for (int i = 0; i < first.length; i++) {
-            for (int j = 0; j < second.length; j++) {
-                if (first[i].equals(second[j]) && word.length() < first[i].length()) {
-                    word = first[i];
+        for (String wordLhs : first) {
+            for (String wordRhs : second) {
+                if (wordLhs.equals(wordRhs) && word.length() < wordLhs.length()) {
+                    word = wordLhs;
+                    break;
                 }
             }
         }
