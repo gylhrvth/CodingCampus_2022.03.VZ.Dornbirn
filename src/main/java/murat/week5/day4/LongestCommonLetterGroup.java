@@ -1,5 +1,7 @@
 package murat.week5.day4;
 
+import lukas.week4.day3.Color;
+
 import java.util.Scanner;
 
 public class LongestCommonLetterGroup {
@@ -8,12 +10,12 @@ public class LongestCommonLetterGroup {
         Scanner input = new Scanner(System.in);
         StringBuilder builder = new StringBuilder();
 
-        String firstText = readUserText(input, "Please enter your first word.");
-        String secondText = readUserText(input, "Please enter your second word");
+        String firstText = readUserText(input, "Please enter your first text.");
+        String secondText = readUserText(input, "Please enter your second text");
         builder = findLongestLetterGroup(builder, firstText, secondText);
 
         if (!builder.isEmpty()) {
-            System.out.println("The longest matching text : " + builder);
+            System.out.println("The longest matching text : " + ANSI_RED + builder + ANSI_RESET);
         }
 
     }
@@ -21,7 +23,13 @@ public class LongestCommonLetterGroup {
     public static String readUserText(Scanner sc, String message) {
 
         System.out.println(message);
-        return sc.nextLine();
+        String userText = sc.nextLine();
+        while (userText.isEmpty()) {
+            System.out.println("Please enter your text!");
+            userText = sc.nextLine();
+        }
+
+        return userText;
     }
 
     // Check all possible characters in both texts
@@ -56,7 +64,7 @@ public class LongestCommonLetterGroup {
     }
 
     // If there are 2 same chars, then search for the next chars beginning from the index which we left
-    public static StringBuilder findTheFollowers(String firstText, String secondText, int i, int j, StringBuilder common) {
+    public static void findTheFollowers(String firstText, String secondText, int i, int j, StringBuilder common) {
 
         for (int iSub = i, jSub = j; iSub < firstText.length() && jSub < secondText.length(); iSub++, jSub++) {
 
@@ -64,9 +72,11 @@ public class LongestCommonLetterGroup {
             if (firstText.charAt(iSub) == secondText.charAt(jSub)) {
                 common.append(firstText.charAt(iSub));
             } else {
-                return common;      // If not, end the search
+                break;      // If not, end the search
             }
         }
-        return common;
     }
+
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_RESET = "\u001B[0m";
 }
