@@ -45,8 +45,8 @@ public class Counters {
 
     public static void main(String[] args) {
         task1(30, 25);
-        System.out.println("-----------");
-        task1(3,7);
+       // System.out.println("-----------");
+       // task1(3,7);
 //        task2(0, 10);
 //        task3(0, 10, 2);
 //        task4(10, -10);
