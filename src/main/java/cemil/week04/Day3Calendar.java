@@ -1,22 +1,22 @@
-package cemil.Week04;
+package cemil.week04;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
-public class Day2Calendar {
-    /**
-     * @param year
-     * @param month from 1 = January to 12 = December
-     */
+public class Day3Calendar {
+//    if (change == 1){
+//    System.out.println("| MO | DI | MI | DO | FR | SA | SO |");
+//}else {
+//
+//}
 
-    public static void calCalendar(int year, int month) {
+    public static void changeCalendar(int year, int month) {
         Calendar gc = Calendar.getInstance();
         int toDay = gc.get(Calendar.DAY_OF_MONTH);
         gc.set(year, month - 1, 1);
         SimpleDateFormat format = new SimpleDateFormat("MMMM yyyy");
         System.out.println(format.format(gc.getTime()));
-        System.out.println("| MO | DI | MI | DO | FR | SA | SO |");
+        System.out.println("| SO | MO | DI | MI | DO | FR | SA |");
         int lastDayMonth = gc.getActualMaximum(Calendar.DAY_OF_MONTH);
         int currentWeekDay = gc.get(Calendar.DAY_OF_WEEK);
         int blanks;
@@ -43,9 +43,9 @@ public class Day2Calendar {
         for (int i = 1; i <= lastDayMonth; i++) {
             String output;
             String star = "";
-            if (toDay == i){
+            if (toDay == i) {
                 star = "*";
-            }else {
+            } else {
                 star = " ";
             }
             if (i >= 10) {
@@ -66,10 +66,9 @@ public class Day2Calendar {
         }
     }
 
-
     public static void main(String[] args) {
-
-        calCalendar(2022, 4);
-
+        cemil.week04.Day2Calendar.calCalendar(2022, 04);
+        System.out.println();
+        changeCalendar(2022, 4);
     }
 }

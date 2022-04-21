@@ -1,6 +1,5 @@
-package cemil.Week04;
+package cemil.week04;
 
-import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
