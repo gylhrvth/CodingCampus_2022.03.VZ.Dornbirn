@@ -1,6 +1,8 @@
 package philipp.week05;
 
 
+import java.util.Arrays;
+import java.util.Objects;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -17,8 +19,10 @@ public class StringOperationExercises {
 //        System.out.println("Empasize Hesse");
 //        emphasizeHesse();
 //        System.out.println();
+//        System.out.println("Longest common Word:");
+//        longestCommonWord();
         System.out.println("Longest common Substring:");
-//        longestCommonSubstring();
+        longestCommonSubstring();
 
     }
 
@@ -102,19 +106,80 @@ public class StringOperationExercises {
         return userInput;
     }
 
-//    private static void longestCommonSubstring() {
-//        String a = userInput(sc, "Please enter a sentence");
-//        String b = userInput(sc, "Please enter another sentence");
-//        String longComSub = "";
-//        for (int i = 0; i < a.length(); i++) {
-//            for (int j = 0; j < b.length(); j++) {
-//
-//            }
-//
-//
-//        }
-//        System.out.println(longComSub);
-//    }
+    private static void longestCommonWord() {
+        String[] a = userInput(sc, "Please enter a sentence").split(" ");
+        String[] b = userInput(sc, "Please enter another sentence").split(" ");
+        int lengthCommonWordString = a.length;
+        if (a.length < b.length) {
+            lengthCommonWordString = b.length;
+        }
+        // kürzere Version con lengthCommonWordString
+        int maxLength = Math.max(a.length, b.length);
+        String[] commonWords = new String[lengthCommonWordString];
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < b.length; j++) {
+                if (Objects.equals(a[i], b[j])) {
+                    commonWords[i] = a[i];
+                }
+            }
+        }
+//        System.out.println(Arrays.toString(a));
+//        System.out.println(Arrays.toString(b));
+//        System.out.println(Arrays.toString(commonWords));
+        System.out.println();
+        System.out.print("The longest common word is: ");
+        System.out.println(longestWord(commonWords));
+    }
+
+    private static void longestCommonSubstring() {
+        String userInput1 = userInput(sc, "Please enter a sentence");
+        char[] a = userInput1.toCharArray();
+        String userInput2 = userInput(sc, "Please enter another sentence");
+        char[] b = userInput2.toCharArray();
+
+        int maxLength = Math.max(a.length, b.length);
+        String[] commonSubStrings = new String[maxLength];
+        int counter = 0;
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < b.length; j++) {
+                String subTemp = String.valueOf(a[i]);
+                if (userInput2.contains(subTemp)) {
+                    while (i < a.length - counter) {
+                        if(userInput2.contains(subTemp+a[i + counter])) {
+                            subTemp = subTemp + a[i + counter];
+                        } else {
+                            break;
+                        }
+                        counter++;
+                    }
+                }
+                commonSubStrings[i] = subTemp;
+                counter = 1;
+            }
+        }
+        System.out.println(Arrays.toString(a));
+        System.out.println(Arrays.toString(b));
+        System.out.println(Arrays.toString(commonSubStrings));
+        System.out.println();
+        System.out.print("The longest common substring is: ");
+        System.out.println(longestWord(commonSubStrings));
+    }
+
+
+    private static String longestWord(String[] data) {
+        int charInput = Integer.MIN_VALUE;
+        String word = "";
+        for (int i = 0; i < data.length; i++) {
+            if (data[i] == null) {
+                continue;
+            }
+            if (charInput < data[i].length()) {
+                charInput = data[i].length();
+                word = data[i];
+            }
+        }
+        return word;
+    }
 
     private static String textToAnalyse = "Zur Zeit des Zweiten Weltkriegs waren seine großen Werke Siddhartha und Der Steppenwolf noch verboten. Heute gehört Hermann Hesse zu den bekanntesten deutschen Schriftstellern. Mehr über den Weltveränderer lest ihr hier\n" +
             "Hermann Hesse\n" +

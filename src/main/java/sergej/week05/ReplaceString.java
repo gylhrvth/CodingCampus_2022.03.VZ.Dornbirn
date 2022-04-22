@@ -24,5 +24,10 @@ public class ReplaceString {
         String regexEx = "!";
         String newtextEx = text.replaceAll(regexEx,"");
         System.out.println(newtextEx);
+
+        String rexexPunc = "[(-)\\p{Punct}]";
+        String text1 = "hallo-welt wie gehts-dir".replaceAll(rexexPunc,"*");
+        System.out.println(text1);
+
     }
 }
