@@ -1,12 +1,14 @@
 package sergej.week05;
 
 public class Permutation {
+    private static int count = 0;
 
     public static void permutation(char[] chars, int index) {
 
 
         if (index == chars.length - 1) {
-            System.out.println(chars);
+            count++;
+            System.out.println(count + ". " + String.valueOf(chars));
         }
         for (int i = index; i < chars.length; i++) {
 
@@ -26,7 +28,7 @@ public class Permutation {
     }
 
     public static void main(String[] args) {
-        String text = "ABC";
+        String text = "ABCDE";
         char chars[] = text.toCharArray();
         permutation(chars, 0);
 
