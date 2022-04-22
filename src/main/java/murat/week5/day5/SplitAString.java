@@ -1,4 +1,4 @@
-package murat.week5;
+package murat.week5.day5;
 
 public class SplitAString {
     public static void main(String[] args) {

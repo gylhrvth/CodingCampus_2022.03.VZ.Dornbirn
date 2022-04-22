@@ -1,4 +1,4 @@
-package murat.week5.day4;
+package murat.week5.day5;
 
 import murat.muratStandardLibrary.MuratSwap;
 
