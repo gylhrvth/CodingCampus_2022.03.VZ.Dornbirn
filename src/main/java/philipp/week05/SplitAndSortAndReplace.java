@@ -12,8 +12,22 @@ public class SplitAndSortAndReplace {
         System.out.println(replaceWords(text, "wird", "war und ist"));
         System.out.println("---");
         replaceWords2(text);
+        System.out.println("---");
+        replaceWords3("749813247132984712039487123049871204398712039487");
 
     }
+
+    private static void replaceWords3(String text) {
+        String output = text.replaceAll("[0-9]","");
+        System.out.println(output);
+        output = text.replaceAll("[1-9]","");
+        System.out.println(output);
+        output = text.replaceAll("[2-4]","");
+        System.out.println(output);
+        output = text.replaceAll("[1-3,6-9]","");
+        System.out.println(output);
+    }
+
     private static void replaceWords2(String text) {
         String output = text.replaceAll("[a-zöäü]","");
         System.out.println(output);
