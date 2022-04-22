@@ -1,12 +1,10 @@
-package gyula.week05;
+package cemil.week06;
 
-import java.sql.SQLOutput;
 import java.util.Date;
-import java.util.Locale;
 
-public class StringExamples {
+
+public class StringExamples1 {
     private static String testString = "Strings are constant; their values cannot be changed after they are created. String buffers support mutable strings. Because String objects are immutable they can be shared.";
-
 
     public static void main(String[] args) {
         System.out.println("startWith(\"Strings\"): " + testString.startsWith("Strings"));
@@ -31,7 +29,7 @@ public class StringExamples {
         System.out.println("\"      \".isBlank(): " + "      ".isBlank());
         System.out.println("\"      \".isEmpty(): " + "      ".isEmpty());
         System.out.println("length(): " + testString.length());
-        System.out.println("#" + "   abc    "        + "#");
+        System.out.println("#" + "   abc    " + "#");
         System.out.println("#" + "   abc    ".trim() + "#");
         System.out.println("#" + "   abc    ".stripLeading() + "#");
         System.out.println("#" + "   abc    ".stripTrailing() + "#");
@@ -58,7 +56,6 @@ public class StringExamples {
         System.out.printf("Today:%n%1$te %1$tb %1$tY%n", now);
 
 
-
         // Regex: matches, replace, split
         String emailToTest = "gyula.horvath@digitalcampusvorarlberg.at";
         System.out.println(emailToTest + " " + emailToTest.matches("[a-zA-Z.]+@[a-zA-Z]+.[a-zA-Z.]+"));
@@ -74,11 +71,5 @@ public class StringExamples {
         System.out.println(emailToTest + " " + emailToTest.matches("[a-zA-Z.]+(@[a-zA-Z]+.)+[a-zA-Z]+"));
 
 
-
-        String[] firstName = {"Alfonso", "Beatrix-Eleonor", "Cecil", "Daniel", "Elmar"};
-        String[] lastName = {"Klein", "Kinderdorfer", "Al Elmenar", "Schmidt", "Simma"};
-        int[] age = {40, 78, 5, 18, 81};
-        String[] place = {"Wien", "Schwarzach", "Wiener Neudorf", "Sankt Pölten", "Sankt Pölten"};
-        float[] distaneFromCapital = {0f, 654.4f, 12.457634366f, 120.0f, 119.9999f};
     }
 }

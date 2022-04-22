@@ -1,10 +1,9 @@
-package gyula.week05;
+package aron.week05;
 
-import java.sql.SQLOutput;
 import java.util.Date;
-import java.util.Locale;
 
-public class StringExamples {
+public class StringExample {
+
     private static String testString = "Strings are constant; their values cannot be changed after they are created. String buffers support mutable strings. Because String objects are immutable they can be shared.";
 
 
@@ -47,7 +46,7 @@ public class StringExamples {
 
         // Format Funktion
         System.out.println(String.format("*%d* *%5d* *%-5d*", 10, 10, 10));
-        System.out.println(String.format("*%x* *%5x* *%-5x*", 31, 31, 31));
+        System.out.println(String.format("*%x* *%5x* *0x%-5x*", 31, 31, 31));
         System.out.println(String.format("*%f* *%10.3f* *%-10.3f*", 3.141520f, 3.141520f, 3.141520f));
 
         System.out.println(String.format("*%1$s* *%1$10s* *%1$-10s*", "Apfel"));
@@ -74,11 +73,5 @@ public class StringExamples {
         System.out.println(emailToTest + " " + emailToTest.matches("[a-zA-Z.]+(@[a-zA-Z]+.)+[a-zA-Z]+"));
 
 
-
-        String[] firstName = {"Alfonso", "Beatrix-Eleonor", "Cecil", "Daniel", "Elmar"};
-        String[] lastName = {"Klein", "Kinderdorfer", "Al Elmenar", "Schmidt", "Simma"};
-        int[] age = {40, 78, 5, 18, 81};
-        String[] place = {"Wien", "Schwarzach", "Wiener Neudorf", "Sankt Pölten", "Sankt Pölten"};
-        float[] distaneFromCapital = {0f, 654.4f, 12.457634366f, 120.0f, 119.9999f};
     }
 }

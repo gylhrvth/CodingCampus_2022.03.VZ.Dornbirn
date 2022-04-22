@@ -1,4 +1,4 @@
-package cemil.Week04;
+package cemil.week04;
 
 import java.util.Arrays;
 

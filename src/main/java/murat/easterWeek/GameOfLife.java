@@ -20,7 +20,7 @@ public class GameOfLife {
 
             // Freeze the console for 1 second
             try {
-                Thread.sleep(1000);
+                Thread.sleep(100);
             } catch (InterruptedException exc) {
                 //noop
             }
@@ -34,8 +34,8 @@ public class GameOfLife {
         int[][] babyCommunity = new int[oldCommunity.length][oldCommunity[0].length];    // Next generation
 
         // Go through the game matrix
-        for (int row = 1; row < oldCommunity.length - 1; row++) {
-            for (int col = 1; col < oldCommunity[row].length - 1; col++) {
+        for (int row = 0; row < oldCommunity.length; row++) {
+            for (int col = 0; col < oldCommunity[row].length; col++) {
 
                 // Count the neighbours and create the next generation
                 int livingNeighbours = countLivingNeighbours(oldCommunity, row, col);
@@ -55,7 +55,19 @@ public class GameOfLife {
 
                 // Do not count the cell itself!  (i,j) = (0,0)
                 if (neighRow != 0 || neighCol != 0) {
-                    aliveNeighbours += aMatrix[rowNum + neighRow][colNum + neighCol];
+                    int y = rowNum + neighRow;
+                    if (y >= aMatrix.length) {
+                        y = 0;
+                    } else if (y == -1) {
+                        y = aMatrix.length - 1;
+                    }
+                    int x = colNum + neighCol;
+                    if (x >= aMatrix[0].length) {
+                        x = 0;
+                    } else if (x == -1) {
+                        x = aMatrix[0].length - 1;
+                    }
+                    aliveNeighbours += aMatrix[y][x];
                 }
             }
         }

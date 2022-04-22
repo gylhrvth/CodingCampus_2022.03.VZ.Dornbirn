@@ -41,7 +41,7 @@ public class DataTable {
 
 
 
-        System.out.println(String.format("%"+-maxName+"s %"+-maxLast+"s %s %"+-maxPlace+"s %"+-maxFloat+"s", "First Name", "Last Name", "Age", "Place","Distance"));
+        System.out.println(String.format("%"+-maxName+"s %"+-maxLast+"s %s %"+-maxPlace+"s %"+(3+maxFloat)+"s", "First Name", "Last Name", "Age", "Place","Distance"));
         printStringsNames(firstName, lastName, age, place,distanceFromCapital,maxName,maxLast,maxPlace,maxFloat);
 
 
