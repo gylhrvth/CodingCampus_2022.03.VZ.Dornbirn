@@ -89,7 +89,6 @@ public class HighlightTextHesse {
             regEx += ("[" + singleChar.toUpperCase() + singleChar.toLowerCase() + "]");
         }
         System.out.println(regEx);
-        // name.toLowerCase()
         System.out.println(textToAnalyse.replaceAll(regEx, ANSI_RED + name.toUpperCase() + ANSI_RESET));
 
     }
