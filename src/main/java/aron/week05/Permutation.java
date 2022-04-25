@@ -31,6 +31,7 @@ public class Permutation {
     public static void permutation(String prefix, String rest) {
         //System.out.println("permutation() " + prefix + " " + rest);
 
+
         if (rest.length() == 0) {
             ++counter;
             System.out.println(counter + ". " + prefix);

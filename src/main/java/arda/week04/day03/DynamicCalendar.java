@@ -1,8 +1,6 @@
 package arda.week04.day03;
-
-import java.awt.*;
-import java.util.Calendar;
 import java.util.Locale;
+import java.util.Calendar;
 
 public class DynamicCalendar {
     public static void main(String[] args) {
@@ -30,7 +28,7 @@ public class DynamicCalendar {
         int endOfWeek = 0;
         int spaces = 0;
 
-        gc.set(Calendar.MONTH, 3);
+        gc.set(Calendar.MONTH, 0);
 
         int today = gc.get(Calendar.DATE);
 
