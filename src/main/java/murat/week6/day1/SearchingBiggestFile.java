@@ -3,7 +3,7 @@ package murat.week6.day1;
 import java.io.File;
 import java.util.Scanner;
 
-public class SearchingBiggestFolder {
+public class SearchingBiggestFile {
     public static void main(String[] args) {
 
         System.out.println("Please enter the path of the folder!");
