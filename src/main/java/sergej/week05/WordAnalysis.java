@@ -32,7 +32,7 @@ public class WordAnalysis {
     }
 
 
-    public static void getLongestWord(String[] text) {
+    public static void getLongestWord(String[] text) { // Not neccesary if sorted with array just get inex zero etc..
         String longest = "";
 
         for (int i = 0; i < text.length; i++) {
