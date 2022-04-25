@@ -5,24 +5,21 @@ import java.io.File;
 public class CreateADirectoryAndSort {
     public static void main(String[] args) {
 
-        File file = new File("C:\\");
-        File[] listOfFiles = file.listFiles();
+        File file = new File("C:\\Users\\Arya\\Desktop\\GIT");
 
-        if (file.exists() && file.isDirectory()) {
-            listingDirectory(file, listOfFiles);
-
-            System.out.println("The number of files: " + listOfFiles.length + " and volume: " + theVolumeOfTheDirectory(listOfFiles));
-        }
+        listingDirectory(file);
+        System.out.println("The total size of the files is: " + theSize(file));
     }
 
-    public static void listingDirectory(File file, File[] aFileList) {
+    public static void listingDirectory(File file) {
 
-        if (file.exists() && file.isDirectory()) {
+        File[] listOfFiles = file.listFiles();
+        if (file.exists() && file.isDirectory() && listOfFiles != null) {
 
-            bubbleSortFileList(aFileList);
-
-            for (File value : aFileList) {
-                System.out.printf("%-30s %12d%n", value.getName(), value.length());
+            bubbleSortFileList(listOfFiles);
+            for (int i = 0; i < listOfFiles.length; i++) {
+                System.out.printf("%-30s %12s%n", listOfFiles[i].getName(),
+                        listOfFiles[i].isDirectory() ? "" : listOfFiles[i].length());
             }
         }
     }
@@ -42,12 +39,18 @@ public class CreateADirectoryAndSort {
         }
     }
 
-    public static long theVolumeOfTheDirectory(File[] aFileList) {
+    public static long theSize(File file) {
 
+        File[] aFileList = file.listFiles();
         long sum = 0;
 
-        for (File file : aFileList) {
-            sum += file.length();
+        if (aFileList != null) {
+            for (int i = 0; i < aFileList.length; i++) {
+
+                if (file.exists() && !aFileList[i].isDirectory()) {
+                    sum += aFileList[i].length();
+                }
+            }
         }
         return sum;
     }
