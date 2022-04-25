@@ -11,10 +11,11 @@ public class ShowDateOfBirthDay {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
         userDOBIN(sc);
+        //add input limit.
     }
     public static void userDOBIN(Scanner sc) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
-        Date dateIn = new Date();
+        Date dateIn;
         System.out.println("please enter your date of birth in this format: dd.MM.yyyy");
 
         while (true) {
@@ -22,6 +23,7 @@ public class ShowDateOfBirthDay {
                 String userIn = sc.nextLine();
                 dateIn = sdf.parse(userIn);
                 break;
+
             } catch (ParseException pe) {
                 System.out.println("enter a valid date of birth");
             }
