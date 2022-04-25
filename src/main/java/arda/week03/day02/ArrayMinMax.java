@@ -13,7 +13,7 @@ public class ArrayMinMax {
         }
 
 //        minMethod(random, anArray);
-//        averageMethod(random, anArray);
+        averageMethod(random, anArray);
 
         System.out.println(Arrays.toString(anArray));
         System.out.println("Minimum is: " + minOfArray(anArray));
