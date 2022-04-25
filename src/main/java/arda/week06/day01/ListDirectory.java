@@ -10,6 +10,10 @@ public class ListDirectory {
         File file = new File("C:\\");
         File[] fileList = bubbleSortFiles(file);
         fileList(fileList, file);
+        System.out.println();
+        countAmountOfFiles(fileList);
+        System.out.println();
+        sumOfFileSize(fileList);
     }
 
     public static void fileList(File[] fileList, File file) {
@@ -35,5 +39,25 @@ public class ListDirectory {
             }
         }
         return fileList;
+    }
+    public static void countAmountOfFiles(File[] fileList){
+        System.out.printf("== %s == %n","file count");
+        int counter = 0;
+        for (int i = 0; i < fileList.length; i++) {
+            if (!fileList[i].isDirectory()){
+                counter++;
+            }
+        }
+        System.out.println("amount of files in the directory: " + counter);
+    }
+    public static void sumOfFileSize(File[] fileList){
+        System.out.printf("== %s == %n","file sum");
+        long sum = 0;
+        for (int i = 0; i < fileList.length; i++) {
+            if (!fileList[i].isDirectory()){
+
+            }
+        }
+        System.out.println("sum of all files in the directory " + sum);
     }
 }
