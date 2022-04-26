@@ -8,10 +8,10 @@ import java.util.Scanner;
 
 public class WriteFile {
     static Scanner sc = new Scanner(System.in);
-
     public static void main(String[] args) {
         textReader(sc);
        // textReader1(sc);
+
     }
 
     public static void textReader(Scanner sc) {
