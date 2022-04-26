@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class FindFile {
 
-    public static void getPath(File f, String text) {
+    public static void searchFile(File f, String text) {
 
         if (f.isFile()) {
             if (f.getName().contains(text)) {
@@ -15,7 +15,7 @@ public class FindFile {
             File[] fileList = f.listFiles();
             if (fileList != null) {
                 for (int i = 0; i < fileList.length; i++) {
-                    getPath(fileList[i], text);
+                    searchFile(fileList[i], text);
                 }
             }
         }
@@ -30,7 +30,7 @@ public class FindFile {
         File path = new File(sc.nextLine());
         System.out.println("What are you looking for ?");
         String text = sc.nextLine();
-        getPath(path, text);
+        searchFile(path, text);
 
 
     }
