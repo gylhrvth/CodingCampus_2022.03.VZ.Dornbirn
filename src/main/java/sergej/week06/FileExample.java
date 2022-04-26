@@ -45,15 +45,15 @@ public class FileExample {
 
     public static void countFiles(File[] fileList) {
         int counter = 0;
-        long maxsize = 0;
+        long sumFiles = 0;
         for (int i = 0; i < fileList.length; i++) {
             if (fileList[i].isFile()) {
-                maxsize += fileList[i].length();
+                sumFiles += fileList[i].length();
                 counter++;
             }
         }
         System.out.println("Total sum of Files: " + counter);
-        System.out.println("Total size of all files combined: " + maxsize);
+        System.out.println("Total size of all files combined: " + sumFiles);
     }
 
     public static void main(String[] args) {
