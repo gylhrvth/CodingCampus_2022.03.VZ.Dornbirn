@@ -39,15 +39,15 @@ public class FilesRecursive {
         return counter;
     }
 
-    public static long sumSizeFiles(File f,long filesize) {
+    public static long sumSizeFiles(File f) {
         long sumFiles = 0;
 
-        if(f.isFile()) return f.length();
+        if (f.isFile()) return f.length();
         if (f.exists() && f.isDirectory()) {
             File[] fileList = f.listFiles();
             if (fileList != null) {
                 for (int i = 0; i < fileList.length; i++) {
-                        sumFiles += sumSizeFiles(fileList[i],fileList[i].length());
+                    sumFiles += sumSizeFiles(fileList[i]);
                 }
             }
         }
@@ -59,8 +59,8 @@ public class FilesRecursive {
         getFilesRec(new File("C:\\Users\\orasc\\Programming\\CodingCampus_2022.03.VZ.Dornbirn\\src\\main\\java\\sergej"));
         int sumFiles = countFiles(new File("C:\\Users\\orasc\\Programming\\CodingCampus_2022.03.VZ.Dornbirn\\src\\main\\java\\sergej"));
         System.out.println("Total Sum of Files: " + sumFiles);
-        long sumSizeFile = sumSizeFiles(new File("C:\\Users\\orasc\\Programming\\CodingCampus_2022.03.VZ.Dornbirn\\src\\main\\java\\sergej"),0);
-        System.out.println("Total sum of size all files combined: "+sumSizeFile);
+        long sumSizeFile = sumSizeFiles(new File("C:\\Users\\orasc\\Programming\\CodingCampus_2022.03.VZ.Dornbirn\\src\\main\\java\\sergej"));
+        System.out.println("Total sum of size all files combined: " + sumSizeFile);
 
     }
 }

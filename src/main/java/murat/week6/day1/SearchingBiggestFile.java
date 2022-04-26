@@ -10,7 +10,8 @@ public class SearchingBiggestFile {
         String userPath = getUserText();
         File fl = new File(userPath);
 
-        System.out.println("The size of the folder: " + searchTheBiggest(fl));
+        File biggest = searchTheBiggest(fl);
+        System.out.println("Biggest file size: " + biggest.length() + " Biggest File Path: " + biggest.getPath());
     }
 
     public static String getUserText() {
@@ -20,23 +21,27 @@ public class SearchingBiggestFile {
         return scan.nextLine();
     }
 
-    public static long searchTheBiggest(File aFile) {
+    public static File searchTheBiggest(File aFile) {
 
-        File[] fileList = aFile.listFiles();
-        long max = 0;
-        String maxFile = "";
+        File[] listOfFiles = aFile.listFiles();
+        File biggestFile = new File("");
 
-        if (fileList != null) {
-            for (int i = 0; i < fileList.length; i++) {
-                if (!fileList[i].isDirectory()) {
-                    if (fileList[i].length() > max) {
-                        max = fileList[i].length();
-                        maxFile = fileList[i].getName();
-                    }
+        if (aFile.isFile()) {
+            return aFile;
+        }
+
+        if (listOfFiles != null) {
+
+            for (int i = 0; i < listOfFiles.length; i++) {
+                File fileToTest = searchTheBiggest(listOfFiles[i]);
+
+                if (fileToTest.length() > biggestFile.length()) {
+                    biggestFile = fileToTest;
                 }
             }
+        } else {
+            System.out.println("The file is not readable!");
         }
-        System.out.println("The biggest folder is: " + maxFile);
-        return max;
+        return biggestFile;
     }
 }
