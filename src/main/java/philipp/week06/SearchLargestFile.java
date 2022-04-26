@@ -16,7 +16,7 @@ public class SearchLargestFile {
     }
 
     private static File biggestFile(File f) {
-        File biggest = new File("");
+//        File biggest = new File("");
         File[] fileList = f.listFiles();
         if (fileList != null) {
             for (int i = 0; i < fileList.length; i++) {
@@ -26,14 +26,15 @@ public class SearchLargestFile {
                 } else {
                     testBiggest = fileList[i];
                 }
-                if (testBiggest.length() > biggest.length()) {
-                    biggest = testBiggest;
+                //f war vorher File biggest
+                if (testBiggest.length() > f.length()) {
+                    f = testBiggest;
                 }
             }
         } else {
             System.out.println("Cannot read: " + f.getAbsolutePath());
         }
-        return biggest;
+        return f;
     }
 
     private static File userInput(Scanner sc, String msg) {
