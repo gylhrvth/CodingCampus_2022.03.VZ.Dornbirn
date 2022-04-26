@@ -3,6 +3,8 @@ package philipp.week06;
 import java.io.File;
 import java.util.Scanner;
 
+import static philipp.week06.SearchFileByNameRegex.regExSearch;
+
 public class SearchFileByName {
     static Scanner sc = new Scanner(System.in);
 
@@ -20,8 +22,11 @@ public class SearchFileByName {
                 if (fileList[i].isDirectory()) {
                     searchFile(fileList[i], searchTerm);
                 }
-                String check = fileList[i].toString();
-                if (check.toLowerCase().contains(searchTerm.toLowerCase())) {
+//                if (fileList[i].toString().toLowerCase().contains(searchTerm.toLowerCase())) {
+//                    System.out.printf("%-50s %-500s%n", fileList[i].getName(), fileList[i].getAbsolutePath());
+//                }
+                // Methode mit RegEx
+                if (fileList[i].toString().matches(regExSearch(searchTerm))) {
                     System.out.printf("%-50s %-500s%n", fileList[i].getName(), fileList[i].getAbsolutePath());
                 }
             }
