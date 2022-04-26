@@ -3,18 +3,53 @@ package cemil.week07;
 import java.io.File;
 import java.util.Scanner;
 
-public class Day1File {
+public class Day2Files {
 
 
     public static void main(String[] args) {
 //        Scanner sc = new Scanner(System.in);
 //        System.out.println("Wo soll ich suchen?");
 //        String text = sc.nextLine();
-        String path = "C:\\";
+
+        String path = "C:\\Users\\DCV\\";
         fileNewList(path);
         System.out.println("sum: " + sumRecursilve(new File(path)));
         System.out.println("Count: " + countRecursiv(new File(path)));
 
+        File biggest = searchForBiggest(new File(path));
+        System.out.println("Max: " + biggest + " with " + biggest.length() + " bytes.");
+        File f = new File("C:\\Users\\DCV\\");
+        searchForName(f,"Mus");
+    }
+
+    public static void searchForName(File f, String cri) {
+        if (f.isFile()) {
+            if (f.getName().contains(cri)) {
+                System.out.println(f.getAbsolutePath());
+            }
+        } else {
+            File[] filesList = f.listFiles();
+            if (filesList != null) {
+                for (int i = 0; i < filesList.length; i++) {
+                    searchForName(filesList[i], cri);
+                }
+            }
+        }
+    }
+
+    public static File searchForBiggest(File f) {
+        if (f.isFile()) return f;
+        File biggest = new File("");
+        File[] fileList = f.listFiles();
+        if (fileList != null) {
+            for (int i = 0; i < fileList.length; i++) {
+                File testFile = searchForBiggest(fileList[i]);
+                if (testFile.length() > biggest.length()) {
+                    biggest = testFile;
+                }
+            }
+        }
+        return biggest;
     }
 
     public static long sumRecursilve(File f) {
@@ -58,7 +93,7 @@ public class Day1File {
     public static void printFile(File[] fileslist) {
         for (int i = 0; i < fileslist.length; i++) {
 
-            System.out.printf("%7s %-30s %10s%n",
+            System.out.printf("%7s %-100s %10s%n",
                     fileslist[i].isDirectory() ? "-->D: " : "",
                     fileslist[i].getName(),
                     fileslist[i].isDirectory() ? "" : fileslist[i].length());
@@ -70,8 +105,8 @@ public class Day1File {
     public static void fileSort(File[] fileList) {
         for (int i = 0; i < fileList.length; i++) {
             for (int j = 0; j < fileList.length - 1 - i; j++) {
-                Long size = fileList[j].isDirectory() ? Long.MIN_VALUE : fileList[j].length();
-                Long nextSize = fileList[j + 1].isDirectory() ? Long.MIN_VALUE : fileList[j + 1].length();
+                long size = fileList[j].isDirectory() ? Long.MIN_VALUE : fileList[j].length();
+                long nextSize = fileList[j + 1].isDirectory() ? Long.MIN_VALUE : fileList[j + 1].length();
                 if (size > nextSize)
                     swap(fileList, j, j + 1);
 
