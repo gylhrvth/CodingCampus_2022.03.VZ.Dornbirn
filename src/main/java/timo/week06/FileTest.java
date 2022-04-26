@@ -6,8 +6,11 @@ import java.io.File;
 public class FileTest {
 
     public static void main(String[] args) {
-        getFileList("/Users/tika/IdeaProjects/CodingCampus_2022.03.VZ.Dornbirn/src/main/java/timo");
-
+        String path = "/Users/tika/IdeaProjects/CodingCampus_2022.03.VZ.Dornbirn/src/main/java/timo";
+        getFileList(path);
+        System.out.println("=============================");
+        System.out.println("Sum of files is: " + getSumOfFiles(new File(path)) + " bytes");
+        System.out.println("Number of files: " + countFiles(new File(path)));
 
     }
 
@@ -76,6 +79,32 @@ public class FileTest {
         System.out.println("Total number of files: " + counter);
         System.out.println("Total size of files: " + sumSize + " bytes");
         System.out.println();
+    }
+
+    public static long getSumOfFiles(File f) {
+        if (f.isFile()) return f.length();
+        long sum = 0;
+        File[] fileList = f.listFiles();
+        if (fileList != null) {
+            for (int i = 0; i < fileList.length; i++) {
+                sum += getSumOfFiles(fileList[i]);
+            }
+        }
+        return sum;
+    }
+
+
+    public static int countFiles(File f) {
+        if (f.isFile()) return 1;
+
+        int count = 0;
+        File[] fileList = f.listFiles();
+        if (fileList != null) {
+            for (int i = 0; i < fileList.length; i++) {
+                count += countFiles(fileList[i]);
+            }
+        }
+        return count;
     }
 
 }
