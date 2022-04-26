@@ -3,30 +3,33 @@ package zah.week06;
 import java.io.File;
 
 public class DateiSumme {
-  static int count = 0;
+    static int count = 0;
     static long sum = 0;
 
     public static void main(String[] args) {
-        directoryList("C:\\Users\\zah_r\\Desktop\\cv");
-        System.out.println("...................");
+        directoryList("C:\\");
+        sumFile("C:\\");
         //   rekursive(C:\\Users\\zah_r\\Desktop\\text"");
-        System.out.println("Count: " + countRecursiv(new File("C:\\Users\\zah_r\\Desktop\\cv")));
-        System.out.println("sum: " + sumRecursilve(new File("C:\\Users\\zah_r\\Desktop\\cv")));
+        System.out.println("...................");
+
+        System.out.println("Count: " + countRecursiv(new File("C:\\Users\\zah_r\\IdeaProjects\\CodingCampus_2022.03.VZ.Dornbirn\\src\\main\\java\\zah")));
+        System.out.println("sum: " + sumRecursilve(new File("C:\\Users\\zah_r\\IdeaProjects\\CodingCampus_2022.03.VZ.Dornbirn\\src\\main\\java\\zah")));
+
+
+
     }
-    public static int sumRecursilve(File f){
-        if (f.isFile())return 1;
-        int sum =0;
+
+    public static long sumRecursilve(File f) {
+        if (f.isFile()) return f.length();
+        int sum = 0;
         File[] fileList = f.listFiles();
         if (fileList != null) {
             for (int i = 0; i < fileList.length; i++) {
-                sum += fileList.length;
+                sum += sumRecursilve(fileList[i]);
             }
         }
         return sum;
     }
-
-
-
 
     public static int countRecursiv(File f) {
         if (f.isFile()) return 1;
@@ -47,14 +50,12 @@ public class DateiSumme {
                     fileList[i].isDirectory() ? "-->" : "",
                     fileList[i].getName(),
                     fileList[i].isDirectory() ? "" : fileList[i].length());
-
-
         }
     }
 // brauchen wir momentan nicht, Sind filename
 
 
-//    public static void rekursive(String path) {
+    //    public static void rekursive(String path) {
 //        File f = new File(path);
 //        File[] filesofList = f.listFiles();
 //        //count = 0;
@@ -74,6 +75,16 @@ public class DateiSumme {
 //            }
 //        }
 //    }
+    public static void sumFile(String path) {
+        File f = new File(path);
+        File[] fileList = f.listFiles();
+        if (f.exists() && f.isDirectory()) {
+            for (int i = 0; i < fileList.length; i++) {
+                sum += fileList[i].length();
+            }
+            System.out.println("You have: " + sum + " byte");
+        }
+    }
 
     public static void directoryList(String path) {
         File f = new File(path);
@@ -81,19 +92,13 @@ public class DateiSumme {
             File[] fileList = f.listFiles();
             fileSort(fileList);
             prinfile(fileList);
-
-
-
             for (File value : fileList) {
                 count++;
-                sum += value.length();
             }
             System.out.println();
             System.out.println("You have: " + count + " Files");
-            System.out.println("You have: " + sum + " byte");
         }
     }
-
 
     public static void fileSort(File[] fileList) {
         for (int i = 0; i < fileList.length; i++) {
@@ -103,11 +108,9 @@ public class DateiSumme {
                 if (size > nextSize) {
                     swap2(fileList, j, j + 1);
                 }
-
             }
         }
     }
-
 
     public static void swap2(File[] data, int name1, int name2) {
         File swap = data[name1];
