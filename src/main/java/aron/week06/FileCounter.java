@@ -15,7 +15,7 @@ public class FileCounter {
         File[] fileList = f.listFiles();
         fileSort(fileList);
         printFileList(fileList);
-        System.out.println("Anzahl; " + counterFile(fileList));
+        System.out.println("Anzahl; " + counterFile(f));
         System.out.println("Summe; " + sumFile(f));
 
     }
@@ -47,18 +47,28 @@ public class FileCounter {
         fileList[indexB] = swap;
     }
 
-    public static int counterFile(File[] fileList) {
+    public static int counterFile(File file) {
 
         int counter = 0;
-        ;
-        for (int i = 0; i < fileList.length; i++) {
-
-            counter++;
+        if (file.isFile()) {
+            return + 1;
+        } else {
+            File[] fileList =file.listFiles();
+            if (fileList != null) {
+                for (int i = 0; i < fileList.length; i++) {
+                    counter += counterFile(fileList[i]);
+                }
+            } else {
+                System.out.println(file.getAbsolutePath() + " is not readable.");
+            }
         }
         return counter;
     }
 
+
+
     public static long sumFile(File file) {
+
         long sum = 0;
         if (file.isFile()) {
             return file.length();

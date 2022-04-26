@@ -46,7 +46,7 @@ public class BubblesortString {
     public static void sortWithBoolean(String[] arr) {
         System.out.println("hello, please choose if you would like an Ascending array or a Descending array.");
         Scanner sc = new Scanner(System.in);
-        String userInput = arda.toybox.Toys.userInputYorN(sc, "Ascending", "Descending");
+        String userInput = sc.nextLine(); //is not a proper userinut because I deleted the class of which i took the method from.
         while (true) {
             if (userInput.equals("Ascending")) {
                 sortAscending(arr);

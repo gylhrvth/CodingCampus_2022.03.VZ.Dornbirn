@@ -48,7 +48,7 @@ public class DateTable {
         return max;
     }
 
-    public static int getNumberLength(float value){
+    public static int getNumberLength(float value) {
         return (int)Math.max(1 + Math.log10(value), 1);
     }
 
