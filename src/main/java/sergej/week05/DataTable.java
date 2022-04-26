@@ -6,6 +6,10 @@ public class DataTable {
         return (int)Math.max(Math.ceil(Math.log10((int)value)), 1);
     }
 
+    public static int getALength(int value){
+        return (int)Math.max(Math.ceil(Math.log10((int)value)), 1);
+    }
+
     public static int getMaxString(String[] names){
         int max = 0;
         for (int i = 0; i < names.length ; i++) {
@@ -18,9 +22,9 @@ public class DataTable {
 
 
 
-    public static void printStringsNames(String[] names, String[] last, int[] age, String[] place, float[] dist,int maxName,int maxLast,int maxPlace,int Mdist) {
+    public static void printStringsNames(String[] names, String[] last, int[] age, String[] place, float[] dist,int maxName,int maxLast,int maxPlace,int Mdist,int maxAge) {
         for (int i = 0; i < names.length; i++) {
-            System.out.println(String.format("|%"+-maxName+"s |%"+-maxLast+"s |%2d |%"+-maxPlace+"s |%"+(3+Mdist)+".2f", names[i], last[i], age[i], place[i],dist[i]));
+            System.out.printf("| %"+-maxName+"s | %"+-maxLast+"s | %"+(maxAge+1)+"d | %"+-maxPlace+"s | %"+(5+Mdist)+".2f |%n", names[i], last[i], age[i], place[i],dist[i]);
         }
     }
 
@@ -33,17 +37,18 @@ public class DataTable {
 
         String[] table = {};
 
-        int maxName = getMaxString(firstName);
+        String firstNameTableHeader = "First Name";
+        int maxName = Math.max(getMaxString(firstName), firstNameTableHeader.length());
         int maxLast = getMaxString(lastName);
         int maxPlace = getMaxString(place);
-
         int maxFloat = getLength(distanceFromCapital[1]);
+        int maxAge = getALength(age[4]);
 
-        String header = String.format("|%"+-maxName+"s |%"+-maxLast+"s |%s |%"+-maxPlace+"s |%"+(maxFloat)+"s", "First Name", "Last Name", "Age", "Place","Distance");
+        String header = String.format("| %-"+maxName+"s | %-"+maxLast+"s | %-"+maxAge+"s | %-"+maxPlace+"s | %-"+maxFloat+"s |", firstNameTableHeader, "Last Name", "Age", "Place","Distance");
         String line = "- ".repeat(header.length()/2);
         System.out.println(header);
         System.out.println("- ".repeat(header.length()/2));
-        printStringsNames(firstName, lastName, age, place,distanceFromCapital,maxName,maxLast,maxPlace,maxFloat);
+        printStringsNames(firstName, lastName, age, place,distanceFromCapital,maxName,maxLast,maxPlace,maxFloat,maxAge);
 
 
     }
