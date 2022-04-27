@@ -2,6 +2,7 @@ package murat.week6.day2;
 
 import murat.week5.day3.DisplayAsATable;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
@@ -28,7 +29,9 @@ public class WriteArrayTable {
         int lengthDist = DisplayAsATable.getMaxFloat(distanceFromCapital);
 
         try {
-            FileOutputStream output = new FileOutputStream("assets/tmp/murat.txt", true);
+            File f = new File("assets/tmp/murat.txt");
+            f.getParentFile().mkdirs();
+            FileOutputStream output = new FileOutputStream(f, true);
             PrintStream ps = new PrintStream(output);
 
             ps.println("*******************************************************************");
