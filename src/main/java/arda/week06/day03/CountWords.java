@@ -19,7 +19,8 @@ public class CountWords {
                 line = br.readLine();
                 System.out.println(line);
                 if (!line.isBlank()){
-                    counter += line.length();
+                    String[] word = line.split(" ");
+                    counter += word.length;
                 }
             }
             br.close();
