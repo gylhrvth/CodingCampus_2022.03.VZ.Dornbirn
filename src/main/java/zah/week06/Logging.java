@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -18,35 +19,43 @@ public class Logging {
 //        int severity1= Integer.parseInt("Warning");
 //        int severity2= Integer.parseInt("Info");
 
-        for (int i = 0; i < 100; i++) {
-            log(3, "Cemil");
-        }
+
+        log(1, " Test");
+
 
     }
 
     public static void log(int severity, String message) {
         try {
             File f = new File("assets/tmp/output.txt");
+            File old = new File("C:\\Users\\zah_r\\Desktop\\text\\Razvan.txt");
+
             f.getParentFile().mkdirs();
-            PrintStream ps = new PrintStream(new FileOutputStream(f, false));
+            PrintStream ps = new PrintStream(new FileOutputStream(f, true));
             Calendar gc = Calendar.getInstance();
             gc.setTime(new Date());
             SimpleDateFormat sdf = new SimpleDateFormat("EEEE dd.MM.yyy HH:mm ");
+            String[] mes = {"ERROR", "WARNING", "INFO"};
 
+            if (severity < 1 || severity > mes.length) {
+                severity = mes.length;
+            }
+            ps.println(sdf.format(gc.getTime()) + mes[severity - 1] + message);
+            if (f.length() >= 10000) {
+                if (old.exists()) {
+                    old.delete();
+                } else {
+                    boolean b = f.renameTo(old);
+                    System.out.println("Renamed files: " + b);
 
-            if (severity == 1) {
-                ps.println(sdf.format(gc.getTime())+"Error: " + message);
+                    ps.close();
+                }
             }
-            if (severity == 2) {
-                ps.println(sdf.format(gc.getTime())+"Warning: " + message);
-            }
-            if (severity == 3) {
-                ps.println(sdf.format(gc.getTime())+"Info: " + message);
-            }
-            ps.close();
+
         } catch (FileNotFoundException fnfe) {
             fnfe.printStackTrace();
         }
     }
-
 }
+
+

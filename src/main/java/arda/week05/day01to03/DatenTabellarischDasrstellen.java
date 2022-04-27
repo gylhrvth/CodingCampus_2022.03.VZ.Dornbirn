@@ -20,11 +20,11 @@ public class DatenTabellarischDasrstellen {
 
     public static void tabelle(String[] firstName, String[] lastName, int[] age, String[] place, float[] dFC) {
         for (int i = 0; i < firstName.length; i++) {
-            System.out.printf("|%"+ (-(getMaxStringLength(firstName))) +"s|%"+
-                    (-(getMaxStringLength(lastName)))+"s|%"+
-                    (-(getMaxIntLength(age)-2))+"d|%"+
-                    (-(getMaxStringLength(place)))+"s|%"+
-                    (-(getMaxFloatLength(dFC)+1))+".1f|", firstName[i], lastName[i], age[i], place[i], dFC[i]);
+            System.out.printf(" |%"+ (-(getMaxStringLength(firstName))) +"s | %"+
+                    (-(getMaxStringLength(lastName)))+"s | %"+
+                    ((getMaxIntLength(age)-2))+"d | %"+
+                    (-(getMaxStringLength(place)))+"s | %"+
+                    ((getMaxFloatLength(dFC)+1))+".1f |", firstName[i], lastName[i], age[i], place[i], dFC[i]);
             System.out.println();
         }
     }
