@@ -9,7 +9,7 @@ public class CountLettersByGyula {
 
         for (int i = 0; i < letterCounter.length; i++) {
             //added if statement to get rid off letters that do not appear in the text
-            if (!(letterCounter[i] == 0)){
+            if (letterCounter[i] > 0){
                 System.out.printf("%-2s appears %5d times. %n",(char)i,letterCounter[i]);
             }
         }
