@@ -4,13 +4,14 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.logging.SimpleFormatter;
 
-public class ReadFile {
+public class CountLetters {
     public static void main(String[] args) {
         int[] count = countLettersOfFile("/intellij/FileRead/readme.txt");
         for (int i = 0; i < count.length; i++) {
-            System.out.println((char) i + " " + count[i]);
+            if (count[i] > 0) {
+                System.out.printf("%-2s appears %5d times. %n",(char)i,count[i]);
+            }
         }
     }
 
