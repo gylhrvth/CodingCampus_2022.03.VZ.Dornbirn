@@ -15,7 +15,6 @@ public class BiggestFileSize {
         System.out.println("file size: " + largestFile.length());
     }
 
-    //does not go into the sub directories.
     public static File biggestFileSizePath(File file) {
         File[] fileList = file.listFiles();
         File temp = null;
@@ -37,7 +36,7 @@ public class BiggestFileSize {
 
     public static String userInputPath() {
         String input = "";
-        while (!input.matches("([a-zA-Z]:)?(\\\\[a-zA-Z0-9_.-]+)+\\\\?")) {
+        while (!input.matches("([a-zA-Z]:)?(\\\\[a-zA-Z0-9_ .-]+)+\\\\?")) {
             System.out.println("please enter a valid directory path");
             input = sc.nextLine();
         }
