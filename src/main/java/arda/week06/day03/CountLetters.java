@@ -6,13 +6,22 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class CountLetters {
+    static String filePath = "/intellij/FileRead/readme.txt";
+    static int[] count = countLettersOfFile(filePath);
+
     public static void main(String[] args) {
-        int[] count = countLettersOfFile("/intellij/FileRead/readme.txt");
+        //amountOfLetters();
+        //eachLetterAmount();
+        DynamicLetterCount.countInstanceOfWord(filePath);
+    }
+
+    public static void eachLetterAmount() {
         for (int i = 0; i < count.length; i++) {
             if (count[i] > 0) {
-                System.out.printf("%-2s appears %5d times. %n",(char)i,count[i]);
+                System.out.printf("%-2s appears %5d times. %n", (char) i, count[i]);
             }
         }
+
     }
 
     public static int[] countLettersOfFile(String filepath) {
@@ -31,5 +40,27 @@ public class CountLetters {
             e.printStackTrace();
         }
         return letterCounter;
+    }
+
+    public static void amountOfLetters() {
+        String readLine = "";
+        int amountOfLetters = 0;
+        try {
+            FileReader fr = new FileReader(filePath);
+            BufferedReader br = new BufferedReader(fr);
+            while (br.ready()) {
+                readLine = br.readLine();
+                System.out.println(readLine);
+                if (!readLine.isBlank()){
+                    amountOfLetters += readLine.length();
+                }
+            }
+            br.close();
+            System.out.println("the amount of letters is: " + amountOfLetters);
+        } catch (FileNotFoundException exc) {
+            System.out.println("could not find file");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
