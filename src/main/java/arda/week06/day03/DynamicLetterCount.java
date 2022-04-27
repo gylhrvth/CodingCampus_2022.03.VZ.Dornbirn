@@ -10,9 +10,10 @@ public class DynamicLetterCount {
         countInstanceOfWord("/intellij/FileRead/readme.txt");
     }
     public static void countInstanceOfWord(String filepath){
+        System.out.println("enter the word you would like to count.");
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine();
-        int counter = 1;
+        int counter = 0;
         try{
             FileReader fr = new FileReader(filepath);
             BufferedReader br = new BufferedReader(fr);
