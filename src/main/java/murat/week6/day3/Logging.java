@@ -41,6 +41,7 @@ public class Logging {
                 default:
                     System.out.println("Severity is false!");
             }
+            ps.close();
         } catch (FileNotFoundException fnfe) {
 
             fnfe.printStackTrace();
