@@ -20,14 +20,14 @@ public class PrintDataFormated {
 
     public static void printStream(String[] firstName, String[] lastName, int[] age, String[] place, float[] distaneFromCapital) {
         try {
-            PrintStream ps = new PrintStream(new FileOutputStream("assets/tmp/FormatedData", true));
+            PrintStream ps = new PrintStream(new FileOutputStream("assets/tmp/FormatedData", false));
             for (int i = 0; i < firstName.length; i++) {
-                ps.printf("|%" + getMaxStringLength(firstName) + "s|%" +
-                                (-(getMaxStringLength(lastName))) + "s|%" +
-                                (-(getMaxIntLength(age) - 2)) + "d|%" +
-                                (-(getMaxStringLength(place))) + "s|%" +
-                                (-(getMaxFloatLength(distaneFromCapital) + 1)) +
-                                ".1f| %n", firstName[i], lastName[i], age[i],
+                ps.printf("| %-" + getMaxStringLength(firstName) + "s | %-" +
+                                (getMaxStringLength(lastName)) + "s | %" +
+                                ((getMaxIntLength(age) - 2)) + "d | %" +
+                                (-(getMaxStringLength(place))) + "s | %" +
+                                ((getMaxFloatLength(distaneFromCapital) + 1)) +
+                                ".1f | %n", firstName[i], lastName[i], age[i],
                         place[i], distaneFromCapital[i]);
             }
         }catch (FileNotFoundException fnaf){
