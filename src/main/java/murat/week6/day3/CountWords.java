@@ -22,7 +22,7 @@ public class CountWords {
                 line = buffer.readLine();
 
                 if(!line.isBlank()){
-                    String[] lineOfWords = line.split(" ");
+                    String[] lineOfWords = line.split("\\s+");
                     wordCounter += lineOfWords.length;
                 }
             }
