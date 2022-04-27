@@ -16,7 +16,7 @@ public class WriteFile {
 
     public static void textReader(Scanner sc) {
         System.out.println("Please enter a text!");
-        String input = " ";
+        String input = "";
 
         try {
             PrintStream ps = new PrintStream(new FileOutputStream("C:\\Users\\zah_r\\Desktop\\text\\Razvan.txt", true));
