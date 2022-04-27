@@ -1,28 +1,35 @@
 package murat.week6.day3;
 
 import java.io.*;
+import java.time.chrono.ThaiBuddhistChronology;
 import java.util.Scanner;
 
 public class CountTheLetters {
     public static void main(String[] args) {
 
-        // System.out.println("The number of Letters: " + numberOfLetters());
-
         File file = new File("assets/tmp/Murat.txt");
+
+        // Task 1
+        System.out.println("The number of Letters: " + numberOfLetters(file));
+
+        // Task 2
         char letter = 'm';
-        System.out.println("\nThe letter \"" + letter + "\" exits " + countChars(file, letter) + " times.");
+        System.out.println("The letter \"" + letter + "\" exits " + countChars(file, letter) + " times.");
+
+        // Task 3
+        char[] charsToCount = new char[]{'a', 'z', 'e'};
+        System.out.println("There are " + countChars(file, charsToCount) + " letters.");
+
     }
 
-    public static int numberOfLetters() {
+    public static int numberOfLetters(File aFile) {
 
         String line;
         int sum = 0;
         try {
-            FileReader reader = new FileReader("assets/tmp/AdaBlackjack.txt");
-            BufferedReader buff = new BufferedReader(reader);
+            BufferedReader buff = new BufferedReader(new FileReader(aFile));
             while (buff.ready()) {
                 line = buff.readLine();
-                System.out.println(line);
                 sum += line.length();
             }
             buff.close();
@@ -37,7 +44,6 @@ public class CountTheLetters {
         int counter = 0;
         String line;
         try {
-            // File file = new File("assets/tmp/Murat.txt");
             Scanner scan = new Scanner(aFile);
             while (scan.hasNext()) {
                 line = scan.nextLine();
@@ -48,11 +54,37 @@ public class CountTheLetters {
                     }
                 }
             }
-
+            scan.close();
         } catch (FileNotFoundException fnfe) {
             fnfe.printStackTrace();
         }
 
         return counter;
     }
+
+    public static int countChars(File aFile, char[] charsToCount) {
+
+        int counter = 0;
+        try {
+            BufferedReader buff = new BufferedReader(new FileReader(aFile));
+
+            while (buff.ready()) {
+                String line = buff.readLine();
+
+                for (int i = 0; i < charsToCount.length; i++) {
+
+                    for (int j = 0; j < line.length(); j++) {
+                        if (charsToCount[i] == line.charAt(j)) {
+                            counter++;
+                        }
+                    }
+                }
+            }
+            buff.close();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+        return counter;
+    }
+
 }
