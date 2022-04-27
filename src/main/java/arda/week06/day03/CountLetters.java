@@ -7,12 +7,14 @@ import java.io.IOException;
 
 public class CountLetters {
     static String filePath = "/intellij/FileRead/readme.txt";
+    static final String RESET = "\033[0m";
+    static final String RED_BRIGHT = "\033[0;91m";
     static int[] count = countLettersOfFile(filePath);
 
     public static void main(String[] args) {
-        //amountOfLetters();
+        amountOfLetters();
         //eachLetterAmount();
-        DynamicLetterCount.countInstanceOfWord(filePath);
+        //DynamicLetterCount.countInstanceOfWord(filePath);
     }
 
     public static void eachLetterAmount() {
@@ -56,7 +58,7 @@ public class CountLetters {
                 }
             }
             br.close();
-            System.out.println("the amount of letters is: " + amountOfLetters);
+            System.out.println("this text has " + RED_BRIGHT + amountOfLetters + RESET + " letters.");
         } catch (FileNotFoundException exc) {
             System.out.println("could not find file");
         } catch (IOException e) {
