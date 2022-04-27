@@ -47,7 +47,7 @@ public class DataTable {
         String header = String.format("| %-"+maxName+"s | %-"+maxLast+"s | %-"+maxAge+"s | %-"+maxPlace+"s | %-"+maxFloat+"s |", firstNameTableHeader, "Last Name", "Age", "Place","Distance");
         String line = "- ".repeat(header.length()/2);
         System.out.println(header);
-        System.out.println("- ".repeat(header.length()/2));
+        System.out.println(" -".repeat(header.length()/2));
         printStringsNames(firstName, lastName, age, place,distanceFromCapital,maxName,maxLast,maxPlace,maxFloat,maxAge);
 
 
