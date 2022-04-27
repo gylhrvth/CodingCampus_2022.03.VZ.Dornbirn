@@ -4,7 +4,7 @@ import java.io.*;
 
 public class LargeFileReader {
     public static void main(String[] args) {
-        //generateLargeFile("assets/tmp/large.txt", 1400000000);
+        generateLargeFile("assets/tmp/large.txt", 1400000000);
 
         String filename = "assets/tmp/large.txt";
         System.out.println(countLetter(filename, 'o'));
