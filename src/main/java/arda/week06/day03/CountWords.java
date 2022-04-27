@@ -24,7 +24,7 @@ public class CountWords {
                 }
             }
             br.close();
-            System.out.println(counter);
+            System.out.println("there are " + counter + " words.");
         }catch (FileNotFoundException exc){
             System.out.println("the file could not be found!");
         } catch (IOException e) {

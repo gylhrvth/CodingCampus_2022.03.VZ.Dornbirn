@@ -13,6 +13,7 @@ public class DynamicLetterCount {
         System.out.println("enter the word you would like to count.");
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine();
+        String time = "";
         int counter = 0;
         try{
             FileReader fr = new FileReader(filepath);
@@ -30,6 +31,11 @@ public class DynamicLetterCount {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("the word: " + RED + input + RESET + " appears: " + RED + counter + RESET + " times.");
+        if (counter > 1){
+            time = "times";
+        }else{
+            time = "time";
+        }
+        System.out.println("the word: " + RED + input + RESET + " appears: " + RED + counter + RESET + " " + time + ".");
     }
 }
