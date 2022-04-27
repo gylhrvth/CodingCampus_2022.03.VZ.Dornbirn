@@ -7,14 +7,10 @@ public class ReadFileWithBufferedReader {
         try {
             FileReader fr = new FileReader("assets/tmp/gyula.txt");
             BufferedReader br = new BufferedReader(fr);
-            String content = "";
             while (br.ready()){
                 String line = br.readLine();
-                content += line;
-                content += "\n";
-                //System.out.println(line);
+                System.out.println(line);
             }
-            System.out.println(content);
             br.close();
         } catch (IOException e) {
             e.printStackTrace();
