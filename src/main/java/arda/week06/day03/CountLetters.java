@@ -13,8 +13,10 @@ public class CountLetters {
 
     public static void main(String[] args) {
         amountOfLetters();
-        //eachLetterAmount();
-        //DynamicLetterCount.countInstanceOfWord(filePath);
+        System.out.println("========================================================");
+        eachLetterAmount();
+        System.out.println("========================================================");
+        DynamicWordCounter.countInstanceOfWord(filePath);
     }
 
     public static void eachLetterAmount() {
