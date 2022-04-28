@@ -3,9 +3,10 @@ package arda.week06.day03;
 import java.io.*;
 import java.util.Scanner;
 
-public class DynamicWordReplace {
+public class DynamicWordReplacer {
     static String RESET = "\033[0m";
     static String RED = "\033[0;91m";
+
     public static void main(String[] args) {
         wordReplace("/intellij/FileRead/readme.txt");
     }
@@ -22,10 +23,13 @@ public class DynamicWordReplace {
             BufferedReader br = new BufferedReader(fr);
             while (br.ready()) {
                 String line = br.readLine();
-                if (line.contains(replacedWord)) {
-                    result = line.replace(replacedWord,RED + word + RESET);
+                String replacedLine = line.replaceAll("[!?,.]+", " ");
+                String[] splitLine = replacedLine.split(" ");
+                for (int i = 0; i < splitLine.length; i++) {
+                    if (replacedWord.equals(splitLine[i])) {
+                        System.out.println(replacedLine.replaceAll(replacedWord, RED + word + RESET));
+                    }
                 }
-                System.out.println(result);
             }
         } catch (IOException exc) {
             System.out.println("cannot find file!");
