@@ -12,10 +12,10 @@ public class CountFile {
 
         while (file.hasNextLine()) {
             String line = file.nextLine().replaceAll("[(0-9)\s\\p{Punct}]", "");
-            countCharsArr(line, count);
+            countSingleChar(line, count, 'y');
+            //countCharsArr(line, count);
         }
         file.close();
-
         printResult(count);
     }
 
@@ -29,14 +29,39 @@ public class CountFile {
         return count;
     }
 
-    public static void countCharsArr(String text, int[] count) {
+    public static void countCharsArr(File f, int[] count) {
+        try {
+            Scanner sc = new Scanner(f);
+
+            while (sc.hasNextLine()) {
+                String text = sc.nextLine().replaceAll("[(0-9)\s\\p{Punct}]", "");
+
+                int len = text.length();
+                for (int i = 0; i < len; i++) {
+                    char c = text.charAt(i);
+                    if (c < 0 || c >= count.length) c = 0;
+                    count[c]++;
+                }
+            }
+        } catch (FileNotFoundException fnfe){}
+    }
+
+    public static int countSingleChar2(File f, char d) {
+        int count[] = new int[MAX_CHAR];
+        countCharsArr(f, count);
+        return count[d];
+    }
+
+    public static void countSingleChar(String text, int[] count, char d) {
 
         int len = text.length();
 
         for (int i = 0; i < len; i++) {
             char c = text.charAt(i);
             if (c < 0 || c >= count.length) c = 0;
-            count[c]++;
+            if (c == d) {
+                count[c]++;
+            }
         }
         /*
         char ch[] = new char[text.length()];
@@ -57,9 +82,9 @@ public class CountFile {
     }
 
 
-    public static void printResult(int[] result){
+    public static void printResult(int[] result) {
         for (int i = 0; i < result.length; i++) {
-            if (result[i] > 0){
+            if (result[i] > 0) {
                 if (i == 0) {
                     System.out.println(result[i] + " other unicode charakters.");
                 } else {
@@ -75,9 +100,17 @@ public class CountFile {
         System.out.println("please enter file path: ");
         String input = sc.nextLine();
         File file = new File(input);
-        Scanner scf = new Scanner(file);
 
-        countChars(scf);
+
+        int count[] = new int[MAX_CHAR];
+        countCharsArr(file, count);
+        printResult(count);
+
+        System.out.println("********************");
+        System.out.println(countSingleChar2(file, 'c'));
+        //Scanner scf = new Scanner(file);
+
+        //countChars(scf);
 
         //int test = countChars(scf);
         // System.out.println(test);
