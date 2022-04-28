@@ -22,13 +22,11 @@ public class CountLetterWithBuufferOrScanner {
             File f = new File("assets/tmp/output.txt");
             Scanner sc = new Scanner(f);
             while (sc.hasNext()) {
-                String line = sc.nextLine();
+                String line = sc.next();
                 for (int i = 0; i < line.length(); i++) {
                     count++;
 
                 }
-
-
             }
             sc.close();
         } catch (FileNotFoundException e) {
