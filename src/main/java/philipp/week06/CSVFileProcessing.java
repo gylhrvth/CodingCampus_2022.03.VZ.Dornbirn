@@ -10,8 +10,8 @@ import java.util.Scanner;
 public class CSVFileProcessing {
 
     public static void main(String[] args) {
-//        InputStream iS = Objects.requireNonNull(CSVReadAndDisplayExercises.class.getClassLoader().getResourceAsStream("csv/sales_100.csv"));
-        InputStream iS = Objects.requireNonNull(CSVReadAndDisplayExercises.class.getClassLoader().getResourceAsStream("csv/CSVTest-Philipp.csv"));
+        InputStream iS = Objects.requireNonNull(CSVReadAndDisplayExercises.class.getClassLoader().getResourceAsStream("csv/sales_100.csv"));
+//        InputStream iS = Objects.requireNonNull(CSVReadAndDisplayExercises.class.getClassLoader().getResourceAsStream("csv/CSVTest-Philipp.csv"));
 
         CSVFileProcess(iS, ',');
     }
@@ -203,7 +203,7 @@ public class CSVFileProcessing {
     private static void safeFile(String[][] data,int column) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH-mm-ss");
         LocalDateTime now = LocalDateTime.now();
-        String path = "C:\\Users\\user\\Desktop\\File " + dtf.format(now) + "sorted by column "+data[0][column]+".csv";
+        String path = "C:\\Users\\user\\Desktop\\File " + dtf.format(now) + "sorted by column "+data[0][column]+".txt";
         File f = new File(path);
         f.getParentFile().mkdirs();
         PrintStream ps = null;
