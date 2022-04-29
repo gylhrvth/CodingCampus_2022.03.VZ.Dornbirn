@@ -8,14 +8,29 @@ public class ReadAndDisplayCSV {
         Reader reader = new InputStreamReader(Objects.requireNonNull(ReadAndDisplayCSV.class.getClassLoader().getResourceAsStream("csv/sales_100.csv")));
         String read = readString(reader);
         String[][] matrix = splitList(read);
-        listBuilder(matrix);
+        int []longest = longest(matrix);
+        listBuilder(matrix,longest);
+
         // String[] lines = splitLines(read);
     }
+    public static int [] longest(String[][] list){
+        int [] longest = new int[list.length];
+        for (int i = 0; i <list.length ; i++) {
+            for (int j = 0; j <list[i].length ; j++) {
+                String word = list[i][j];
+                int cour = longest[j];
+                if (word.length()>cour)
+                    longest[j]=word.length();
+            }
 
-    public static void listBuilder(String[][] list) {
+        }
+        return longest;
+    }
+
+    public static void listBuilder(String[][] list, int [] longest) {
         for (int i = 0; i < list.length; i++) {
             for (int j = 0; j < list[i].length; j++) {
-                System.out.printf("%-40s",list[i][j]);
+                System.out.printf("%- "+ longest[j]+ "s | ", list[i][j]);
             }
             System.out.println();
         }
@@ -29,10 +44,6 @@ public class ReadAndDisplayCSV {
         }
         return arr;
     }
-
-//    public static String[] splitLines(String text) {
-//        return text.split(System.lineSeparator());
-//    }
 
     public static String readString(Reader re) {
         StringBuilder text = new StringBuilder();
