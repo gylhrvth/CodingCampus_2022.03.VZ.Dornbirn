@@ -30,7 +30,7 @@ public class ReadAndDisplayCSV {
     public static void listBuilder(String[][] list, int [] longest) {
         for (int i = 0; i < list.length; i++) {
             for (int j = 0; j < list[i].length; j++) {
-                System.out.printf("%- "+ longest[j]+ "s | ", list[i][j]);
+                System.out.printf("%-" + longest[j] + "s | ", list[i][j]);
             }
             System.out.println();
         }
