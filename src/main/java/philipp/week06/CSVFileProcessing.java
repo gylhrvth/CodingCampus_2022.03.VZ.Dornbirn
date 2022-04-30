@@ -39,7 +39,7 @@ public class CSVFileProcessing {
             printArrayOfCSVOpt(array2dOfCSV);
             int saveToFile = userInput("Do you want to save the data in a file?\n 1 for YES, 2 for NO", "Please enter a correct number", 1, 2);
             if (saveToFile == 1) {
-                safeFile(array2dOfCSV,colToSort);
+                safeFile(array2dOfCSV,colToSort, asc);
             }
             again = userInput("Do you want to sort again?\n1 for YES, 2 for NO", "Please enter a correct number!", 1, 2);
         }
@@ -200,10 +200,14 @@ public class CSVFileProcessing {
         return true;
     }
 
-    private static void safeFile(String[][] data,int column) {
+    private static void safeFile(String[][] data,int column,boolean asc) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH-mm-ss");
         LocalDateTime now = LocalDateTime.now();
-        String path = "C:\\Users\\user\\Desktop\\File " + dtf.format(now) + "sorted by column "+data[0][column]+".txt";
+        String printAscOrDsc= "-DSC";
+        if(asc){
+            printAscOrDsc="-ASC";
+        }
+        String path = "C:\\Users\\user\\Desktop\\File " + dtf.format(now) + "sorted by column "+data[0][column]+printAscOrDsc+".txt";
         File f = new File(path);
         f.getParentFile().mkdirs();
         PrintStream ps = null;
