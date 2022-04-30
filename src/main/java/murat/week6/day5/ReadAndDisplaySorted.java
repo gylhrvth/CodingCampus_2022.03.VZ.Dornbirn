@@ -125,9 +125,13 @@ public class ReadAndDisplaySorted {
             for (int j = 1; j < aMatrix.length - i - 1; j++) {
 
                 if (aMatrix[j][col].compareTo(aMatrix[j + 1][col]) > 0) {
-                    temp = aMatrix[j + 1][col];
-                    aMatrix[j + 1][col] = aMatrix[j][col];
-                    aMatrix[j][col] = temp;
+
+                    // Swap also other columns
+                    for (int k = 0; k < aMatrix[i].length; k++) {
+                        temp = aMatrix[j + 1][k];
+                        aMatrix[j + 1][k] = aMatrix[j][k];
+                        aMatrix[j][k] = temp;
+                    }
                 }
             }
         }
