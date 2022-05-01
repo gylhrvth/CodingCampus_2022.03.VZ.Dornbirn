@@ -3,7 +3,6 @@ package philipp.week06;
 import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -37,9 +36,9 @@ public class CSVFileProcessing {
                 bubbleSorted2dArray2(array2dOfCSV, colToSort, asc);
             }
             printArrayOfCSVOpt(array2dOfCSV);
-            int saveToFile = userInput("Do you want to save the data in a file?\n 1 for YES, 2 for NO", "Please enter a correct number", 1, 2);
+            int saveToFile = userInput("Do you want to save the data in a .txt and .csv file?\n 1 for YES, 2 for NO", "Please enter a correct number", 1, 2);
             if (saveToFile == 1) {
-                safeFile(array2dOfCSV,colToSort, asc);
+                safeFileTxtAndCsv(array2dOfCSV, colToSort, asc);
             }
             again = userInput("Do you want to sort again?\n1 for YES, 2 for NO", "Please enter a correct number!", 1, 2);
         }
@@ -200,14 +199,14 @@ public class CSVFileProcessing {
         return true;
     }
 
-    private static void safeFile(String[][] data,int column,boolean asc) {
+    private static void safeFileTxtAndCsv(String[][] data, int column, boolean asc) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH-mm-ss");
         LocalDateTime now = LocalDateTime.now();
-        String printAscOrDsc= "-DSC";
-        if(asc){
-            printAscOrDsc="-ASC";
+        String printAscOrDsc = "-DSC";
+        if (asc) {
+            printAscOrDsc = "-ASC";
         }
-        String path = "C:\\Users\\user\\Desktop\\File " + dtf.format(now) + "sorted by column "+data[0][column]+printAscOrDsc+".txt";
+        String path = "C:\\Users\\user\\Desktop\\File " + dtf.format(now) + "sorted by column " + data[0][column] + printAscOrDsc + ".txt";
         File f = new File(path);
         f.getParentFile().mkdirs();
         PrintStream ps = null;
@@ -231,13 +230,40 @@ public class CSVFileProcessing {
                     ps.println();
                 }
             }
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         ps.close();
-        System.out.println("Your data has been saved under " + path + ".");
+        createCSV(data, column, printAscOrDsc, dtf, now);
+        System.out.println("Your data has been saved under " + path + "\n and File " + dtf.format(now) + "sorted by column " + data[0][column] + printAscOrDsc + ".csv .");
+    }
+
+    private static void createCSV(String[][] data, int column, String printAscOrDsc, DateTimeFormatter dtf, LocalDateTime now) {
+        String path = "C:\\Users\\user\\Desktop\\File " + dtf.format(now) + "sorted by column " + data[0][column] + printAscOrDsc + ".csv";
+        File f = new File(path);
+        f.getParentFile().mkdirs();
+        PrintStream ps = null;
+        try {
+            ps = new PrintStream(new FileOutputStream(f, true));
+            for (int i = 0; i < data.length; i++) {
+                for (int j = 0; j < data[i].length; j++) {
+                    if (j == data[j].length-1) {
+                        ps.print(data[i][j]);
+                    } else {
+                        ps.print(data[i][j] + ";");
+                    }
+                }
+                ps.println();
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        ps.close();
     }
 }
+
+
 
 
 
