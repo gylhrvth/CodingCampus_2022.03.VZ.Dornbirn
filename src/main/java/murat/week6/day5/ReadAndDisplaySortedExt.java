@@ -6,10 +6,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class ReadAndDisplaySorted {
+public class ReadAndDisplaySortedExt {
     public static void main(String[] args) {
 
         Reader reader = new InputStreamReader(Objects.requireNonNull(ReadAndDisplayCSV.class.getClassLoader().getResourceAsStream("csv/sales_100.csv")));
@@ -118,19 +121,69 @@ public class ReadAndDisplaySorted {
     // Bubble sort the column
     public static String[][] sortAColumnLexi(String[][] aMatrix, int col) {
 
-        String temp;
         for (int i = 0; i < aMatrix.length; i++) {
 
-            // j is 1 because we do not sort the titles.
             for (int j = 1; j < aMatrix.length - i - 1; j++) {
 
-                if (aMatrix[j][col].compareTo(aMatrix[j + 1][col]) > 0) {
+                if (aMatrix[j][col].matches("[+-]?[0-9]+")) {                      // Integers
 
-                    // Swap also other columns
-                    for (int k = 0; k < aMatrix[i].length; k++) {
-                        temp = aMatrix[j + 1][k];
-                        aMatrix[j + 1][k] = aMatrix[j][k];
-                        aMatrix[j][k] = temp;
+                    int first = Integer.parseInt((aMatrix[j][col]));
+                    int second = Integer.parseInt((aMatrix[j + 1][col]));
+
+                    if (first > second) {
+
+                        // Swap also other columns
+                        for (int k = 0; k < aMatrix[i].length; k++) {
+                            String tempString = aMatrix[j + 1][k];
+                            aMatrix[j + 1][k] = aMatrix[j][k];
+                            aMatrix[j][k] = tempString;
+                        }
+                    }
+
+                } else if (aMatrix[j][col].matches("[+-]?([0-9]*[.])?[0-9]+")) {     // Floating numbers
+
+                    float first = Float.parseFloat(aMatrix[j][col]);
+                    float second = Float.parseFloat(aMatrix[j + 1][col]);
+
+                    if (first > second) {
+
+                        // Swap also other columns
+                        for (int k = 0; k < aMatrix[i].length; k++) {
+                            String tempString = aMatrix[j + 1][k];
+                            aMatrix[j + 1][k] = aMatrix[j][k];
+                            aMatrix[j][k] = tempString;
+                        }
+                    }
+
+                } else if (aMatrix[j][col].matches("^[0-3]?[0-9]/[0-3]?[0-9]/(?:[0-9]{2})?[0-9]{2}$")) {      // Dates
+
+                    try {
+                        Date first = new SimpleDateFormat("MM/dd/yyyy").parse(aMatrix[j][col]);
+                        Date second = new SimpleDateFormat("MM/dd/yyyy").parse(aMatrix[j + 1][col]);
+
+                        if (first.compareTo(second) > 0) {
+
+                            // Swap also other columns
+                            for (int k = 0; k < aMatrix[i].length; k++) {
+                                String tempString = aMatrix[j + 1][k];
+                                aMatrix[j + 1][k] = aMatrix[j][k];
+                                aMatrix[j][k] = tempString;
+                            }
+                        }
+                    } catch (ParseException pe) {
+                        pe.printStackTrace();
+                    }
+
+                } else {
+
+                    if (aMatrix[j][col].compareTo(aMatrix[j + 1][col]) > 0) {          // Strings
+
+                        // Swap also other columns
+                        for (int k = 0; k < aMatrix[i].length; k++) {
+                            String tempString = aMatrix[j + 1][k];
+                            aMatrix[j + 1][k] = aMatrix[j][k];
+                            aMatrix[j][k] = tempString;
+                        }
                     }
                 }
             }
@@ -138,6 +191,3 @@ public class ReadAndDisplaySorted {
         return aMatrix;
     }
 }
-
-
-
