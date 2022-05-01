@@ -19,7 +19,7 @@ public class RandomReverse {
         String userText = sc.nextLine();
 
         System.out.println("How many times do you want to shuffle? Please enter a number between [1,20]");
-        int userNumber = MuratInput.readANumberFromUser(sc, 1, 20);
+        int userNumber = MuratInput.readANumberFromUserWithMaxValue(sc, 1, 20);
 
         //Shuffle user text x times
         for (int i = 0; i < userNumber; i++) {

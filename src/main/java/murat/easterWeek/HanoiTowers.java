@@ -13,7 +13,7 @@ public class HanoiTowers {
         Scanner sc = new Scanner(System.in);
         System.out.println("Please enter the number of the discs!");
 
-        int numberOfDiscs = MuratInput.readANumberFromUser(sc, 1, 9);
+        int numberOfDiscs = MuratInput.readANumberFromUserWithMaxValue(sc, 1, 9);
         int[][] playGround = initializeGameRods(numberOfDiscs);
         hanoiMove(playGround, numberOfDiscs, 1, 2, 3);
 
