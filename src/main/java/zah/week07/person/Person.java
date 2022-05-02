@@ -26,6 +26,7 @@ public class Person {
 
     public  int getHeight(){return height;}
     public int getWeight(){return weight;}
+    public String getName(){return name;}
 
 }
 
