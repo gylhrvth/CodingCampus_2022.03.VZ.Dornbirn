@@ -7,6 +7,7 @@ public class Camera {
     private int focalMin;
     private int focalMax;
     private int megapixel;
+    private MemoryCard sd;
 
     public Camera(String model, String manufact, int focalMin, int focalMax, int megapixel) {
         this.model = model;
@@ -14,6 +15,7 @@ public class Camera {
         this.focalMin = focalMin;
         this.focalMax = focalMax;
         this.megapixel = megapixel;
+        this.sd = null;
     }
 
     @Override
@@ -26,47 +28,17 @@ public class Camera {
     }
 
     public void takePhoto() {
-        System.out.println("Click");
+        if (sd != null) {
+            System.out.println("Click");
+            sd.reserveSpace(0.3f);
+            System.out.println("Space left: " + sd.getFreeSpace());
+        } else {
+            System.out.println("No memory card. Take photo is not allowed.");
+        }
 
     }
 
-    public String getModel() {
-        return model;
-    }
-
-    public String getManufact() {
-        return manufact;
-    }
-
-    public int getFocalMin() {
-        return focalMin;
-    }
-
-    public int getFocalMax() {
-        return focalMax;
-    }
-
-    public int getMegapixel() {
-        return megapixel;
-    }
-
-    public void setFocalMax(int focalMax) {
-        this.focalMax = focalMax;
-    }
-
-    public void setFocalMin(int focalMin) {
-        this.focalMin = focalMin;
-    }
-
-    public void setManufact(String manufact) {
-        this.manufact = manufact;
-    }
-
-    public void setMegapixel(int megapixel) {
-        this.megapixel = megapixel;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
+    public void setSd(MemoryCard sd) {
+        this.sd = sd;
     }
 }
