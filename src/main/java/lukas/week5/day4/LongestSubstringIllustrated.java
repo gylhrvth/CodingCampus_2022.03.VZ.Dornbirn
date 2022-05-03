@@ -1,4 +1,4 @@
-package lukas.week5;
+package lukas.week5.day4;
 
 import lukas.week3.day4.ConwaysGameOfLife;
 import lukas.week4.day3.Color;
