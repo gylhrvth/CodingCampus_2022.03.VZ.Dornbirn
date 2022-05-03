@@ -1,4 +1,4 @@
-package sergej.week07;
+package sergej.week07.book;
 
 
 public class BookPrinter {

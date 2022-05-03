@@ -1,4 +1,4 @@
-package sergej.week07;
+package sergej.week07.camera;
 
 public class PhotoBooth {
     public static void main(String[] args) {
