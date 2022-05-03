@@ -1,4 +1,4 @@
-package murat.week7.day1.task1;
+package murat.week7.day1.task1Zoo;
 
 public class Zoo {
     public static void main(String[] args) {
