@@ -5,12 +5,14 @@ public class Objektiv {
     private float focalmax;
     private String model;
     private String manufact;
+    private Camera camera;
 
     public Objektiv(float focalmin, float focalmax, String model, String manufact) {
         this.focalmin = focalmin;
         this.focalmax = focalmax;
         this.model = model;
         this.manufact = manufact;
+        this.camera =null;
 
     }
 
@@ -23,18 +25,17 @@ public class Objektiv {
                 ", manufact='" + manufact + '\'' +
                 '}';
     }
-    public float getFocalmin(){
-        return focalmin;
-    }
-    public float getFocalmax(){
-        return focalmax;
-    }
 
-    public String getManufact() {
-        return manufact;
-    }
 
     public String getModel() {
         return model;
+    }
+
+    public Camera getCamera() {
+        return camera;
+    }
+
+    public void setCamera(Camera camera) {
+        this.camera = camera;
     }
 }

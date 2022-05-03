@@ -21,8 +21,8 @@ public class Camera {
     public String toString() {
         return "Model: " + model + "\n" +
                 "Hersteller: " + manufact + "\n" +
-                "Megapixel: " + megapixel + "mb" + "\n"+
-                "Model: "+ ob.getModel() + "\n";
+                "Megapixel: " + megapixel + "mb" + "\n" +
+                "Model: " + (ob != null ? ob.getModel() : "Kein Objektiv ist angeschlossen") + "\n";
 
     }
 
@@ -30,11 +30,10 @@ public class Camera {
         if (sd != null) {
             System.out.println("Click");
             sd.reserveSpace(0.3f);
-            System.out.println("Space left: " + sd.getFreeSpace());
+            System.out.printf("Space left: %.3f mb  \n", sd.getFreeSpace());
         } else {
             System.out.println("No memory card. Take photo is not allowed.");
         }
-
     }
 
     public void setSd(MamoryCard sd) {
@@ -57,14 +56,21 @@ public class Camera {
 
     }
 
-    public Objektiv swapOb(Objektiv ob) {
-        Objektiv newO = ob;
-        return newO;
-    }
-
-    public Objektiv setOb(Objektiv ob) {
-        this.ob = ob;
-        return ob;
+    public void swapOb(Objektiv ob) {
+        if (ob == null) {
+            if (this.ob != null) {
+                this.ob.setCamera(null);
+            }
+            this.ob = null;
+        } else {
+            if (ob.getCamera() != null) {
+                System.out.println("Objectiv is allready mounted >>" + ob.getCamera());
+                ob.getCamera().swapOb(null);
+                System.out.println("Objectiv has been removed from the other camera");
+            }
+            this.ob = ob;
+            ob.setCamera(this);
+        }
     }
 }
 
