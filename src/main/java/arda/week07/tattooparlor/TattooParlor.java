@@ -1,4 +1,4 @@
-package arda.week07.day01;
+package arda.week07.tattooparlor;
 
 public class TattooParlor {
     public static void main(String[] args) {
