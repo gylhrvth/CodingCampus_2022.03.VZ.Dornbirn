@@ -20,8 +20,8 @@ public class ReadAndDisplay {
         int columnToSort = userInput(list);
         header(longest, list);
         dictionarySortBody(list, columnToSort);
-        printList(list,longest);
-        //the list without sort//body(longest, list);
+        printList(list, longest);
+        //the list without sort //body(longest, list);
     }
 
     public static void header(int[] longest, String[][] list) {
@@ -97,7 +97,16 @@ public class ReadAndDisplay {
             for (int j = 1; j < list.length - i - 1; j++) {
                 String topRow = list[j][columnToSort];
                 String bottomRow = list[j + 1][columnToSort];
-                if (topRow.compareToIgnoreCase(bottomRow) > 0) {
+                if (list[j][columnToSort].matches("[+-]?[0-9]+")) {
+                    int top = Integer.parseInt(list[j][columnToSort]);
+                    int bottom = Integer.parseInt(list[j + 1][columnToSort]);
+
+                    if (top > bottom) {
+                        String[] swap = list[j];
+                        list[j] = list[j + 1];
+                        list[j + 1] = swap;
+                    }
+                } else if (topRow.compareToIgnoreCase(bottomRow) > 0) {
                     String[] swap = list[j];
                     list[j] = list[j + 1];
                     list[j + 1] = swap;
@@ -106,7 +115,7 @@ public class ReadAndDisplay {
         }
     }
 
-    public static void printList(String[][] list,int[] longest){
+    public static void printList(String[][] list, int[] longest) {
         for (int i = 1; i < list.length; i++) {
             for (int j = 0; j < list[i].length; j++) {
                 System.out.printf("%-" + longest[j] + "s | ", list[i][j]);
@@ -127,6 +136,7 @@ public class ReadAndDisplay {
                 int value = Integer.parseInt(input);
                 if (value < 0 || value > listL) {
                     System.out.println("number is out of bounds");
+                    //if sort location is a location containing numbers then execute bubblesort method for numbers?
                 } else {
                     return value;
                 }
