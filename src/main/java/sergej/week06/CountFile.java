@@ -52,6 +52,8 @@ public class CountFile {
         return count[d];
     }
 
+
+
     public static void countSingleChar(String text, int[] count, char d) {
 
         int len = text.length();
@@ -63,22 +65,6 @@ public class CountFile {
                 count[c]++;
             }
         }
-        /*
-        char ch[] = new char[text.length()];
-        for (int i = 0; i < len; i++) {
-            ch[i] = text.charAt(i);
-            int find = 0;
-            for (int j = 0; j <= i; j++) {
-                if (text.charAt(i) == ch[j]) {
-                    find++;
-                }
-
-            }
-            if (find == 1) {
-                System.out.println("the letter " + text.charAt(i) + " shows up: " + count[text.charAt(i)]);
-            }
-        }
-        */
     }
 
 
@@ -108,11 +94,13 @@ public class CountFile {
 
         System.out.println("********************");
         System.out.println(countSingleChar2(file, 'c'));
-        //Scanner scf = new Scanner(file);
 
-        //countChars(scf);
 
-        //int test = countChars(scf);
-        // System.out.println(test);
+        char[] charsToCount = new char[]{'a','z','e'};
+        for (int i = 0; i < charsToCount.length; i++) {
+            System.out.println(charsToCount[i]+" shows up:"+countSingleChar2(file,charsToCount[i]));
+
+        }
+
     }
 }
