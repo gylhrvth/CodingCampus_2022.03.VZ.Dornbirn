@@ -1,13 +1,21 @@
-package arda.week07.day02;
-
-import arda.week07.day01.Camera;
+package arda.week07.camera;
 
 public class park {
     public static void main(String[] args) {
-        Camera cam = new Camera("canon", "canon inc.", 25, null,null);
+        Camera cam = new Camera("canon R4", "canon inc.", 25);
+        Camera cam2 = new Camera("nikon C22", "nikon inc.", 25);
         Objective lens = new Objective("lens3000");
-        SdCard card = new SdCard(10,0);
-        cam.setSdCard(card);
+        SdCard card = new SdCard(10, 0);
+
+        System.out.println("===============================");
+        cam.insertSdCard(card);
+        cam.mountLens(lens);
+        cam.takePhoto();
+        cam2.insertSdCard(card);
+        System.out.println(card);
+
+
+         /*
         for (int i = 0; i < 100; i++) {
             boolean result = cam.takePhoto();
             if (!result){
@@ -17,5 +25,7 @@ public class park {
             System.out.println(card.getPictures());
             System.out.println(card.getFreeSpace());
         }
+
+          */
     }
 }
