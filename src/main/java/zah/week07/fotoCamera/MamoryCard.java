@@ -26,4 +26,5 @@ public class MamoryCard {
             System.out.println("Memory is full");
         }
     }
+
 }

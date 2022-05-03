@@ -5,10 +5,15 @@ import zah.week07.fotoCamera.MamoryCard;
 
 public class Action {
     public static void main(String[] args) {
-        Camera sony = new Camera("DSC-RX10M4","Sony",18,105,20);
+        Camera sony = new Camera("DSC-RX10M4","Sony",20);
+        Objektiv olimp=new Objektiv(18f,200f,"Olympus","DC-7");
+        Objektiv rz= new Objektiv(65f,500f,"zh","Dd-100");
+        sony.setOb(olimp);
+        System.out.println(sony);
         MamoryCard sd = new MamoryCard(30f);
 
         sony.setSd(sd);
+        sony.swapOb(sony.setOb(rz));
 
         System.out.println(sony);
 
