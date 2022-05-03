@@ -13,8 +13,6 @@ public class MamoryCard {
                 "space=" + freeSpace +
                 '}';
     }
-
-
     public float getFreeSpace(){
         return freeSpace;
     }
@@ -24,6 +22,13 @@ public class MamoryCard {
             this.freeSpace -= spaceToReseve;
         } else {
             System.out.println("Memory is full");
+        }
+    }
+    public void checkFotos(float free){
+        if (this.getFreeSpace()>free){
+            this.freeSpace-=(free/0.3f);
+        }else {
+            System.out.println("Memmory is full ");
         }
     }
 
