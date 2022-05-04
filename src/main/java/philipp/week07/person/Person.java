@@ -16,14 +16,34 @@ public class Person {
 
     @Override
     public String toString() {
-        return name + " (Age: " + age + ")";
+        return "name='" + name + '\'' +
+                ", age=" + age +
+                ", height=" + height +
+                ", weight=" + weight;
     }
+
+//    @Override
+//    public String toString() {
+//        return name + " (Age: " + age + ")";
+//    }
+
 
     public int getAge() {
         return age;
     }
 
-//    public void setAge(int age) {
+    public String getName() {
+        return name;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+    //    public void setAge(int age) {
 //        this.age = age;
 //    }
 }
