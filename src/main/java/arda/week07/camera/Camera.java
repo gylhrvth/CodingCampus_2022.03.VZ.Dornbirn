@@ -55,7 +55,7 @@ public class Camera {
                 this.lens = lens;
                 lens.setMountedCam(this);
             } else {
-                System.out.println("Lens is being mounted.");
+                System.out.println("Lens is already mounted on " + lens.getMountedCam());
             }
         } else {
             System.out.println("Camera already has a lens mounted on.");
