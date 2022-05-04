@@ -149,11 +149,11 @@ public class VectorExamples {
             for (int i = 0; i < textLength; i++) {
                 //System.out.println("i: " + i + " Combined_(Prefix): " + (prefix + text.get(i)) + " Chosen_Letter: " + text.get(i) + " Left: " + text.subList(0, i) + " Right: " + text.subList(i + 1, textLength) + " New_Text_to_Iterate: " + text.subList(i + 1, textLength) + text.subList(0, i));
 
-                Vector<Character> merged = new Vector<>();
-                merged.addAll(text.subList(i + 1, textLength));
-                merged.addAll(text.subList(0, i));
+                Vector<Character> mergedText = new Vector<>();
+                mergedText.addAll(text.subList(i + 1, textLength));
+                mergedText.addAll(text.subList(0, i));
 
-                permutation(prefix + text.get(i), merged);
+                permutation(prefix + text.get(i), mergedText);
             }
         }
     }
