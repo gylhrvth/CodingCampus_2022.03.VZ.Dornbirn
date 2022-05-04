@@ -28,7 +28,7 @@ public class Action {
             sony.takePhoto();
 
         }
-        sd.checkFotos(sd.getFreeSpace());
+
         System.out.println(">>>>>>" + sd.getFreeSpace() + "<<<<<<<<<");
 
         for (int i = 0; i < 100; i++) {

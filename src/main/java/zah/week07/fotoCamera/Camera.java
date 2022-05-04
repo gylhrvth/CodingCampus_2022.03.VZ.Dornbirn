@@ -31,6 +31,9 @@ public class Camera {
             System.out.println("Click");
             sd.reserveSpace(0.3f);
             System.out.printf("Space left: %.3f mb  \n", sd.getFreeSpace());
+
+
+
         } else {
             System.out.println("No memory card. Take photo is not allowed.");
         }
