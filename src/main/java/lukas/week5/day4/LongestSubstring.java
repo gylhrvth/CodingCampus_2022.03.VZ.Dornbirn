@@ -1,4 +1,4 @@
-package lukas.week5;
+package lukas.week5.day4;
 
 public class LongestSubstring {
     public static void main(String[] args) {

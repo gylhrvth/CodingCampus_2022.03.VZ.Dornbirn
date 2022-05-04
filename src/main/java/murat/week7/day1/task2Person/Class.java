@@ -1,4 +1,4 @@
-package murat.week7.day1.task2;
+package murat.week7.day1.task2Person;
 
 public class Class {
     public static void main(String[] args) {
