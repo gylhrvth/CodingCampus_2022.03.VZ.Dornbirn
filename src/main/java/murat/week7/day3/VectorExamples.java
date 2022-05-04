@@ -7,37 +7,37 @@ import java.util.Vector;
 public class VectorExamples {
     public static void main(String[] args) {
 
-        // Task 1
-        Vector<Integer> vecti = task1CreateNewVector();
-        System.out.println("\nGenerated vector is:: ");
-        System.out.println(vecti);
-
-        // Task 2
-        task2FindEvenNumbers(vecti);
-
-        // Task 3
-        System.out.println("\n\nSmallest number is: ");
-        System.out.println(task3FindSmallestNumber(vecti));
-
-        // Task 4
-        System.out.println("\nBiggest number is: ");
-        System.out.println(task4FindBiggestNumber(vecti));
-
-        // Task 5
-        System.out.println("\nDescending sorted vector: ");
-        task5SortVector(vecti);
-
-        // Task 6
-        System.out.println("\nOdd numbers are removed: ");
-        task6RemoveOddNumbers(vecti);
+//        // Task 1
+//        Vector<Integer> vecti = task1CreateNewVector();
+//        System.out.println("\nGenerated vector is:: ");
+//        System.out.println(vecti);
+//
+//        // Task 2
+//        task2FindEvenNumbers(vecti);
+//
+//        // Task 3
+//        System.out.println("\n\nSmallest number is: ");
+//        System.out.println(task3FindSmallestNumber(vecti));
+//
+//        // Task 4
+//        System.out.println("\nBiggest number is: ");
+//        System.out.println(task4FindBiggestNumber(vecti));
+//
+//        // Task 5
+//        System.out.println("\nDescending sorted vector: ");
+//        task5SortVector(vecti);
+//
+//        // Task 6
+//        System.out.println("\nOdd numbers are removed: ");
+//        task6RemoveOddNumbers(vecti);
 
         // Task 7
         System.out.println("\n2 merged vectors: ");
         System.out.println("Merged vector: " + task7MergeTwoVectors());
 
-        // Task 8
-        System.out.println("\nPermutation: ");
-        implementPermutation();
+//        // Task 8
+//        System.out.println("\nPermutation: ");
+//        implementPermutation();
 
     }
 
@@ -110,20 +110,32 @@ public class VectorExamples {
 
         Vector<Integer> first = task1CreateNewVector();
         Vector<Integer> second = task1CreateNewVector();
-        Vector<Integer> mergedVector = task1CreateNewVector();
 
-        Collections.sort(first, Collections.reverseOrder());
-        Collections.sort(second, Collections.reverseOrder());
+        Collections.sort(first);
+        Collections.sort(second);
 
         System.out.println("First: " + first);
         System.out.println("Second: " + second);
 
-        mergedVector.addAll(first);
-        mergedVector.addAll(second);
+        // Scan the second vector
+            for (int j = 0; j < second.size(); j++) {
 
-        Collections.sort(mergedVector, Collections.reverseOrder());
+                // If the first vector value smaller than second vector value
+                if (first.get(0) <= second.get(j)) {
 
-        return mergedVector;
+                    // Insert the first value into second vector
+                    second.insertElementAt(first.get(0), j);
+
+                    // Erase the first element in first vector
+                    first.remove(0);
+
+                    if(first.size()==0){
+                        return second;
+                    }
+                }
+            }
+
+        return second;
     }
 
     private static void implementPermutation() {
