@@ -4,14 +4,12 @@ public class Car {
     private String brand;
     private String model;
     private int kW;
-    private float fuelTank;
-
-    public enum typeOfDrive {GASOLINE, DIESEL, GAS, ELECTRICITY}
-
-    ;
     private int weight;
+    private float fuelTank;
+    public enum TypeOfDrive {GASOLINE, DIESEL, GAS, ELECTRICITY}
 
-    public Car(String brand, String model, int kW, int fuelTank, int weight) {
+
+    public Car(String brand, String model, int kW, int fuelTank, int weight, TypeOfDrive tod) {
         this.brand = brand;
         this.model = model;
         this.kW = kW;
