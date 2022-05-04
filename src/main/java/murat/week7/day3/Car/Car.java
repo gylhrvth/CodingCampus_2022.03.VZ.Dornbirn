@@ -1,4 +1,4 @@
-package murat.week7.day3;
+package murat.week7.day3.Car;
 
 public class Car {
 

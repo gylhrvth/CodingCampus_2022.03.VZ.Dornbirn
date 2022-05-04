@@ -1,6 +1,8 @@
-package murat.week7.day3;
+package murat.week7.day3.Car;
 
-public class Main {
+import murat.week7.day3.Car.Car;
+
+public class MainCar {
 
     public static void main(String[] args) {
 

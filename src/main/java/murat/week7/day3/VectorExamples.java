@@ -28,8 +28,8 @@ public class VectorExamples {
         task5SortVector(vecti);
 
         // Task 6
-        System.out.println("\nUneven numbers are removed: ");
-        System.out.println(task6RemoveUnevenNumbers(vecti));
+        System.out.println("\nOdd numbers are removed: ");
+        task6RemoveOddNumbers(vecti);
 
         // Task 7
         System.out.println("\n2 merged vectors: ");
@@ -95,10 +95,15 @@ public class VectorExamples {
         System.out.println(aVector);
     }
 
-    public static Vector<Integer> task6RemoveUnevenNumbers(Vector<Integer> aVector) {
+    public static void task6RemoveOddNumbers(Vector<Integer> aVector) {
 
-        aVector.removeIf(i -> (i % 2 != 0));
-        return aVector;
+        for (int i = 0; i < aVector.size(); i++) {
+            if (aVector.get(i) % 2 != 0) {
+                aVector.remove(i);
+                i--;
+            }
+        }
+        System.out.println(aVector);
     }
 
     public static Vector<Integer> task7MergeTwoVectors() {
