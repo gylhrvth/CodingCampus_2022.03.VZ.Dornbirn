@@ -17,11 +17,7 @@ public class Car {
         this.weight = weight;
     }
     public int drive(int kilometer){
-        int kmDriven = weight / hp;
-
-
-
-        return kmDriven;
+        return weight / hp;
     }
 
     public int getHp() {
