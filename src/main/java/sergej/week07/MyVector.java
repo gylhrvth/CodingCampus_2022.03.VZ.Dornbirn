@@ -56,10 +56,10 @@ public class MyVector {
 
         for (int i = 0; i < list.size(); i++) {
             for (Integer j = 0; j < list.size() - i - 1; j++) {
-                if (list.get(j) < list.get(j+1)) {
+                if (list.get(j) < list.get(j + 1)) {
                     Integer swap = list.get(j);
-                    list.set(j,list.get(j+1)) ;
-                    list.set(j + 1,swap) ;
+                    list.set(j, list.get(j + 1));
+                    list.set(j + 1, swap);
                 }
             }
         }
@@ -67,17 +67,23 @@ public class MyVector {
 
     }
 
-    public static void sort(Vector<Integer>list){
-        Collections.sort(list,Collections.reverseOrder());
+    public static void sort(Vector<Integer> list) {
+        Collections.sort(list, Collections.reverseOrder());
     }
 
-    public static Vector<Integer> deleteOdd(Vector<Integer> list) {
-        list.removeIf(a -> a % 2 != 0);
-        return list;
+    public static void  deleteOdd(Vector<Integer> list) {
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i) % 2 != 0) {
+                list.remove(i);
+                i--;
+            }
+
+        }
+
+        System.out.println(list);
+/*        list.removeIf(a -> a % 2 != 0);
+        return list;*/
     }
-
-
-
 
 
     public static void main(String[] args) {
@@ -101,9 +107,11 @@ public class MyVector {
 
         sort(randomList);
 
-        Vector<Integer> removedOdd = deleteOdd(randomList);
+        //Vector<Integer> removedOdd = deleteOdd(randomList);
 
-        System.out.println(removedOdd);
+       // System.out.println(removedOdd);
+
+        deleteOdd(randomList);
     }
 
 }
