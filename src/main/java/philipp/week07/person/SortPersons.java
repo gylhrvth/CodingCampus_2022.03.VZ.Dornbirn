@@ -22,36 +22,36 @@ public class SortPersons {
                 new Person("Gyula", 18, 170, 82),
                 new Person("Arda", 16, 180, 73)
         };
-        Comparator<Person>[] comps = new Comparator[]{
-                new Comparator<Person>() {
-                    @Override
-                    public int compare(Person o1, Person o2) {
-                        return o1.getName().compareTo(o2.getName());
-                    }
-                },
-                new Comparator<Person>() {
-                    @Override
-                    public int compare(Person o1, Person o2) {
-                        return o1.getAge() - o2.getAge();
-                    }
-                },
-                new Comparator<Person>() {
-                    @Override
-                    public int compare(Person o1, Person o2) {
-                        return o1.getHeight() - o2.getHeight();
-                    }
-                },
-                new Comparator<Person>() {
-                    @Override
-                    public int compare(Person o1, Person o2) {
-                        return o1.getWeight() - o2.getWeight();
-                    }
-                }};
+//        Comparator<Person>[] comps = new Comparator[]{
+//                new Comparator<Person>() {
+//                    @Override
+//                    public int compare(Person o1, Person o2) {
+//                        return o1.getName().compareTo(o2.getName());
+//                    }
+//                },
+//                new Comparator<Person>() {
+//                    @Override
+//                    public int compare(Person o1, Person o2) {
+//                        return o1.getAge() - o2.getAge();
+//                    }
+//                },
+//                new Comparator<Person>() {
+//                    @Override
+//                    public int compare(Person o1, Person o2) {
+//                        return o1.getHeight() - o2.getHeight();
+//                    }
+//                },
+//                new Comparator<Person>() {
+//                    @Override
+//                    public int compare(Person o1, Person o2) {
+//                        return o1.getWeight() - o2.getWeight();
+//                    }
+//                }};
 
         sortPersonsIf(list, 1);
         printPersonList(list);
         System.out.println("---");
-        sortPersons(list, comps[0]);
+//        sortPersons(list, comps[0]);
         printPersonList(list);
         System.out.println("---");
         sortPersonsEnum(list,SortBy.NAME);

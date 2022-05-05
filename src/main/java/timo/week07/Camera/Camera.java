@@ -55,6 +55,7 @@ public class Camera {
         System.out.println("Deleted " + numberOfPhotos + " photos");
     }
 
+
     public void switchLens(Lens newLens) {
         System.out.println("REPLACED: Lens (" + lens + ") WITH: Lens (" + newLens +")");
         lens = newLens;

@@ -25,10 +25,10 @@ public class MamoryCard {
         }
     }
     public void checkFotos(float free){
-        if (this.getFreeSpace()>free){
-            this.freeSpace-=(free/0.3f);
+        if (this.freeSpace>free){
+            this.freeSpace-=free/0.3;
         }else {
-            System.out.println("Memmory is full ");
+            System.out.println("test ");
         }
     }
 

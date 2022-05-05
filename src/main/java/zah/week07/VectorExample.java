@@ -1,4 +1,4 @@
-package gyula.week07;
+package zah.week07;
 
 import java.util.Vector;
 

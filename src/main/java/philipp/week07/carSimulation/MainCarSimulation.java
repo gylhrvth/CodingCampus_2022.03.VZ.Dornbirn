@@ -4,7 +4,7 @@ package philipp.week07.carSimulation;
 public class MainCarSimulation {
 
     public static void main(String[] args) {
-        Car ford = new Car("Ford", "Mustang", 200, 60, 1500);
+        Car ford = new Car("Ford", "Mustang", 200, 60, 1500, Car.TypeOfDrive.GASOLINE);
 
         System.out.println(ford);
         System.out.println("-----");
