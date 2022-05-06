@@ -17,6 +17,9 @@ public class Main {
         reed.addAnimal("Idaxis", "Chicken");
 
         terr.addAnimal("Roony", "Rooster");
+        terr.addAnimal("Lionel", "Lion");
+        terr.addAnimal("Tom", "Tortoise");
+
         grass.addAnimal("Biden", "Bison");
         des.addAnimal("Camela", "Camel");
 
