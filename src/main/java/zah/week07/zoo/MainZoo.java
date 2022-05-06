@@ -14,6 +14,12 @@ public class MainZoo {
         terrarium.addAnimal("Jan","Crocodile");
         mankyEclosure.addAnimal("Timo","Horse");
 
+        Nurse nPeter = z.addNurse("Peter");
+        nPeter.addTask("Terrarium");
+
+
+
+
 
 
         System.out.println(z);
