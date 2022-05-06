@@ -1,16 +1,20 @@
 package arda.week07.zoosimulation;
 
+import murat.week7.day3.Car.Car;
+
 public class Enclosure {
     private String enclosure;
     private String enclosureType;
     private Animal animal;
     private Zoo cageOfZoo;
+    private CareTaker careTaker;
 
     public Enclosure(String enclosure, String enclosureType) {
         this.enclosure = enclosure;
         this.enclosureType = enclosureType;
         this.animal = null;
         this.cageOfZoo = null;
+        this.careTaker = null;
     }
 
     public String getEnclosureType() {
@@ -55,9 +59,28 @@ public class Enclosure {
         }
     }
 
+    public void taskCareTaker(CareTaker careTaker) {
+        if (this.careTaker == null) {
+            this.careTaker = careTaker;
+            careTaker.setTaskedToCage(this);
+        } else {
+            System.out.println("Enclosure has already been tasked with an CareTaker");
+        }
+    }
+
+    public void deTaskCareTaker() {
+        if (careTaker != null) {
+            careTaker.setTaskedToCage(null);
+            careTaker = null;
+        } else {
+            System.out.println("Enclosure does not have an CareTaker to remove.");
+        }
+    }
+
     @Override
     public String toString() {
-        return enclosure + ", Enclosuretype: " + enclosureType + ", " + animal + '}';
+        return "    " + enclosure + ", Enclosuretype: " + enclosureType + "\n         " + animal +
+                "\n              " + careTaker;
     }
 }
 

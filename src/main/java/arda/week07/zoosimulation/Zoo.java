@@ -30,8 +30,13 @@ public class Zoo {
 
     @Override
     public String toString() {
-        return "Zoo: " + name + ", founded " + foundingYear + "\n" +
-                "Enclosures: \n" + enclosures + "\n";
+        String output = "";
+        output += "Zoo: " + name + ", founded " + foundingYear + "\n" +
+                "  Enclosures: \n";
+        for (Enclosure enc: enclosures) {
+            output += enc + "\n";
+        }
+        return output;
     }
 }
 
