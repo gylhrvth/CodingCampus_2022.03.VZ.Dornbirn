@@ -8,10 +8,11 @@ public class Enclosure {
 
     private List<Animal> animals = new Vector<>();
 
-    public Enclosure(Animal anAnimal, String name) {
+    ;
+
+    public Enclosure(String name) {
 
         this.name = name;
-        animals.add(anAnimal);
     }
 
     public String getName() {
@@ -29,7 +30,7 @@ public class Enclosure {
 
         String output = "";
         for (int i = 0; i < animals.size(); i++) {
-            if (animals.get(i) == null) {
+            if (animals.get(i).getName().equals(" ")) {
                 output += " \n|\t\t|---" + "Empty";
             } else {
                 output += " \n|\t\t|---" + animals.get(i);
@@ -38,8 +39,10 @@ public class Enclosure {
         return Zoo.ANSI_GREEN + name + Zoo.ANSI_RESET + Zoo.ANSI_CYAN + output + Zoo.ANSI_RESET;
     }
 
-    public void addAnimal(Animal anAnimal) {
+    public Animal addAnimal(String name, String species) {
 
-        animals.add(anAnimal);
+        Animal ani = new Animal(name, species);
+        animals.add(ani);
+        return ani;
     }
 }

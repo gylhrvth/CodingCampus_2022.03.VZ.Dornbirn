@@ -40,9 +40,11 @@ public class Zoo {
         return ANSI_BLUE + "|---Zoo: " + name + ", " + city + ", " + "established in " + establishedIn + ANSI_RESET + output;
     }
 
-    public void addEnclosure(Enclosure aHabitat) {
+    public Enclosure addEnclosure(String name) {
 
-        enclosures.add(aHabitat);
+        Enclosure enc = new Enclosure(name);
+        enclosures.add(enc);
+        return enc;
     }
 
     public static final String ANSI_RED = "\u001B[31m";

@@ -5,22 +5,18 @@ public class Main {
 
         Zoo darica = new Zoo("Darica HB", "Istanbul", 1993);
 
-        Animal cow = new Animal("Rijska", "Mammal");
-        Animal stork1 = new Animal("Garmond", "Bird");
-        Animal stork2 = new Animal("Hugo", "Bird");
-        Animal stork3 = new Animal("Idaxis", "Bird");
+        Enclosure habAlpine = darica.addEnclosure("Alpine Meadow");
+        Enclosure reed = darica.addEnclosure("Reed");
+        Enclosure terr = darica.addEnclosure("Terrarium");
 
-        Enclosure habAlpine = new Enclosure(cow, "Alpine Meadow");
-        Enclosure reed = new Enclosure(stork1, "Reed");
-        reed.addAnimal(stork2);
-        reed.addAnimal(stork3);
-        Enclosure terr = new Enclosure(null, "Terrarium");
+        habAlpine.addAnimal("Rijska", "Mammal");
+        reed.addAnimal("Garmond", "Bird");
+        reed.addAnimal("Hugo", "Bird");
+        reed.addAnimal("Idaxis", "Bird");
 
-
-        darica.addEnclosure(habAlpine);
-        darica.addEnclosure(reed);
-        darica.addEnclosure(terr);
+        terr.addAnimal(" ", " ");
 
         System.out.println(darica);
     }
+
 }

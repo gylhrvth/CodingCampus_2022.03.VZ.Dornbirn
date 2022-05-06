@@ -1,4 +1,4 @@
-package arda.week07.DynamicDatastructures;
+package arda.week07.dynamicdatastructures;
 
 import java.util.Arrays;
 import java.util.Collections;
