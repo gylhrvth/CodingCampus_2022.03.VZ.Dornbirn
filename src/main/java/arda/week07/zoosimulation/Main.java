@@ -1,7 +1,5 @@
 package arda.week07.zoosimulation;
 
-import java.util.List;
-
 public class Main {
     public static void main(String[] args) {
         Zoo zoo = new Zoo("Epic Zoo", 1980);
@@ -28,7 +26,5 @@ public class Main {
         enclosures[2].taskCareTaker(careTaker[0]);
         enclosures[3].taskCareTaker(careTaker[0]);
 
-
-        System.out.println(zoo);
     }
 }
