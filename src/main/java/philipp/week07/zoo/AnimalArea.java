@@ -16,8 +16,8 @@ public class AnimalArea {
         lastDayHasBeenCleard = 0;
     }
 
-    public void setLastDayHasBeenCleard(int lastDayHasBeenCleard) {
-        this.lastDayHasBeenCleard = lastDayHasBeenCleard;
+    public void setLastDayHasBeenCleared(int lastDayHasBeenCleared) {
+        this.lastDayHasBeenCleard = lastDayHasBeenCleared;
     }
 
     public void clearArea(int currentDay){
@@ -48,17 +48,10 @@ public class AnimalArea {
             System.out.print("├── ");
             System.out.println("(leer)");
         }
-//        if (animalKeepers.size() != 0) {
-//            for (AnimalKeeper ak : animalKeepers) {
-//                System.out.print("│ " + " ".repeat(12));
-//                System.out.print("├── ");
-//                System.out.println(ak);
-//            }
-//        } else {
-//            System.out.print("│ " + " ".repeat(12));
-//            System.out.print("├── ");
-//            System.out.println("(leer)");
-//        }
+    }
+
+    public List<Animal> getAnimals() {
+        return animals;
     }
 
     public String getName() {

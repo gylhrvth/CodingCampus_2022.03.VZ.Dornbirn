@@ -1,7 +1,5 @@
 package philipp.week07.zoo;
 
-import java.util.Vector;
-
 public class MainZoo {
     public static void main(String[] args) {
         Zoo dornbirn = new Zoo("Tiergarten Dornbirn", 2022);
@@ -11,6 +9,8 @@ public class MainZoo {
         AnimalArea terrariumWarm = new AnimalArea("Terrarium (warm)", 100);
 
         Animal cow1 = new Animal("Rijska", "Kuh");
+        Animal cow2 = new Animal("Liselotte", "Kuh");
+        Animal cow3 = new Animal("Milka", "Kuh");
         Animal stork1 = new Animal("Garmond", "Storch");
         Animal stork2 = new Animal("Hugo", "Storch");
         Animal stork3 = new Animal("Idaxis", "Storch");
@@ -30,6 +30,8 @@ public class MainZoo {
         dornbirn.addKeeper(helga);
 
         alpenwiese.addAnimal(cow1);
+        alpenwiese.addAnimal(cow2);
+        alpenwiese.addAnimal(cow3);
         ried.addAnimal(stork1);
         ried.addAnimal(stork2);
         ried.addAnimal(stork3);
@@ -40,14 +42,16 @@ public class MainZoo {
         franz.addArea(alpenwiese);
         helga.addArea(ried);
 
-        alpenwiese.setLastDayHasBeenCleard(1);
-        ried.setLastDayHasBeenCleard(1);
-        terrariumWarm.setLastDayHasBeenCleard(1);
+        alpenwiese.setLastDayHasBeenCleared(1);
+        ried.setLastDayHasBeenCleared(1);
+        terrariumWarm.setLastDayHasBeenCleared(1);
 
 //        dornbirn.printZoo();
 
-        System.out.println();
-        dornbirn.cleanZooAreas();
+//        System.out.println();
+//        dornbirn.cleanZooAreas();
+
+        karl.viewAnimalInArea(alpenwiese);
 
     }
 

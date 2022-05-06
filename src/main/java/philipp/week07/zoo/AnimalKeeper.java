@@ -1,9 +1,12 @@
 package philipp.week07.zoo;
 
 import java.util.List;
+import java.util.Random;
 import java.util.Vector;
 
 public class AnimalKeeper {
+    Random rn = new Random();
+
     private String name;
     private List<AnimalArea> areasToWork;
 
@@ -30,12 +33,26 @@ public class AnimalKeeper {
         return areasToWork;
     }
 
-    public void printListAreasToWork(){
+    public void printListAreasToWork() {
         int currentDay = 0;
         for (AnimalArea animalArea : areasToWork) {
-            System.out.print(animalArea+": ");
+            System.out.print(animalArea + ": ");
             animalArea.clearArea(currentDay);
         }
 
     }
+
+    public void viewAnimalInArea(AnimalArea aa) {
+        System.out.println(aa.getAnimals());
+//        int rnIndex = rn.nextInt(aa.getAnimals().size());
+//        for (int i = 0; i < aa.getAnimals().size(); i++) {
+//            if (rnIndex == i) {
+//                System.out.println(aa.getAnimals().get(i));
+//            }
+//
+//        }
+        System.out.println();
+        System.out.println(aa.getAnimals().get(rn.nextInt(aa.getAnimals().size())));
+    }
+
 }
