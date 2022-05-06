@@ -12,6 +12,8 @@ public class Zoo {
 
     private List<Enclosure> enclosures = new Vector<>();
 
+    private List<Carer> carers = new Vector<>();
+
     public Zoo(String name, String city, int establishedIn) {
 
         this.name = name;
@@ -29,15 +31,24 @@ public class Zoo {
         return establishedIn;
     }
 
+    public String toString(String index) {
+
+        String out = index + "├──";
+        out += name;
+        out += " " + establishedIn + "\n";
+        for (Carer c : carers) {
+            out += Zoo.ANSI_GREEN + "\n\t├──" + c.toString(index) + Zoo.ANSI_RESET + "\n";
+        }
+        for (Enclosure enc : enclosures) {
+            out += Zoo.ANSI_RED + "\n\t├──" + enc.toString(index) + Zoo.ANSI_RESET + "\n";
+        }
+        return out;
+    }
+
     @Override
     public String toString() {
 
-        String output = "";
-        for (int i = 0; i < enclosures.size(); i++) {
-            output += ANSI_GREEN + " \n|\t|---" + enclosures.get(i) + ANSI_RESET;
-        }
-
-        return ANSI_BLUE + "|---Zoo: " + name + ", " + city + ", " + "established in " + establishedIn + ANSI_RESET + output;
+        return toString("");
     }
 
     public Enclosure addEnclosure(String name) {
@@ -45,6 +56,23 @@ public class Zoo {
         Enclosure enc = new Enclosure(name);
         enclosures.add(enc);
         return enc;
+    }
+
+    public Carer addCarer(String name) {
+
+        Carer c = new Carer(this, name);
+        carers.add(c);
+        return c;
+    }
+
+    public Enclosure searchEnclosureByName(String name) {
+
+        for (Enclosure enc : enclosures) {
+            if (enc.getName().equals(name)) {
+                return enc;
+            }
+        }
+        return addEnclosure(name);
     }
 
     public static final String ANSI_RED = "\u001B[31m";

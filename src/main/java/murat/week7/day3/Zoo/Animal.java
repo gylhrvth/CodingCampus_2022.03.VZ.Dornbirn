@@ -21,10 +21,11 @@ public class Animal {
         return species;
     }
 
-    @Override
-    public String toString() {
+    public String toString(String indention) {
 
-        return name + ", " + species;
+        String out = indention + name;
+        out += ", " + species;
+        return out;
     }
 }
 

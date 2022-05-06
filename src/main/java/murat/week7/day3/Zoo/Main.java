@@ -3,20 +3,30 @@ package murat.week7.day3.Zoo;
 public class Main {
     public static void main(String[] args) {
 
-        Zoo darica = new Zoo("Darica HB", "Istanbul", 1993);
+        Zoo zooDarica = new Zoo("Darica HB", "Istanbul", 1993);
 
-        Enclosure habAlpine = darica.addEnclosure("Alpine Meadow");
-        Enclosure reed = darica.addEnclosure("Reed");
-        Enclosure terr = darica.addEnclosure("Terrarium");
+        Enclosure habAlpine = zooDarica.addEnclosure("Alpine Meadow");
+        Enclosure reed = zooDarica.addEnclosure("Reed");
+        Enclosure terr = zooDarica.addEnclosure("Terrarium");
+        Enclosure grass = zooDarica.addEnclosure("Grassland");
+        Enclosure des = zooDarica.addEnclosure("Desert");
 
-        habAlpine.addAnimal("Rijska", "Mammal");
-        reed.addAnimal("Garmond", "Bird");
-        reed.addAnimal("Hugo", "Bird");
-        reed.addAnimal("Idaxis", "Bird");
+        habAlpine.addAnimal("Rijska", "Cow");
+        reed.addAnimal("Garmond", "Ostrich");
+        reed.addAnimal("Hugo", "Eagle");
+        reed.addAnimal("Idaxis", "Chicken");
 
-        terr.addAnimal(" ", " ");
+        terr.addAnimal("Roony", "Rooster");
+        grass.addAnimal("Biden", "Bison");
+        des.addAnimal("Camela", "Camel");
 
-        System.out.println(darica);
+        Carer nPeter = zooDarica.addCarer("Peter");
+        Carer nTim = zooDarica.addCarer("Tim");
+        nPeter.addTask("Terrarium");
+        nTim.addTask("Reed");
+
+        System.out.println(zooDarica);
+
     }
 
 }

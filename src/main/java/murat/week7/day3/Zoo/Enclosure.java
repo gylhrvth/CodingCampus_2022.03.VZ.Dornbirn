@@ -8,7 +8,7 @@ public class Enclosure {
 
     private List<Animal> animals = new Vector<>();
 
-    ;
+    private List<Carer> carers = new Vector<>();
 
     public Enclosure(String name) {
 
@@ -25,18 +25,13 @@ public class Enclosure {
         return animals;
     }
 
-    @Override
-    public String toString() {
+    public String toString(String indention) {
 
-        String output = "";
-        for (int i = 0; i < animals.size(); i++) {
-            if (animals.get(i).getName().equals(" ")) {
-                output += " \n|\t\t|---" + "Empty";
-            } else {
-                output += " \n|\t\t|---" + animals.get(i);
-            }
+        String out = indention + name;
+        for (Animal animal : animals) {
+            out += Zoo.ANSI_CYAN + "\n\t\t\t├──" + animal.toString(indention )+ Zoo.ANSI_RESET ;
         }
-        return Zoo.ANSI_GREEN + name + Zoo.ANSI_RESET + Zoo.ANSI_CYAN + output + Zoo.ANSI_RESET;
+        return out;
     }
 
     public Animal addAnimal(String name, String species) {
