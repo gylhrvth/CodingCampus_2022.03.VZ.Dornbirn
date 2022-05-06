@@ -19,7 +19,7 @@ public class Nurse {
     public String toString(String indention) {
         String out = indention + name + "\n";
         for (Enclosure enc:tasks){
-            out +="\n\t\t ├──"+ " " + enc.toString(indention + "  ") + "\n";
+            out +="\t\t ├──"+ " " + enc.toString(indention ) + "\n";
         }
         return out;
     }

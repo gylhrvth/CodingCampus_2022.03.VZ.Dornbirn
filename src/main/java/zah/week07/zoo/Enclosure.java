@@ -14,7 +14,7 @@ public class Enclosure {
     public String toString(String indention) {
         String out = indention + name;
         for (Animal an : animal) {
-            out += "\n\t\t\t├──" +" "+ an.toString(indention + "  ") ;
+            out += "\n\t\t\t├──" +" "+ an.toString(indention) ;
         }
         return out;
     }
