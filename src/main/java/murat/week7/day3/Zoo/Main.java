@@ -21,12 +21,11 @@ public class Main {
         des.addAnimal("Camela", "Camel");
 
         Carer nPeter = zooDarica.addCarer("Peter");
-        Carer nTim = zooDarica.addCarer("Tim");
         nPeter.addTask("Terrarium");
+
+        Carer nTim = zooDarica.addCarer("Tim");
         nTim.addTask("Reed");
 
         System.out.println(zooDarica);
-
     }
-
 }

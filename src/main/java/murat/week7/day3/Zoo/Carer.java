@@ -9,7 +9,7 @@ public class Carer {
 
     private Zoo zoo;
 
-    private List<Enclosure> tasks = new Vector<>();
+    private List<Enclosure> taskFields = new Vector<>();
 
     public Carer(Zoo zoo, String name) {
 
@@ -27,15 +27,15 @@ public class Carer {
         return zoo;
     }
 
-    public List<Enclosure> getTasks() {
+    public List<Enclosure> getTaskFields() {
 
-        return tasks;
+        return taskFields;
     }
 
     public String toString(String indention) {
 
         String out = indention + name;
-        for (Enclosure enc : tasks) {
+        for (Enclosure enc : taskFields) {
             out += "\n\t\t ├──" + enc.toString(indention);
         }
         return  out;
@@ -44,7 +44,7 @@ public class Carer {
     public Enclosure addTask(String nameOfEnclosure) {
 
         Enclosure en = zoo.searchEnclosureByName(nameOfEnclosure);
-        tasks.add(en);
+        taskFields.add(en);
         return en;
     }
 }
