@@ -1,7 +1,5 @@
 package arda.week07.zoosimulation;
 
-import murat.week7.day3.Car.Car;
-
 public class Enclosure {
     private String enclosure;
     private String enclosureType;
@@ -75,6 +73,14 @@ public class Enclosure {
         } else {
             System.out.println("Enclosure does not have an CareTaker to remove.");
         }
+    }
+
+    public CareTaker getCareTaker() {
+        return careTaker;
+    }
+
+    public void setCareTaker(CareTaker careTaker) {
+        this.careTaker = careTaker;
     }
 
     @Override
