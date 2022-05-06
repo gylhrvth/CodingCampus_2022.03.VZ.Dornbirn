@@ -23,10 +23,10 @@ public class Zoo {
         out += name;
         out += " " + foundation + "\n";
         for (Nurse n:nurses) {
-            out +=Zoo.ANSI_GREEN+"\n\t├──" + n.toString(id+ "  ") + "\n"+Zoo.ANSI_RESET;
+            out +=Zoo.ANSI_CYAN+"\n\t├──" + n.toString(id) + "\n"+Zoo.ANSI_RESET;
         }
         for (Enclosure enc : enclosures) {
-            out +=Zoo.ANSI_GREEN+"\n\t├──" +enc.toString(id+"  ") + "\n"+Zoo.ANSI_RESET;
+            out +=Zoo.ANSI_GREEN+"\n\t├──" +enc.toString(id) + "\n"+Zoo.ANSI_RESET;
         }
         return out;
     }
