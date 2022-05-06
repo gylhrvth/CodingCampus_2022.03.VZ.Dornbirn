@@ -1,11 +1,8 @@
-package arda.week07.DynamicDatastructures;
+package arda.week07.dynamicdatastructures;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Random;
 import java.util.Vector;
-
-import static arda.week04.day03.BubblesortString.swapThingy;
 
 public class CreateVector {
     static final String RED = "\033[0;91m";

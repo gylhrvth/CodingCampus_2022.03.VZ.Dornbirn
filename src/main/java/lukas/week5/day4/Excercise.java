@@ -1,6 +1,6 @@
 package lukas.week5.day4;
 
-import data.Texts;
+import lukas.data.Texts;
 
 public class Excercise {
     public static void main(String[] args) {

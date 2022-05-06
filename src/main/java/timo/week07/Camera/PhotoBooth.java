@@ -24,17 +24,17 @@ public class PhotoBooth {
         System.out.println("===========================================================================================");
         System.out.println();
         cam1.deletePhoto(1);
-        System.out.println(cam1);
+        System.out.println("Current setup is: " + cam1);
         System.out.println();
         System.out.println("===========================================================================================");
         System.out.println();
         cam1.switchLens(lens3);
-        System.out.println(cam1);
+        System.out.println("Current setup is: " + cam1);
         System.out.println();
         System.out.println("===========================================================================================");
         System.out.println();
         cam1.switchSD(sd2);
-        System.out.println(cam1);
+        System.out.println("Current setup is: " + cam1);
 
     }
 
