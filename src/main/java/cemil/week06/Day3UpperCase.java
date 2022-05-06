@@ -1,8 +1,7 @@
 package cemil.week06;
 
 
-import data.Texts;
-import murat.easterWeek.BlackJack;
+import lukas.data.Texts;
 
 import java.util.Scanner;
 

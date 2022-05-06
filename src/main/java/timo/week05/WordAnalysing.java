@@ -1,6 +1,6 @@
 package timo.week05;
 
-import data.Texts;
+import lukas.data.Texts;
 
 public class WordAnalysing {
     public static void main(String[] args) {
