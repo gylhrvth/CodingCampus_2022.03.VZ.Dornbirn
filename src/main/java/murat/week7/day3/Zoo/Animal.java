@@ -27,5 +27,11 @@ public class Animal {
         out += ", " + species;
         return out;
     }
+
+    @Override
+    public String toString() {
+
+        return toString("");
+    }
 }
 

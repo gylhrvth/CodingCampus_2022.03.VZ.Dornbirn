@@ -36,9 +36,13 @@ public class Zoo {
         String out = index + "├──";
         out += name;
         out += " " + establishedIn + "\n";
+
+        out += "\n-------------------CARERS-----------------------";
         for (Carer c : carers) {
             out += Zoo.ANSI_GREEN + "\n\t├──" + c.toString(index) + Zoo.ANSI_RESET + "\n";
         }
+
+        out += "\n------------------ENCLOSURES---------------------";
         for (Enclosure enc : enclosures) {
             out += Zoo.ANSI_RED + "\n\t├──" + enc.toString(index) + Zoo.ANSI_RESET + "\n";
         }
@@ -51,16 +55,16 @@ public class Zoo {
         return toString("");
     }
 
-    public Enclosure addEnclosure(String name) {
+    public Enclosure addEnclosure(String name, boolean cared) {
 
-        Enclosure enc = new Enclosure(name);
+        Enclosure enc = new Enclosure(name, cared);
         enclosures.add(enc);
         return enc;
     }
 
-    public Carer addCarer(String name) {
+    public Carer addCarer(String name, Animal bestBuddy) {
 
-        Carer c = new Carer(this, name);
+        Carer c = new Carer(this, name, bestBuddy);
         carers.add(c);
         return c;
     }
@@ -72,7 +76,7 @@ public class Zoo {
                 return enc;
             }
         }
-        return addEnclosure(name);
+        return addEnclosure(name, false);
     }
 
     public static final String ANSI_RED = "\u001B[31m";

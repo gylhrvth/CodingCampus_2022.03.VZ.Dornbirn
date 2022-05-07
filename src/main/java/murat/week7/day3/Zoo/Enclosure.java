@@ -10,9 +10,17 @@ public class Enclosure {
 
     private List<Carer> carers = new Vector<>();
 
-    public Enclosure(String name) {
+    public boolean alreadyCared;
+
+    public Enclosure(String name, boolean cared) {
 
         this.name = name;
+        this.alreadyCared = cared;
+    }
+
+    public List<Carer> getCarers() {
+
+        return carers;
     }
 
     public String getName() {
@@ -25,13 +33,31 @@ public class Enclosure {
         return animals;
     }
 
+    public boolean getCared() {
+
+        return alreadyCared;
+    }
+
+    public boolean setCaredOrNot(boolean caredOrNot) {
+
+        alreadyCared = caredOrNot;
+
+        return alreadyCared;
+    }
+
     public String toString(String indention) {
 
-        String out = indention + name;
+        String out = indention + name + (alreadyCared ? " (Cared)" : " (Not cared)");
         for (Animal animal : animals) {
-            out += Zoo.ANSI_CYAN + "\n\t\t\t├──" + animal.toString(indention )+ Zoo.ANSI_RESET ;
+            out += Zoo.ANSI_CYAN + "\n\t\t\t├──" + animal.toString(indention) + Zoo.ANSI_RESET;
         }
         return out;
+    }
+
+    @Override
+    public String toString() {
+
+        return name + " " + (alreadyCared ? " (Cared)" : " (Not cared)");
     }
 
     public Animal addAnimal(String name, String species) {
@@ -40,4 +66,5 @@ public class Enclosure {
         animals.add(ani);
         return ani;
     }
+
 }
