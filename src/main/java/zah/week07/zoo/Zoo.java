@@ -1,5 +1,6 @@
 package zah.week07.zoo;
 
+import java.util.Random;
 import java.util.Vector;
 
 public class Zoo {
@@ -56,6 +57,16 @@ public class Zoo {
             }
         }
         return addEnclosure(name);
+    }
+    public Random nextEclosure(Random rand){
+        for (Enclosure enc:enclosures) {
+            if (enc.getName()!=null){
+                rand.nextInt(3);
+                System.out.println(" This Enclosure have already a Carrer!!!");
+            }
+
+        }
+        return rand;
     }
 
     public static final String ANSI_RED = "\u001B[31m";
