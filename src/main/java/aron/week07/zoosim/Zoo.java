@@ -35,12 +35,11 @@ public class Zoo {
 
     @Override
     public String toString() {
-        return "Zoo{" +
-                "name='" + name + '\'' +
-                ", year='" + year + '\'' +
-                ", enclosures=" + enclosures +
-                '}';
-
+        String output =  "├──Zoo:" + name + " | Gegruendet:" + year +"\n";
+        for (Enclosure enc : enclosures){
+            output += enc + "\n";
+        }
+        return output;
     }
 }
 

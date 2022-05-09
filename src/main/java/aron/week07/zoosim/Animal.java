@@ -1,6 +1,6 @@
 package aron.week07.zoosim;
 
-import arda.week07.zoosimulation.Enclosure;
+import java.util.ArrayList;
 
 public class Animal {
     
@@ -33,11 +33,8 @@ public class Animal {
 
     @Override
     public String toString() {
-        return "Animal{" +
-                "name='" + name + '\'' +
-                ", genus='" + genus + '\'' +
-                ", cageOfAnimal=" + cageOfAnimal +
-                '}';
+        return
+                "Name= " + name +"|"+ "Genus= " + genus +"|"+ "CageOfAnimal= " + cageOfAnimal+"|";
     }
 }
 

@@ -26,7 +26,12 @@ public class Nurse {
 
     @Override
     public String toString() {
-        return "Nurse{" + "name='" + name + '\''+ enclosures + '}';
+        String output = "Nurse: " +MainZoo.ANSI_RED + name + MainZoo.ANSI_RESET + "\n";
+        for (Enclosure enc: enclosures) {
+            output += enc + "\n";
+
+        }
+        return output;
     }
 
     public void removeenclosure(Enclosure enclosure) {
