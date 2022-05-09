@@ -1,7 +1,5 @@
 package cemil.week08.zoo;
 
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
@@ -9,6 +7,7 @@ public class Zoo {
     private String name;
     private int foundationDate;
     private List<AnimalArea> animalAreas = new Vector<>();
+    private List<AnimalKeeper> animalKeepers = new Vector<>();
 
     public Zoo(String name, int yearOfEstablishment) {
         this.name = name;
@@ -33,6 +32,16 @@ public class Zoo {
 
     public void removeArea(AnimalArea area) {
         animalAreas.remove(area);
+    }
+
+    public void cleanZooAreas() {
+        for (AnimalKeeper animalKeeper : animalKeepers) {
+            System.out.println(animalKeeper.getName()+": ");
+            animalKeeper.printListAreasWork();
+            System.out.println();
+        }
+
+        System.out.println();
     }
 
 }

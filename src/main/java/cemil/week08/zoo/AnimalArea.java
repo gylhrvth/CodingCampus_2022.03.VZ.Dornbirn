@@ -7,11 +7,24 @@ import java.util.Vector;
 public class AnimalArea {
     private String name;
     private List<Animal> animals = new Vector<>();
+    private int lastDayHasCleared;
 
 
     public AnimalArea(String name) {
         this.name = name;
+        lastDayHasCleared = 0;
+    }
+    public void setLastDayHasCleared(int lastDayHasCleared){
+        this.lastDayHasCleared = lastDayHasCleared;
+    }
 
+    public void clearArea (int currentDay){
+        if (currentDay == lastDayHasCleared){
+            System.out.println("Nothing to do");
+        }else {
+            System.out.println("Do cleaning");
+            lastDayHasCleared = currentDay;
+        }
     }
     public void addAnimal(Animal animal){
         if (!animals.contains(animal)){
@@ -30,6 +43,10 @@ public class AnimalArea {
         this.name = name;
     }
 
+    public List<Animal> getAnimals() {
+        return animals;
+    }
+
     public String toString(String indention) {
         String out = indention + name;
         for (Animal a : animals) {
@@ -37,4 +54,5 @@ public class AnimalArea {
         }
         return out;
     }
+
 }
