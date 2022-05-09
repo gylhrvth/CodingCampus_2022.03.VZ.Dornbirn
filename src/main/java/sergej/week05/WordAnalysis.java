@@ -1,6 +1,6 @@
 package sergej.week05;
 
-import data.Texts;
+import lukas.data.Texts;
 
 public class WordAnalysis {
 

@@ -1,13 +1,13 @@
 package murat.week5.day5;
 
-import data.Texts;
+import lukas.data.Texts;
 import murat.muratStandardLibrary.MuratSwap;
 
 public class WordAnalysis {
     public static void main(String[] args) {
 
         String text1 = Texts.HESSE;
-        String text2 = data.Texts.getSimpleText();
+        String text2 = Texts.getSimpleText();
         textsToAnalyze(text1, text2);
 
     }

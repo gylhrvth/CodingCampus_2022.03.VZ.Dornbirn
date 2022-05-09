@@ -1,6 +1,6 @@
 package lukas.week6.day4;
 
-import data.Texts;
+import lukas.data.Texts;
 
 import java.util.Scanner;
 

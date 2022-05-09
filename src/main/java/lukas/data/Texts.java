@@ -1,4 +1,4 @@
-package data;
+package lukas.data;
 
 import lukas.week4.day4.Text;
 

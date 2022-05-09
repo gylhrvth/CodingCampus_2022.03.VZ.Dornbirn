@@ -1,19 +1,22 @@
 package zah.week07.zoo;
 
+
+
 public class Animal {
     private String name;
-    private String speciment;
+    private String species;
 
-    public Animal(String name, String speciment){
-        this.name=name;
-        this.speciment=speciment;
+
+    public Animal(String name, String speciment) {
+        this.name = name;
+        this.species = speciment;
+
     }
 
-    @Override
-    public String toString() {
-        return "Animal{" +
-                "name='" + name + '\'' +
-                ", speciment='" + speciment + '\'' +
-                '}';
+    public String toString(String indention) {
+        String out = indention + name;
+        out += " "+species;
+        return out;
     }
+
 }
