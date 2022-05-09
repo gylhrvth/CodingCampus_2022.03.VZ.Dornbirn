@@ -47,7 +47,7 @@ public class Enclosure {
 
     public String toString(String indention) {
 
-        String out = indention + name + (alreadyCared ? " (Cared)" : " (Not cared)");
+        String out = indention + name + (alreadyCared ? Zoo.ANSI_GREEN + " (Cared)" + Zoo.ANSI_RESET : Zoo.ANSI_RED+" (Not cared)" + Zoo.ANSI_RESET);
         for (Animal animal : animals) {
             out += Zoo.ANSI_CYAN + "\n\t\t\t├──" + animal.toString(indention) + Zoo.ANSI_RESET;
         }
