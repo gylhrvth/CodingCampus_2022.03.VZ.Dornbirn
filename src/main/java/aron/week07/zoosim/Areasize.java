@@ -6,10 +6,18 @@ public class Areasize {
     private int areaLong;
     private int areaWide;
 
-    public Areasize (String areaName,int areaLong, int areaWide){
+    public Areasize(String areaName, int areaLong, int areaWide) {
         this.areaName = areaName;
-        this.areaLong = areaLong ;
-        this.areaWide = areaWide ;
+        this.areaLong = areaLong;
+        this.areaWide = areaWide;
     }
 
+    @Override
+    public String toString() {
+        return "Areasize{" +
+                "areaName='" + areaName + '\'' +
+                ", areaLong=" + areaLong +
+                ", areaWide=" + areaWide +
+                '}';
+    }
 }

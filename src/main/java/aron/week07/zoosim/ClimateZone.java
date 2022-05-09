@@ -28,4 +28,6 @@ public enum ClimateZone {
     public float getMinTemp() {
         return minTemp;
     }
+
+
 }
