@@ -55,7 +55,7 @@ public class AnimalArea {
         String outout = "";
         outout += MainZoo.ANSI_RED + name + MainZoo.ANSI_RESET + "\n";
         for (Animal an : animals) {
-            outout += MainZoo.ANSI_GREEN + an.getName() + " - " + MainZoo.ANSI_RESET;
+            outout += MainZoo.ANSI_GREEN + an.getName() + " " + MainZoo.ANSI_RESET;
         }
 
         return outout;
