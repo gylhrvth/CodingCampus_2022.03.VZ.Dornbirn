@@ -37,7 +37,7 @@ public class AnimalKeeper {
     public void printListAreasWork() {
         int currentDay = 0;
         for (AnimalArea animalArea : areasToWork) {
-            System.out.print(animalArea + ": ");
+            System.out.print( animalArea + MainZoo.ANSI_GREEN + ": " + MainZoo.ANSI_RESET);
             animalArea.clearArea(currentDay);
         }
 
