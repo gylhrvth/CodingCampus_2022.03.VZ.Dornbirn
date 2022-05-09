@@ -22,7 +22,8 @@ public class MainZoo {
         dornbirn.addArea(area1);
         dornbirn.addArea(area2);
 
-        System.out.println(dornbirn);
+
+        System.out.println(dornbirn.toString("│──"));
 
 
     }

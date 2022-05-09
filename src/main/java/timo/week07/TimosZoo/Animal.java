@@ -1,4 +1,4 @@
-package sergej.week07.zoo;
+package timo.week07.TimosZoo;
 
 public class Animal {
     private String name;
@@ -12,7 +12,7 @@ public class Animal {
 
     public String toString(String indention) {
         String out = indention + name;
-        out += " "+species;
+        out += ", " + species;
         return out;
     }
 }

@@ -30,8 +30,11 @@ public class AnimalArea {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return name + animals;
+    public String toString(String indention) {
+        String out = indention + name;
+        for (Animal a : animals) {
+            out += "\n" + "│" + "        " + a.toString(indention);
+        }
+        return out;
     }
 }

@@ -1,6 +1,6 @@
 package zah.week07.zoo;
 
-import murat.week7.day1.task1Zoo.Zoo;
+
 
 public class Animal {
     private String name;
