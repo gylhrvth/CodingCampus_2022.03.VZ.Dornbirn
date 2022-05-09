@@ -58,46 +58,69 @@ public class Carer {
         return en;
     }
 
-    public static void feedAnimals(Carer aCarer, Animal anAnimal) {
+    public void feedAnimals(Animal anAnimal) {
 
-        System.out.println(Zoo.ANSI_GREEN + aCarer + " feeds " + anAnimal + Zoo.ANSI_RESET);
+        System.out.println(Zoo.ANSI_GREEN + this + " feeds " + anAnimal + Zoo.ANSI_RESET);
     }
 
-    public static void comingToEnclosure(Enclosure anEnclosure, Carer aCarer) {
+    public void comingToEnclosure(Enclosure anEnclosure) {
 
-        System.out.println(Zoo.ANSI_BLUE + aCarer + " is today at " + anEnclosure + Zoo.ANSI_RESET);
+        System.out.println(Zoo.ANSI_BLUE + this + " is today at " + anEnclosure + Zoo.ANSI_RESET);
     }
 
-    public static void observeAnAnimal(Carer aCarer, List<Animal> animalList) {
+    public void observeAnAnimal(List<Animal> animalList) {
 
         Random random = new Random();
-        int randomNumber = random.nextInt(animalList.size());
-        System.out.println(Zoo.ANSI_CYAN + aCarer + " observes " + animalList.get(randomNumber) + Zoo.ANSI_RESET);
+        if (animalList.size() != 0) {
+            int randomNumber = random.nextInt(animalList.size());
+            System.out.println(Zoo.ANSI_CYAN + this + " observes " + animalList.get(randomNumber) + Zoo.ANSI_RESET);
+        } else {
+            System.out.println("There is no animal to take care of.");
+        }
     }
 
-    public static void giveAnAnimalAReward(Carer aCarer, List<Animal> animalList) {
+    public void giveAnAnimalAReward(List<Animal> animalList) {
 
-        System.out.println(Zoo.ANSI_RED + aCarer + " gives a reward to " + aCarer.bestBuddy + Zoo.ANSI_RESET + "\n");
+        if (animalList.size() != 0) {
+            System.out.println(Zoo.ANSI_RED + this + " gives a reward to " + bestBuddy + Zoo.ANSI_RESET + "\n");
+        } else {
+            System.out.println("There is no animal to take care of.");
+        }
     }
 
-    public static Enclosure findASuitableEnclosureForCarer(Enclosure[] enclosures, Zoo zooDarica, Carer aCarer) {
+    public Enclosure findASuitableEnclosureForCarer(List<Enclosure> assignedEnclosures) {
 
-        Enclosure aNotCaredEnclosure = zooDarica.addEnclosure("Home", false);
+        Enclosure aNotCaredEnclosure;
 
-        for (Enclosure enc : enclosures) {
+        for (Enclosure enc : assignedEnclosures) {
 
             // If the enclosure has no carer
             if (!enc.getCared()) {
-                for (int j = 0; j < aCarer.assignedEnclosures.size(); j++) {
 
-                    // If the enclosure is one of the carer's tasks
-                    if (enc == aCarer.assignedEnclosures.get(j)) {
-                        aNotCaredEnclosure = enc;
-                        return aNotCaredEnclosure;
-                    }
-                }
+                aNotCaredEnclosure = enc;
+                return aNotCaredEnclosure;
             }
         }
-        return aNotCaredEnclosure;
+        return null;
+    }
+
+    public void simulation01() {
+
+        Enclosure encNeedsCaring = findASuitableEnclosureForCarer(assignedEnclosures);
+
+        if (encNeedsCaring != null) {
+            comingToEnclosure(encNeedsCaring);
+            encNeedsCaring.setCaredOrNot(true);
+
+            for (int j = 0; j < encNeedsCaring.getAnimals().size(); j++) {
+                feedAnimals(encNeedsCaring.getAnimals().get(j));
+            }
+
+            observeAnAnimal(encNeedsCaring.getAnimals());
+            giveAnAnimalAReward(encNeedsCaring.getAnimals());
+
+        } else {
+            System.out.println(name + " has nothing to do");
+        }
     }
 }

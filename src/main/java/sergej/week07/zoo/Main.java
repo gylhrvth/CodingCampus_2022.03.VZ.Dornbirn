@@ -9,10 +9,14 @@ public class Main {
         Enclosure desert = schoenbrunn.addEnclosure("Desert");
         Enclosure jungle = schoenbrunn.addEnclosure("Jungle");
 
-        marsh.addAnimals("Hans", "Crocodile");
-        desert.addAnimals("Timo","Gerbil");
-        jungle.addAnimals("Raz Fratelli","Monkey");
-        jungle.addAnimals("Peter","Snake");
+        Animal croc = marsh.addAnimals("Hans", "Crocodile");
+        Animal gerb = desert.addAnimals("Timo", "Gerbil");
+        Animal monkey = jungle.addAnimals("Raz Fratelli", "Monkey");
+        Animal snake = jungle.addAnimals("Peter", "Snake");
+
+        schoenbrunn.removeEnclosure(marsh);
+        jungle.removeAnimals(snake);
+
         System.out.println(schoenbrunn);
 
     }

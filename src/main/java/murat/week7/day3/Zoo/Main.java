@@ -43,22 +43,16 @@ public class Main {
 
         Carer[] cList = {carerPeter, carerTim, carerBeatrice};
 
+        // Simulation 0.1-----------------------
+        System.out.println("Carers are on duty\n---------------------------------------------");
         for (Carer aCarer : cList) {
-            Enclosure encNeedsCaring = Carer.findASuitableEnclosureForCarer(encList, zooDarica, aCarer);
-            Carer.comingToEnclosure(encNeedsCaring, aCarer);
-            encNeedsCaring.setCaredOrNot(true);
-
-            for (int j = 0; j < encNeedsCaring.getAnimals().size(); j++) {
-                Carer.feedAnimals(aCarer, encNeedsCaring.getAnimals().get(j));
-            }
-
-            Carer.observeAnAnimal(aCarer, encNeedsCaring.getAnimals());
-            Carer.giveAnAnimalAReward(aCarer, encNeedsCaring.getAnimals());
-
+            aCarer.simulation01();
         }
 
         System.out.println("\n-----------ENCLOSURES---------------");
         printEnclosureList(encList);
+
+        System.out.println("\n" + zooDarica);
 
     }
 
