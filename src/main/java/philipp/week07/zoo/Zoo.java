@@ -46,13 +46,12 @@ public class Zoo {
         }
     }
 
-    public void cleanZooAreas() {
+    public void takeCareOfZooAreas() {
         for (AnimalKeeper animalKeeper : animalKeepers) {
-            System.out.println(animalKeeper.getName()+": ");
+            System.out.println(animalKeeper.getName() + ": ");
             animalKeeper.printListAreasToWork();
             System.out.println();
         }
-
         System.out.println();
     }
 }

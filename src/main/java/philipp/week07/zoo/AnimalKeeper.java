@@ -1,14 +1,14 @@
 package philipp.week07.zoo;
 
 import java.util.List;
-import java.util.Random;
 import java.util.Vector;
 
 public class AnimalKeeper {
-    Random rn = new Random();
+
 
     private String name;
     private List<AnimalArea> areasToWork;
+
 
     public AnimalKeeper(String name) {
         this.name = name;
@@ -37,22 +37,16 @@ public class AnimalKeeper {
         int currentDay = 0;
         for (AnimalArea animalArea : areasToWork) {
             System.out.print(animalArea + ": ");
-            animalArea.clearArea(currentDay);
+            if (animalArea.clearArea(currentDay)) {
+                printWorksDoing(animalArea);
+            }
         }
-
     }
 
-    public void viewAnimalInArea(AnimalArea aa) {
-        System.out.println(aa.getAnimals());
-//        int rnIndex = rn.nextInt(aa.getAnimals().size());
-//        for (int i = 0; i < aa.getAnimals().size(); i++) {
-//            if (rnIndex == i) {
-//                System.out.println(aa.getAnimals().get(i));
-//            }
-//
-//        }
-        System.out.println();
-        System.out.println(aa.getAnimals().get(rn.nextInt(aa.getAnimals().size())));
+    public void printWorksDoing(AnimalArea animalArea) {
+        animalArea.feedAnimals(animalArea);
+        animalArea.randomAnimalOfArea(animalArea);
     }
+
 
 }
