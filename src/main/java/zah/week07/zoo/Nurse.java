@@ -29,4 +29,11 @@ public class Nurse {
         tasks.add(en);
         return en;
     }
+
+    public void simulate() {
+        System.out.println(name + " starting to work.");
+        for (Enclosure enc: tasks) {
+            enc.simulateNurse();
+        }
+    }
 }

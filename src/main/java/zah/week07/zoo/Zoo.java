@@ -20,7 +20,7 @@ public class Zoo {
 
 
     public String toString(String id) {
-        String out = id + "├──";
+        String out = id  +"├──";
         out += name;
         out += " " + foundation + "\n";
         for (Nurse n:nurses) {
@@ -58,15 +58,13 @@ public class Zoo {
         }
         return addEnclosure(name);
     }
-    public Random nextEclosure(Random rand){
-        for (Enclosure enc:enclosures) {
-            if (enc.getName()!=null){
-                rand.nextInt(3);
-                System.out.println(" This Enclosure have already a Carrer!!!");
-            }
+    public Vector<Enclosure> nextEclosure(){
+        Random rand =new Random();
+        for (int i = 0; i <enclosures.size() ; i++) {
+            rand.nextInt(i);
 
         }
-        return rand;
+        return enclosures;
     }
 
     public static final String ANSI_RED = "\u001B[31m";
@@ -80,5 +78,12 @@ public class Zoo {
     public static final String ANSI_BLUE = "\u001B[34m";
 
     public static final String ANSI_GREEN = "\u001B[32m";
+
+    public void simulate(int day) {
+        System.out.println("Start day " + day);
+        for (Nurse n: nurses) {
+            n.simulate();
+        }
+    }
 }
 

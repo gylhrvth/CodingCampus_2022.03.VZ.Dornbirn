@@ -28,5 +28,9 @@ public class Enclosure {
     public String getName() {
         return name;
     }
+
+    public void simulateNurse() {
+        System.out.println(name + " Has been cleared");
+    }
 }
 

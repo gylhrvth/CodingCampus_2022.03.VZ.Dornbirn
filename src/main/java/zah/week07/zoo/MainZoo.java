@@ -13,19 +13,28 @@ public class MainZoo {
 
         alpemwiese.addAnimal("Rijska","Kuh");
         ried.addAnimal("Garmond","Storh");
+
         ried.addAnimal("Hugo","Storh");
         ried.addAnimal("Idaxis","Storh");
         terarrium.addAnimal("Klaus","Spinne");
 
         Nurse nPeter = z.addNurse("Peter");
         nPeter.addTask("Alpenwiese");
-        Nurse Hans=z.addNurse("Hans");
-        Hans.addTask("Ried");
+        Nurse nHans=z.addNurse("Hans");
+        nHans.addTask("Ried");
+        Nurse nFranz = z.addNurse("Franz");
+        nFranz.addTask("Arctic");
+        nFranz.addTask("Alpenwiese");
+        nFranz.addTask("Ried");
 
 
 
 
         System.out.println(z);
 
+        for (int day = 1; day <= 5; day++) {
+            z.simulate(day);
+
+        }
     }
 }
