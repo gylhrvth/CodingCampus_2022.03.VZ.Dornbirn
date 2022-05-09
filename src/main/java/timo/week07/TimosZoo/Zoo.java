@@ -1,11 +1,13 @@
 package timo.week07.TimosZoo;
 
+import java.util.List;
 import java.util.Vector;
 
 public class Zoo {
     private String name;
     private int foundation;
-    private Vector<Enclosure> enclosures;
+    private List<Enclosure> enclosures;
+    private List<Zookeeper> zookeepers = new Vector<>();
 
     public Zoo(String name, int foundation) {
         this.name = name;
@@ -14,13 +16,37 @@ public class Zoo {
     }
 
 
-    @Override
-    public String toString() {
-        return "├── Zoo: " + name + ", gegründet: " + foundation + "\n    ├── " + enclosures;
-
+    public String toString(String indentation) {
+        String output = indentation + " ";
+        output += name;
+        output += ", founded in " + foundation + "\n";
+        for (Enclosure en : enclosures) {
+            output += "│" + "    " + en.toString(indentation + " ") + "\n";
+        }
+        return output;
     }
 
-    public void addEnclosure (Enclosure e) {
+    public Enclosure addEnclosure(String name) {
+        Enclosure e = new Enclosure(name);
         enclosures.add(e);
+        return e;
     }
+
+    public void removeEnclosure(Enclosure e) {
+        enclosures.remove(e);
+    }
+
+    public void cleanZooEnclosures() {
+        int currentday = 0;
+        for (Zookeeper zookeeper : zookeepers) {
+            System.out.println(zookeeper.getName() + ": ");
+            zookeeper.printCleaningTasks();
+        }
+    }
+
+    public Zookeeper addZookeeper(Zookeeper zk) {
+        zookeepers.add(zk);
+        return zk;
+    }
+
 }

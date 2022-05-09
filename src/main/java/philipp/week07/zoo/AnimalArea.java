@@ -1,33 +1,50 @@
 package philipp.week07.zoo;
 
 import java.util.List;
+import java.util.Random;
 import java.util.Vector;
 
 public class AnimalArea {
+    Random rn = new Random();
+
     private String name;
     int size;
     private List<Animal> animals = new Vector<>();
-    private int lastDayHasBeenCleard;
-
+    private int lastDayHasBeenCleared;
 
     public AnimalArea(String name, int size) {
         this.name = name;
         this.size = size;
-        lastDayHasBeenCleard = 0;
+        lastDayHasBeenCleared = 0;
+    }
+
+    public void feedAnimals(AnimalArea aa) {
+        System.out.println("Feeding the animals of this area:");
+        for (int i = 0; i < aa.getAnimals().size(); i++) {
+            System.out.print(" ".repeat(20));
+            System.out.println("Feeding: " + aa.getAnimals().get(i));
+        }
+    }
+
+    public void randomAnimalOfArea(AnimalArea aa) {
+        System.out.print("Watching the random animal: ");
+        System.out.println(aa.getAnimals().get(rn.nextInt(aa.getAnimals().size())));
     }
 
     public void setLastDayHasBeenCleared(int lastDayHasBeenCleared) {
-        this.lastDayHasBeenCleard = lastDayHasBeenCleared;
+        this.lastDayHasBeenCleared = lastDayHasBeenCleared;
     }
 
-    public void clearArea(int currentDay){
-        if (currentDay == lastDayHasBeenCleard){
+    public boolean clearArea(int currentDay) {
+        if (currentDay == lastDayHasBeenCleared) {
             // Nothing to do
-            System.out.println("Nothing to do");
+            System.out.println("\u001B[32m" + "This area already has been done." + "\u001B[0m");
+            return false;
         } else {
             // Do cleaning
-            System.out.println("Do cleaning");
-            lastDayHasBeenCleard = currentDay;
+            System.out.println("\u001B[31m" + "This area needs to be taken care off." + "\u001B[0m");
+            lastDayHasBeenCleared = currentDay;
+            return true;
         }
     }
 
@@ -71,14 +88,6 @@ public class AnimalArea {
         return an;
     }
 
-    //    public AnimalKeeper addKeeper(AnimalKeeper ak) {
-//        animalKeepers.add(ak);
-//        return ak;
-//    }
-//    public void removeKeeper(AnimalKeeper ak){
-//        animalKeepers.remove(ak);
-//
-//    }
     public void changeSizeArea(int size) {
         this.size = size;
     }

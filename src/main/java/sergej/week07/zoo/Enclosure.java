@@ -7,21 +7,32 @@ public class Enclosure {
     private String name;
     private Vector<Animal> animals;
 
-    public Enclosure(String name){
+    public Enclosure(String name) {
         this.name = name;
         animals = new Vector<>();
     }
 
-    @Override
-    public String toString() {
-        return "\n " + name+"\n"+animals;
+
+
+    public String toString(String indention) {
+        String out = indention + name;
+        for (Animal an : animals) {
+            out +=  "\n\t\t├──"+" " + an.toString(indention);
+        }
+        return out;
     }
 
-    public Animal addAnimals(String name, String species){
-        Animal a = new Animal(name,species);
+    public Animal addAnimals(String name, String species) {
+        Animal a = new Animal(name, species);
         animals.add(a);
         return a;
     }
 
+    public void removeAnimals(Animal ani) {
+        animals.remove(ani);
+    }
 
+    public String getName() {
+        return name;
+    }
 }

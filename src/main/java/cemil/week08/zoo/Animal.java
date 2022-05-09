@@ -11,11 +11,18 @@ public class Animal {
         this.art = art;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String toString(String indention) {
+        String out = indention + name;
+        out += ", " + art;
+        return out;
+    }
+
     @Override
     public String toString() {
-        String output = "";
-        output += name + ", " + art + "\n";
-
-        return output;
+        return toString("");
     }
 }
