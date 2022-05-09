@@ -15,12 +15,13 @@ public class Zoo {
         this.foundationDate = yearOfEstablishment;
     }
 
-    @Override
-    public String toString() {
-        String output = "";
-        output += "Zoo: " + name + ", established " + foundationDate + "\n";
-        output += "|-Animal area: \n";
-        output += "|--" + animalAreas;
+    public String toString(String indentation) {
+        String output = indentation + " ";
+        output += name;
+        output += ", founded in " + foundationDate + "\n";
+        for (AnimalArea en : animalAreas) {
+            output += "│" + "    " + en.toString(indentation + " ") + "\n";
+        }
         return output;
     }
 
