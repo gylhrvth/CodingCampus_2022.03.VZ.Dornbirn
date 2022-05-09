@@ -14,24 +14,27 @@ public class AnimalArea {
         this.name = name;
         lastDayHasCleared = 0;
     }
-    public void setLastDayHasCleared(int lastDayHasCleared){
+
+    public void setLastDayHasCleared(int lastDayHasCleared) {
         this.lastDayHasCleared = lastDayHasCleared;
     }
 
-    public void clearArea (int currentDay){
-        if (currentDay == lastDayHasCleared){
-            System.out.println("Nothing to do");
-        }else {
-            System.out.println("Do cleaning");
+    public void clearArea(int currentDay) {
+        if (currentDay == lastDayHasCleared) {
+            System.out.println(MainZoo.ANSI_BLUE + "Nothing to do" + MainZoo.ANSI_RESET);
+        } else {
+            System.out.println(MainZoo.ANSI_YELLOW + "Do cleaning" + MainZoo.ANSI_RESET);
             lastDayHasCleared = currentDay;
         }
     }
-    public void addAnimal(Animal animal){
-        if (!animals.contains(animal)){
+
+    public void addAnimal(Animal animal) {
+        if (!animals.contains(animal)) {
             animals.add(animal);
         }
     }
-    public void removeAnimal(Animal animal){
+
+    public void removeAnimal(Animal animal) {
         animals.remove(animal);
     }
 
@@ -45,6 +48,17 @@ public class AnimalArea {
 
     public List<Animal> getAnimals() {
         return animals;
+    }
+
+    @Override
+    public String toString() {
+        String outout = "";
+        outout += MainZoo.ANSI_RED + name + MainZoo.ANSI_RESET + "\n";
+        for (Animal an : animals) {
+            outout += MainZoo.ANSI_GREEN + an.getName() + " - " + MainZoo.ANSI_RESET;
+        }
+
+        return outout;
     }
 
     public String toString(String indention) {

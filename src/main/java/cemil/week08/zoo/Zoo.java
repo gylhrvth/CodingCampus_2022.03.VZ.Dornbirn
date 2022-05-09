@@ -14,14 +14,10 @@ public class Zoo {
         this.foundationDate = yearOfEstablishment;
     }
 
-    public String toString(String indentation) {
-        String output = indentation + " ";
-        output += name;
-        output += ", founded in " + foundationDate + "\n";
-        for (AnimalArea en : animalAreas) {
-            output += "│" + "    " + en.toString(indentation + " ") + "\n";
-        }
-        return output;
+
+    public AnimalKeeper addKeeper(AnimalKeeper ak) {
+        animalKeepers.add(ak);
+        return ak;
     }
 
     public void addArea(AnimalArea area) {
@@ -34,9 +30,9 @@ public class Zoo {
         animalAreas.remove(area);
     }
 
-    public void cleanZooAreas() {
+    public void takeCareOfZooAreas() {
         for (AnimalKeeper animalKeeper : animalKeepers) {
-            System.out.println(animalKeeper.getName()+": ");
+            System.out.println(MainZoo.ANSI_GREEN + animalKeeper.getName() + ": " + MainZoo.ANSI_RESET);
             animalKeeper.printListAreasWork();
             System.out.println();
         }
@@ -44,4 +40,18 @@ public class Zoo {
         System.out.println();
     }
 
+    @Override
+    public String toString() {
+        return toString("");
+    }
+
+    public String toString(String indentation) {
+        String output = indentation + " ";
+        output += name;
+        output += ", founded in " + foundationDate + "\n";
+        for (AnimalArea en : animalAreas) {
+            output += "│" + "    " + en.toString(indentation + " ") + "\n";
+        }
+        return output;
+    }
 }

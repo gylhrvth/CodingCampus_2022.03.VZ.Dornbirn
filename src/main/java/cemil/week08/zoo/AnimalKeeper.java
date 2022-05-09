@@ -1,7 +1,6 @@
 package cemil.week08.zoo;
 
 
-
 import java.util.List;
 import java.util.Random;
 import java.util.Vector;
@@ -23,7 +22,7 @@ public class AnimalKeeper {
 
     @Override
     public String toString() {
-        return "AnimalKeeper: " + name + areasToWork;
+        return "AnimalKeeper: " + MainZoo.ANSI_GREEN + name + MainZoo.ANSI_RESET + areasToWork;
     }
 
     public AnimalArea addArea(AnimalArea aa) {

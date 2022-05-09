@@ -32,6 +32,12 @@ public class MainZoo {
         dornbirn.addArea(area1);
         dornbirn.addArea(area2);
 
+        dornbirn.addKeeper(karl);
+        dornbirn.addKeeper(gudrun);
+        dornbirn.addKeeper(franz);
+        dornbirn.addKeeper(helga);
+
+
         karl.addArea(area);
         gudrun.addArea(area);
         franz.addArea(area1);
@@ -42,11 +48,17 @@ public class MainZoo {
         area1.setLastDayHasCleared(1);
         area2.setLastDayHasCleared(1);
 
-        karl.viewAnimalInArea(area);
+
+        dornbirn.takeCareOfZooAreas();
 
 
 //        System.out.println(dornbirn.toString("│──"));
 
 
     }
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_BLUE = "\u001B[34m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_RESET = "\u001B[0m";
 }
