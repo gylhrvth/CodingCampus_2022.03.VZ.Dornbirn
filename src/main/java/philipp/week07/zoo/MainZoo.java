@@ -49,12 +49,7 @@ public class MainZoo {
 //        dornbirn.printZoo();
 
 //        System.out.println();
-//        dornbirn.cleanZooAreas();
-
-        karl.viewAnimalInArea(alpenwiese);
+        dornbirn.takeCareOfZooAreas();
 
     }
-
-
-
 }
