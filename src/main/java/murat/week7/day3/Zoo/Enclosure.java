@@ -11,6 +11,8 @@ public class Enclosure {
 
     private List<Carer> carers = new Vector<>();
 
+    private List<Veterinarian> vets = new Vector<>();
+
     public boolean alreadyCared;
 
     public Enclosure(String name, boolean cared) {
@@ -37,6 +39,11 @@ public class Enclosure {
     public boolean getCared() {
 
         return alreadyCared;
+    }
+
+    public List<Veterinarian> getVets() {
+
+        return vets;
     }
 
     public boolean setCaredOrNot(boolean caredOrNot) {

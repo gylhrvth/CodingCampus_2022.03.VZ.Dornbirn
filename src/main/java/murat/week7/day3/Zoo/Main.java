@@ -13,19 +13,19 @@ public class Main {
 
         Enclosure[] encList = {reed, terr, grass, des, alpine};
 
-        alpine.addAnimal("Ricco", "Cow", 100.0f, 110, 50.0f);
-        reed.addAnimal("Oscar", "Ostrich",60.0f, 70, 70.0f);
+        alpine.addAnimal("Ricco", "Cow", 80.0f, 110, 50.0f);
+        reed.addAnimal("Oscar", "Ostrich", 60.0f, 70, 70.0f);
         reed.addAnimal("Earl", "Eagle", 70.0f, 80, 80.0f);
-        reed.addAnimal("Chika", "Chicken",20.0f, 30, 70.0f);
-        terr.addAnimal("Ronald", "Rooster",30.0f, 40, 60.0f);
-        terr.addAnimal("Lionel", "Lion",50.0f, 60, 90.0f);
-        terr.addAnimal("Tom", "Tortoise",80.0f, 90, 80.0f);
-        terr.addAnimal("Catrine", "Cat",60.0f, 70, 70.0f);
-        terr.addAnimal("Douglas", "Dog",50.0f, 60, 50.0f);
-        grass.addAnimal("Biden", "Bison",110.0f, 120, 70.0f);
-        grass.addAnimal("Derek", "Deer",180.0f, 90, 50.0f);
-        grass.addAnimal("Shaun", "Sheep",70.0f, 80, 50.0f);
-        des.addAnimal("Cameron", "Camel",110.0f, 120, 80.0f);
+        reed.addAnimal("Chika", "Chicken", 20.0f, 30, 70.0f);
+        terr.addAnimal("Ronald", "Rooster", 30.0f, 40, 60.0f);
+        terr.addAnimal("Lionel", "Lion", 50.0f, 60, 90.0f);
+        terr.addAnimal("Tom", "Tortoise", 30.0f, 90, 80.0f);
+        terr.addAnimal("Catrine", "Cat", 60.0f, 70, 70.0f);
+        terr.addAnimal("Douglas", "Dog", 50.0f, 60, 50.0f);
+        grass.addAnimal("Biden", "Bison", 110.0f, 120, 70.0f);
+        grass.addAnimal("Derek", "Deer", 80.0f, 90, 50.0f);
+        grass.addAnimal("Shaun", "Sheep", 70.0f, 80, 50.0f);
+        des.addAnimal("Cameron", "Camel", 20.0f, 120, 80.0f);
 
         Carer carerPeter = zooDarica.addCarer("Peter", terr.getAnimals().get(0));  // Best buddy Ronald the Rooster
         carerPeter.addTask("Terrarium");
@@ -45,6 +45,18 @@ public class Main {
 
         Carer[] cList = {carerPeter, carerTim, carerBeatrice};
 
+        Veterinarian vetFlo = zooDarica.addVet("Florence Nightingale");
+        Veterinarian vetPast = zooDarica.addVet("Louis Pasteur");
+        Veterinarian vetUgur = zooDarica.addVet("Ugur Sahin");
+
+        Veterinarian[] vList = {vetFlo, vetPast, vetUgur};
+
+
+
+
+
+
+
        /* // Simulation 0.1-----------------------
         System.out.println("Carers are on duty\n---------------------------------------------");
         for (Carer aCarer : cList) {
@@ -53,11 +65,14 @@ public class Main {
         System.out.println("\n-----------ENCLOSURES---------------");
         printEnclosureList(encList);*/
 
-        // Simulation 0.2-----------------------
+        /*// Simulation 0.2-----------------------
         System.out.println("Natural Selection\n---------------------------------------------");
-        terr.simulation02();
+        terr.simulation02();*/
 
-        //System.out.println("\n" + zooDarica);
+
+        // Simulation 0.3
+        zooDarica.simulation03();
+
 
 
     }

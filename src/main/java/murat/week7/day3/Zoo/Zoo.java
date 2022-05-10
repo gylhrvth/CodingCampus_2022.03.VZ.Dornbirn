@@ -1,6 +1,7 @@
 package murat.week7.day3.Zoo;
 
 import java.util.List;
+import java.util.Random;
 import java.util.Vector;
 
 public class Zoo {
@@ -14,6 +15,8 @@ public class Zoo {
 
     private List<Carer> carers = new Vector<>();
 
+    private List<Veterinarian> vets = new Vector<>();
+
     public Zoo(String name, String city, int establishedIn) {
 
         this.name = name;
@@ -26,9 +29,29 @@ public class Zoo {
         return name;
     }
 
+    public String getCity() {
+
+        return city;
+    }
+
     public int getEstablishedIn() {
 
         return establishedIn;
+    }
+
+    public List<Enclosure> getEnclosures() {
+
+        return enclosures;
+    }
+
+    public List<Carer> getCarers() {
+
+        return carers;
+    }
+
+    public List<Veterinarian> getVets() {
+
+        return vets;
     }
 
     public String toString(String index) {
@@ -69,6 +92,13 @@ public class Zoo {
         return c;
     }
 
+    public Veterinarian addVet(String name) {
+
+        Veterinarian v = new Veterinarian(this, name);
+        vets.add(v);
+        return v;
+    }
+
     public Enclosure searchEnclosureByName(String name) {
 
         for (Enclosure enc : enclosures) {
@@ -77,6 +107,39 @@ public class Zoo {
             }
         }
         return addEnclosure(name, false);
+    }
+
+    public void simulation03() {
+
+        int worstCondition = 100;
+        Random rand = new Random();
+        int randomNumber = rand.nextInt(30, 100);
+        Animal weakestAnimal = null;
+
+        for (Enclosure enclosure : enclosures) {
+            for (int j = 0; j < enclosure.getAnimals().size(); j++) {
+                int condition = enclosure.getAnimals().get(j).calculateAnimalConditions();
+                System.out.println("Name: " + enclosure.getAnimals().get(j).getName() + ", Health: " + enclosure.getAnimals().get(j).calculateAnimalConditions());
+                if (condition < worstCondition) {
+                    worstCondition = condition;
+                    weakestAnimal = enclosure.getAnimals().get(j);
+                }
+            }
+        }
+
+        if (weakestAnimal.getMaxHealth() != 100) {
+            //noinspection IntegerDivisionInFloatingPointContext
+            if ((weakestAnimal.getHealth() + ((weakestAnimal.getMaxHealth() * randomNumber) / 100)) >= 100) {
+                weakestAnimal.setHealth(weakestAnimal.getMaxHealth());
+                System.out.println("\n" + weakestAnimal.getName() + "'s health is maxed! Health: " + weakestAnimal.getMaxHealth());
+            } else {
+                //noinspection IntegerDivisionInFloatingPointContext
+                weakestAnimal.setHealth((weakestAnimal.getHealth() + ((weakestAnimal.getMaxHealth() * randomNumber) / 100)));
+                System.out.println("\n" + weakestAnimal.getName() + " " + randomNumber + "% healed. New Health: " + (int)weakestAnimal.getHealth());
+            }
+        } else {
+            System.out.println("All animals are healthy.");
+        }
     }
 
     public static final String ANSI_RED = "\u001B[31m";
