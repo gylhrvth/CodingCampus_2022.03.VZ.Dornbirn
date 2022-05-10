@@ -91,6 +91,11 @@ public class Animal {
 
     }
 
+    public void printStructure() {
+
+        System.out.println(Zoo.ANSI_GREEN + "│       ├── " + name + ", " + species + ", " + (int) health + "-" + maxHealth + "-" + (int) bite + Zoo.ANSI_RESET);
+    }
+
     public boolean possibilityOfAnAttack() {
 
         boolean attack = false;
@@ -103,10 +108,11 @@ public class Animal {
         return attack;
     }
 
-    public int calculateAnimalConditions(){
+    public int calculateAnimalConditions() {
+
         int condition;
 
-        condition = (int)((health/maxHealth)*100);
+        condition = (int) ((health / maxHealth) * 100);
 
         return condition;
     }
