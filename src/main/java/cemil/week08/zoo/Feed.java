@@ -1,6 +1,4 @@
-package zah.week07;
-
-import java.util.HashMap;
+package cemil.week08.zoo;
 
 public class Feed {
     private String name;

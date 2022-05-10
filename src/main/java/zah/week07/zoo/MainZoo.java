@@ -1,5 +1,7 @@
 package zah.week07.zoo;
 
+import zah.week07.Feed;
+
 import java.util.Vector;
 
 public class MainZoo {
@@ -11,21 +13,35 @@ public class MainZoo {
         Enclosure ried=z.addEnclosure("Ried");
         Enclosure terarrium=z.addEnclosure("Terrarium (warm)");
 
-        alpemwiese.addAnimal("Rijska","Kuh");
-        ried.addAnimal("Garmond","Storh");
-        ried.addAnimal("Hugo","Storh");
-        ried.addAnimal("Idaxis","Storh");
-        terarrium.addAnimal("Klaus","Spinne");
+        alpemwiese.addAnimal("Rijska","Kuh", z.searchFoodByName("Heu"), 20);
+        ried.addAnimal("Garmond","Storh", z.searchFoodByName("Frosch"), 1);
+        ried.addAnimal("Hugo","Storh", z.searchFoodByName("Frosch"), 1);
+        ried.addAnimal("Idaxis","Storh", z.searchFoodByName("Frosch"), 1);
+        terarrium.addAnimal("Klaus","Spinne", z.searchFoodByName("Frosch"), 2);
 
         Nurse nPeter = z.addNurse("Peter");
         nPeter.addTask("Alpenwiese");
-        Nurse Hans=z.addNurse("Hans");
-        Hans.addTask("Ried");
+        Nurse nHans=z.addNurse("Hans");
+        nHans.addTask("Ried");
+        Nurse nFranz = z.addNurse("Franz");
+        nFranz.addTask("Arctic");
+        nFranz.addTask("Alpenwiese");
+        nFranz.addTask("Ried");
+        nFranz.addTask("Terrarium (warm)");
 
-
+        Feed heu = z.searchFoodByName("Heu");
+        heu.setUnit("kg");
+        heu.setUnitPrice(3);
+        Feed frosch = z.searchFoodByName("Frosch");
+        frosch.setUnit("Stück");
+        frosch.setUnitPrice(25);
 
 
         System.out.println(z);
 
+        for (int day = 1; day <= 5; day++) {
+            z.simulate(day);
+
+        }
     }
 }

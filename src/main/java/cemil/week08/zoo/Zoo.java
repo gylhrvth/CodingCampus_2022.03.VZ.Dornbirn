@@ -1,5 +1,7 @@
 package cemil.week08.zoo;
 
+
+import java.util.HashMap;
 import java.util.List;
 import java.util.Vector;
 
@@ -8,6 +10,7 @@ public class Zoo {
     private int foundationDate;
     private List<AnimalArea> animalAreas = new Vector<>();
     private List<AnimalKeeper> animalKeepers = new Vector<>();
+    private List<Feed> feeds = new Vector<>();
 
     public Zoo(String name, int yearOfEstablishment) {
         this.name = name;
@@ -38,6 +41,40 @@ public class Zoo {
         }
 
         System.out.println();
+    }
+
+    public void simulate(int day) {
+        HashMap<Feed, Integer> feedStatistik = new HashMap<>();
+
+        System.out.println("Start day " + day);
+        for (AnimalKeeper ak : animalKeepers) {
+            ak.simulate(day, feedStatistik);
+        }
+
+        printStatistc(feedStatistik);
+    }
+
+    public Feed searchFoodByName(String name) {
+        for (Feed f : feeds) {
+            if (f.getName().equals(name)) {
+                return f;
+            }
+
+        }
+        return addFeed(name);
+    }
+
+    public Feed addFeed(String name) {
+        Feed feed = new Feed(name, "", 0);
+        feeds.add(feed);
+        return feed;
+    }
+
+    private void printStatistc(HashMap<Feed, Integer> feedStatistik) {
+        System.out.println("Feed statistic:");
+        for (Feed f : feedStatistik.keySet()) {
+            System.out.printf("%-20s %5d %-8s %7d%n", f.getName(), feedStatistik.get(f), f.getUnit(), (feedStatistik.get(f) * f.getUnitPrice()));
+        }
     }
 
     @Override
