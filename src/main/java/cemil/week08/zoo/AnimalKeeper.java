@@ -1,17 +1,19 @@
 package cemil.week08.zoo;
 
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 import java.util.Vector;
 
 public class AnimalKeeper {
     Random rn = new Random();
-
     private String name;
+    private Zoo zoo;
     private List<AnimalArea> areasToWork;
 
-    public AnimalKeeper(String name) {
+    public AnimalKeeper(Zoo zoo, String name) {
+        this.zoo = zoo;
         this.name = name;
         areasToWork = new Vector<>();
     }
@@ -37,7 +39,7 @@ public class AnimalKeeper {
     public void printListAreasWork() {
         int currentDay = 0;
         for (AnimalArea animalArea : areasToWork) {
-            System.out.print( animalArea + MainZoo.ANSI_GREEN + ": " + MainZoo.ANSI_RESET);
+            System.out.print(animalArea + MainZoo.ANSI_GREEN + ": " + MainZoo.ANSI_RESET);
             animalArea.clearArea(currentDay);
         }
 
@@ -56,4 +58,16 @@ public class AnimalKeeper {
     }
 
 
+    public void simulate(int day, HashMap<Feed, Integer> feedStatistik) {
+        for (AnimalArea aa : areasToWork) {
+            if (aa.getLastDayHasCleared() != day) {
+                System.out.println(" is cleaning " + aa.getName());
+                aa.setLastDayHasCleared(day);
+                aa.feedAnimals(feedStatistik);
+            } else {
+                System.out.println(aa.getName() + " has been cleaned");
+            }
+
+        }
+    }
 }

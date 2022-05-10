@@ -16,28 +16,28 @@ public class MainZoo {
         Areasize areasize3 = new Areasize("small Area",25,25);
         Areasize areasize4 = new Areasize("Terrarium Area",2,1);
 
-        Enclosure enclosure1 = new Enclosure("Antarktis",ClimateZone.POLAR_ZONE,areasize3, animal3);
-        Enclosure enclosure2 = new Enclosure("Steppe",ClimateZone.SUBPOLAR_ZONE,areasize2,animal5);
-        Enclosure enclosure3 = new Enclosure("Wald",ClimateZone.GEMAESSIGTE_ZONE,areasize1,animal6);
-        Enclosure enclosure4 = new Enclosure("Wueste",ClimateZone.SUBTROPISCHE_ZONE,areasize3,animal2);
-        Enclosure enclosure5 = new Enclosure("Savane",ClimateZone.SUBTROPISCHE_ZONE,areasize2,animal4);
-        Enclosure enclosure6 = new Enclosure("Regenwald",ClimateZone.TROPISCHE_ZONE,areasize4,animal1);
+        Enclosure enclosure1 = new Enclosure("Antarktis",ClimateZone.POLAR_ZONE,areasize3);
+        Enclosure enclosure2 = new Enclosure("Steppe",ClimateZone.SUBPOLAR_ZONE,areasize2);
+        Enclosure enclosure3 = new Enclosure("Wald",ClimateZone.GEMAESSIGTE_ZONE,areasize1);
+        Enclosure enclosure4 = new Enclosure("Wueste",ClimateZone.SUBTROPISCHE_ZONE,areasize3);
+        Enclosure enclosure5 = new Enclosure("Savane",ClimateZone.SUBTROPISCHE_ZONE,areasize2);
+        Enclosure enclosure6 = new Enclosure("Regenwald",ClimateZone.TROPISCHE_ZONE,areasize4);
 
 
 
 
-        Nurse nurse1 = new Nurse(ANSI_RED+"Guenter"+ANSI_RESET+"\n");
+        Nurse nurse1 = new Nurse("Guenter");
         nurse1.addEnclosure(enclosure1);
         nurse1.addEnclosure(enclosure2);
-        Nurse nurse2 = new Nurse(ANSI_RED+"Klaus"+ANSI_RESET+"\n");
+        Nurse nurse2 = new Nurse("Klaus");
         nurse2.addEnclosure(enclosure4);
         nurse2.addEnclosure(enclosure5);
-        Nurse nurse3 = new Nurse(ANSI_RED+"Berta"+ANSI_RESET+"\n");
+        Nurse nurse3 = new Nurse("Berta");
         nurse3.addEnclosure(enclosure3);
         nurse3.addEnclosure(enclosure6);
 
 
-        Zoo jinba = new Zoo(ANSI_RED+"Jinba"+ANSI_RESET,ANSI_RED+"04.06.1980"+ANSI_RESET+"\n");
+        Zoo jinba = new Zoo(ANSI_RED+"Jinba"+ANSI_RESET,ANSI_RED+"04.06.1980"+ANSI_RESET);
         jinba.addEnclosure(enclosure1);
         jinba.addEnclosure(enclosure2);
         jinba.addEnclosure(enclosure3);

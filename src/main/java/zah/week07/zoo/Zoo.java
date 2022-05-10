@@ -1,5 +1,8 @@
 package zah.week07.zoo;
 
+import zah.week07.Feed;
+
+import java.util.HashMap;
 import java.util.Random;
 import java.util.Vector;
 
@@ -9,6 +12,8 @@ public class Zoo {
     private int foundation;
     private Vector<Enclosure> enclosures;
     private Vector<Nurse> nurses;
+    private Vector<Feed> feeds;
+
 
     public Zoo(String name, int foundation) {
 
@@ -16,11 +21,12 @@ public class Zoo {
         this.foundation = foundation;
         this.enclosures = new Vector<>();
         this.nurses = new Vector<>();
+        this.feeds=new Vector<>();
     }
 
 
     public String toString(String id) {
-        String out = id + "├──";
+        String out = id  +"├──";
         out += name;
         out += " " + foundation + "\n";
         for (Nurse n:nurses) {
@@ -35,6 +41,12 @@ public class Zoo {
     @Override
     public String toString() {
         return toString("");
+    }
+
+    public Feed addFeed(String name){
+        Feed feed = new Feed(name, "", 0);
+        feeds.add(feed);
+        return feed;
     }
 
     public Nurse addNurse(String name) {
@@ -58,15 +70,14 @@ public class Zoo {
         }
         return addEnclosure(name);
     }
-    public Random nextEclosure(Random rand){
-        for (Enclosure enc:enclosures) {
-            if (enc.getName()!=null){
-                rand.nextInt(3);
-                System.out.println(" This Enclosure have already a Carrer!!!");
+    public Feed searchFoodByName(String name){
+        for (Feed f:feeds) {
+            if (f.getName().equals(name)){
+                return f;
             }
 
         }
-        return rand;
+        return addFeed(name);
     }
 
     public static final String ANSI_RED = "\u001B[31m";
@@ -80,5 +91,23 @@ public class Zoo {
     public static final String ANSI_BLUE = "\u001B[34m";
 
     public static final String ANSI_GREEN = "\u001B[32m";
+
+    public void simulate(int day) {
+        HashMap<Feed, Integer> feedStatistik = new HashMap<>();
+
+        System.out.println("Start day " + day);
+        for (Nurse n: nurses) {
+            n.simulate(day, feedStatistik);
+        }
+
+        printStatistc(feedStatistik);
+    }
+
+    private void printStatistc(HashMap<Feed, Integer> feedStatistik) {
+        System.out.println("Feed statistic:");
+        for (Feed f: feedStatistik.keySet()) {
+            System.out.printf("%-20s %5d %-8s %7d%n", f.getName(), feedStatistik.get(f), f.getUnit(), (feedStatistik.get(f) * f.getUnitPrice()));
+        }
+    }
 }
 
