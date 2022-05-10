@@ -1,24 +1,26 @@
 package aron.week07.zoosim;
 
 
-import arda.week07.zoosimulation.Zoo;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Enclosure {
 
     private String name;
     private ClimateZone clima;
     private Areasize size;
-    private Animal animal;
+    private List<Animal> animal = new ArrayList<>();
     private Zoo cageOfZoo;
 
 
 
-    public Enclosure(String name, ClimateZone clima, Areasize size, Animal animal){
+    public Enclosure(String name, ClimateZone clima, Areasize size){
 
         this.name = name;
         this.clima = clima;
         this.size = size;
-        this.animal = null;
+
         this.cageOfZoo = null;
 
     }
@@ -31,7 +33,7 @@ public class Enclosure {
     }
 
     public Animal getAnimal() {
-        return animal;
+        return getAnimal();
     }
     public void setCageOfZoo() {
         this.cageOfZoo = cageOfZoo;
@@ -44,7 +46,7 @@ public class Enclosure {
     public void addAnimal(Animal animal) {
         if (this.animal == null) {
             if (animal.getCageOfAnimal() == null) {
-                this.animal = animal;
+                animal = animal;
                 animal.getCageOfAnimal();
             } else {
                 System.out.println("Animal is already in " + animal.getCageOfAnimal());
@@ -56,23 +58,24 @@ public class Enclosure {
 
     public void removeAnimal() {
         if (animal != null) {
-            animal.setCageOfAnimal(null);
+            animal.remove(animal);
             animal = null;
         } else {
             System.out.println("Cage is already empty");
         }
     }
 
-
+    public String getName() {
+        return name;
+    }
 
     @Override
     public String toString() {
-        return "\n"+
-               " {"+"name='" + name + '\'' +
-                ", clima=" + clima +
-                ", size=" + size +
-                ", animal=" + animal +
-                ", cageOfZoo=" + cageOfZoo + '}';
+        String output = "│   ├── "+ name +"|" + clima +
+                size +"\n";
+        output += "│         ├──" + animal;
+        output += " CageOfZoo= " + cageOfZoo;
+        return output;
     }
 }
 

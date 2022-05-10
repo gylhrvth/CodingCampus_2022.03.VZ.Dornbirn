@@ -14,10 +14,7 @@ public class Areasize {
 
     @Override
     public String toString() {
-        return "Areasize{" +
-                "areaName='" + areaName + '\'' +
-                ", areaLong=" + areaLong +
-                ", areaWide=" + areaWide +
-                '}';
+        return
+                "|" + "Areasize= " + areaName + "|" + "Area Long= " + areaLong + "|" + "Area Wide= " + areaWide;
     }
 }
