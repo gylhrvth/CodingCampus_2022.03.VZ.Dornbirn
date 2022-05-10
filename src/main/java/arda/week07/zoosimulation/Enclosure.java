@@ -1,18 +1,25 @@
 package arda.week07.zoosimulation;
 
-public class Enclosure {
-    private String enclosure;
-    private String enclosureType;
-    private Animal animal;
-    private Zoo cageOfZoo;
-    private CareTaker careTaker;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Random;
 
-    public Enclosure(String enclosure, String enclosureType) {
-        this.enclosure = enclosure;
+public class Enclosure {
+    private String enclosureType;
+    private List<Animal> animals = new ArrayList<>();
+    private Zoo cageOfZoo;
+    private final List<CareTaker> careTakers = new ArrayList<>();
+    private int lastDayOfCleaning = 0;
+    private static final Random rand = new Random();
+    static final String GREEN = "\033[0;92m";
+    static final String RESET = "\033[0m";
+    static final String YELLOW = "\033[0;93m";
+    static final String BLUE = "\033[0;94m";
+
+    public Enclosure(String enclosureType) {
         this.enclosureType = enclosureType;
-        this.animal = null;
         this.cageOfZoo = null;
-        this.careTaker = null;
     }
 
     public String getEnclosureType() {
@@ -23,8 +30,12 @@ public class Enclosure {
         this.enclosureType = enclosureType;
     }
 
-    public Animal getAnimal() {
-        return animal;
+    public List<Animal> getAnimals() {
+        return animals;
+    }
+
+    public void setAnimals(List<Animal> animals) {
+        this.animals = animals;
     }
 
     public void setCageOfZoo(Zoo cageOfZoo) {
@@ -36,57 +47,51 @@ public class Enclosure {
     }
 
     public void addAnimal(Animal animal) {
-        if (this.animal == null) {
-            if (animal.getCageOfAnimal() == null) {
-                this.animal = animal;
-                animal.setCageOfAnimal(this);
-            } else {
-                System.out.println("Animal is already in " + animal.getCageOfAnimal());
-            }
+        if (!animals.contains(animal)) {
+            animals.add(animal);
         } else {
-            System.out.println("Enclosure already has an Animal in it");
+            System.out.println("Animal could not be added");
         }
     }
 
-    public void removeAnimal() {
-        if (animal != null) {
-            animal.setCageOfAnimal(null);
-            animal = null;
-        } else {
-            System.out.println("Cage is already empty");
+    public void removeAnimal(Animal animal) {
+        if (animals.contains(animal)) {
+            animals.remove(animal);
         }
     }
 
-    public void taskCareTaker(CareTaker careTaker) {
-        if (this.careTaker == null) {
-            this.careTaker = careTaker;
-            careTaker.setTaskedToCage(this);
-        } else {
-            System.out.println("Enclosure has already been tasked with an CareTaker");
-        }
-    }
-
-    public void deTaskCareTaker() {
-        if (careTaker != null) {
-            careTaker.setTaskedToCage(null);
-            careTaker = null;
-        } else {
-            System.out.println("Enclosure does not have an CareTaker to remove.");
-        }
-    }
-
-    public CareTaker getCareTaker() {
-        return careTaker;
-    }
-
-    public void setCareTaker(CareTaker careTaker) {
-        this.careTaker = careTaker;
+    public void addCareTaker(CareTaker ct) {
+        careTakers.add(ct);
     }
 
     @Override
     public String toString() {
-        return "    " + enclosure + ", Enclosuretype: " + enclosureType + "\n         " + animal +
-                "\n              " + careTaker;
+        String output = enclosureType + "\n" + "         " + animals +
+                "\n";
+        for (CareTaker ct : careTakers) {
+            output += "         CareTaker: " + ct.getName();
+        }
+        return output;
+    }
+
+    public void takeCareOfAnimal(int workDay, HashMap<AnimalFood, Integer> statistic) {
+        if (lastDayOfCleaning != workDay) {
+            System.out.println(BLUE + enclosureType + RESET + " is cleaned");
+            lastDayOfCleaning = workDay;
+
+            for (Animal animal : animals) {
+                animal.feedAnimal(statistic);
+            }
+        } else {
+            System.out.println(enclosureType + " has been cleared before");
+        }
+    }
+
+    public Animal admireAnimal() {
+        if (animals.size() > 0) {
+            return animals.get(rand.nextInt(animals.size()));
+        }
+        return null;
     }
 }
 
