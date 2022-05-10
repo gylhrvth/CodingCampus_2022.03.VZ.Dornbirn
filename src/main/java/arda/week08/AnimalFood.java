@@ -1,4 +1,4 @@
-package arda.week07.zoosimulation;
+package arda.week08;
 
 import java.util.Random;
 
@@ -6,6 +6,8 @@ public class AnimalFood {
     private String foodType;
     private int foodAmount;
     private int price;
+    static final String RESET = "\033[0m";
+    static final String YELLOW = "\033[0;93m";
 
     public AnimalFood(String foodType, int foodAmount) {
         this.foodType = foodType;

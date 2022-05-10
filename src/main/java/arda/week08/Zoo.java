@@ -1,4 +1,4 @@
-package arda.week07.zoosimulation;
+package arda.week08;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -82,7 +82,11 @@ public class Zoo {
     public void dailySpending(List<AnimalFood> animalFoods) {
         System.out.println(GREEN + "==== Today's Spending ====" + RESET);
         for (AnimalFood foodType : animalFoods) {
-            System.out.println(foodType.getFoodType() + " " + YELLOW + (foodType.getFoodAmount() + foodType.getPrice()) + "€" + RESET);
+            if (foodType.getFoodAmount() > 0) {
+                System.out.println(foodType.getFoodType() + " " + YELLOW + (foodType.getFoodAmount() + foodType.getPrice()) + "€" + RESET);
+            }else{
+                System.out.println(foodType.getFoodType() + " " + YELLOW + 0 + "€" + RESET);
+            }
         }
     }
 
@@ -90,7 +94,11 @@ public class Zoo {
         System.out.println();
         System.out.println(GREEN + "==== Food Count ====" + RESET);
         for (AnimalFood foodType : animalFoods) {
-            System.out.println(foodType.getFoodType() + ": " + YELLOW + foodType.getFoodAmount() + RESET + " units of food.");
+            if (foodType.getFoodAmount() > 0) {
+                System.out.println(foodType.getFoodType() + ": " + YELLOW + foodType.getFoodAmount() + RESET + " units of food.");
+            } else {
+                System.out.println("there is no more " + YELLOW + foodType.getFoodType() + RESET + " left!");
+            }
         }
     }
 

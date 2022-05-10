@@ -1,6 +1,7 @@
-package arda.week07.zoosimulation;
+package arda.week08;
 
 import java.util.HashMap;
+import java.util.Random;
 
 public class Animal {
     private final String name;
@@ -9,16 +10,19 @@ public class Animal {
     private AnimalFood foodType;
     private final int foodIntake;
     private CareTaker careTaker;
+    private Stats stats;
+    private Random rand = new Random();
 
     static final String GREEN = "\033[0;92m";
     static final String RESET = "\033[0m";
     static final String YELLOW = "\033[0;93m";
 
-    public Animal(String name, String genus, AnimalFood foodType, int foodIntake) {
+    public Animal(String name, String genus, AnimalFood foodType, int foodIntake,Stats stats) {
         this.name = name;
         this.genus = genus;
         this.foodType = foodType;
         this.foodIntake = foodIntake;
+        this.stats = stats;
         this.cageOfAnimal = null;
     }
 
@@ -29,7 +33,6 @@ public class Animal {
     public AnimalFood getFoodType() {
         return foodType;
     }
-
     public void setFoodType(AnimalFood foodType) {
         this.foodType = foodType;
     }
@@ -50,6 +53,10 @@ public class Animal {
         return cageOfAnimal;
     }
 
+    public Stats getStats() {
+        return stats;
+    }
+
     public void feedAnimal(HashMap<AnimalFood, Integer> statistic) {
         System.out.println(name + " gets fed " + foodIntake + " " + foodType.getFoodType());
         foodType.reduceFoodAmount(foodIntake);
@@ -59,7 +66,6 @@ public class Animal {
             statistic.put(foodType, foodIntake);
         }
     }
-
     /*
         public void getStatistic(List<Animal> animals){
             HashMap<AnimalFood, Integer> statistic = new HashMap<>();

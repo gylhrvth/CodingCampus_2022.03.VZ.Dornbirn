@@ -1,10 +1,8 @@
-package arda.week07.zoosimulation;
+package arda.week08;
 
-import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Random;
 
 public class CareTaker {
     private final String name;
@@ -69,7 +67,10 @@ public class CareTaker {
                 System.out.println(name + " admires " + YELLOW + favourite + RESET + ".");
             }
         }
-
+        for (int i = 0; i <  taskedToCage.size(); i++) {
+            Enclosure enclosure = taskedToCage.get(i);
+            enclosure.bite();
+        }
     }
 
     @Override
