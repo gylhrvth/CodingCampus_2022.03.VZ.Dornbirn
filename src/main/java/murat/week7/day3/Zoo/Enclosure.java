@@ -85,11 +85,10 @@ public class Enclosure {
 
     public void simulation02() {
 
-        System.out.println();
         if (animals.size() >= 2) {      // There are needed at least 2 animals
             for (int indexOfAgressiveAnimal = 0; indexOfAgressiveAnimal < animals.size(); indexOfAgressiveAnimal++) {
                 int indexOfVictom = indexOfAgressiveAnimal;
-                while (indexOfVictom == indexOfAgressiveAnimal){
+                while (indexOfVictom == indexOfAgressiveAnimal) {
                     indexOfVictom = rand.nextInt(animals.size());
                 }
                 // If the animal is alive and there is a possibility of attacking
@@ -104,11 +103,33 @@ public class Enclosure {
                         System.out.println(animals.get(indexOfVictom) + " is unfortunately" + Zoo.ANSI_BLACK + " dead." + Zoo.ANSI_RESET);
                         removeAnimal(animals, indexOfVictom);
                     }
+                } else {
+                    System.out.println(animals.get(indexOfAgressiveAnimal).getName() + " didn't bite!");
                 }
             }
         } else {
             System.out.println("There are <2 animals at " + this + " enclosure");
         }
+    }
+
+    public Animal weakestAnimalInAnEnclosure() {
+
+        int worstCondition = 100;
+        Animal weakestAnimal = null;
+        if (this.animals.size() != 0) {
+            for (Animal animal : animals) {
+
+                int condition = animal.calculateAnimalConditions();
+                if (condition <= worstCondition) {
+                    worstCondition = condition;
+                    weakestAnimal = animal;
+                }
+            }
+        } else {
+            System.out.println("There is no animal in " + this + " enclosure!");
+        }
+
+        return weakestAnimal;
     }
 }
 

@@ -103,10 +103,11 @@ public class Animal {
         return attack;
     }
 
-    public int calculateAnimalConditions(){
+    public int calculateAnimalConditions() {
+
         int condition;
 
-        condition = (int)((health/maxHealth)*100);
+        condition = (int) ((health / maxHealth) * 100);
 
         return condition;
     }

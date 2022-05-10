@@ -60,11 +60,6 @@ public class Zoo {
         out += name;
         out += " " + establishedIn + "\n";
 
-        out += "\n-------------------CARERS-----------------------";
-        for (Carer c : carers) {
-            out += Zoo.ANSI_GREEN + "\n\t├──" + c.toString(index) + Zoo.ANSI_RESET + "\n";
-        }
-
         out += "\n------------------ENCLOSURES---------------------";
         for (Enclosure enc : enclosures) {
             out += Zoo.ANSI_RED + "\n\t├──" + enc.toString(index) + Zoo.ANSI_RESET + "\n";
@@ -116,34 +111,29 @@ public class Zoo {
         int randomNumber = rand.nextInt(30, 100);
         Animal weakestAnimal = null;
 
-        // Find the animal with worst condition
-        for (Enclosure enclosure : enclosures) {
-            for (int j = 0; j < enclosure.getAnimals().size(); j++) {
-                int condition = enclosure.getAnimals().get(j).calculateAnimalConditions();
-                //System.out.println("Name: " + enclosure.getAnimals().get(j).getName() + ", Health: " + enclosure.getAnimals().get(j).calculateAnimalConditions());
-                if (condition < worstCondition) {
-                    worstCondition = condition;
-                    weakestAnimal = enclosure.getAnimals().get(j);
+        int count = 0;
+        while (count < vets.size()) {
+            // Find the animal with worst condition at zoo
+            for (Enclosure enclosure : enclosures) {
+
+                //If the enclosure has at least an animal
+                if (enclosure.getAnimals().size() != 0) {
+
+                    // Call weakest animals from each enclosure
+                    int condition = enclosure.weakestAnimalInAnEnclosure().calculateAnimalConditions();
+                    //System.out.println("Name: " + enclosure.weakestAnimalInAnEnclosure().getName() + ", Health: " + enclosure.weakestAnimalInAnEnclosure().calculateAnimalConditions());
+                    if (condition < worstCondition) {
+                        worstCondition = condition;
+                        weakestAnimal = enclosure.weakestAnimalInAnEnclosure();
+                    }
+                    worstCondition = 100;
                 }
             }
+            System.out.println("\n" + ANSI_GREEN + vets.get(count) + ANSI_RESET + " heals " + weakestAnimal);
+            vets.get(count).healAnAnimal(weakestAnimal, randomNumber);
+            count++;
         }
 
-        assert weakestAnimal != null;
-        if (weakestAnimal.getMaxHealth() != 100) {
-
-            // If healed value do not exceed 100
-            //noinspection IntegerDivisionInFloatingPointContext
-            if ((weakestAnimal.getHealth() + ((weakestAnimal.getMaxHealth() * randomNumber) / 100)) >= 100) {
-                weakestAnimal.setHealth(weakestAnimal.getMaxHealth());
-                System.out.println("\n" + weakestAnimal.getName() + "'s health is maxed! Health: " + weakestAnimal.getMaxHealth());
-            } else {
-                //noinspection IntegerDivisionInFloatingPointContext
-                weakestAnimal.setHealth((weakestAnimal.getHealth() + ((weakestAnimal.getMaxHealth() * randomNumber) / 100)));
-                System.out.println("\n" + weakestAnimal.getName() + " " + randomNumber + "% healed. New Health: " + (int) weakestAnimal.getHealth());
-            }
-        } else {
-            System.out.println("All animals are healthy.");
-        }
     }
 
     public static final String ANSI_RED = "\u001B[31m";
