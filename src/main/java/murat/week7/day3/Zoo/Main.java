@@ -52,29 +52,24 @@ public class Main {
         Veterinarian[] vList = {vetFlo, vetPast, vetUgur};
 
 
-
-
-
-
-
-       /* // Simulation 0.1-----------------------
+        // Simulation 0.1-----------------------
         System.out.println("Carers are on duty\n---------------------------------------------");
         for (Carer aCarer : cList) {
             aCarer.simulation01();
         }
-        System.out.println("\n-----------ENCLOSURES---------------");
-        printEnclosureList(encList);*/
 
-        /*// Simulation 0.2-----------------------
-        System.out.println("Natural Selection\n---------------------------------------------");
-        terr.simulation02();*/
-
+        // Simulation 0.2-----------------------
+        System.out.println("\n--------------SIM 0.2 - NATURAL SELECTION------------");
+        for (Enclosure enc:encList) {
+            enc.simulation02();
+            System.out.println("Current Enclosure: "   + enc);
+        }
 
         // Simulation 0.3
-        zooDarica.simulation03();
-
-
-
+        System.out.println("\n------------SIM 0.3 - HEALING PROCESS------------");
+        for (Veterinarian v:vList) {
+            zooDarica.simulation03();
+        }
     }
 
     public static void printEnclosureList(Enclosure[] enclosures) {

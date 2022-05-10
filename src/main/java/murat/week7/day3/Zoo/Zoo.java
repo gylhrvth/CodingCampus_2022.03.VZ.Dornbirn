@@ -116,10 +116,11 @@ public class Zoo {
         int randomNumber = rand.nextInt(30, 100);
         Animal weakestAnimal = null;
 
+        // Find the animal with worst condition
         for (Enclosure enclosure : enclosures) {
             for (int j = 0; j < enclosure.getAnimals().size(); j++) {
                 int condition = enclosure.getAnimals().get(j).calculateAnimalConditions();
-                System.out.println("Name: " + enclosure.getAnimals().get(j).getName() + ", Health: " + enclosure.getAnimals().get(j).calculateAnimalConditions());
+                //System.out.println("Name: " + enclosure.getAnimals().get(j).getName() + ", Health: " + enclosure.getAnimals().get(j).calculateAnimalConditions());
                 if (condition < worstCondition) {
                     worstCondition = condition;
                     weakestAnimal = enclosure.getAnimals().get(j);
@@ -127,7 +128,10 @@ public class Zoo {
             }
         }
 
+        assert weakestAnimal != null;
         if (weakestAnimal.getMaxHealth() != 100) {
+
+            // If healed value do not exceed 100
             //noinspection IntegerDivisionInFloatingPointContext
             if ((weakestAnimal.getHealth() + ((weakestAnimal.getMaxHealth() * randomNumber) / 100)) >= 100) {
                 weakestAnimal.setHealth(weakestAnimal.getMaxHealth());
@@ -135,7 +139,7 @@ public class Zoo {
             } else {
                 //noinspection IntegerDivisionInFloatingPointContext
                 weakestAnimal.setHealth((weakestAnimal.getHealth() + ((weakestAnimal.getMaxHealth() * randomNumber) / 100)));
-                System.out.println("\n" + weakestAnimal.getName() + " " + randomNumber + "% healed. New Health: " + (int)weakestAnimal.getHealth());
+                System.out.println("\n" + weakestAnimal.getName() + " " + randomNumber + "% healed. New Health: " + (int) weakestAnimal.getHealth());
             }
         } else {
             System.out.println("All animals are healthy.");
