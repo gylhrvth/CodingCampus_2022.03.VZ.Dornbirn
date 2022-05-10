@@ -91,6 +91,11 @@ public class Animal {
 
     }
 
+    public void printStructure() {
+
+        System.out.println(Zoo.ANSI_GREEN + "│       ├── " + name + ", " + species + ", " + (int) health + "-" + maxHealth + "-" + (int) bite + Zoo.ANSI_RESET);
+    }
+
     public boolean possibilityOfAnAttack() {
 
         boolean attack = false;

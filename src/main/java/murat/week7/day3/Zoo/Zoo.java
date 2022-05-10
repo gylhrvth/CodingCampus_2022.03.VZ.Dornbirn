@@ -54,23 +54,23 @@ public class Zoo {
         return vets;
     }
 
-    public String toString(String index) {
+    public void printStructure() {
 
-        String out = index + "├──";
-        out += name;
-        out += " " + establishedIn + "\n";
-
-        out += "\n------------------ENCLOSURES---------------------";
+        System.out.println(ANSI_RED + "├── Zoo: " + name + ", established " + establishedIn + ANSI_RESET);
         for (Enclosure enc : enclosures) {
-            out += Zoo.ANSI_RED + "\n\t├──" + enc.toString(index) + Zoo.ANSI_RESET + "\n";
+            enc.printStructure();
         }
-        return out;
+        System.out.println();
+        System.out.println(UNDERLINE + "Employees:" + UNDERLINE_RESET + "\n_________________________");
+        for (Carer c : carers) {
+            c.printStructure();
+        }
     }
 
     @Override
     public String toString() {
 
-        return toString("");
+        return name;
     }
 
     public Enclosure addEnclosure(String name, boolean cared) {
@@ -106,13 +106,15 @@ public class Zoo {
 
     public void simulation03() {
 
-        int worstCondition = 100;
+
         Random rand = new Random();
         int randomNumber = rand.nextInt(30, 100);
         Animal weakestAnimal = null;
 
         int count = 0;
         while (count < vets.size()) {
+
+            int worstCondition = 100;
             // Find the animal with worst condition at zoo
             for (Enclosure enclosure : enclosures) {
 
@@ -126,7 +128,7 @@ public class Zoo {
                         worstCondition = condition;
                         weakestAnimal = enclosure.weakestAnimalInAnEnclosure();
                     }
-                    worstCondition = 100;
+
                 }
             }
             System.out.println("\n" + ANSI_GREEN + vets.get(count) + ANSI_RESET + " heals " + weakestAnimal);
@@ -147,6 +149,14 @@ public class Zoo {
     public static final String ANSI_BLUE = "\u001B[34m";
 
     public static final String ANSI_GREEN = "\u001B[32m";
+
+    public static final String UNDERLINE = "\033[4m";
+
+    public static final String UNDERLINE_RESET = "\033[24m";
+
+    public static final String BOLD = "\033[1m";
+
+    public static final String BOLD_RESET = "\033[0m";
 
 }
 

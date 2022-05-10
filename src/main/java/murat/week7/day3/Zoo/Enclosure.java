@@ -55,13 +55,16 @@ public class Enclosure {
         return alreadyCared;
     }
 
-    public String toString(String indention) {
+    public void printStructure() {
 
-        String out = indention + name + (alreadyCared ? Zoo.ANSI_GREEN + " (Cared)" + Zoo.ANSI_RESET : Zoo.ANSI_RED + " (Not cared)" + Zoo.ANSI_RESET);
-        for (Animal animal : animals) {
-            out += Zoo.ANSI_CYAN + "\n\t\t\t├──" + animal.toString(indention) + Zoo.ANSI_RESET;
+        System.out.println(Zoo.ANSI_BLUE + "│   ├── Enclosure: " + name + Zoo.ANSI_RESET);
+        if (animals.size() > 0) {
+            for (Animal animal : animals) {
+                animal.printStructure();
+            }
+        } else {
+            System.out.println(Zoo.ANSI_RED + "│       ├── (no Animal)" + Zoo.ANSI_RESET);
         }
-        return out;
     }
 
     @Override

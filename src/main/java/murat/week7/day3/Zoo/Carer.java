@@ -36,13 +36,16 @@ public class Carer {
         return assignedEnclosures;
     }
 
-    public String toString(String indention) {
+    public void printStructure() {
 
-        String out = indention + name;
-        for (Enclosure enc : assignedEnclosures) {
-            out += "\n\t\t ├──" + enc.toString(indention);
+        System.out.print(" * " + Zoo.ANSI_BLUE + name + Zoo.ANSI_RESET + " is responsible for (");
+        for (int i = 0; i < assignedEnclosures.size(); i++) {
+            if (i > 0) {
+                System.out.print(", ");
+            }
+            System.out.print(Zoo.ANSI_GREEN + assignedEnclosures.get(i).getName() + Zoo.ANSI_RESET);
         }
-        return out;
+        System.out.println(")");
     }
 
     @Override

@@ -26,7 +26,7 @@ public class Main {
         grass.addAnimal("Biden", "Bison", 110.0f, 120, 70.0f);
         grass.addAnimal("Derek", "Deer", 80.0f, 90, 50.0f);
         grass.addAnimal("Shaun", "Sheep", 70.0f, 80, 50.0f);
-        des.addAnimal("Cameron", "Camel", 60.0f, 120, 80.0f);
+        des.addAnimal("Cameron", "Camel", 80.0f, 90, 80.0f);
 
         Carer carerPeter = zooDarica.addCarer("Peter", terr.getAnimals().get(0));  // Best buddy Ronald the Rooster
         carerPeter.addTask("Terrarium");
@@ -52,25 +52,26 @@ public class Main {
 
         Veterinarian[] vList = {vetFlo, vetPast, vetUgur};
 
-        System.out.println(zooDarica);
+        zooDarica.printStructure();
 
-       /* // Simulation 0.1-----------------------
-        System.out.println("Carers are on duty\n---------------------------------------------");
+        // Simulation 0.1-----------------------
+        System.out.println(Zoo.BOLD + "\n------------SIM 0.1 - ANIMAL CARERS ON DUTY------------\n" + Zoo.BOLD_RESET);
         for (Carer aCarer : cList) {
             aCarer.simulation01();
-        }*/
+        }
 
         // Simulation 0.2-----------------------
-        System.out.println("\n--------------SIM 0.2 - NATURAL SELECTION------------");
+        System.out.println(Zoo.BOLD + "\n--------------SIM 0.2 - NATURAL SELECTION------------" + Zoo.BOLD_RESET);
         for (Enclosure enc : encList) {
-            System.out.println(Zoo.ANSI_CYAN + "\n\033[1mCurrent Enclosure---> " + enc + Zoo.ANSI_RESET + "\033[0m");
+            System.out.println(Zoo.ANSI_CYAN + Zoo.BOLD + "\nCurrent Enclosure---> " + enc + Zoo.ANSI_RESET + Zoo.BOLD_RESET);
             enc.simulation02();
         }
 
-        System.out.println(zooDarica);
+        System.out.println();
+        zooDarica.printStructure();
 
         // Simulation 0.3-----------------------
-        System.out.println("\n------------SIM 0.3 - HEALING PROCESS------------");
+        System.out.println(Zoo.BOLD + "\n------------SIM 0.3 - HEALING PROCESS------------" + Zoo.BOLD_RESET);
         zooDarica.simulation03();
 
     }
