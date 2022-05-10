@@ -1,11 +1,14 @@
 package zah.week07;
 
+import java.util.HashMap;
+
 public class Feed {
     private String name;
-    private int unit;
+    private String unit;
     private int unitPrice;
 
-    public Feed(String name, int unit, int unitPrice) {
+
+    public Feed(String name, String unit, int unitPrice) {
         this.name = name;
         this.unit = unit;
         this.unitPrice = unitPrice;
@@ -15,23 +18,23 @@ public class Feed {
         return name;
     }
 
-    public int getUnit() {
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getUnit() {
         return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
 
     public int getUnitPrice() {
         return unitPrice;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setUnit(int unit) {
-        this.unit = unit;
-    }
-
-    public void setEinheitsPreis(int unitPrice) {
+    public void setUnitPrice(int unitPrice) {
         this.unitPrice = unitPrice;
     }
 }
