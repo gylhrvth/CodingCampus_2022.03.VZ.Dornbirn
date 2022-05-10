@@ -1,14 +1,12 @@
 package zah.week07.zoo;
 
-import zah.week07.Feed;
-
 import java.util.HashMap;
 import java.util.Vector;
 
 public class Enclosure {
     private String name;
     private Vector<Animal> animals;
-    private int lastDayOfCleaning= 0;
+    private int lastDayOfCleaning = 0;
 
     public Enclosure(String name) {
         this.name = name;
@@ -24,7 +22,7 @@ public class Enclosure {
     }
 
     public Animal addAnimal(String name, String species, Feed feed, Integer requirement) {
-        Animal an = new Animal(name, species,feed,requirement);
+        Animal an = new Animal(name, species, feed, requirement);
         animals.add(an);
         return an;
     }
@@ -46,7 +44,7 @@ public class Enclosure {
     }
 
     public void feedAnimals(HashMap<Feed, Integer> statistik) {
-        for (Animal an: animals) {
+        for (Animal an : animals) {
             an.feedAnimal(statistik);
         }
     }

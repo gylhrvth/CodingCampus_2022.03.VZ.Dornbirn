@@ -1,8 +1,6 @@
 package zah.week07.zoo;
 
 
-import zah.week07.Feed;
-
 import java.util.HashMap;
 
 public class Animal {
@@ -10,8 +8,6 @@ public class Animal {
     private String species;
     private Feed feed;
     private Integer requirement;
-
-
 
     public Animal(String name, String speciment, Feed feed, Integer requirement) {
         this.name = name;
@@ -22,7 +18,7 @@ public class Animal {
 
     public void feedAnimal(HashMap<Feed, Integer> statistik) {
         System.out.println(name + " has received " + requirement + " " + feed.getUnit() + " of " + feed.getName());
-        if (statistik.containsKey(feed)){
+        if (statistik.containsKey(feed)) {
             statistik.put(feed, statistik.get(feed) + requirement);
         } else {
             statistik.put(feed, requirement);

@@ -1,7 +1,5 @@
 package zah.week07.zoo;
 
-import zah.week07.Feed;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Vector;
@@ -37,11 +35,11 @@ public class Nurse {
 
         for (Enclosure enc : tasks) {
             if (enc.getLastDayOfCleaning() != day) {
-                System.out.println(Zoo.ANSI_RED+name + " is cleaning " + enc.getName()+Zoo.ANSI_RESET);
+                System.out.println(Zoo.ANSI_RED + name + " is cleaning " + enc.getName() + Zoo.ANSI_RESET);
                 enc.setLastDayOfCleaning(day);
                 enc.feedAnimals(statistik);
             } else {
-                System.out.println(Zoo.ANSI_GREEN+name + " " + enc.getName() + " has been cleaned"+Zoo.ANSI_RESET);
+                System.out.println(Zoo.ANSI_GREEN + name + " " + enc.getName() + " has been cleaned" + Zoo.ANSI_RESET);
             }
 
         }
