@@ -92,29 +92,33 @@ public class AnimalArea {
         this.size = size;
     }
 
+    //Simulation 0.2
     public void animalFight(int fightRounds) {
         List<Animal> deadAnimals = new Vector<>();
         while (fightRounds > 0) {
-            Animal attacker = animals.get(rn.nextInt(animals.size()));
-            Animal victim = animals.get(rn.nextInt(animals.size()));
-            while (attacker.getHealth() < 1 || attacker == victim) {
-                attacker = animals.get(rn.nextInt(animals.size()));
-            }
-            while (victim.getHealth() < 1) {
-                victim = animals.get(rn.nextInt(animals.size()));
-            }
-            int n = rn.nextInt(10);
-            if (n < 4) {
-                victim.setHealth(victim.getHealth() - attacker.getBite());
-            }
-            for (Animal a : animals) {
-                if (a.getHealth() < 1 && !deadAnimals.contains(a)) {
-                    deadAnimals.add(a);
+            if (deadAnimals.size() < animals.size() - 1) {
+                Animal attacker = animals.get(rn.nextInt(animals.size()));
+                Animal victim = animals.get(rn.nextInt(animals.size()));
+                while (attacker.getHealth() < 1 || attacker == victim) {
+                    attacker = animals.get(rn.nextInt(animals.size()));
+                }
+                while (victim.getHealth() < 1) {
+                    victim = animals.get(rn.nextInt(animals.size()));
+                }
+                int n = rn.nextInt(10);
+                if (n < 4) {
+                    victim.setHealth(victim.getHealth() - attacker.getBite());
+                }
+
+                for (Animal a : animals) {
+                    if (a.getHealth() < 1 && !deadAnimals.contains(a)) {
+                        deadAnimals.add(a);
+                    }
                 }
             }
             fightRounds--;
         }
-        System.out.println("\033[4;34m"+"Animal health:"+"\033[0m");
+        System.out.println("\033[4;34m" + "Animal health:" + "\033[0m");
         for (Animal a : animals) {
             if (a.getHealth() > 0) {
                 System.out.println(a);
@@ -122,7 +126,7 @@ public class AnimalArea {
         }
         System.out.println();
         if (!deadAnimals.isEmpty()) {
-            System.out.println("\033[0;35m"+"Following animals are dead and have to be removed:"+"\033[0m");
+            System.out.println("\033[0;35m" + "Following animals are dead and have to be removed:" + "\033[0m");
             for (Animal dA : deadAnimals) {
                 System.out.println(dA);
             }

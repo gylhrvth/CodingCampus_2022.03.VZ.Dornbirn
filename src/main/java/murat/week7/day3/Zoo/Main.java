@@ -13,10 +13,11 @@ public class Main {
 
         Enclosure[] encList = {reed, terr, grass, des, alpine};
 
-        alpine.addAnimal("Ricco", "Cow", 80.0f, 110, 50.0f);
+        reed.addAnimal("Ricco", "Cow", 80.0f, 110, 50.0f);
         reed.addAnimal("Oscar", "Ostrich", 60.0f, 70, 70.0f);
         reed.addAnimal("Earl", "Eagle", 70.0f, 80, 80.0f);
         reed.addAnimal("Chika", "Chicken", 20.0f, 30, 70.0f);
+        reed.addAnimal("Donald", "Duck", 40, 90, 50);
         terr.addAnimal("Ronald", "Rooster", 30.0f, 40, 60.0f);
         terr.addAnimal("Lionel", "Lion", 50.0f, 60, 90.0f);
         terr.addAnimal("Tom", "Tortoise", 30.0f, 90, 80.0f);
@@ -25,7 +26,7 @@ public class Main {
         grass.addAnimal("Biden", "Bison", 110.0f, 120, 70.0f);
         grass.addAnimal("Derek", "Deer", 80.0f, 90, 50.0f);
         grass.addAnimal("Shaun", "Sheep", 70.0f, 80, 50.0f);
-        des.addAnimal("Cameron", "Camel", 20.0f, 120, 80.0f);
+        des.addAnimal("Cameron", "Camel", 80.0f, 90, 80.0f);
 
         Carer carerPeter = zooDarica.addCarer("Peter", terr.getAnimals().get(0));  // Best buddy Ronald the Rooster
         carerPeter.addTask("Terrarium");
@@ -51,25 +52,28 @@ public class Main {
 
         Veterinarian[] vList = {vetFlo, vetPast, vetUgur};
 
+        zooDarica.printStructure();
 
         // Simulation 0.1-----------------------
-        System.out.println("Carers are on duty\n---------------------------------------------");
+        System.out.println(Zoo.BOLD + "\n------------SIM 0.1 - ANIMAL CARERS ON DUTY------------\n" + Zoo.BOLD_RESET);
         for (Carer aCarer : cList) {
             aCarer.simulation01();
         }
 
         // Simulation 0.2-----------------------
-        System.out.println("\n--------------SIM 0.2 - NATURAL SELECTION------------");
-        for (Enclosure enc:encList) {
+        System.out.println(Zoo.BOLD + "\n--------------SIM 0.2 - NATURAL SELECTION------------" + Zoo.BOLD_RESET);
+        for (Enclosure enc : encList) {
+            System.out.println(Zoo.ANSI_CYAN + Zoo.BOLD + "\nCurrent Enclosure---> " + enc + Zoo.ANSI_RESET + Zoo.BOLD_RESET);
             enc.simulation02();
-            System.out.println("Current Enclosure: "   + enc);
         }
 
-        // Simulation 0.3
-        System.out.println("\n------------SIM 0.3 - HEALING PROCESS------------");
-        for (Veterinarian v:vList) {
-            zooDarica.simulation03();
-        }
+        System.out.println();
+        zooDarica.printStructure();
+
+        // Simulation 0.3-----------------------
+        System.out.println(Zoo.BOLD + "\n------------SIM 0.3 - HEALING PROCESS------------" + Zoo.BOLD_RESET);
+        zooDarica.simulation03();
+
     }
 
     public static void printEnclosureList(Enclosure[] enclosures) {
