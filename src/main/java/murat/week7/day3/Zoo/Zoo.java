@@ -1,6 +1,7 @@
 package murat.week7.day3.Zoo;
 
 import java.util.List;
+import java.util.Random;
 import java.util.Vector;
 
 public class Zoo {
@@ -14,6 +15,8 @@ public class Zoo {
 
     private List<Carer> carers = new Vector<>();
 
+    private List<Veterinarian> vets = new Vector<>();
+
     public Zoo(String name, String city, int establishedIn) {
 
         this.name = name;
@@ -26,33 +29,48 @@ public class Zoo {
         return name;
     }
 
+    public String getCity() {
+
+        return city;
+    }
+
     public int getEstablishedIn() {
 
         return establishedIn;
     }
 
-    public String toString(String index) {
+    public List<Enclosure> getEnclosures() {
 
-        String out = index + "├──";
-        out += name;
-        out += " " + establishedIn + "\n";
+        return enclosures;
+    }
 
-        out += "\n-------------------CARERS-----------------------";
-        for (Carer c : carers) {
-            out += Zoo.ANSI_GREEN + "\n\t├──" + c.toString(index) + Zoo.ANSI_RESET + "\n";
-        }
+    public List<Carer> getCarers() {
 
-        out += "\n------------------ENCLOSURES---------------------";
+        return carers;
+    }
+
+    public List<Veterinarian> getVets() {
+
+        return vets;
+    }
+
+    public void printStructure() {
+
+        System.out.println(ANSI_RED + "├── Zoo: " + name + ", established " + establishedIn + ANSI_RESET);
         for (Enclosure enc : enclosures) {
-            out += Zoo.ANSI_RED + "\n\t├──" + enc.toString(index) + Zoo.ANSI_RESET + "\n";
+            enc.printStructure();
         }
-        return out;
+        System.out.println();
+        System.out.println(UNDERLINE + "Employees:" + UNDERLINE_RESET + "\n_________________________");
+        for (Carer c : carers) {
+            c.printStructure();
+        }
     }
 
     @Override
     public String toString() {
 
-        return toString("");
+        return name;
     }
 
     public Enclosure addEnclosure(String name, boolean cared) {
@@ -69,6 +87,13 @@ public class Zoo {
         return c;
     }
 
+    public Veterinarian addVet(String name) {
+
+        Veterinarian v = new Veterinarian(this, name);
+        vets.add(v);
+        return v;
+    }
+
     public Enclosure searchEnclosureByName(String name) {
 
         for (Enclosure enc : enclosures) {
@@ -77,6 +102,40 @@ public class Zoo {
             }
         }
         return addEnclosure(name, false);
+    }
+
+    public void simulation03() {
+
+
+        Random rand = new Random();
+        int randomNumber = rand.nextInt(30, 100);
+        Animal weakestAnimal = null;
+
+        int count = 0;
+        while (count < vets.size()) {
+
+            int worstCondition = 100;
+            // Find the animal with worst condition at zoo
+            for (Enclosure enclosure : enclosures) {
+
+                //If the enclosure has at least an animal
+                if (enclosure.getAnimals().size() != 0) {
+
+                    // Call weakest animals from each enclosure
+                    int condition = enclosure.weakestAnimalInAnEnclosure().calculateAnimalConditions();
+                    //System.out.println("Name: " + enclosure.weakestAnimalInAnEnclosure().getName() + ", Health: " + enclosure.weakestAnimalInAnEnclosure().calculateAnimalConditions());
+                    if (condition < worstCondition) {
+                        worstCondition = condition;
+                        weakestAnimal = enclosure.weakestAnimalInAnEnclosure();
+                    }
+
+                }
+            }
+            System.out.println("\n" + ANSI_GREEN + vets.get(count) + ANSI_RESET + " heals " + weakestAnimal);
+            vets.get(count).healAnAnimal(weakestAnimal, randomNumber);
+            count++;
+        }
+
     }
 
     public static final String ANSI_RED = "\u001B[31m";
@@ -90,6 +149,14 @@ public class Zoo {
     public static final String ANSI_BLUE = "\u001B[34m";
 
     public static final String ANSI_GREEN = "\u001B[32m";
+
+    public static final String UNDERLINE = "\033[4m";
+
+    public static final String UNDERLINE_RESET = "\033[24m";
+
+    public static final String BOLD = "\033[1m";
+
+    public static final String BOLD_RESET = "\033[0m";
 
 }
 

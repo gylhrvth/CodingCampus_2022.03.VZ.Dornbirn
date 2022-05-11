@@ -7,14 +7,18 @@ public class ZooMain {
 //        Enclosure encWiese = new Enclosure(zoo, "Wiese 1");
 //        Enclosure encAquarium = new Enclosure(zoo, "Aquarium (kalt)");
 
-        Animal a1 = new Animal(zoo, "Wald 1", "Rudolf", "Deer");
-        Animal a2 = new Animal(zoo, "Wald 1", "Renate", "Deer");
-        Animal a3 = new Animal(zoo, "Wald 1", "Robert", "Deer");
+        new Animal(zoo, "Wald 1", "Rudolf", "Deer", 100, 40);
+        new Animal(zoo, "Wald 1", "Renate", "Deer", 80, 20);
+        new Animal(zoo, "Wald 1", "Robert", "Deer", 75, 5);
 
-        Animal guppy1 = new Animal(zoo, "Aquarium (warm)", "Nemo", "Guppy");
-        Animal guppy2 = new Animal(zoo, "Aquarium (warm)", "Nimrod", "Guppy");
-        Animal guppy3 = new Animal(zoo, "Aquarium (warm)", "Noemi", "Guppy");
-        Animal guppy4 = new Animal(zoo, "Aquarium (warm)", "Norbert", "Guppy");
+        new Animal(zoo, "Aquarium (warm)", "Nemo", "Guppy", 10, 1, 70);
+        new Animal(zoo, "Aquarium (warm)", "Nimrod", "Guppy", 10, 2, 70);
+        new Animal(zoo, "Aquarium (warm)", "Noemi", "Guppy", 10, 1, 70);
+        new Animal(zoo, "Aquarium (warm)", "Norbert", "Guppy", 10, 2, 70);
+        new Animal(zoo, "Aquarium (warm)", "November", "Guppy", 10, 1, 70);
+        new Animal(zoo, "Aquarium (warm)", "Neutron", "Guppy", 10, 2, 70);
+        new Animal(zoo, "Aquarium (warm)", "Neptun", "Guppy", 10, 5, 70);
+        new Animal(zoo, "Aquarium (warm)", "Nero", "Guppy", 10, 2, 70);
 
         AnimalCarer peter = new AnimalCarer(zoo, "Peter");
         peter.addTaskToDailyTasks("Wald 1");
@@ -24,10 +28,13 @@ public class ZooMain {
         paul.addTaskToDailyTasks("Aquarium (kalt)");
         paul.addTaskToDailyTasks("Aquarium (warm)");
 
+        new Veterinarian(zoo, "Dr. Dolittle");
+        new Veterinarian(zoo, "Dr. Dexter");
+        new Veterinarian(zoo, "Dr. Daniella");
 
         zoo.printStructure();
         System.out.println();
-        for (int tag = 1; tag <= 5; tag++) {
+        for (int tag = 1; tag <= 10; tag++) {
             System.out.println("Start Tag " + tag);
             zoo.simulate(tag);
         }

@@ -1,62 +1,90 @@
 package sergej.week07.zoo;
 
 
+import java.util.HashMap;
 import java.util.Vector;
 
 public class Zoo {
-
     private String name;
-    private String city;
-    private int founded;
-    private Vector<Enclosure> enclosure;
+    private int established;
+    private Vector<Enclosure> enclosures;
+    private Vector<AnimalCarer> animalCarers;
+    private HashMap<String, Integer> foodWareHouse;
 
-
-    public Zoo(String name, String city, int founded) {
+    public Zoo(String name, int established) {
         this.name = name;
-        this.city = city;
-        this.founded = founded;
-        enclosure = new Vector<>();
-
+        this.established = established;
+        this.enclosures = new Vector<>();
+        this.animalCarers = new Vector<>();
+        this.foodWareHouse = new HashMap<>();
     }
 
-    public String toString(String indentation) {
-        String out = indentation + "├──";
-        out += name;
-        out += " " + founded + "\n";
-        for (Enclosure enc : enclosure) {
-            out += "\n\t├──"+enc.toString(indentation ) + "\n";
+    public void addEnclosure(Enclosure enc) {
+        if (!enclosures.contains(enc)) {
+            enclosures.add(enc);
         }
-        return out;
     }
 
-    @Override
-    public String toString() {
-        return toString("");
+    public void addFood(Food food) {
+        if (!foodWareHouse.containsKey(food.getName())) {
+            foodWareHouse.put(food.getName(), food.getAmount());
+        } else {
+            foodWareHouse.put(food.getName(), foodWareHouse.get(food.getName()) + food.getAmount());
+        }
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public Enclosure addEnclosure(String name) {
-        Enclosure e = new Enclosure(name);
-        enclosure.add(e);
-        return e;
-    }
-
-    public void removeEnclosure(Enclosure en) {
-        enclosure.remove(en);
-    }
-    public Enclosure searchEnclosureByName(String name){
-        for(Enclosure enc: enclosure){
-            if (enc.getName().equals(name)){
+    public Enclosure searchEnclosureByName(String name) {
+        for (Enclosure enc : enclosures) {
+            if (enc.getName().equals(name)) {
                 return enc;
             }
         }
-        return addEnclosure(name);
+        return new Enclosure(this, name);
     }
 
+    public void printStructure() {
+        System.out.println("├── Zoo: " + name + ", gegründet " + established);
+        for (Enclosure enc : enclosures) {
+            enc.printStructure();
+        }
+        System.out.println();
+        System.out.println("Mitarbeiter:");
+        for (AnimalCarer ac : animalCarers) {
+            ac.printStructure();
+        }
+        System.out.println();
+        System.out.println("Futter Lager:");
+        for (String food : foodWareHouse.keySet()) {
+            System.out.println(food + " : " + foodWareHouse.get(food));
+        }
+        System.out.println();
+        System.out.println("Tagesbedarf an Futter: ");
 
+        HashMap<Food, Integer> dailyFoodNeed = new HashMap<>();
+        for (Enclosure en : enclosures) {
+            en.foodSimulator(dailyFoodNeed);
+        }
+
+        Integer sum = 0;
+        for (Food fod : dailyFoodNeed.keySet()) {
+            sum += (dailyFoodNeed.get(fod) * fod.getPrice());
+            System.out.println(fod + ": " + dailyFoodNeed.get(fod) + " " + fod.getUnit() + "´s" + " for " + fod.getPrice() + " eur " + " (total price: " + dailyFoodNeed.get(fod) * fod.getPrice() + ")");
+        }
+        System.out.println("Total Expenses: " + sum);
+
+    }
+
+    public void addAnimalCarer(AnimalCarer animalCarer) {
+        if (!animalCarers.contains(animalCarer)) {
+            animalCarers.add(animalCarer);
+        }
+    }
+
+    public void simulate(int tag) {
+        for (AnimalCarer ac : animalCarers) {
+            ac.simulate(tag);
+        }
+    }
 
 
 }

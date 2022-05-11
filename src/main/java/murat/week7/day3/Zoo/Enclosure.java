@@ -11,7 +11,11 @@ public class Enclosure {
 
     private List<Carer> carers = new Vector<>();
 
+    private List<Veterinarian> vets = new Vector<>();
+
     public boolean alreadyCared;
+
+    private static Random rand = new Random();
 
     public Enclosure(String name, boolean cared) {
 
@@ -39,6 +43,11 @@ public class Enclosure {
         return alreadyCared;
     }
 
+    public List<Veterinarian> getVets() {
+
+        return vets;
+    }
+
     public boolean setCaredOrNot(boolean caredOrNot) {
 
         alreadyCared = caredOrNot;
@@ -46,19 +55,22 @@ public class Enclosure {
         return alreadyCared;
     }
 
-    public String toString(String indention) {
+    public void printStructure() {
 
-        String out = indention + name + (alreadyCared ? Zoo.ANSI_GREEN + " (Cared)" + Zoo.ANSI_RESET : Zoo.ANSI_RED + " (Not cared)" + Zoo.ANSI_RESET);
-        for (Animal animal : animals) {
-            out += Zoo.ANSI_CYAN + "\n\t\t\t├──" + animal.toString(indention) + Zoo.ANSI_RESET;
+        System.out.println(Zoo.ANSI_BLUE + "│   ├── Enclosure: " + name + Zoo.ANSI_RESET);
+        if (animals.size() > 0) {
+            for (Animal animal : animals) {
+                animal.printStructure();
+            }
+        } else {
+            System.out.println(Zoo.ANSI_RED + "│       ├── (no Animal)" + Zoo.ANSI_RESET);
         }
-        return out;
     }
 
     @Override
     public String toString() {
 
-        return name + " " + (alreadyCared ? " (Cared)" : " (Not cared)");
+        return name;
     }
 
     public Animal addAnimal(String name, String species, float health, int maxHealth, float bite) {
@@ -76,48 +88,51 @@ public class Enclosure {
 
     public void simulation02() {
 
-        System.out.println("\n-------------ANIMAL CONDITIONS BEFORE-----------------\n");
-        for (Animal animal : animals) {
-            animal.printAnimalCondition();
-        }
-        System.out.println();
-
-        Random rand = new Random();
-        int randNo1 = rand.nextInt(animals.size());
-        int randNo2 = rand.nextInt(animals.size());
-
-        //System.out.println("Random 1: " + randNo1 + " Random 2: " + randNo2);
-
-        while (true) {
-
-            if (randNo1 != randNo2) {           // Find two distinct random numbers
-                if (animals.size() >= 2) {      // There are needed at least 2 animals
-
-                    // If the animal is alive and there is a possibility of attacking
-                    if (animals.get(randNo1).possibilityOfAnAttack() && animals.get(randNo1).getHealth() > 0) {
-
-                        // In case of a bite, calculate the damage
-                        System.out.println("Aaaah [" + Zoo.ANSI_BLUE + animals.get(randNo1) + Zoo.ANSI_RESET + "] bit [" + Zoo.ANSI_RED + animals.get(randNo2) + Zoo.ANSI_RESET + "] New Health: " + animals.get(randNo2).getHealth());
-                        animals.get(randNo2).setHealth(animals.get(randNo2).getHealth() - animals.get(randNo1).getBite());
-                        if (animals.get(randNo2).getHealth() <= 0) {
-                            System.out.println(animals.get(randNo2) + " is unfortunately" + Zoo.ANSI_BLACK + " dead." + Zoo.ANSI_RESET);
-                            removeAnimal(animals, randNo2);
-                        }
-                    } else {
-                        System.out.println("The animals live in peace.");
-                    }
+        if (animals.size() >= 2) {      // There are needed at least 2 animals
+            for (int indexOfAgressiveAnimal = 0; indexOfAgressiveAnimal < animals.size(); indexOfAgressiveAnimal++) {
+                int indexOfVictom = indexOfAgressiveAnimal;
+                while (indexOfVictom == indexOfAgressiveAnimal) {
+                    indexOfVictom = rand.nextInt(animals.size());
                 }
-                break;
-            } else {
-                randNo1 = rand.nextInt(animals.size());
-                randNo2 = rand.nextInt(animals.size());
-                //System.out.println("Bottom: Random 1: " + randNo1 + " Random 2: " + randNo2);
+                // If the animal is alive and there is a possibility of attacking
+                if (animals.get(indexOfAgressiveAnimal).possibilityOfAnAttack() && animals.get(indexOfAgressiveAnimal).getHealth() > 0) {
+                    // In case of a bite, calculate the damage
+                    float oldHealth = animals.get(indexOfVictom).getHealth();
+                    animals.get(indexOfVictom).setHealth(Math.max(0f, animals.get(indexOfVictom).getHealth() - animals.get(indexOfAgressiveAnimal).getBite()));
+                    System.out.println("Aaaah [" + Zoo.ANSI_BLUE + animals.get(indexOfAgressiveAnimal) + Zoo.ANSI_RESET + "] bit [" +
+                            Zoo.ANSI_RED + animals.get(indexOfVictom) + Zoo.ANSI_RESET
+                            + "] New Health: " + oldHealth + " --> " + animals.get(indexOfVictom).getHealth());
+                    if (animals.get(indexOfVictom).getHealth() <= 0) {
+                        System.out.println(animals.get(indexOfVictom) + " is unfortunately" + Zoo.ANSI_BLACK + " dead." + Zoo.ANSI_RESET);
+                        removeAnimal(animals, indexOfVictom);
+                    }
+                } else {
+                    System.out.println(animals.get(indexOfAgressiveAnimal).getName() + " didn't bite!");
+                }
             }
-        }
-
-        System.out.println("\n-------------ANIMAL CONDITIONS AFTER-----------------");
-        for (Animal animal : animals) {
-            animal.printAnimalCondition();
+        } else {
+            System.out.println("There are <2 animals at " + this + " enclosure");
         }
     }
+
+    public Animal weakestAnimalInAnEnclosure() {
+
+        int worstCondition = 100;
+        Animal weakestAnimal = null;
+        if (this.animals.size() != 0) {
+            for (Animal animal : animals) {
+
+                int condition = animal.calculateAnimalConditions();
+                if (condition <= worstCondition) {
+                    worstCondition = condition;
+                    weakestAnimal = animal;
+                }
+            }
+        } else {
+            System.out.println("There is no animal in " + this + " enclosure!");
+        }
+
+        return weakestAnimal;
+    }
 }
+
