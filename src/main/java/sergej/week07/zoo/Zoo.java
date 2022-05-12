@@ -70,7 +70,7 @@ public class Zoo {
             sum += (dailyFoodNeed.get(fod) * fod.getPrice());
             System.out.println(fod + ": " + dailyFoodNeed.get(fod) + " " + fod.getUnit() + "´s" + " for " + fod.getPrice() + " eur " + " (total price: " + dailyFoodNeed.get(fod) * fod.getPrice() + ")");
         }
-        System.out.println("Total Expenses: " + sum);
+        System.out.println("Total Expenses: " + sum + " eur");
 
     }
 
