@@ -17,6 +17,8 @@ public class Zoo {
 
     private List<Veterinarian> vets = new Vector<>();
 
+    private List<Feed> feeds = new Vector<>();
+
     public Zoo(String name, String city, int establishedIn) {
 
         this.name = name;
@@ -52,6 +54,11 @@ public class Zoo {
     public List<Veterinarian> getVets() {
 
         return vets;
+    }
+
+    public List<Feed> getFeeds() {
+
+        return feeds;
     }
 
     public void printStructure() {
@@ -128,7 +135,6 @@ public class Zoo {
                         worstCondition = condition;
                         weakestAnimal = enclosure.weakestAnimalInAnEnclosure();
                     }
-
                 }
             }
             System.out.println("\n" + ANSI_GREEN + vets.get(count) + ANSI_RESET + " heals " + weakestAnimal);
