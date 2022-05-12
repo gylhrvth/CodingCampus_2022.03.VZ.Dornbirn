@@ -51,7 +51,7 @@ public class MainZoo {
         ried.setLastDayHasBeenCleared(1);
         terrariumWarm.setLastDayHasBeenCleared(1);
 
-        cow1.addHealthMaxHealthBite(88, 100, 30);
+        cow1.addHealthMaxHealthBite(88, 100, 80);
         cow2.addHealthMaxHealthBite(93, 100, 30);
         cow3.addHealthMaxHealthBite(69, 100, 30);
         stork1.addHealthMaxHealthBite(73, 80, 20);
@@ -80,18 +80,16 @@ public class MainZoo {
 
 //        dornbirn.printZoo();
 //        System.out.println();
-        System.out.println("Bonusaufgabe: Tierfutter");
+//        System.out.println("Bonusaufgabe: Tierfutter");
+//        System.out.println();
+//        dornbirn.requiredFoodCost();
+//        System.out.println("-----");
+
+        System.out.println("Simulation 0.1 + Simulation 0.2 + Simulation 0.3");
         System.out.println();
-        dornbirn.requiredFoodCost();
+        dornbirn.takeCareOfZooAreas(5);
         System.out.println("-----");
 
-        System.out.println("Simulation 0.1 + Simulation 0.2");
-        System.out.println();
-        dornbirn.takeCareOfZooAreas();
-        System.out.println("-----");
-
-        System.out.println("Simulation 0.3");
-        dornbirn.healingAnimals();
 
     }
 }

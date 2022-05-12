@@ -1,6 +1,7 @@
 package philipp.week07.zoo;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
 
 public class AnimalDoctor {
@@ -20,10 +21,10 @@ public class AnimalDoctor {
         return name;
     }
 
-    public void healingAnimal(HashMap<Animal, Integer> animalToHealList) {
+    public void healingAnimal(List<Animal> animalsToHeal) {
         float minHealth = Float.MAX_VALUE;
         Animal animalToHeal = null;
-        for (Animal a : animalToHealList.keySet()) {
+        for (Animal a : animalsToHeal) {
             float f = (float) a.getHealth() / a.getMaxHealth();
             if (f < minHealth) {
                 minHealth = f;
@@ -40,7 +41,6 @@ public class AnimalDoctor {
             System.out.println("Now the animal: | " + "\033[032m" + animalToHeal + "\u001B[0m" + " | has been healed!");
             System.out.println();
 
-            animalToHealList.remove(animalToHeal);
 
         } else {
             System.out.println(name + "is not healing an animal!");

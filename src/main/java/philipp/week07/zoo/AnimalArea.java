@@ -1,8 +1,6 @@
 package philipp.week07.zoo;
 
-import java.util.List;
-import java.util.Random;
-import java.util.Vector;
+import java.util.*;
 
 public class AnimalArea {
     Random rn = new Random();
@@ -22,13 +20,13 @@ public class AnimalArea {
         System.out.println("Feeding the animals of this area:");
         for (int i = 0; i < animals.size(); i++) {
             System.out.print(" ".repeat(20));
-            System.out.println("Feeding: " + animals.get(i));
+            System.out.println("Feeding: " + animals.get(i).getName());
         }
     }
 
     public void randomAnimalOfArea() {
         System.out.print("Watching the random animal: ");
-        System.out.println(animals.get(rn.nextInt(animals.size())));
+        System.out.println(animals.get(rn.nextInt(animals.size())).getName());
     }
 
     public void setLastDayHasBeenCleared(int lastDayHasBeenCleared) {
@@ -93,30 +91,29 @@ public class AnimalArea {
     }
 
     //Simulation 0.2
-    public void animalFight(int fightRounds) {
+    public void animalFight() {
         List<Animal> deadAnimals = new Vector<>();
-        while (fightRounds > 0) {
-            if (deadAnimals.size() < animals.size() - 1) {
-                Animal attacker = animals.get(rn.nextInt(animals.size()));
+        for (Animal a : animals) {
+            if (!deadAnimals.contains(a)) {
                 Animal victim = animals.get(rn.nextInt(animals.size()));
-                while (attacker.getHealth() < 1 || attacker == victim) {
-                    attacker = animals.get(rn.nextInt(animals.size()));
-                }
-                while (victim.getHealth() < 1) {
+//            while (attacker.getHealth() < 1 || attacker == victim) {
+//                attacker = animals.get(rn.nextInt(animals.size()));
+//            }
+                while (victim.getHealth() < 1 || a == victim) {
                     victim = animals.get(rn.nextInt(animals.size()));
                 }
                 int n = rn.nextInt(10);
                 if (n < 4) {
-                    victim.setHealth(victim.getHealth() - attacker.getBite());
+                    victim.setHealth(victim.getHealth() - a.getBite());
+                    System.out.println(a.getName() + " bit " + victim.getName());
                 }
-
-                for (Animal a : animals) {
-                    if (a.getHealth() < 1 && !deadAnimals.contains(a)) {
-                        deadAnimals.add(a);
-                    }
+                if (victim.getHealth() < 1 && !deadAnimals.contains(a)) {
+                    deadAnimals.add(victim);
                 }
             }
-            fightRounds--;
+        }
+        for (Animal dead : deadAnimals) {
+            animals.remove(dead);
         }
         System.out.println("\033[4;34m" + "Animal health:" + "\033[0m");
         for (Animal a : animals) {
@@ -130,7 +127,24 @@ public class AnimalArea {
             for (Animal dA : deadAnimals) {
                 System.out.println(dA);
             }
+
         }
+        System.out.println();
+    }
+
+
+    //Bonusaufgabe Tierfutter
+    public Map<String, Float> requiredFoodArea() {
+        Map<String, Float> feedUseAreaDay = new HashMap<>();
+        for (Animal a : animals) {
+            if (feedUseAreaDay.containsKey(a.getNeededFeed().getNameFeed())) {
+                feedUseAreaDay.put(a.getNeededFeed().getNameFeed(), feedUseAreaDay.get(a.getNeededFeed().getNameFeed()) + a.getRequiredFoodDay());
+            } else {
+                feedUseAreaDay.put(a.getNeededFeed().getNameFeed(), a.getRequiredFoodDay());
+            }
+        }
+        return feedUseAreaDay;
     }
 }
+
 
