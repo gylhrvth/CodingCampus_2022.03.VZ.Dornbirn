@@ -1,6 +1,6 @@
 package murat.week7.day3.Zoo;
 
-public class Main {
+public class ZooMain {
     public static void main(String[] args) {
 
         Zoo zooDarica = new Zoo("Darica HB", "Istanbul", 1993);
@@ -13,20 +13,20 @@ public class Main {
 
         Enclosure[] encList = {reed, terr, grass, des, alpine};
 
-        reed.addAnimal("Ricco", "Cow", 80.0f, 110, 50.0f);
-        reed.addAnimal("Oscar", "Ostrich", 60.0f, 70, 70.0f);
-        reed.addAnimal("Earl", "Eagle", 70.0f, 80, 80.0f);
-        reed.addAnimal("Chika", "Chicken", 20.0f, 30, 70.0f);
-        reed.addAnimal("Donald", "Duck", 40, 90, 50);
-        terr.addAnimal("Ronald", "Rooster", 30.0f, 40, 60.0f);
-        terr.addAnimal("Lionel", "Lion", 50.0f, 60, 90.0f);
-        terr.addAnimal("Tom", "Tortoise", 30.0f, 90, 80.0f);
-        terr.addAnimal("Catrine", "Cat", 60.0f, 70, 70.0f);
-        terr.addAnimal("Douglas", "Dog", 50.0f, 60, 50.0f);
-        grass.addAnimal("Biden", "Bison", 110.0f, 120, 70.0f);
-        grass.addAnimal("Derek", "Deer", 80.0f, 90, 50.0f);
-        grass.addAnimal("Shaun", "Sheep", 70.0f, 80, 50.0f);
-        des.addAnimal("Cameron", "Camel", 80.0f, 90, 80.0f);
+        reed.addAnimal("Ricco", "Cow", 80.0f, 110, 50.0f, "Hay", 4000);
+        reed.addAnimal("Oscar", "Ostrich", 60.0f, 70, 70.0f, "Grass", 300);
+        reed.addAnimal("Earl", "Eagle", 70.0f, 80, 80.0f, "Worm",100);
+        reed.addAnimal("Chika", "Chicken", 20.0f, 30, 70.0f, "Worm", 300);
+        reed.addAnimal("Donald", "Duck", 40, 90, 50, "Insect",400);
+        terr.addAnimal("Ronald", "Rooster", 30.0f, 40, 60.0f, "Insect",200);
+        terr.addAnimal("Lionel", "Lion", 50.0f, 60, 90.0f, "Meat",3000);
+        terr.addAnimal("Tom", "Tortoise", 30.0f, 90, 80.0f,"Grass", 300);
+        terr.addAnimal("Catrine", "Cat", 60.0f, 70, 70.0f,"Meat",1000);
+        terr.addAnimal("Douglas", "Dog", 50.0f, 60, 50.0f,"Meat",800);
+        grass.addAnimal("Biden", "Bison", 110.0f, 120, 70.0f,"Grass", 5000);
+        grass.addAnimal("Derek", "Deer", 80.0f, 90, 50.0f,"Grass", 1500);
+        grass.addAnimal("Shaun", "Sheep", 70.0f, 80, 50.0f,"Hay",500);
+        des.addAnimal("Cameron", "Camel", 80.0f, 90, 80.0f,"Hay",2500);
 
         Carer carerPeter = zooDarica.addCarer("Peter", terr.getAnimals().get(0));  // Best buddy Ronald the Rooster
         carerPeter.addTask("Terrarium");

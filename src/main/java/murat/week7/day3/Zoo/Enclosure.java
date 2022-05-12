@@ -73,9 +73,9 @@ public class Enclosure {
         return name;
     }
 
-    public Animal addAnimal(String name, String species, float health, int maxHealth, float bite) {
+    public Animal addAnimal(String name, String species, float health, int maxHealth, float bite, String foodName, float amountOfFood) {
 
-        Animal ani = new Animal(name, species, health, maxHealth, bite);
+        Animal ani = new Animal(name, species, health, maxHealth, bite, foodName,amountOfFood);
         animals.add(ani);
         return ani;
     }

@@ -9,11 +9,13 @@ public class Zookeeper {
 
     private String name;
     private List<Enclosure> enclosuresToClean;
+    private Animal fav;
 
 
-    public Zookeeper(String name) {
+    public Zookeeper(String name, Animal fav) {
         this.name = name;
         this.enclosuresToClean = new Vector<>();
+        this.fav = fav;
     }
 
 
@@ -43,13 +45,28 @@ public class Zookeeper {
     public void printCleaningTasks() {
         int currentday = 0;
         for (Enclosure enclosure : enclosuresToClean) {
-            System.out.println(enclosure + "-");
-            enclosure.cleanEnclosure(currentday);
+            System.out.println("Assigned to: " + enclosure);
+            if (enclosure.cleanEnclosure(currentday)) {
+                printTask(enclosure);
+                admireFavAnimal(enclosure);
+            }
         }
     }
 
-    public Animal viewAnimal(Enclosure en) {
 
-        return null;
+    public void printTask(Enclosure en) {
+        en.feedAnimals(en);
+        en.getRandomAnimalofEn(en);
+    }
+
+    public void admireFavAnimal(Enclosure en) {
+        if (en.getAnimals().contains(fav)) {
+            System.out.println("- Admiring my favorite animal: " + fav);
+        } else {
+            System.out.println("- My favorite animal (" + fav + ") is not in this enclosure :´(");
+        }
+        System.out.println();
     }
 }
+
+

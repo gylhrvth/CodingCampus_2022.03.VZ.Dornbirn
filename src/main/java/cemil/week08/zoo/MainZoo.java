@@ -11,7 +11,7 @@ public class MainZoo {
         Animal animal2 = new Animal("Germond", "Storh", dornbirn.searchFoodByName("Frosch"), 1);
         Animal animal3 = new Animal("Hugo", "Storh", dornbirn.searchFoodByName("Frosch"), 1);
         Animal animal4 = new Animal("Idaxis", "Storh", dornbirn.searchFoodByName("Frosch"), 1);
-        Animal animal5 = new Animal("Leer", "Leer", dornbirn.searchFoodByName("-"), 0);
+        Animal animal5 = new Animal("Leer", "Leer",dornbirn.searchFoodByName("-"), 0);
 
         AnimalKeeper karl = new AnimalKeeper(dornbirn, "Karl");
         AnimalKeeper gudrun = new AnimalKeeper(dornbirn, "Gudrun");
@@ -20,14 +20,21 @@ public class MainZoo {
 
         AnimalArea area = new AnimalArea("Alpenwiese");
         area.addAnimal(animalCow);
+        animalCow.addHealthAndBite(80,100,5);
         area.addAnimal(animalCow1);
+        animalCow1.addHealthAndBite(80,100,5);
         area.addAnimal(animalCow2);
+        animalCow2.addHealthAndBite(80,100,5);
         AnimalArea area1 = new AnimalArea("Ried");
         area1.addAnimal(animal2);
+        animal2.addHealthAndBite(80,100,5);
         area1.addAnimal(animal3);
+        animal3.addHealthAndBite(80,100,5);
         area1.addAnimal(animal4);
+        animal4.addHealthAndBite(80,100,5);
         AnimalArea area2 = new AnimalArea("Terrarium (warm)");
         area2.addAnimal(animal5);
+        animal5.addHealthAndBite(0,100,0);
         dornbirn.addArea(area);
         dornbirn.addArea(area1);
         dornbirn.addArea(area2);
@@ -63,6 +70,7 @@ public class MainZoo {
             dornbirn.simulate(day);
 
         }
+        System.out.println(dornbirn);
 
 
 //        System.out.println(dornbirn.toString("│──"));

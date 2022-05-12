@@ -1,4 +1,4 @@
-package zah.week07;
+package zah.week07.zoo;
 
 import java.util.HashMap;
 

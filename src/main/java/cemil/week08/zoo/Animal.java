@@ -8,6 +8,9 @@ public class Animal {
     private String art;
     private Feed feed;
     private Integer requirement;
+    private Integer healthy;
+    private Integer healthyMax;
+    private Integer bite;
 
 
     public Animal(String name, String art, Feed feed, Integer requirement) {
@@ -16,7 +19,17 @@ public class Animal {
         this.feed = feed;
         this.requirement = requirement;
 
+
     }
+
+    public void addHealthAndBite(int h, int hM, int b) {
+        healthy = h;
+        healthyMax = hM;
+        bite = b;
+    }
+
+
+
 
     public String getName() {
         return name;
@@ -34,11 +47,38 @@ public class Animal {
     public String toString(String indention) {
         String out = indention + name;
         out += ", " + art;
+        out += ", Gesundheit " + healthy;
+        out += ", Maximale Gesundheit " + healthyMax;
+        out += ", beißt " + bite + " mal";
         return out;
     }
 
     @Override
     public String toString() {
         return toString("");
+    }
+
+    public Integer getHealthy() {
+        return healthy;
+    }
+
+    public void setHealthy(Integer healthy) {
+        this.healthy = healthy;
+    }
+
+    public Integer getHealthyMax() {
+        return healthyMax;
+    }
+
+    public void setHealthyMax(Integer healthyMax) {
+        this.healthyMax = healthyMax;
+    }
+
+    public Integer getBite() {
+        return bite;
+    }
+
+    public void setBite(Integer bite) {
+        this.bite = bite;
     }
 }

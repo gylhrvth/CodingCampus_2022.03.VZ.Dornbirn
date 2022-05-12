@@ -9,31 +9,54 @@ public class Main {
         Enclosure terra = z.addEnclosure("Terrarium");
         Enclosure arc = z.addEnclosure("Arctic");
 
-        Animal shark = aqua.addAnimal("Boris", "Shark");
-        Animal jellyfish = aqua.addAnimal("Matilda", "Jellyfish");
-        Animal snake = terra.addAnimal("Salvador", "Snake");
-        Animal penguin = arc.addAnimal("Cody", "Penguin");
-        Animal polarbear = arc.addAnimal("Stanislaus", "Polarbear");
-        Animal sealion = arc.addAnimal("Sergej", "Sea Lion");
-        // z.removeEnclosure(aqua);
-        // arc.removeAnimal(sealion);
+        Food meat = new Food("Meat", "kg", 2);
+        Food plankton = new Food("Plankton", "g", 20);
+        Food mouse = new Food("Mouse", "bodies", 10);
+        Food fish = new Food("Fish", "kg", 20);
 
-        Zookeeper bono = new Zookeeper("Bono");
+        Animal shark = aqua.addAnimal("Boris", "Shark", meat, 50);
+        Animal jellyfish = aqua.addAnimal("Matilda", "Jellyfish", plankton, 10);
+        Animal snake = terra.addAnimal("Salvador", "Snake", mouse, 1);
+        Animal penguin = arc.addAnimal("Cody", "Penguin", fish, 1);
+        Animal polarbear = arc.addAnimal("Stanislaus", "Polarbear", fish, 3);
+        Animal sealion = arc.addAnimal("Sergej", "Sea Lion", fish, 5);
+
+        aqua.setLastDayCleaned(1);
+        terra.setLastDayCleaned(1);
+        arc.setLastDayCleaned(1);
+
+        Zookeeper bono = new Zookeeper("Bono", shark);
         z.addZookeeper(bono);
-        bono.addEnclosure2Clean(aqua);
+        bono.addEnclosure2Clean(terra);
 
-        Zookeeper kenji = new Zookeeper("Kenji");
-        z.addZookeeper(kenji);
-        kenji.addEnclosure2Clean(terra);
+        Zookeeper razhvan = new Zookeeper("Razhvan", sealion);
+        z.addZookeeper(razhvan);
+        razhvan.addEnclosure2Clean(aqua);
+        razhvan.addEnclosure2Clean(arc);
+
+        Zookeeper cemil = new Zookeeper("Cemil", snake);
+        z.addZookeeper(cemil);
+        cemil.addEnclosure2Clean(terra);
 
 
-        aqua.setLastDayCleaned(0);
-        aqua.cleanEnclosure(1);
+
+
+
+
+
+
 
         System.out.println(z.toString("├──"));
 
+        for (int i = 0; i <= 5; i++) {
+            System.out.println();
+            System.out.println("-------------------- DAY " + i + " --------------------");
+            z.simulate();
+            aqua.setLastDayCleaned(1);
+            terra.setLastDayCleaned(1);
+            arc.setLastDayCleaned(1);
+        }
 
-        z.cleanZooEnclosures();
 
 
 

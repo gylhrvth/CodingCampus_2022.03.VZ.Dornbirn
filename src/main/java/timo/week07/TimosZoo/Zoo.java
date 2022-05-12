@@ -1,5 +1,6 @@
 package timo.week07.TimosZoo;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Vector;
 
@@ -21,7 +22,7 @@ public class Zoo {
         output += name;
         output += ", founded in " + foundation + "\n";
         for (Enclosure en : enclosures) {
-            output += "│" + "    " + en.toString(indentation + " ") + "\n";
+            output += "│" + "    " + en.printString(indentation + " ") + "\n";
         }
         return output;
     }
@@ -36,17 +37,20 @@ public class Zoo {
         enclosures.remove(e);
     }
 
-    public void cleanZooEnclosures() {
-        int currentday = 0;
-        for (Zookeeper zookeeper : zookeepers) {
-            System.out.println(zookeeper.getName() + ": ");
-            zookeeper.printCleaningTasks();
-        }
-    }
 
     public Zookeeper addZookeeper(Zookeeper zk) {
         zookeepers.add(zk);
         return zk;
     }
+
+    public void simulate() {
+        for (Zookeeper zookeeper : zookeepers) {
+            System.out.println(zookeeper.getName() + ": ");
+            zookeeper.printCleaningTasks();
+        }
+
+    }
+
+
 
 }
