@@ -17,7 +17,7 @@ public class Animal {
     static final String RESET = "\033[0m";
     static final String YELLOW = "\033[0;93m";
 
-    public Animal(String name, String genus, AnimalFood foodType, int foodIntake,Stats stats) {
+    public Animal(String name, String genus, AnimalFood foodType, int foodIntake, Stats stats) {
         this.name = name;
         this.genus = genus;
         this.foodType = foodType;
@@ -33,6 +33,7 @@ public class Animal {
     public AnimalFood getFoodType() {
         return foodType;
     }
+
     public void setFoodType(AnimalFood foodType) {
         this.foodType = foodType;
     }
@@ -58,13 +59,22 @@ public class Animal {
     }
 
     public void feedAnimal(HashMap<AnimalFood, Integer> statistic) {
-        System.out.println(name + " gets fed " + foodIntake + " " + foodType.getFoodType());
-        foodType.reduceFoodAmount(foodIntake);
-        if (statistic.containsKey(foodType)) {
-            statistic.put(foodType, statistic.get(foodType) + foodIntake);
-        } else {
-            statistic.put(foodType, foodIntake);
+        if (!isDead()) {
+            System.out.println(name + " gets fed " + foodIntake + " " + foodType.getFoodType());
+            foodType.reduceFoodAmount(foodIntake);
+            if (statistic.containsKey(foodType)) {
+                statistic.put(foodType, statistic.get(foodType) + foodIntake);
+            } else {
+                statistic.put(foodType, foodIntake);
+            }
         }
+    }
+
+    public boolean isDead() {
+        if (getStats().getHealth() <= 0) {
+            return true;
+        }
+        return false;
     }
 
     @Override

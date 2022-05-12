@@ -77,11 +77,13 @@ public class Enclosure {
 
     public void takeCareOfAnimal(int workDay, HashMap<AnimalFood, Integer> statistic) {
         if (lastDayOfCleaning != workDay) {
+            removeDead();
             System.out.println(BLUE + enclosureType + RESET + " is cleaned");
             lastDayOfCleaning = workDay;
 
             for (Animal animal : animals) {
                 animal.feedAnimal(statistic);
+
             }
         } else {
             System.out.println(enclosureType + " has been cleared before");
@@ -110,6 +112,17 @@ public class Enclosure {
         }
     }
 
+    public void removeDead() {
+        for (int i = 0; i < getAnimals().size(); i++) {
+            Animal animal = getAnimals().get(i);
+            if (animal.isDead()) {
+                for (int j = 0; j < careTakers.size(); j++) {
+                    System.out.println(RED + careTakers.get(i).getName() + " removes the carcass of " + animal + RESET + " from " + BLUE + getEnclosureType() + RESET + ".");
+                    removeAnimal(animal);
+                }
+            }
+        }
+    }
 
     public Animal admireAnimal() {
         if (animals.size() > 0) {
