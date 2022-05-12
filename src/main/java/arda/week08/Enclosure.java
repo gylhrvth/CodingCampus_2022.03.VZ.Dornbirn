@@ -93,16 +93,23 @@ public class Enclosure {
         int random = rand.nextInt(4) + 1;
         Animal randomAnimal = animals.get(rand.nextInt(animals.size()));
         Animal randomAnimal2 = animals.get(rand.nextInt(animals.size()));
-        if (randomAnimal != randomAnimal2) {
-            if (random == 4) {
-                if (animals.size() > 0) {
-                    System.out.println(RED + randomAnimal + " bites " + randomAnimal2 + " for " + (randomAnimal.getStats().getBiteDMG()) + " dmg" + RESET);
-                    randomAnimal2.getStats().setHealth(randomAnimal2.getStats().getHealth() - randomAnimal.getStats().getBiteDMG());
-                    System.out.println(randomAnimal2 + " is now at " + RED + randomAnimal2.getStats().getHealth() + RESET + " health.");
+        if (!(randomAnimal.getStats().getHealth() <= 0)) {
+            if (randomAnimal != randomAnimal2) {
+                if (random == 4) {
+                    if (animals.size() > 0) {
+                        System.out.println(RED + randomAnimal + " bites " + randomAnimal2 + " for " + (randomAnimal.getStats().getBiteDMG()) + " dmg" + RESET);
+                        randomAnimal2.getStats().setHealth(randomAnimal2.getStats().getHealth() - randomAnimal.getStats().getBiteDMG());
+                        if (randomAnimal2.getStats().getHealth() > 0) {
+                            System.out.println(randomAnimal2 + " is now at " + RED + randomAnimal2.getStats().getHealth() + RESET + " health.");
+                        } else {
+                            System.out.println(randomAnimal2 + " is " + RED + "dead." + RESET);
+                        }
+                    }
                 }
             }
         }
     }
+
 
     public Animal admireAnimal() {
         if (animals.size() > 0) {

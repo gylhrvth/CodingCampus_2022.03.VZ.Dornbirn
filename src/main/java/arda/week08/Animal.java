@@ -66,20 +66,7 @@ public class Animal {
             statistic.put(foodType, foodIntake);
         }
     }
-    /*
-        public void getStatistic(List<Animal> animals){
-            HashMap<AnimalFood, Integer> statistic = new HashMap<>();
-            for (int i = 0; i < animals.size(); i++) {
-                AnimalFood foodType = animals.get(i).getFoodType();
-                foodType.redurceFoodAmount(animals.get(i).getFoodIntake());
-                if (statistic.containsKey(foodType)){
-                    statistic.put(foodType, statistic.get(foodType) + animals.get(i).getFoodIntake());
-                } else {
-                    statistic.put(foodType, animals.get(i).getFoodIntake());
-                }
-            }
-        }
-    */
+
     @Override
     public String toString() {
         return name + " (" + genus + ")";
