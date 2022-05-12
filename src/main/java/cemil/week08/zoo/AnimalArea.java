@@ -45,6 +45,8 @@ public class AnimalArea {
         }
     }
 
+
+
     public void removeAnimal(Animal animal) {
         animals.remove(animal);
     }

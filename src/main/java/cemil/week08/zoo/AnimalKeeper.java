@@ -61,7 +61,7 @@ public class AnimalKeeper {
     public void simulate(int day, HashMap<Feed, Integer> feedStatistik) {
         for (AnimalArea aa : areasToWork) {
             if (aa.getLastDayHasCleared() != day) {
-                System.out.println(" is cleaning " + aa.getName());
+                System.out.println("is cleaning " + aa.getName());
                 aa.setLastDayHasCleared(day);
                 aa.feedAnimals(feedStatistik);
             } else {

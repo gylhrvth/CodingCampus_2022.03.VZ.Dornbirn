@@ -46,7 +46,7 @@ public class Zoo {
     public void simulate(int day) {
         HashMap<Feed, Integer> feedStatistik = new HashMap<>();
 
-        System.out.println("Start day " + day);
+        System.out.println(MainZoo.ANSI_BLUE + "Start day " + day + MainZoo.ANSI_RESET);
         for (AnimalKeeper ak : animalKeepers) {
             ak.simulate(day, feedStatistik);
         }
