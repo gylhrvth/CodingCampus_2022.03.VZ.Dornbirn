@@ -84,6 +84,26 @@ public class Zoo {
         for (AnimalCarer ac : animalCarers) {
             ac.simulate(tag);
         }
+        for (Enclosure enclosure: enclosures){
+            enclosure.simulate();
+        }
+    }
+
+    public Animal getAnimalWithMinHealth() {
+        Animal result = null;
+        for (Enclosure enc: enclosures){
+            Animal animalInNeed = enc.getAnimalWithMinHealth();
+            if (result == null) {
+                result = animalInNeed;
+            } else if (animalInNeed != null){
+                double relHealthOfResult = result.getHealth() / (double)result.getMaxHealth();
+                double relHealthOfAnimalInNeed = animalInNeed.getHealth() / (double)animalInNeed.getMaxHealth();
+                if (relHealthOfAnimalInNeed < relHealthOfResult){
+                    result = animalInNeed;
+                }
+            }
+        }
+        return result;
     }
 
 
