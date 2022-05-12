@@ -4,10 +4,12 @@ import java.util.HashMap;
 
 public class Feed {
     private String name;
+
     private String unit;
+
     private float price;
 
-    public Feed(String name, String unit, Float price){
+    public Feed(String name, String unit, Float price) {
 
         this.name = name;
         this.unit = unit;
@@ -39,13 +41,14 @@ public class Feed {
                 '}';
     }
 
-    /*public void foodConsumptionStatistics(Zoo zoo){
+    public void foodConsumptionStatistics(Zoo zoo) {
 
         HashMap<String, Float> foodConsumptionAtZoo = new HashMap<>();
 
-        foodConsumptionAtZoo.put(zoo.getFeeds().get(i))
+        for (int i = 0; i < zoo.getFeeds().size(); i++) {
+            foodConsumptionAtZoo.put(zoo.getFeeds().get(i).name, 5.0f);
+        }
 
-
-    }*/
+    }
 
 }
