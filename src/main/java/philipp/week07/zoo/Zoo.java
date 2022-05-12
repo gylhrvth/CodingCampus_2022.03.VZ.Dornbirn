@@ -115,33 +115,36 @@ public class Zoo {
                 }
             }
         }
-        float minHealth = Float.MAX_VALUE;
-        Animal animalToHeal = null;
         for (AnimalDoctor animalDoctor : animalDoctors) {
-            for (Animal a : animalsToHeal.keySet()) {
-                float f = (float)a.getHealth()/a.getMaxHealth();
-                if (f < minHealth) {
-                    minHealth = f;
-                    animalToHeal = a;
-                }
-            }
-            if (animalToHeal != null) {
-                System.out.println(animalDoctor + " is healing:\n" + "\033[0;31m" + animalToHeal + "\u001B[0m");
-
-                int recoverHealth = rn.nextInt(30, 101);
-                int healValue = (animalToHeal.getMaxHealth() * recoverHealth / 100) + animalToHeal.getHealth();
-                animalToHeal.setHealth(Math.min(healValue, animalToHeal.getMaxHealth()));
-
-                System.out.println("Now the animal: | " + "\033[032m" + animalToHeal + "\u001B[0m" + " | has been healed!");
-                System.out.println();
-
-                animalsToHeal.remove(animalToHeal);
-                animalToHeal = null;
-                minHealth = Float.MAX_VALUE;
-            } else {
-                System.out.println(animalDoctor + "is not healing an animal!");
-            }
+            animalDoctor.healingAnimal(animalsToHeal);
         }
+//        float minHealth = Float.MAX_VALUE;
+//        Animal animalToHeal = null;
+//        for (AnimalDoctor animalDoctor : animalDoctors) {
+//            for (Animal a : animalsToHeal.keySet()) {
+//                float f = (float)a.getHealth()/a.getMaxHealth();
+//                if (f < minHealth) {
+//                    minHealth = f;
+//                    animalToHeal = a;
+//                }
+//            }
+//            if (animalToHeal != null) {
+//                System.out.println(animalDoctor + " is healing:\n" + "\033[0;31m" + animalToHeal + "\u001B[0m");
+//
+//                int recoverHealth = rn.nextInt(30, 101);
+//                int healValue = (animalToHeal.getMaxHealth() * recoverHealth / 100) + animalToHeal.getHealth();
+//                animalToHeal.setHealth(Math.min(healValue, animalToHeal.getMaxHealth()));
+//
+//                System.out.println("Now the animal: | " + "\033[032m" + animalToHeal + "\u001B[0m" + " | has been healed!");
+//                System.out.println();
+//
+//                animalsToHeal.remove(animalToHeal);
+//                animalToHeal = null;
+//                minHealth = Float.MAX_VALUE;
+//            } else {
+//                System.out.println(animalDoctor + "is not healing an animal!");
+//            }
+//        }
     }
 }
 

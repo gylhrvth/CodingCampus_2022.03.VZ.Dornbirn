@@ -19,4 +19,32 @@ public class AnimalDoctor {
     public String toString() {
         return name;
     }
+
+    public void healingAnimal(HashMap<Animal, Integer> animalToHealList) {
+        float minHealth = Float.MAX_VALUE;
+        Animal animalToHeal = null;
+        for (Animal a : animalToHealList.keySet()) {
+            float f = (float) a.getHealth() / a.getMaxHealth();
+            if (f < minHealth) {
+                minHealth = f;
+                animalToHeal = a;
+            }
+        }
+        if (animalToHeal != null) {
+            System.out.println(name + " is healing:\n" + "\033[0;31m" + animalToHeal + "\u001B[0m");
+
+            int recoverHealth = rn.nextInt(30, 101);
+            int healValue = (animalToHeal.getMaxHealth() * recoverHealth / 100) + animalToHeal.getHealth();
+            animalToHeal.setHealth(Math.min(healValue, animalToHeal.getMaxHealth()));
+
+            System.out.println("Now the animal: | " + "\033[032m" + animalToHeal + "\u001B[0m" + " | has been healed!");
+            System.out.println();
+
+            animalToHealList.remove(animalToHeal);
+
+        } else {
+            System.out.println(name + "is not healing an animal!");
+
+        }
+    }
 }
