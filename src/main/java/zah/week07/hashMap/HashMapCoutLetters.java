@@ -10,6 +10,7 @@ public class HashMapCoutLetters {
             Character nextChar = text.charAt(i);
             if (count.containsKey(nextChar)){
                 count.put(nextChar, count.get(nextChar) + 1);
+
             } else {
                 count.put(nextChar, 1);
             }
