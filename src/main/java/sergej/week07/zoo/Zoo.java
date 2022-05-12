@@ -1,6 +1,8 @@
 package sergej.week07.zoo;
 
 
+
+
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -10,6 +12,7 @@ public class Zoo {
     private Vector<Enclosure> enclosures;
     private Vector<AnimalCarer> animalCarers;
     private HashMap<String, Integer> foodWareHouse;
+    private Vector<Veterian> veterinarians;
 
     public Zoo(String name, int established) {
         this.name = name;
@@ -17,6 +20,7 @@ public class Zoo {
         this.enclosures = new Vector<>();
         this.animalCarers = new Vector<>();
         this.foodWareHouse = new HashMap<>();
+        this.veterinarians = new Vector<>();
     }
 
     public void addEnclosure(Enclosure enc) {
@@ -87,6 +91,10 @@ public class Zoo {
         for (Enclosure enclosure: enclosures){
             enclosure.simulate();
         }
+        for (Veterian vet: veterinarians) {
+            vet.simulate();
+
+        }
     }
 
     public Animal getAnimalWithMinHealth() {
@@ -104,6 +112,21 @@ public class Zoo {
             }
         }
         return result;
+    }
+
+    public void addVeterinarian(Veterian vet){
+        if (!veterinarians.contains(vet)) {
+            veterinarians.add(vet);
+        }
+    }
+
+    public Veterian searchVeterinarianByName(String name){
+        for (Veterian vet: veterinarians){
+            if (vet.getName().equals(name)){
+                return vet;
+            }
+        }
+        return new Veterian(this, name);
     }
 
 

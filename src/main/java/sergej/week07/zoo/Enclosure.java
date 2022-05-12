@@ -73,6 +73,7 @@ public class Enclosure {
                 if(animals.size() <= 1){
                     break;
                 }
+
                 Animal victim = animal;
                 while (victim.equals(animal)) {
                     victim = animals.get(rand.nextInt(animals.size()));
