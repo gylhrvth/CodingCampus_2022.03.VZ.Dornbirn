@@ -18,6 +18,7 @@ public class BankMain {
         Kunde kunde4 = new Kunde("Hase",13456);
         Kunde kunde5 = new Kunde("Esel",377);
         Kunde kunde6 = new Kunde("Schlange",12347);
+        Kunde kunde7 = new Kunde("Köpek", 1245);
 
         kundes.add(kunde2);
         kundes.add(kunde3);
