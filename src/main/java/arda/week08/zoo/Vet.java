@@ -1,6 +1,5 @@
-package arda.week08;
+package arda.week08.zoo;
 
-import java.util.List;
 import java.util.Random;
 
 public class Vet {

@@ -1,4 +1,4 @@
-package arda.week08;
+package arda.week08.zoo;
 
 public class Stats {
     private int health;
