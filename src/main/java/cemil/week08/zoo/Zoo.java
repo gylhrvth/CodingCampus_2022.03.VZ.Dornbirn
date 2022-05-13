@@ -1,6 +1,8 @@
 package cemil.week08.zoo;
 
 
+import gyula.week08.zoo.Enclosure;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Vector;
@@ -11,6 +13,7 @@ public class Zoo {
     private List<AnimalArea> animalAreas = new Vector<>();
     private List<AnimalKeeper> animalKeepers = new Vector<>();
     private List<Feed> feeds = new Vector<>();
+    private List<Veterian> veterians = new Vector<>();
 
     public Zoo(String name, int yearOfEstablishment) {
         this.name = name;
@@ -28,6 +31,7 @@ public class Zoo {
             animalAreas.add(area);
         }
     }
+
 
     public void removeArea(AnimalArea area) {
         animalAreas.remove(area);
@@ -52,6 +56,31 @@ public class Zoo {
         }
 
         printStatistc(feedStatistik);
+        for (AnimalArea animalArea : animalAreas) {
+            animalArea.simulateAttack();
+        }
+        printStructure();
+//        for (Veterian vet:veterians) {
+//            vet.simulate();
+//        }
+    }
+
+    public Animal getAnimalWithMinHealth() {
+        Animal result = null;
+        for (AnimalArea aa : animalAreas) {
+            Animal animalNeed = aa.getAnimalWithMinHealth();
+            if (result == null) {
+                result = animalNeed;
+            } else if (animalNeed != null) {
+                double relHealthOfResult = result.getHealthy() / (double) result.getHealthyMax();
+                double relHealthOfResultNeed = animalNeed.getHealthy() / (double) animalNeed.getHealthyMax();
+                if (relHealthOfResultNeed < relHealthOfResult) {
+                    result = animalNeed;
+                }
+            }
+
+        }
+        return result;
     }
 
     public Feed searchFoodByName(String name) {
@@ -76,6 +105,14 @@ public class Zoo {
             System.out.printf("%-20s %5d %-8s %7d%n", f.getName(), feedStatistik.get(f), f.getUnit(), (feedStatistik.get(f) * f.getUnitPrice()));
         }
     }
+    public void printStructure(){
+
+        System.out.println();
+        System.out.println("Tierärzte: ");
+        for (Veterian vet:veterians) {
+            vet.printStructure();
+        }
+    }
 
     @Override
     public String toString() {
@@ -90,5 +127,11 @@ public class Zoo {
             output += "│" + "    " + en.toString(indentation + " ") + "\n";
         }
         return output;
+    }
+
+    public void addVeterian(Veterian vet) {
+        if (!veterians.contains(vet)){
+            veterians.add(vet);
+        }
     }
 }
