@@ -1,8 +1,4 @@
-package lukas.week8;
-
-import org.w3c.dom.ls.LSOutput;
-
-import java.util.Objects;
+package lukas.week8.day4;
 
 public class Person {
     private String name;
