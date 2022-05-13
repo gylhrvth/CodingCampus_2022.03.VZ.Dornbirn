@@ -12,6 +12,7 @@ public class Enclosure {
     private final List<CareTaker> careTakers = new ArrayList<>();
     private int lastDayOfCleaning = 0;
     private static final Random rand = new Random();
+    private final List<Vet> vets = new ArrayList<>();
     static final String GREEN = "\033[0;92m";
     static final String RESET = "\033[0m";
     static final String YELLOW = "\033[0;93m";
@@ -65,6 +66,10 @@ public class Enclosure {
         careTakers.add(ct);
     }
 
+    public void addVeterinarian(Vet vet) {
+        vets.add(vet);
+    }
+
     @Override
     public String toString() {
         String output = enclosureType + "\n" + "         " + animals +
@@ -80,32 +85,41 @@ public class Enclosure {
             removeDead();
             System.out.println(BLUE + enclosureType + RESET + " is cleaned");
             lastDayOfCleaning = workDay;
-
             for (Animal animal : animals) {
                 animal.feedAnimal(statistic);
-
             }
+            healAnimal();
         } else {
             System.out.println(enclosureType + " has been cleared before");
         }
     }
 
+    public boolean healAnimal() {
+        for (Vet vet : vets) {
+            vet.healAnimal(this);
+        }
+        return true;
+    }
+
     public void bite() {
         System.out.println();
         int random = rand.nextInt(4) + 1;
+        int random2 = rand.nextInt(254) + 1;
         Animal randomAnimal = animals.get(rand.nextInt(animals.size()));
         Animal randomAnimal2 = animals.get(rand.nextInt(animals.size()));
         if (!(randomAnimal.getStats().getHealth() <= 0)) {
             if (randomAnimal != randomAnimal2) {
-                if (random == 4) {
-                    if (animals.size() > 0) {
-                        System.out.println(RED + randomAnimal + " bites " + randomAnimal2 + " for " + (randomAnimal.getStats().getBiteDMG()) + " dmg" + RESET);
-                        randomAnimal2.getStats().setHealth(randomAnimal2.getStats().getHealth() - randomAnimal.getStats().getBiteDMG());
-                        if (randomAnimal2.getStats().getHealth() > 0) {
-                            System.out.println(randomAnimal2 + " is now at " + RED + randomAnimal2.getStats().getHealth() + RESET + " health.");
-                        } else {
-                            System.out.println(randomAnimal2 + " is " + RED + "dead." + RESET);
-                        }
+                if (random == 4 && animals.size() > 0) {
+                    System.out.println(randomAnimal + RED + " bites " + RESET + randomAnimal2 + " for " + RED + (randomAnimal.getStats().getBiteDMG()) + " dmg" + RESET);
+                    randomAnimal2.getStats().setHealth(randomAnimal2.getStats().getHealth() - randomAnimal.getStats().getBiteDMG());
+                    if (randomAnimal2.getStats().getHealth() > 0) {
+                        System.out.println(randomAnimal2 + " is now at " + RED + randomAnimal2.getStats().getHealth() + RESET + " health.");
+                    } else {
+                        System.out.println(randomAnimal2 + " is " + RED + "dead." + RESET);
+                    }
+                } else if (random2 == 254) {
+                    for (int i = 0; i < careTakers.size(); i++) {
+                        System.out.println(RED + randomAnimal + " bites " + careTakers.get(i).getName() + RESET);
                     }
                 }
             }

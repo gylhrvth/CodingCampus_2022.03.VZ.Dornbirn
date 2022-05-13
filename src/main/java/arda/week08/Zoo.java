@@ -46,12 +46,6 @@ public class Zoo {
         }
     }
 
-    public void fireCareTaker(CareTaker careTaker) {
-        if (workers.contains(null)) {
-            workers.remove(careTaker);
-        }
-    }
-
     public void buyAnimal(Animal animal) {
         if (!animals.contains(animal)) {
             animals.add(animal);
@@ -66,7 +60,6 @@ public class Zoo {
         }
     }
 
-    //todo:Go trough all caretakers and their respectively assigned enclosures and feed the animals in said enclosure.
     public void zooDaySim(int workDay) {
         System.out.println();
         System.out.printf(GREEN + "Day %d is starting...." + RESET + "%n", workDay);
@@ -84,7 +77,7 @@ public class Zoo {
         for (AnimalFood foodType : animalFoods) {
             if (foodType.getFoodAmount() > 0) {
                 System.out.println(foodType.getFoodType() + " " + YELLOW + (foodType.getFoodAmount() + foodType.getPrice()) + "€" + RESET);
-            }else{
+            } else {
                 System.out.println(foodType.getFoodType() + " " + YELLOW + 0 + "€" + RESET);
             }
         }

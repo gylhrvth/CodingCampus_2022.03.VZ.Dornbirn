@@ -10,12 +10,13 @@ public class Animal {
     private AnimalFood foodType;
     private final int foodIntake;
     private CareTaker careTaker;
-    private Stats stats;
+    private final Stats stats;
     private Random rand = new Random();
 
     static final String GREEN = "\033[0;92m";
     static final String RESET = "\033[0m";
     static final String YELLOW = "\033[0;93m";
+    static final String RED = "\033[1;91m";
 
     public Animal(String name, String genus, AnimalFood foodType, int foodIntake, Stats stats) {
         this.name = name;
@@ -46,10 +47,6 @@ public class Animal {
         this.cageOfAnimal = cageOfAnimal;
     }
 
-    public CareTaker getCareTaker() {
-        return careTaker;
-    }
-
     public Enclosure getCageOfAnimal() {
         return cageOfAnimal;
     }
@@ -60,8 +57,18 @@ public class Animal {
 
     public void feedAnimal(HashMap<AnimalFood, Integer> statistic) {
         if (!isDead()) {
-            System.out.println(name + " gets fed " + foodIntake + " " + foodType.getFoodType());
-            foodType.reduceFoodAmount(foodIntake);
+            if (foodType.getFoodAmount() > 0) {
+                System.out.println(name + " gets fed " + foodIntake + " " + foodType.getFoodType());
+                foodType.reduceFoodAmount(foodIntake);
+            } else {
+                System.out.println(name + " could not be fed." + " There is no food left!");
+                //the starve function works but messes up the heal function.
+                //getStats().setHealth(getStats().getHealth() - 5);
+                //if (getStats().getHealth() <= 0) {
+                //    System.out.println(name + " has" + RED + " Starved to death." + RESET);
+                //}
+
+            }
             if (statistic.containsKey(foodType)) {
                 statistic.put(foodType, statistic.get(foodType) + foodIntake);
             } else {
