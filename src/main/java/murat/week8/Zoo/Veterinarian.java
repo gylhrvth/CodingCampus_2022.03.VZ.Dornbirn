@@ -1,4 +1,4 @@
-package murat.week7.day3.Zoo;
+package murat.week8.Zoo;
 
 public class Veterinarian {
     public String name;
@@ -30,19 +30,21 @@ public class Veterinarian {
 
     public void healAnAnimal(Animal anAnimal, int randomNumber) {
 
-        if (anAnimal.getMaxHealth() != 100) {
+        float healingRate = (float) (randomNumber * anAnimal.getMaxHealth() / 100.0);
+        float newHealth = Math.min((healingRate + anAnimal.getHealth()), anAnimal.getMaxHealth());
 
-            // If healed value do not exceed 100
-            //noinspection IntegerDivisionInFloatingPointContext
-            if ((anAnimal.getHealth() + ((anAnimal.getMaxHealth() * randomNumber) / 100)) >= 100) {
+        // If the animal has a bad condition
+        if (anAnimal.getHealth() < anAnimal.getMaxHealth()) {
+
+            if (newHealth >= anAnimal.getMaxHealth()) {
                 anAnimal.setHealth(anAnimal.getMaxHealth());
                 System.out.println(anAnimal.getName() + "'s health is maxed! Health: " + anAnimal.getMaxHealth());
             } else {
-                //noinspection IntegerDivisionInFloatingPointContext
-                anAnimal.setHealth((anAnimal.getHealth() + ((anAnimal.getMaxHealth() * randomNumber) / 100)));
+                anAnimal.setHealth(newHealth);
                 System.out.println(anAnimal.getName() + " " + randomNumber + "% healed. New Health: " + (int) anAnimal.getHealth());
             }
         } else {
+            // If all animals are healthy
             System.out.println("All animals are healthy.");
         }
     }

@@ -1,4 +1,4 @@
-package murat.week7.day3.Zoo;
+package murat.week8.Zoo;
 
 import java.util.*;
 
@@ -84,7 +84,7 @@ public class Enclosure {
         return animals;
     }
 
-    public void simulation02() {
+    public void simulation02InAnEnclosure() {
 
         if (animals.size() >= 2) {      // There are needed at least 2 animals
             for (int indexOfAgressiveAnimal = 0; indexOfAgressiveAnimal < animals.size(); indexOfAgressiveAnimal++) {
@@ -117,7 +117,8 @@ public class Enclosure {
 
         int worstCondition = 100;
         Animal weakestAnimal = null;
-        if (this.animals.size() != 0) {
+
+        if (this.animals.size() > 0) {
             for (Animal animal : animals) {
 
                 int condition = animal.calculateAnimalConditions();

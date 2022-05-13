@@ -1,6 +1,5 @@
-package murat.week7.day3.Zoo;
+package murat.week8.Zoo;
 
-import javax.imageio.metadata.IIOMetadataFormatImpl;
 import java.util.*;
 
 public class Zoo {
@@ -117,6 +116,14 @@ public class Zoo {
         return addEnclosure(name, false);
     }
 
+    public void simulation02(){
+
+        for (Enclosure enc : enclosures) {
+            System.out.println(Zoo.ANSI_CYAN + Zoo.BOLD + "\nCurrent Enclosure---> " + enc + Zoo.ANSI_RESET + Zoo.BOLD_RESET);
+            enc.simulation02InAnEnclosure();
+        }
+    }
+
     public void simulation03() {
 
         Random rand = new Random();
@@ -131,19 +138,25 @@ public class Zoo {
             for (Enclosure enclosure : enclosures) {
 
                 //If the enclosure has at least an animal
-                if (enclosure.getAnimals().size() != 0) {
+                if (enclosure.getAnimals().size() > 0) {
 
                     // Call weakest animals from each enclosure
                     int condition = enclosure.weakestAnimalInAnEnclosure().calculateAnimalConditions();
-                    //System.out.println("Name: " + enclosure.weakestAnimalInAnEnclosure().getName() + ", Health: " + enclosure.weakestAnimalInAnEnclosure().calculateAnimalConditions());
-                    if (condition < worstCondition) {
+
+                    if (condition <= worstCondition) {
                         worstCondition = condition;
                         weakestAnimal = enclosure.weakestAnimalInAnEnclosure();
                     }
                 }
             }
-            System.out.println("\n" + ANSI_GREEN + vets.get(count) + ANSI_RESET + " heals " + weakestAnimal);
-            vets.get(count).healAnAnimal(weakestAnimal, randomNumber);
+
+            if (weakestAnimal.getHealth() >= weakestAnimal.getMaxHealth()) {
+                System.out.println("All animals are healthy");
+            } else {
+                System.out.println("\n" + ANSI_GREEN + vets.get(count) + ANSI_RESET + " heals " + weakestAnimal);
+                vets.get(count).healAnAnimal(weakestAnimal, randomNumber);
+            }
+
             count++;
         }
 

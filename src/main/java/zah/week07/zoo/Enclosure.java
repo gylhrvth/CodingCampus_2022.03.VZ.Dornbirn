@@ -9,9 +9,10 @@ public class Enclosure {
     private Zoo zoo;
     private Vector<Animal> animals;
     private int lastDayOfCleaning = 0;
+    public static Random RANDOM = new Random();
 
-    public Enclosure(Zoo zoo,String name) {
-        this.zoo=zoo;
+    public Enclosure(Zoo zoo, String name) {
+        this.zoo = zoo;
         this.name = name;
         animals = new Vector<>();
         zoo.addEnclosure(this);
@@ -26,29 +27,50 @@ public class Enclosure {
         return out;
     }
 
-    public Animal addAnimal(String name, String species, Feed feed, Integer requirement,int health, int maxHealth, int damage) {
-        Animal an = new Animal(name, species, feed, requirement, health,maxHealth, damage);
+    public Animal addAnimal(String name, String species, Feed feed, Integer requirement, int health, int maxHealth, int damage) {
+        Animal an = new Animal(name, species, feed, requirement, health, maxHealth, damage);
         animals.add(an);
         return an;
     }
 
-    public void simulateBites() {
+    public void simulateBites(int day) {
         Random random = new Random();
-        for (Animal an:animals) {
-            Animal attacker = animals.get(random.nextInt(animals.size()));
-            Animal victim = animals.get(random.nextInt(animals.size()));
-            if ((an.getHealth()>0)&& (random.nextInt()< victim.getDamage())){
-                attacker.bites(victim);
+        Vector<Animal> deadAnimal = new Vector<>();
 
+        if (animals.size() > 1) {
+            for (int i = 0; i < 5; i++) {
+                Animal attacker = animals.get(random.nextInt(animals.size()));
+                Animal victim = getAnotherRandomAnimal(attacker);
+                if (victim == null) {
+                    break;
+                }
+                if (attacker.getHealth() <= 0 || victim.getHealth() <= 0) {
+                    continue;
+                }
+                if (Math.random() >= 0.6) {
+                    attacker.bites(victim);
+                }
+                if (victim.getHealth() <= 0) {
+                    System.out.println(victim.getName() + " Is not more alive and will be remove from Enclosure");
+                    deadAnimal.add(victim);
+                }
             }
-            if (victim.getHealth()>0){
-                int newHealth = victim.getHealth()-victim.getDamage();
-                victim.setHealth(newHealth);
-                System.out.println(attacker.getName()+" has attack "+ victim.getName()+" "+ victim.getDamage()+" time" );
-
+            for (Animal deadAnimals : deadAnimal) {
+                animals.remove(deadAnimals);
             }
         }
+    }
 
+    private Animal getAnotherRandomAnimal(Animal animal) {
+        if (animals.size() <= 1) {
+            return null;
+        }
+        Animal otherAnimal = animals.get(RANDOM.nextInt(animals.size()));
+        if (otherAnimal != animal) {
+            return otherAnimal;
+        } else {
+            return getAnotherRandomAnimal(animal);
+        }
     }
 
     public String getName() {

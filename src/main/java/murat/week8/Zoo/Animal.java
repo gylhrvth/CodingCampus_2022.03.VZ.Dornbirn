@@ -1,4 +1,4 @@
-package murat.week7.day3.Zoo;
+package murat.week8.Zoo;
 
 import java.util.Random;
 
@@ -127,10 +127,14 @@ public class Animal {
 
     public int calculateAnimalConditions() {
 
-        int condition;
+        int condition = 0;
 
-        condition = (int) ((health / maxHealth) * 100);
+        if (health <= maxHealth) {
 
+            condition = (int) ((health / maxHealth) * 100.0);
+        } else {
+            System.out.println("Max Health can not be smaller than current health");
+        }
         return condition;
     }
 
