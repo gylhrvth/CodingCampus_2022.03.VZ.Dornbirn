@@ -107,7 +107,7 @@ public class Carer {
         return null;
     }
 
-    public void simulation01() {
+    public void simulation01InAnEnclosure() {
 
         Enclosure encNeedsCaring = findASuitableEnclosureForCarer(assignedEnclosures);
 

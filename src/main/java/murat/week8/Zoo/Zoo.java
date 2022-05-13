@@ -116,6 +116,16 @@ public class Zoo {
         return addEnclosure(name, false);
     }
 
+
+    // For all carers
+    public void simulation01(){
+        for (Carer aCarer : carers) {
+                aCarer.simulation01InAnEnclosure();
+            }
+    }
+
+
+    // For all enclosures
     public void simulation02(){
 
         for (Enclosure enc : enclosures) {
@@ -195,6 +205,8 @@ public class Zoo {
     public static final String ANSI_BLUE = "\u001B[34m";
 
     public static final String ANSI_GREEN = "\u001B[32m";
+
+    public static final String ANSI_YELLOW = "\u001B[33m";
 
     public static final String UNDERLINE = "\033[4m";
 

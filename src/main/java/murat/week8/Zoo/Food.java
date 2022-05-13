@@ -43,7 +43,7 @@ public class Food {
 
         for (Map.Entry<Food, Float> entry : zoo.foodConsumptionInAZoo().entrySet()) {
             dailyFoodCostForAZoo += zoo.foodConsumptionInAZoo().get(entry.getKey()) * entry.getKey().price;
-            System.out.println("Name: " + Zoo.ANSI_BLUE + entry.getKey().getName() + Zoo.ANSI_RESET + " Price: " + entry.getKey().getPrice() + " Amount: " + entry.getValue());
+            System.out.println("Name: " + Zoo.ANSI_BLUE + entry.getKey().getName() + Zoo.ANSI_RESET + " Price: " + entry.getKey().getPrice() + " Amount: " + entry.getValue() + " Cost: " + (entry.getKey().getPrice() * entry.getValue()));
         }
 
         System.out.println("Total daily cost: " + Zoo.ANSI_RED + dailyFoodCostForAZoo + " €" + Zoo.ANSI_RESET);
