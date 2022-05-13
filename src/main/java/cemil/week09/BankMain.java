@@ -13,14 +13,12 @@ public class BankMain {
         Schalter schalter4 = new Schalter("Gebirge");
 
         List<Kunde> kundes = new ArrayList<>();
-        Kunde kunde1 = new Kunde("Maus",12354);
         Kunde kunde2 = new Kunde("Löwe",24654);
         Kunde kunde3 = new Kunde("Bär",4352);
         Kunde kunde4 = new Kunde("Hase",13456);
         Kunde kunde5 = new Kunde("Esel",377);
         Kunde kunde6 = new Kunde("Schlange",12347);
 
-        kundes.add(kunde1);
         kundes.add(kunde2);
         kundes.add(kunde3);
         kundes.add(kunde4);
