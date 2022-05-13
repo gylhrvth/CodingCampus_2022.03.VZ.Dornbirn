@@ -1,4 +1,4 @@
-package murat.week7.day3.Zoo;
+package murat.week8.Zoo;
 
 public class ZooMain {
     public static void main(String[] args) {
@@ -59,7 +59,7 @@ public class ZooMain {
         Veterinarian vetUgur = zooDarica.addVet("Ugur Sahin");
 
         Veterinarian[] vList = {vetFlo, vetPast, vetUgur};
-        
+
 
         for (int i = 0; i < 100; i++) {
             System.out.println("\nDAY " + (i + 1) + " BEGINS______________________________________________");

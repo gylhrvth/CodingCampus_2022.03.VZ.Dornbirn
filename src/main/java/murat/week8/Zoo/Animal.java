@@ -1,4 +1,4 @@
-package murat.week7.day3.Zoo;
+package murat.week8.Zoo;
 
 import java.util.Random;
 
