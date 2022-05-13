@@ -13,11 +13,11 @@ public class ZooMain {
 
         Enclosure[] encList = {reed, terr, grass, des, alpine};
 
-        Food foodHay = zooDarica.addFood("Hay", "Gramm", 15);
-        Food foodGrass = zooDarica.addFood("Grass", "Gramm", 5);
+        Food foodHay = zooDarica.addFood("Hay", "Gram", 15);
+        Food foodGrass = zooDarica.addFood("Grass", "Gram", 5);
         Food foodWorm = zooDarica.addFood("Worm", "Piece", 25);
         Food foodInsect = zooDarica.addFood("Insect", "Piece", 20);
-        Food foodMeat = zooDarica.addFood("Meat", "Gramm", 50);
+        Food foodMeat = zooDarica.addFood("Meat", "Gram", 50);
 
         Food[] foods = {foodHay, foodGrass, foodWorm, foodInsect, foodMeat};
 
@@ -60,31 +60,37 @@ public class ZooMain {
 
         Veterinarian[] vList = {vetFlo, vetPast, vetUgur};
 
-        zooDarica.printStructure();
+        // zooDarica.printStructure();
 
-        // Simulation 0.1-----------------------
-        System.out.println(Zoo.BOLD + "\n------------SIM 0.1 - ANIMAL CARERS ON DUTY------------\n" + Zoo.BOLD_RESET);
-        for (Carer aCarer : cList) {
-            aCarer.simulation01();
+        for (int i = 0; i < 10; i++) {
+            System.out.println("\nDAY " + (i + 1) + " BEGINS______________________________________________");
+            // Simulation 0.1-----------------------
+            System.out.println(Zoo.BOLD + "\n------------SIM 0.1 - ANIMAL CARERS ON DUTY------------\n" + Zoo.BOLD_RESET);
+            for (Carer aCarer : cList) {
+                aCarer.simulation01();
+            }
+
+            // Simulation 0.2-----------------------
+            System.out.println(Zoo.BOLD + "\n--------------SIM 0.2 - NATURAL SELECTION------------" + Zoo.BOLD_RESET);
+            for (Enclosure enc : encList) {
+                System.out.println(Zoo.ANSI_CYAN + Zoo.BOLD + "\nCurrent Enclosure---> " + enc + Zoo.ANSI_RESET + Zoo.BOLD_RESET);
+                enc.simulation02();
+            }
+
+            System.out.println();
+
+            // Simulation 0.3-----------------------
+            System.out.println(Zoo.BOLD + "\n------------SIM 0.3 - HEALING PROCESS------------" + Zoo.BOLD_RESET);
+            zooDarica.simulation03();
+
+            // Food Consumption-----------------------
+            System.out.println(Zoo.BOLD + "\n--------------DAILY FOOD CONSUMPTION------------\n" + Zoo.BOLD_RESET);
+            foodHay.foodStatistics(zooDarica);
+
+            System.out.println();
+            zooDarica.printStructure();
         }
 
-        // Simulation 0.2-----------------------
-        System.out.println(Zoo.BOLD + "\n--------------SIM 0.2 - NATURAL SELECTION------------" + Zoo.BOLD_RESET);
-        for (Enclosure enc : encList) {
-            System.out.println(Zoo.ANSI_CYAN + Zoo.BOLD + "\nCurrent Enclosure---> " + enc + Zoo.ANSI_RESET + Zoo.BOLD_RESET);
-            enc.simulation02();
-        }
-
-        System.out.println();
-        zooDarica.printStructure();
-
-        // Simulation 0.3-----------------------
-        System.out.println(Zoo.BOLD + "\n------------SIM 0.3 - HEALING PROCESS------------" + Zoo.BOLD_RESET);
-        zooDarica.simulation03();
-
-        // Food Consumption-----------------------
-        System.out.println(Zoo.BOLD + "\n--------------DAILY FOOD CONSUMPTION------------\n" + Zoo.BOLD_RESET);
-        foodHay.foodStatistics(zooDarica);
     }
 
     public static void printEnclosureList(Enclosure[] enclosures) {

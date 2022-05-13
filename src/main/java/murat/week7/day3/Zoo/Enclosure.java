@@ -117,7 +117,8 @@ public class Enclosure {
 
         int worstCondition = 100;
         Animal weakestAnimal = null;
-        if (this.animals.size() != 0) {
+
+        if (this.animals.size() > 0) {
             for (Animal animal : animals) {
 
                 int condition = animal.calculateAnimalConditions();
