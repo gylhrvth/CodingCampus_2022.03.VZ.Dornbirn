@@ -84,7 +84,7 @@ public class Enclosure {
         return animals;
     }
 
-    public void simulation02() {
+    public void simulation02InAnEnclosure() {
 
         if (animals.size() >= 2) {      // There are needed at least 2 animals
             for (int indexOfAgressiveAnimal = 0; indexOfAgressiveAnimal < animals.size(); indexOfAgressiveAnimal++) {

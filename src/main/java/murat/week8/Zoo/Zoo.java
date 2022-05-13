@@ -117,6 +117,14 @@ public class Zoo {
         return addEnclosure(name, false);
     }
 
+    public void simulation02(){
+
+        for (Enclosure enc : enclosures) {
+            System.out.println(Zoo.ANSI_CYAN + Zoo.BOLD + "\nCurrent Enclosure---> " + enc + Zoo.ANSI_RESET + Zoo.BOLD_RESET);
+            enc.simulation02InAnEnclosure();
+        }
+    }
+
     public void simulation03() {
 
         Random rand = new Random();

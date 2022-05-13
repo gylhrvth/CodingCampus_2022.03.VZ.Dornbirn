@@ -59,10 +59,9 @@ public class ZooMain {
         Veterinarian vetUgur = zooDarica.addVet("Ugur Sahin");
 
         Veterinarian[] vList = {vetFlo, vetPast, vetUgur};
+        
 
-        // zooDarica.printStructure();
-
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 100; i++) {
             System.out.println("\nDAY " + (i + 1) + " BEGINS______________________________________________");
             // Simulation 0.1-----------------------
             System.out.println(Zoo.BOLD + "\n------------SIM 0.1 - ANIMAL CARERS ON DUTY------------\n" + Zoo.BOLD_RESET);
@@ -72,10 +71,7 @@ public class ZooMain {
 
             // Simulation 0.2-----------------------
             System.out.println(Zoo.BOLD + "\n--------------SIM 0.2 - NATURAL SELECTION------------" + Zoo.BOLD_RESET);
-            for (Enclosure enc : encList) {
-                System.out.println(Zoo.ANSI_CYAN + Zoo.BOLD + "\nCurrent Enclosure---> " + enc + Zoo.ANSI_RESET + Zoo.BOLD_RESET);
-                enc.simulation02();
-            }
+            zooDarica.simulation02();
 
             System.out.println();
 
