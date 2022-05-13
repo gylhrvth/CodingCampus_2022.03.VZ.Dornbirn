@@ -1,8 +1,7 @@
-package lukas.week8;
+package lukas.week8.day4;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 public class Rehearsal {
     public static void main(String[] args) {

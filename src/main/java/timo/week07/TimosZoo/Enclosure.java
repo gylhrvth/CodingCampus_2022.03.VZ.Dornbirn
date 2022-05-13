@@ -52,8 +52,8 @@ public class Enclosure {
     }
 
 
-    public Animal addAnimal(String name, String species, Food food, int dailyNeed) {
-        Animal a = new Animal(name, species, food, dailyNeed);
+    public Animal addAnimal(String name, String species, Food food, int dailyNeed, int health, int damage, int attackChance) {
+        Animal a = new Animal(name, species, food, dailyNeed, health, damage, attackChance);
         animals.add(a);
         return a;
     }
@@ -69,13 +69,63 @@ public class Enclosure {
     public void feedAnimals(Enclosure en) {
         System.out.println(">> Proceeding to feed animals and clean enclosure <<");
         for (int i = 0; i < en.getAnimals().size(); i++) {
-            System.out.print(" ".repeat(20));
             System.out.println("Feeding: " + en.getAnimals().get(i));
         }
     }
 
     public void getRandomAnimalofEn(Enclosure en) {
         System.out.println("- Randomly watching: " + en.getAnimals().get(rand.nextInt(en.getAnimals().size())));
+    }
+
+    public void foodSimulator(HashMap<Food, Integer> food) {
+        for (Animal an : animals) {
+            an.foodSimulator(food);
+        }
+    }
+
+
+    public Animal getAnimalWithMinHealth() {
+       Animal result = null;
+        for (Animal animalInNeed: animals){
+            if (result == null) {
+                result = animalInNeed;
+            } else if (animalInNeed != null){
+                double relHealthOfResult = result.getHealth() / (double)result.getMaxHealth();
+                double relHealthOfAnimalInNeed = animalInNeed.getHealth() / (double)animalInNeed.getMaxHealth();
+                if (relHealthOfAnimalInNeed < relHealthOfResult){
+                    result = animalInNeed;
+                }
+            }
+        }
+        return result;
+    }
+
+    public void simulate() {
+        Vector<Animal> deadAnimals = new Vector<>();
+        for (Animal animal: animals){
+            if ((animal.getHealth() > 0) && (rand.nextInt(100) < animal.getAttackChance())){
+                if(animals.size() <= 1) {
+                    break;
+                }
+                Animal victim = animal;
+                while (victim.equals(animal)) {
+                    victim = animals.get(rand.nextInt(animals.size()));
+                }
+                if (victim.getHealth() > 0) {
+                    int newHealth = Math.max(0, victim.getHealth() - animal.getDamage());
+                    victim.setHealth(newHealth);
+                    System.out.println();
+                    System.out.printf("%1$s bit %2$s! %2$s's remaining health is %3$d%n", animal.getName(), victim.getName(), newHealth);
+                    if (newHealth <= 0) {
+                        System.out.printf("\u001B[31m" + "%s died :(" + "\u001B[0m", victim.getName());
+                        deadAnimals.add(victim);
+                    }
+                }
+            }
+        }
+        for (Animal deadAnimal: deadAnimals){
+            animals.remove(deadAnimal);
+        }
     }
 }
 

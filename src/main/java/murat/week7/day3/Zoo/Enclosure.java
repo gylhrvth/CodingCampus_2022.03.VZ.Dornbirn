@@ -1,8 +1,6 @@
 package murat.week7.day3.Zoo;
 
-import java.util.List;
-import java.util.Random;
-import java.util.Vector;
+import java.util.*;
 
 public class Enclosure {
     private String name;
@@ -73,9 +71,9 @@ public class Enclosure {
         return name;
     }
 
-    public Animal addAnimal(String name, String species, float health, int maxHealth, float bite, String foodName, float amountOfFood) {
+    public Animal addAnimal(String name, String species, float health, int maxHealth, float bite, Food foodName, float amountOfFood) {
 
-        Animal ani = new Animal(name, species, health, maxHealth, bite, foodName,amountOfFood);
+        Animal ani = new Animal(name, species, health, maxHealth, bite, foodName, amountOfFood);
         animals.add(ani);
         return ani;
     }
@@ -133,6 +131,29 @@ public class Enclosure {
         }
 
         return weakestAnimal;
+    }
+
+    // Calculate food consumption in a enclosure
+    public Map<Food, Float> foodConsumptionInAnEnclosure() {
+
+        Map<Food, Float> foodConsumptionAtThisEnclosure = new HashMap<>();
+
+        for (int i = 0; i < getAnimals().size(); i++) {
+            Food nextFood = getAnimals().get(i).getFood();
+            if (foodConsumptionAtThisEnclosure.containsKey(nextFood)) {
+
+                // If there is already an entry, accumulate them.
+                foodConsumptionAtThisEnclosure.put(nextFood, (foodConsumptionAtThisEnclosure.get(nextFood) + getAnimals().get(i).getAmountOfFood()));
+
+            } else {
+
+                // If not, create a new entry in map
+                foodConsumptionAtThisEnclosure.put(nextFood, getAnimals().get(i).getAmountOfFood());
+            }
+        }
+
+        return foodConsumptionAtThisEnclosure;
+
     }
 }
 

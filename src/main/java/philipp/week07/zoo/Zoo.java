@@ -2,10 +2,7 @@ package philipp.week07.zoo;
 
 import sergej.week04.NewRandom;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
-import java.util.Vector;
+import java.util.*;
 
 public class Zoo {
     Random rn = new Random();
@@ -64,26 +61,42 @@ public class Zoo {
         }
     }
 
-    //Simulation 0.1
-    public void takeCareOfZooAreas() {
-        for (AnimalKeeper animalKeeper : animalKeepers) {
-            System.out.println(animalKeeper.getName() + ": ");
-            animalKeeper.printListAreasToWork();
+    //Simulation 0.1 + 0.2 + 0.3
+    public void takeCareOfZooAreas(int days) {
+        int dayForListAreasToWork = 0;
+        for (int i = 0; i < days; i++) {
+            System.out.println("Day " + (i + 1));
+            for (AnimalKeeper animalKeeper : animalKeepers) {
+                System.out.println(animalKeeper.getName() + ": ");
+                animalKeeper.printListAreasToWork(dayForListAreasToWork);
+                System.out.println();
+            }
+            for (AnimalArea a : animalArea) {
+                if (!a.getAnimals().isEmpty()) {
+                    a.animalFight();
+                }
+            }
+            healingAnimals();
             System.out.println();
+            dayForListAreasToWork++;
+//        for (AnimalKeeper animalKeeper : animalKeepers) {
+//            System.out.println(animalKeeper.getName() + ": ");
+//            animalKeeper.printListAreasToWork();
+//            System.out.println();
+//        }
+//        System.out.println();
         }
-        System.out.println();
     }
 
     //Bonusaufgabe Tierfutter
     public void requiredFoodCost() {
-        HashMap<String, Float> feedUseDay = new HashMap<>();
+        Map<String, Float> feedUseDay = new HashMap<>();
         for (AnimalArea area : animalArea) {
-            for (int j = 0; j < area.getAnimals().size(); j++) {
-                Animal a = area.getAnimals().get(j);
-                if (feedUseDay.containsKey(a.getNeededFeed().getNameFeed())) {
-                    feedUseDay.put(a.getNeededFeed().getNameFeed(), feedUseDay.get(a.getNeededFeed().getNameFeed()) + a.getRequiredFoodDay());
+            for (String key : area.requiredFoodArea().keySet()) {
+                if (feedUseDay.containsKey(key)) {
+                    feedUseDay.put(key, feedUseDay.get(key) + area.requiredFoodArea().get(key));
                 } else {
-                    feedUseDay.put(a.getNeededFeed().getNameFeed(), a.getRequiredFoodDay());
+                    feedUseDay.put(key, area.requiredFoodArea().get(key));
                 }
             }
         }
@@ -106,12 +119,12 @@ public class Zoo {
 
     //Simulation 0.3
     public void healingAnimals() {
-        HashMap<Animal, Integer> animalsToHeal = new HashMap<>();
+        List<Animal> animalsToHeal = new Vector<>();
         for (AnimalArea area : animalArea) {
             for (int j = 0; j < area.getAnimals().size(); j++) {
                 Animal a = area.getAnimals().get(j);
                 if (a.getHealth() > 0) {
-                    animalsToHeal.put(a, a.getHealth());
+                    animalsToHeal.add(a);
                 }
             }
         }

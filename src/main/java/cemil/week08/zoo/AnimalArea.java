@@ -3,15 +3,19 @@ package cemil.week08.zoo;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 import java.util.Vector;
 
 public class AnimalArea {
     private String name;
+    private Zoo zoo;
     private List<Animal> animals = new Vector<>();
     private int lastDayHasCleared;
+    private static Random rand = new Random();
 
 
     public AnimalArea(String name) {
+        this.zoo = zoo;
         this.name = name;
         lastDayHasCleared = 0;
     }
@@ -45,6 +49,30 @@ public class AnimalArea {
         }
     }
 
+    public void simulateAttack() {
+        Vector<Animal> deadAnimals = new Vector<>();
+        for (Animal animal : animals) {
+            if ((animal.getHealthy() > 0)) {
+                Animal victom = animal;
+                while (victom.equals(animal)) {
+                    victom = animals.get(rand.nextInt(animals.size()));
+                }
+                if (victom.getHealthy() > 0) {
+                    int newHealth = Math.max(0, victom.getHealthy() - animal.getDamage());
+                    victom.setHealth(newHealth);
+                    System.out.println(animal.getName() + victom.getName() + newHealth);
+                    if (newHealth <= 0) {
+                        System.out.println(victom.getName());
+                        deadAnimals.add(victom);
+                    }
+                }
+            }
+
+        }
+        for (Animal deadAnimal : deadAnimals) {
+            animals.remove(deadAnimal);
+        }
+    }
 
 
     public void removeAnimal(Animal animal) {
@@ -82,4 +110,21 @@ public class AnimalArea {
         return out;
     }
 
+    public Animal getAnimalWithMinHealth() {
+        Animal result = null;
+        for (Animal animalNeed : animals) {
+            if (result == null) {
+                result = animalNeed;
+            } else if (animalNeed != null) {
+                double relHealthOfResult = result.getHealthy() / (double) result.getHealthyMax();
+                double relHealthOfResultNeed = animalNeed.getHealthy() / (double) animalNeed.getHealthyMax();
+                if (relHealthOfResultNeed < relHealthOfResult) {
+                    result = animalNeed;
+                }
+            }
+
+        }
+        return result;
+    }
 }
+

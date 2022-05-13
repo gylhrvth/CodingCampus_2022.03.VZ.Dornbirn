@@ -1,6 +1,8 @@
 package sergej.week07.zoo;
 
 
+
+
 public class Main {
     public static void main(String[] args) {
 
@@ -29,6 +31,8 @@ public class Main {
         Animal guppy2 = new Animal(zoo, canWorms, "Aquarium (warm)", "Nimrod", "Guppy", "FishFood", "Bucket", 1, 10, 5, 40);
         Animal guppy3 = new Animal(zoo, canWorms, "Aquarium (warm)", "Noemi", "Guppy", "Worms", "Can", 2, 10, 5, 40);
 
+        new Veterian(zoo, "Dr. Dolittle");
+        new Veterian(zoo, "Dr. Dexter");
 
         zoo.addFood(canWorms);
         zoo.addFood(bushWheat);

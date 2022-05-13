@@ -1,6 +1,8 @@
 package cemil.week08.zoo;
 
 
+
+
 public class MainZoo {
     public static void main(String[] args) {
         Zoo dornbirn = new Zoo("Tiergarten Dornbirn", 2022);
@@ -18,23 +20,28 @@ public class MainZoo {
         AnimalKeeper franz = new AnimalKeeper(dornbirn, "Franz");
         AnimalKeeper helga = new AnimalKeeper(dornbirn, "Helga");
 
+        Veterian dr1 = new Veterian("Dr. Dolittle");
+        Veterian dr2 = new Veterian("Dr. Dexter");
+        Veterian dr3 = new Veterian("Dr. Daniella");
+
+
         AnimalArea area = new AnimalArea("Alpenwiese");
         area.addAnimal(animalCow);
-        animalCow.addHealthAndBite(80,100,5);
+        animalCow.addHealthAndBite(80,18);
         area.addAnimal(animalCow1);
-        animalCow1.addHealthAndBite(80,100,5);
+        animalCow1.addHealthAndBite(80,11);
         area.addAnimal(animalCow2);
-        animalCow2.addHealthAndBite(80,100,5);
+        animalCow2.addHealthAndBite(80,25);
         AnimalArea area1 = new AnimalArea("Ried");
         area1.addAnimal(animal2);
-        animal2.addHealthAndBite(80,100,5);
+        animal2.addHealthAndBite(80,23);
         area1.addAnimal(animal3);
-        animal3.addHealthAndBite(80,100,5);
+        animal3.addHealthAndBite(80,20);
         area1.addAnimal(animal4);
-        animal4.addHealthAndBite(80,100,5);
+        animal4.addHealthAndBite(80,12);
         AnimalArea area2 = new AnimalArea("Terrarium (warm)");
         area2.addAnimal(animal5);
-        animal5.addHealthAndBite(0,100,0);
+        animal5.addHealthAndBite(0,0);
         dornbirn.addArea(area);
         dornbirn.addArea(area1);
         dornbirn.addArea(area2);
@@ -55,6 +62,10 @@ public class MainZoo {
         area1.setLastDayHasCleared(1);
         area2.setLastDayHasCleared(1);
 
+        dornbirn.addVeterian(dr1);
+        dornbirn.addVeterian(dr2);
+        dornbirn.addVeterian(dr3);
+
 
         dornbirn.takeCareOfZooAreas();
         karl.viewAnimalInArea(area);
@@ -65,6 +76,8 @@ public class MainZoo {
         Feed frosch = dornbirn.searchFoodByName("Frosch");
         frosch.setUnit("Stück");
         frosch.setUnitPrice(25);
+
+        dornbirn.printStructure();
 
         for (int day = 1; day <= 5; day++) {
             dornbirn.simulate(day);

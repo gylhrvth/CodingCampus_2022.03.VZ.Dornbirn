@@ -1,6 +1,5 @@
 package murat.week7.day3.Zoo;
 
-import java.util.HashMap;
 import java.util.Random;
 
 public class Animal {
@@ -14,18 +13,18 @@ public class Animal {
 
     private float bite;
 
-    private String foodName;
+    private Food food;
 
     private float amountOfFood;
 
-    public Animal(String name, String species, float health, int maxHealth, float bite, String foodName, float amountOfFood) {
+    public Animal(String name, String species, float health, int maxHealth, float bite, Food foodName, float amountOfFood) {
 
         this.name = name;
         this.species = species;
         this.health = health;
         this.maxHealth = maxHealth;
         this.bite = bite;
-        this.foodName = foodName;
+        this.food = foodName;
         this.amountOfFood = amountOfFood;
 
     }
@@ -53,6 +52,16 @@ public class Animal {
     public float getBite() {
 
         return bite;
+    }
+
+    public Food getFood() {
+
+        return food;
+    }
+
+    public float getAmountOfFood() {
+
+        return amountOfFood;
     }
 
     public void setName(String name) {
@@ -101,7 +110,7 @@ public class Animal {
 
     public void printStructure() {
 
-        System.out.println(Zoo.ANSI_GREEN + "│       ├── " + name + ", " + species + ", " + (int) health + "-" + maxHealth + "-" + (int) bite + "-" + foodName + "-" + amountOfFood + " gr." + Zoo.ANSI_RESET);
+        System.out.println(Zoo.ANSI_GREEN + "│       ├── " + name + ", " + species + ", " + (int) health + "-" + maxHealth + "-" + (int) bite + "-" + food + "-" + amountOfFood + " gr." + Zoo.ANSI_RESET);
     }
 
     public boolean possibilityOfAnAttack() {

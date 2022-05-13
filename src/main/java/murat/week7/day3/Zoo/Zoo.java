@@ -1,8 +1,7 @@
 package murat.week7.day3.Zoo;
 
-import java.util.List;
-import java.util.Random;
-import java.util.Vector;
+import javax.imageio.metadata.IIOMetadataFormatImpl;
+import java.util.*;
 
 public class Zoo {
     private String name;
@@ -17,7 +16,7 @@ public class Zoo {
 
     private List<Veterinarian> vets = new Vector<>();
 
-    private List<Feed> feeds = new Vector<>();
+    private List<Food> foods = new Vector<>();
 
     public Zoo(String name, String city, int establishedIn) {
 
@@ -56,9 +55,9 @@ public class Zoo {
         return vets;
     }
 
-    public List<Feed> getFeeds() {
+    public List<Food> getFoods() {
 
-        return feeds;
+        return foods;
     }
 
     public void printStructure() {
@@ -94,6 +93,13 @@ public class Zoo {
         return c;
     }
 
+    public Food addFood(String name, String unit, float price) {
+
+        Food f = new Food(name, unit, price);
+        foods.add(f);
+        return f;
+    }
+
     public Veterinarian addVet(String name) {
 
         Veterinarian v = new Veterinarian(this, name);
@@ -112,7 +118,6 @@ public class Zoo {
     }
 
     public void simulation03() {
-
 
         Random rand = new Random();
         int randomNumber = rand.nextInt(30, 100);
@@ -142,6 +147,28 @@ public class Zoo {
             count++;
         }
 
+    }
+
+    // Calculate total food consumption in a zoo.
+    public Map<Food, Float> foodConsumptionInAZoo() {
+
+        Map<Food, Float> foodConsumptionAtThisZoo = new HashMap<>();
+
+        for (Enclosure enclosure : enclosures) {
+            for (Map.Entry<Food, Float> entry : enclosure.foodConsumptionInAnEnclosure().entrySet()) {
+                if (foodConsumptionAtThisZoo.containsKey(entry.getKey())) {
+
+                    // If there is already an entry, accumulate them.
+                    foodConsumptionAtThisZoo.put(entry.getKey(), foodConsumptionAtThisZoo.get(entry.getKey()) + entry.getValue());
+                } else {
+
+                    // If not, create a new entry in map
+                    foodConsumptionAtThisZoo.put(entry.getKey(), entry.getValue());
+                }
+            }
+        }
+
+        return foodConsumptionAtThisZoo;
     }
 
     public static final String ANSI_RED = "\u001B[31m";

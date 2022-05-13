@@ -31,7 +31,7 @@ public class AnimalKeeper {
         return aa;
     }
 
-    public Animal addFavoriteAnimal(Animal a){
+    public Animal addFavoriteAnimal(Animal a) {
         this.favoriteAnimal = a;
         return favoriteAnimal;
     }
@@ -40,8 +40,7 @@ public class AnimalKeeper {
         return areasToWork;
     }
 
-    public void printListAreasToWork() {
-        int currentDay = 0;
+    public void printListAreasToWork(int currentDay) {
         for (AnimalArea animalArea : areasToWork) {
             System.out.print(animalArea + ": ");
             if (animalArea.clearArea(currentDay)) {
@@ -55,16 +54,15 @@ public class AnimalKeeper {
         System.out.println();
         animalArea.randomAnimalOfArea();
         admiringAnimal(animalArea);
-        System.out.println();
-        animalArea.animalFight(12);
+//        System.out.println();
     }
 
-    public void admiringAnimal (AnimalArea aa){
-        if (aa.getAnimals().contains(favoriteAnimal)){
-            System.out.println("Admiring my favorite Animal: "+ favoriteAnimal);
-            }else{
-            System.out.println("My favorite Animal is "+favoriteAnimal +".\n"
-            +"But unfortunately it is not in this Animal area.");
+    public void admiringAnimal(AnimalArea aa) {
+        if (aa.getAnimals().contains(favoriteAnimal)) {
+            System.out.println("Admiring my favorite Animal: " + favoriteAnimal.getName());
+        } else {
+            System.out.println("My favorite Animal is " + favoriteAnimal.getName() + ".\n"
+                    + "But unfortunately it is not in this Animal area.");
         }
     }
 }

@@ -53,10 +53,10 @@ public class Zoo {
     }
 
 
-    public Enclosure addEnclosure(String name) {
-        Enclosure e = new Enclosure(name);
-        enclosures.add(e);
-        return e;
+    public void addEnclosure(Enclosure enc) {
+        if (!enclosures.contains(enc)){
+            enclosures.add(enc);
+        }
     }
 
     public Enclosure searchEnclosureByName(String name) {
@@ -65,7 +65,7 @@ public class Zoo {
                 return enc;
             }
         }
-        return addEnclosure(name);
+        return new Enclosure(this,name);
     }
 
     public Feed searchFoodByName(String name) {
@@ -85,8 +85,12 @@ public class Zoo {
         for (Nurse n : nurses) {
             n.simulate(day, feedStatistik);
         }
-
         printStatistc(feedStatistik);
+
+        for (Enclosure enc: enclosures) {
+            enc.simulateBites();
+
+        }
     }
 
     private void printStatistc(HashMap<Feed, Integer> feedStatistik) {

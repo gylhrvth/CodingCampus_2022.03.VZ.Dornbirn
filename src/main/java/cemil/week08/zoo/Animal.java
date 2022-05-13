@@ -7,28 +7,28 @@ public class Animal {
     private String name;
     private String art;
     private Feed feed;
-    private Integer requirement;
-    private Integer healthy;
-    private Integer healthyMax;
-    private Integer bite;
+    private int requirement;
+    private int healthy;
+    private int healthyMax;
+    private int damage;
 
 
-    public Animal(String name, String art, Feed feed, Integer requirement) {
+
+    public Animal(String name, String art, Feed feed, int requirement) {
         this.name = name;
         this.art = art;
         this.feed = feed;
         this.requirement = requirement;
 
 
+
     }
 
-    public void addHealthAndBite(int h, int hM, int b) {
+    public void addHealthAndBite(int h, int damage) {
         healthy = h;
-        healthyMax = hM;
-        bite = b;
+        healthyMax = h;
+        this.damage = damage;
     }
-
-
 
 
     public String getName() {
@@ -44,16 +44,16 @@ public class Animal {
         }
     }
 
+
     public String toString(String indention) {
         String out = indention + name;
         out += ", " + art;
         out += ", Gesundheit " + healthy;
-        out += ", Maximale Gesundheit " + healthyMax;
-        out += ", beißt " + bite + " mal";
+        out += ", fügt " + damage + " schaden zu";
+
         return out;
     }
 
-    @Override
     public String toString() {
         return toString("");
     }
@@ -62,7 +62,7 @@ public class Animal {
         return healthy;
     }
 
-    public void setHealthy(Integer healthy) {
+    public void setHealth(Integer healthy) {
         this.healthy = healthy;
     }
 
@@ -74,11 +74,13 @@ public class Animal {
         this.healthyMax = healthyMax;
     }
 
-    public Integer getBite() {
-        return bite;
+    public Integer getDamage() {
+        return damage;
     }
 
-    public void setBite(Integer bite) {
-        this.bite = bite;
+    public void setDamage(Integer damage) {
+        this.damage = damage;
     }
+
+
 }

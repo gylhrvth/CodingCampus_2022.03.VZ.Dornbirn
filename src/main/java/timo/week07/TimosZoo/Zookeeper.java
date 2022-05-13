@@ -42,7 +42,7 @@ public class Zookeeper {
         return enclosuresToClean;
     }
 
-    public void printCleaningTasks() {
+    public void simulate() {
         int currentday = 0;
         for (Enclosure enclosure : enclosuresToClean) {
             System.out.println("Assigned to: " + enclosure);

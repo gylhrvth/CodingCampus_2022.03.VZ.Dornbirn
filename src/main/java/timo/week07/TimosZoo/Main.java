@@ -11,15 +11,16 @@ public class Main {
 
         Food meat = new Food("Meat", "kg", 2);
         Food plankton = new Food("Plankton", "g", 20);
-        Food mouse = new Food("Mouse", "bodies", 10);
+        Food mouse = new Food("Mouse", "unit/s", 10);
         Food fish = new Food("Fish", "kg", 20);
 
-        Animal shark = aqua.addAnimal("Boris", "Shark", meat, 50);
-        Animal jellyfish = aqua.addAnimal("Matilda", "Jellyfish", plankton, 10);
-        Animal snake = terra.addAnimal("Salvador", "Snake", mouse, 1);
-        Animal penguin = arc.addAnimal("Cody", "Penguin", fish, 1);
-        Animal polarbear = arc.addAnimal("Stanislaus", "Polarbear", fish, 3);
-        Animal sealion = arc.addAnimal("Sergej", "Sea Lion", fish, 5);
+        Animal shark = aqua.addAnimal("Boris", "Shark", meat, 30, 250, 150, 75);
+        Animal jellyfish = aqua.addAnimal("Matilda", "Jellyfish", plankton, 10, 50, 0, 0);
+        Animal snake = terra.addAnimal("Salvador", "Snake", mouse, 1, 120, 90, 70);
+        Animal croc = terra.addAnimal("Sobek", "Crocodile", meat, 50, 200, 240, 65);
+        Animal penguin = arc.addAnimal("Cody", "Penguin", fish, 1, 60, 15, 5);
+        Animal polarbear = arc.addAnimal("Stanislaus", "Polarbear", fish, 3, 300, 130, 65);
+        Animal sealion = arc.addAnimal("Sergej", "Sea Lion", fish, 5, 500, 90, 50);
 
         aqua.setLastDayCleaned(1);
         terra.setLastDayCleaned(1);
@@ -39,28 +40,21 @@ public class Main {
         cemil.addEnclosure2Clean(terra);
 
 
-
-
-
-
-
+        new Veterinarian(z, "Dr. Doppler");
+        new Veterinarian(z, "Dr. Dragunov");
+        new Veterinarian(z, "Dr. Feynmann");
 
 
         System.out.println(z.toString("├──"));
 
-        for (int i = 0; i <= 5; i++) {
+        for (int i = 0; i < 5; i++) {
             System.out.println();
-            System.out.println("-------------------- DAY " + i + " --------------------");
+            System.out.println("================== DAY " + i + " ==================");
             z.simulate();
             aqua.setLastDayCleaned(1);
             terra.setLastDayCleaned(1);
             arc.setLastDayCleaned(1);
         }
-
-
-
-
-
 
 
     }
