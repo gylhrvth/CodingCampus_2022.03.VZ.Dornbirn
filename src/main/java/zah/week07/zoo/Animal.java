@@ -26,8 +26,7 @@ public class Animal {
     }
     public void bites(Animal anotherAnimal){
         anotherAnimal.health -= this.damage;
-
-
+        System.out.println(getName() + " has attack " + anotherAnimal.getName() + " " + getDamage() + " time , " + anotherAnimal.getName() + " Has " + anotherAnimal.getHealth());
     }
 
     public void feedAnimal(HashMap<Feed, Integer> statistik) {

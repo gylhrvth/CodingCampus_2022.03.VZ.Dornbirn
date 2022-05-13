@@ -10,7 +10,7 @@ public class Zoo {
     private Vector<Enclosure> enclosures;
     private Vector<Nurse> nurses;
     private Vector<Feed> feeds;
-
+    private Vector<Veterinarian> veterianians;
 
     public Zoo(String name, int foundation) {
 
@@ -19,6 +19,7 @@ public class Zoo {
         this.enclosures = new Vector<>();
         this.nurses = new Vector<>();
         this.feeds = new Vector<>();
+        this.veterianians =new Vector<>();
     }
 
 
@@ -31,6 +32,10 @@ public class Zoo {
         }
         for (Enclosure enc : enclosures) {
             out += Zoo.ANSI_GREEN + "\n\t├──" + enc.toString(id) + "\n" + Zoo.ANSI_RESET;
+        }
+        for (Veterinarian vet : veterianians) {
+            out += Zoo.ANSI_BLUE + "\n\t├──" + vet.toString(id) + "\n" + Zoo.ANSI_RESET;
+
         }
         return out;
     }
@@ -54,7 +59,7 @@ public class Zoo {
 
 
     public void addEnclosure(Enclosure enc) {
-        if (!enclosures.contains(enc)){
+        if (!enclosures.contains(enc)) {
             enclosures.add(enc);
         }
     }
@@ -65,7 +70,7 @@ public class Zoo {
                 return enc;
             }
         }
-        return new Enclosure(this,name);
+        return new Enclosure(this, name);
     }
 
     public Feed searchFoodByName(String name) {
@@ -85,12 +90,11 @@ public class Zoo {
         for (Nurse n : nurses) {
             n.simulate(day, feedStatistik);
         }
-        printStatistc(feedStatistik);
-
-        for (Enclosure enc: enclosures) {
-            enc.simulateBites();
-
+        for (Enclosure enc : enclosures) {
+            enc.simulateBites(day);
         }
+
+        printStatistc(feedStatistik);
     }
 
     private void printStatistc(HashMap<Feed, Integer> feedStatistik) {
