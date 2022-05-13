@@ -10,7 +10,7 @@ public class Counter {
     private Bank bank;
 
 
-    public Counter(Bank bank,String name, int maxCapacity) {
+    public Counter(Bank bank, String name, int maxCapacity) {
         this.name = name;
         this.capacity = maxCapacity;
         this.maxCapacity = maxCapacity;
@@ -36,26 +36,46 @@ public class Counter {
         return capacity;
     }
 
-    public int depositToCounter(Transaction trans) {
-        capacity += trans.getValue();
-
-        return capacity;
-    }
-
-
-    public Counter withdrawFromCounter(Transaction trans) {
-        Counter var = this;
-        if (trans.getValue() <= capacity && !var.coffeBreak) {
-            capacity -= trans.getValue();
+    public Counter depositToCounter(Transaction trans) {
+        Counter counter = this;
+        if (trans.getValue() + capacity <= maxCapacity && !counter.coffeBreak) {
+            capacity += trans.getValue();
         } else {
             for (Counter c : bank.getListOfCounters()) {
-                if (!c.coffeBreak) {
-                    var = c;
+                if (trans.getValue() + c.getCapacity() <= c.getMaxCapacity() && !c.coffeBreak) {
+                    counter = c;
+                    return counter;
                 }
 
             }
         }
-        return var;
+
+        return counter;
+    }
+
+
+    public Counter withdrawFromCounter(Transaction trans) {
+        Counter counter = this;
+        if (trans.getValue() <= capacity && !counter.coffeBreak) {
+            capacity -= trans.getValue();
+        } else {
+            for (Counter c : bank.getListOfCounters()) {
+                if (trans.getValue() <= c.getCapacity() && !c.coffeBreak) {
+                    counter = c;
+                    return counter;
+                }
+
+            }
+        }
+        return counter;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public int getMaxCapacity() {
+        return maxCapacity;
     }
 
     public int zero() {
