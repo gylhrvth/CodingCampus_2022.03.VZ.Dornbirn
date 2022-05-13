@@ -7,6 +7,7 @@ public class Main {
         Bank bank = new Bank("Gang Bank");
         Counter counter1 = new Counter(bank, "Counter 1", 500);
         Counter counter2 = new Counter(bank, "Counter2", 1000);
+        Counter counter3 = new Counter(bank, "Counter 3", 100);
 
         Customer customer1 = new Customer("Dieter", 100);
 
@@ -28,9 +29,17 @@ public class Main {
 
         customer1.deposit(50, counter1);
         System.out.println(counter1);
-
+        System.out.println(counter2);
         customer1.withdraw(25, counter1);
         System.out.println(counter1);
         System.out.println(counter2);
+
+        customer1.deposit(25, counter2);
+        System.out.println(counter2);
+        System.out.println(counter3);
+        counter3.empty();
+        System.out.println(counter3);
+        customer1.deposit(50, counter2);
+        System.out.println(counter3);
     }
 }

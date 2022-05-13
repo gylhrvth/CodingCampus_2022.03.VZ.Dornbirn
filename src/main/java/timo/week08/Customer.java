@@ -17,18 +17,21 @@ public class Customer {
 
     }
 
-    public void deposit(int amount, Counter counter){
-        Transaction tn = new Transaction(this,counter);
-        tn.setValue(amount);
-        counter.depositToCounter(tn);
-    }
 
-    public void withdraw(int amount, Counter counter){
-        Transaction tn = new Transaction(this,counter);
+    public void withdraw(int amount, Counter counter) {
+        Transaction tn = new Transaction(this, counter);
         tn.setValue(amount);
         Counter var = counter.withdrawFromCounter(tn);
         var.withdrawFromCounter(tn);
         System.out.println(Customer.this.getName() + " withdrawed " + tn.getValue() + "€ from " + counter);
+    }
+
+    public void deposit(int amount, Counter counter) {
+        Transaction tn = new Transaction(this, counter);
+        tn.setValue(amount);
+        counter.depositToCounter(tn);
+        Counter var = counter.depositToCounter(tn);
+        var.depositToCounter(tn);
     }
 
     public int getMoney() {

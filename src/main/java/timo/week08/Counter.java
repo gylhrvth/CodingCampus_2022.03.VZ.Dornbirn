@@ -32,10 +32,21 @@ public class Counter {
         return capacity;
     }
 
-    public int depositToCounter(Transaction trans) {
-        capacity += trans.getValue();
+    public Counter depositToCounter(Transaction trans) {
+       Counter counter = this;
+        if (trans.getValue() + capacity <= maxCapacity && !counter.coffeBreak) {
+            capacity += trans.getValue();
+        } else {
+            for (Counter c : bank.getListOfCounters()) {
+                if (trans.getValue() + c.getCapacity() <= c.getMaxCapacity() && !c.coffeBreak) {
+                    counter = c;
+                    return counter;
+                }
 
-        return capacity;
+            }
+        }
+
+        return counter;
     }
 
 
@@ -45,7 +56,7 @@ public class Counter {
             capacity -= trans.getValue();
         } else {
             for (Counter c : bank.getListOfCounters()) {
-                if (!c.coffeBreak) {
+                if (trans.getValue() <= c.getCapacity() && !c.coffeBreak) {
                     counter = c;
                     return counter;
                 }
@@ -60,5 +71,11 @@ public class Counter {
         return capacity;
     }
 
+    public int getCapacity() {
+        return capacity;
+    }
 
+    public int getMaxCapacity() {
+        return maxCapacity;
+    }
 }
