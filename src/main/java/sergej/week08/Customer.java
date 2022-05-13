@@ -20,7 +20,7 @@ public class Customer {
     public void deposit(int amount, Counter counter) {
         Transaction tn = new Transaction(this, counter);
         tn.setValue(amount);
-        counter.depositToCounter(tn);
+        // counter.depositToCounter(tn);
         Counter var = counter.depositToCounter(tn);
         var.depositToCounter(tn);
     }
@@ -34,5 +34,15 @@ public class Customer {
 
     public int getMoney() {
         return money;
+    }
+
+    public Counter checkCounter(Bank bank) {
+        for (Counter c : bank.getListOfCounters()) {
+            if (!c.getCoffeeBreak()) {
+                return c;
+            }
+
+        }
+        return null;
     }
 }

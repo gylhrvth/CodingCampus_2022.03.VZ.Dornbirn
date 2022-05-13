@@ -82,4 +82,8 @@ public class Counter {
         capacity = 0;
         return capacity;
     }
+
+    public boolean getCoffeeBreak(){
+        return coffeBreak;
+    }
 }
