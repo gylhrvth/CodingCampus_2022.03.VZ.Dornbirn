@@ -94,5 +94,21 @@ public class Enclosure {
             an.feedAnimal(statistik);
         }
     }
+
+    public zah.week07.zoo.Animal getAnimalWithMinHealth() {
+        zah.week07.zoo.Animal result = null;
+        for (Animal animalInNeed : animals) {
+            if (result == null) {
+                result = animalInNeed;
+            } else if (animalInNeed != null) {
+                double relHealthOfResult = result.getHealth() / (double) result.getMaxHealth();
+                double relHealthOfAnimalInNeed = animalInNeed.getHealth() / (double) animalInNeed.getMaxHealth();
+                if (relHealthOfAnimalInNeed < relHealthOfResult) {
+                    result = animalInNeed;
+                }
+            }
+        }
+        return result;
+    }
 }
 

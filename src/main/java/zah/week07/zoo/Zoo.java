@@ -19,9 +19,14 @@ public class Zoo {
         this.enclosures = new Vector<>();
         this.nurses = new Vector<>();
         this.feeds = new Vector<>();
-        this.veterianians =new Vector<>();
+        this.veterianians = new Vector<>();
     }
 
+    public void addVeterinarian(Veterinarian vet) {
+        if (!veterianians.contains(vet)) {
+            veterianians.add(vet);
+        }
+    }
 
     public String toString(String id) {
         String out = id + "├──";
@@ -93,8 +98,30 @@ public class Zoo {
         for (Enclosure enc : enclosures) {
             enc.simulateBites(day);
         }
+        for (Veterinarian vet : veterianians) {
+            vet.simulateVet(day);
+
+
+        }
 
         printStatistc(feedStatistik);
+    }
+
+    public Animal getAnimalWithMinHealth() {
+        Animal result = null;
+        for (Enclosure enc : enclosures) {
+            Animal animalInNeed = enc.getAnimalWithMinHealth();
+            if (result == null) {
+                result = animalInNeed;
+            } else if (animalInNeed != null) {
+                double relHealthOfResult = result.getHealth() / (double) result.getMaxHealth();
+                double relHealthOfAnimalInNeed = animalInNeed.getHealth() / (double) animalInNeed.getMaxHealth();
+                if (relHealthOfAnimalInNeed < relHealthOfResult) {
+                    result = animalInNeed;
+                }
+            }
+        }
+        return result;
     }
 
     private void printStatistc(HashMap<Feed, Integer> feedStatistik) {
@@ -115,6 +142,7 @@ public class Zoo {
     public static final String ANSI_BLUE = "\u001B[34m";
 
     public static final String ANSI_GREEN = "\u001B[32m";
+
 
 }
 

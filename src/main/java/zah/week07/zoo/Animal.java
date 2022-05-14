@@ -22,9 +22,9 @@ public class Animal {
         this.maxHealth = maxHealth;
         this.damage = damage;
 
-
     }
-    public void bites(Animal anotherAnimal){
+
+    public void bites(Animal anotherAnimal) {
         anotherAnimal.health -= this.damage;
         System.out.println(getName() + " has attack " + anotherAnimal.getName() + " " + getDamage() + " time , " + anotherAnimal.getName() + " Has " + anotherAnimal.getHealth());
     }
@@ -38,11 +38,10 @@ public class Animal {
         }
     }
 
-
     public String toString(String indention) {
         String out = indention + name;
         out += " " + species;
-        out+= " "+ health+ " "+ damage;
+        out += " " + health + " " + damage;
         return out;
     }
 
