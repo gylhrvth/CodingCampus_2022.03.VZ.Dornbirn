@@ -46,8 +46,7 @@ public class Zoo {
     }
 
     @Override
-    public String toString() {
-        return toString("");
+    public String toString() {return toString("");
     }
 
     public Feed addFeed(String name) {
@@ -100,8 +99,6 @@ public class Zoo {
         }
         for (Veterinarian vet : veterianians) {
             vet.simulateVet(day);
-
-
         }
 
         printStatistc(feedStatistik);

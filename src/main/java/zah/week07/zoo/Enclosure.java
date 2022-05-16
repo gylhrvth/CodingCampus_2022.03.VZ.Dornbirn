@@ -95,8 +95,8 @@ public class Enclosure {
         }
     }
 
-    public zah.week07.zoo.Animal getAnimalWithMinHealth() {
-        zah.week07.zoo.Animal result = null;
+    public Animal getAnimalWithMinHealth() {
+        Animal result = null;
         for (Animal animalInNeed : animals) {
             if (result == null) {
                 result = animalInNeed;
