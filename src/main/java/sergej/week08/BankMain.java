@@ -6,8 +6,9 @@ public class BankMain {
         Bank bank = new Bank("Sparkasse");
         Counter counter1 = new Counter(bank,"Counter 1",500);
         Customer customer1 = new Customer("Hans",100);
+        Customer customer2 = new Customer("Franz",200);
         Counter counter2 = new Counter(bank,"Counter2",1000);
-        Counter counter3 = new Counter(bank,"Counter 3",1000);
+        Counter counter3 = new Counter(bank,"Counter 3",2000);
 
 
         bank.addCounter(counter2);
@@ -15,38 +16,17 @@ public class BankMain {
         bank.addCounter(counter3);
 
 
+        customer1.withdraw(500,customer1.checkCounter(bank));
         System.out.println(bank);
-
-        System.out.println(counter1);
-
-        counter1.zero();
-        System.out.println(counter1);
-
-        counter1.fillCounter();
-        System.out.println(counter1);
-
-        counter1.zero();
-        System.out.println(counter1);
-
-        customer1.deposit(50,counter1);
-        System.out.println(counter1);
-        System.out.println(counter2);
-        customer1.withdraw(25,counter1);
-        System.out.println(counter1);
-        System.out.println(counter2);
-
-        customer1.deposit(25,counter2);
-        System.out.println(counter2);
-        System.out.println(counter3);
-        counter3.zero();
-        System.out.println(counter3);
-        customer1.deposit(50,counter2);
-        System.out.println(counter3);
-
-        customer1.checkCounter(bank);
         customer1.deposit(100,customer1.checkCounter(bank));
-
         System.out.println(bank);
+
+        customer2.withdraw(1000,customer2.checkCounter(bank));
+        System.out.println(bank);
+        customer2.deposit(10,customer2.checkCounter(bank));
+        System.out.println(bank);
+
+
     }
 
 
