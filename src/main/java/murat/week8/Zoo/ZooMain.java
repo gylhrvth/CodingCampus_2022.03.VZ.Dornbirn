@@ -9,7 +9,7 @@ public class ZooMain {
         // ZOO WORLD
         for (int i = 0; i < 10; i++) {
             System.out.println(Zoo.ANSI_YELLOW + "\nDAY " + (i + 1) + " BEGINS________________________________________________________________________________" + Zoo.ANSI_RESET);
-            // Simulation 0.1-----------------------
+
             System.out.println(Zoo.BOLD + "\n------------SIM 0.1 - ANIMAL CARERS ON DUTY------------\n" + Zoo.BOLD_RESET);
             zooDarica.simulation01();
 
