@@ -8,7 +8,7 @@ public class BankMain {
         Customer customer1 = new Customer("Hans",100);
         Customer customer2 = new Customer("Franz",200);
         Counter counter2 = new Counter(bank,"Counter2",1000);
-        Counter counter3 = new Counter(bank,"Counter 3",2000);
+        Counter counter3 = new Counter(bank,"Counter 3",5000);
 
 
         bank.addCounter(counter2);
@@ -16,12 +16,12 @@ public class BankMain {
         bank.addCounter(counter3);
 
 
-        customer1.withdraw(500,customer1.checkCounter(bank));
+        customer1.withdraw(1000,customer1.checkCounter(bank));
         System.out.println(bank);
         customer1.deposit(100,customer1.checkCounter(bank));
         System.out.println(bank);
 
-        customer2.withdraw(1000,customer2.checkCounter(bank));
+        customer2.withdraw(1100,customer2.checkCounter(bank));
         System.out.println(bank);
         customer2.deposit(10,customer2.checkCounter(bank));
         System.out.println(bank);

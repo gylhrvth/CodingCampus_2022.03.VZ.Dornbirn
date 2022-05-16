@@ -19,12 +19,7 @@ public class Counter {
 
     @Override
     public String toString() {
-        return "Counter{" +
-                "name='" + name + '\'' +
-                ", capacity=" + capacity +
-                ", maxCapacity=" + maxCapacity +
-                ", coffeBreak=" + coffeBreak +
-                '}';
+        return name + " (current capacity = " + capacity + "€)" + " Coffeebreak: " + coffeBreak;
     }
 
     public int fillCounter() {
@@ -45,9 +40,11 @@ public class Counter {
                 if (trans.getValue() + c.getCapacity() <= c.getMaxCapacity() && !c.coffeBreak) {
                     counter = c;
                     return counter;
+
                 }
 
             }
+
         }
 
         return counter;
@@ -58,10 +55,12 @@ public class Counter {
         Counter counter = this;
         if (trans.getValue() <= capacity && !counter.coffeBreak) {
             capacity -= trans.getValue();
+            System.out.println(  " withdrawed " + trans.getValue() + "€ from " + counter);
         } else {
             for (Counter c : bank.getListOfCounters()) {
                 if (trans.getValue() <= c.getCapacity() && !c.coffeBreak) {
                     counter = c;
+                    System.out.println(  " withdrawed " + trans.getValue() + "€ from " + counter);
                     return counter;
                 }
 
