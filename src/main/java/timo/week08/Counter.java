@@ -78,4 +78,8 @@ public class Counter {
     public int getMaxCapacity() {
         return maxCapacity;
     }
+
+    public boolean getCoffeeBreak() {
+        return coffeBreak;
+    }
 }

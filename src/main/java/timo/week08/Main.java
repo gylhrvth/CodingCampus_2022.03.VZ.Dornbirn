@@ -7,39 +7,26 @@ public class Main {
         Bank bank = new Bank("Gang Bank");
         Counter counter1 = new Counter(bank, "Counter 1", 500);
         Counter counter2 = new Counter(bank, "Counter2", 1000);
-        Counter counter3 = new Counter(bank, "Counter 3", 100);
+        Counter counter3 = new Counter(bank, "Counter 3", 1000);
 
         Customer customer1 = new Customer("Dieter", 100);
 
-        bank.addCounter(counter2);
         bank.addCounter(counter1);
+        bank.addCounter(counter2);
+        bank.addCounter(counter3);
 
         System.out.println(bank);
 
-        System.out.println(counter1);
+        System.out.println();
 
-        counter1.empty();
-        System.out.println(counter1);
+        customer1.withdraw(700, customer1.checkCounter(bank));
 
-        counter1.fillCounter();
-        System.out.println(counter1);
+        System.out.println(bank);
 
-        counter1.empty();
-        System.out.println(counter1);
+        System.out.println();
 
-        customer1.deposit(50, counter1);
-        System.out.println(counter1);
-        System.out.println(counter2);
-        customer1.withdraw(25, counter1);
-        System.out.println(counter1);
-        System.out.println(counter2);
+        customer1.deposit(100, customer1.checkCounter(bank));
 
-        customer1.deposit(25, counter2);
-        System.out.println(counter2);
-        System.out.println(counter3);
-        counter3.empty();
-        System.out.println(counter3);
-        customer1.deposit(50, counter2);
-        System.out.println(counter3);
+        System.out.println(bank);
     }
 }

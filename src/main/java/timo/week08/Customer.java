@@ -21,8 +21,7 @@ public class Customer {
     public void withdraw(int amount, Counter counter) {
         Transaction tn = new Transaction(this, counter);
         tn.setValue(amount);
-        Counter var = counter.withdrawFromCounter(tn);
-        var.withdrawFromCounter(tn);
+        counter.withdrawFromCounter(tn);
         System.out.println(Customer.this.getName() + " withdrawed " + tn.getValue() + "€ from " + counter);
     }
 
@@ -30,8 +29,7 @@ public class Customer {
         Transaction tn = new Transaction(this, counter);
         tn.setValue(amount);
         counter.depositToCounter(tn);
-        Counter var = counter.depositToCounter(tn);
-        var.depositToCounter(tn);
+        System.out.println(Customer.this.getName() + " deposited " + tn.getValue() + "€ to " + counter);
     }
 
     public int getMoney() {
@@ -40,6 +38,16 @@ public class Customer {
 
     public String getName() {
         return name;
+    }
+
+    public Counter checkCounter(Bank bank) {
+        for (Counter c : bank.getListOfCounters()) {
+            if (!c.getCoffeeBreak()) {
+                return c;
+            }
+
+        }
+        return null;
     }
 
     @Override
