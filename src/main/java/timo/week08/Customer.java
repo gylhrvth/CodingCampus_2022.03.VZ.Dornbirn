@@ -8,29 +8,36 @@ public class Customer {
 
     private String name;
     private int money;
-    private Transaction trans;
     private Counter counter;
+    private Bank bank;
 
-    public Customer(String name, int money) {
+    public Customer(String name) {
         this.name = name;
-        this.money = money;
 
     }
 
 
     public void withdraw(int amount, Counter counter) {
-        Transaction tn = new Transaction(this, counter);
-        tn.setValue(amount);
-        counter.withdrawFromCounter(tn);
-        System.out.println(Customer.this.getName() + " withdrawed " + tn.getValue() + "€ from " + counter);
+        if (amount <= counter.getCapacity() && !counter.getCoffeeBreak()) {
+            counter.setCapacity(counter.getCapacity() - amount);
+            System.out.println("\u001B[31m" + Customer.this.getName() + " withdrawed " + amount + "€ from " + counter + "\u001B[0m");
+        } else {
+            System.out.println("Not possible");
+            counter.setCoffeBreak(true);
+        }
     }
 
     public void deposit(int amount, Counter counter) {
-        Transaction tn = new Transaction(this, counter);
-        tn.setValue(amount);
-        counter.depositToCounter(tn);
-        System.out.println(Customer.this.getName() + " deposited " + tn.getValue() + "€ to " + counter);
+        if (amount + counter.getCapacity() <= counter.getMaxCapacity() && !counter.getCoffeeBreak()) {
+            counter.setCapacity(counter.getCapacity() + amount);
+            System.out.println("\u001B[32m" + Customer.this.getName() + " deposited " + amount + "€ to " + counter + "\u001B[0m");
+        } else {
+            System.out.println("Not possible");
+            counter.setCoffeBreak(true);
+        }
     }
+
+
 
     public int getMoney() {
         return money;
@@ -42,7 +49,7 @@ public class Customer {
 
     public Counter checkCounter(Bank bank) {
         for (Counter c : bank.getListOfCounters()) {
-            if (!c.getCoffeeBreak()) {
+            if (!c.getCoffeeBreak() && c.getCapacity() >= 0) {
                 return c;
             }
 
@@ -53,10 +60,7 @@ public class Customer {
     @Override
     public String toString() {
         return "Customer{" +
-                "random=" + random +
                 ", name='" + name + '\'' +
-                ", money=" + money +
-                ", trans=" + trans +
                 ", counter=" + counter +
                 '}';
     }

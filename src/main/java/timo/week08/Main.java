@@ -9,7 +9,7 @@ public class Main {
         Counter counter2 = new Counter(bank, "Counter2", 1000);
         Counter counter3 = new Counter(bank, "Counter 3", 1000);
 
-        Customer customer1 = new Customer("Dieter", 100);
+        Customer customer1 = new Customer("Dieter");
 
         bank.addCounter(counter1);
         bank.addCounter(counter2);
@@ -19,7 +19,7 @@ public class Main {
 
         System.out.println();
 
-        customer1.withdraw(700, customer1.checkCounter(bank));
+       customer1.withdraw(400, customer1.checkCounter(bank));
 
         System.out.println(bank);
 
@@ -28,5 +28,6 @@ public class Main {
         customer1.deposit(100, customer1.checkCounter(bank));
 
         System.out.println(bank);
+
     }
 }
