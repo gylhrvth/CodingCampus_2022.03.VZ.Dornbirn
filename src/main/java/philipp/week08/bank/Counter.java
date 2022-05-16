@@ -1,23 +1,27 @@
 package philipp.week08.bank;
 
+import java.util.List;
 import java.util.Random;
+import java.util.Vector;
 
 public class Counter {
     Random rn = new Random();
 
     private String name;
-    private double moneyCounter;
+    private int moneyCounter;
     private boolean counterOpen;
     private boolean counterRefill = false;
     int counterRefillTime = 0;
     private boolean counterBreak = false;
     int counterBreakTime = 0;
+    private List<Customer> stats = new Vector<>();
 
 
-    public Counter(String name, double moneyStart, boolean counterOpen) {
+    public Counter(String name, int moneyStart, boolean counterOpen) {
         this.name = name;
         this.moneyCounter = moneyStart;
         this.counterOpen = counterOpen;
+
     }
 
     @Override
@@ -41,29 +45,36 @@ public class Counter {
         return counterOpen;
     }
 
-    public boolean getCounterRefill() {
-        return counterRefill;
+    public void addCustomerStats(Customer co) {
+        stats.add(co);
     }
 
-    public boolean getCounterBreak() {
-        return counterBreak;
+    public List<Customer> getStats() {
+        return stats;
     }
-
-    public void setCounterRefillTime(int counterRefillTime) {
-        this.counterRefillTime = counterRefillTime;
-    }
-
-    public int getCounterRefillTime() {
-        return counterRefillTime;
-    }
-
-    public void setCounterBreakTime(int counterBreakTime) {
-        this.counterBreakTime = counterBreakTime;
-    }
-
-    public int getCounterBreakTime() {
-        return counterBreakTime;
-    }
+    //    public boolean getCounterRefill() {
+//        return counterRefill;
+//    }
+//
+//    public boolean getCounterBreak() {
+//        return counterBreak;
+//    }
+//
+//    public void setCounterRefillTime(int counterRefillTime) {
+//        this.counterRefillTime = counterRefillTime;
+//    }
+//
+//    public int getCounterRefillTime() {
+//        return counterRefillTime;
+//    }
+//
+//    public void setCounterBreakTime(int counterBreakTime) {
+//        this.counterBreakTime = counterBreakTime;
+//    }
+//
+//    public int getCounterBreakTime() {
+//        return counterBreakTime;
+//    }
 
     public void setCounterToBreak() {
         if (Math.random() >= 0.8) {
@@ -80,7 +91,7 @@ public class Counter {
         if (c.getDeposit()) {
             moneyCounter = moneyCounter + c.getMoney();
             System.out.println(c.getName() + " deposited " + c.getMoney() + " Eur at " + name);
-            System.out.printf("%s %s %.2f %s\n", name, " has now ", moneyCounter, " Eur.");
+            System.out.printf("%s %s %d %s\n", name, " has now ", moneyCounter, " Eur.");
         } else {
             moneyCounter = moneyCounter - c.getMoney();
             System.out.println(c.getName() + " took " + c.getMoney() + " Eur from " + name);
@@ -104,14 +115,14 @@ public class Counter {
 
     public void checkIfOnBreakForRefill() {
         if (counterRefill) {
-            this.moneyCounter = 1000.0;
+            this.moneyCounter = 1000;
             if (counterRefillTime >= 2) {
                 System.out.println("\033[0;34m" + name + " has been refilled." + "\033[0m");
 //                System.out.println();
                 counterRefill = false;
                 counterOpen = true;
                 counterRefillTime = 0;
-
+                counterBreakTime = 0;
             }
         }
     }
@@ -123,7 +134,30 @@ public class Counter {
             counterBreak = false;
             counterOpen = true;
             counterBreakTime = 0;
+            counterRefillTime = 0;
         }
+
+    }
+
+    public void counterState() {
+        if (counterRefill) {
+            counterRefillTime = counterRefillTime + 1;
+        }
+        if (counterBreak) {
+            counterBreakTime = counterBreakTime + 1;
+        }
+        checkIfOnBreakForRefill();
+        checkIfOnBreak();
+    }
+
+    public void statistic() {
+        System.out.println(name);
+        for (Customer stat : stats) {
+            System.out.print(stat.getName());
+            System.out.println(" (" + stat.getMoney() + ", " + ((stat.getDeposit()) ? "Deposit)" : "Withdrawal)"));
+        }
+        System.out.println();
+
     }
 }
 

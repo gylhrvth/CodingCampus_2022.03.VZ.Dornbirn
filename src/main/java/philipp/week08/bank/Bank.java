@@ -1,17 +1,23 @@
 package philipp.week08.bank;
 
+import java.util.List;
+import java.util.Vector;
+
 public class Bank {
-    private static Customer[] customers = {
-            new Customer("Customer 01", 152.44, true),
-            new Customer("Customer 02", 327.20, true),
-            new Customer("Customer 03", 564.51, false),
-            new Customer("Customer 04", 522.22, false),
-            new Customer("Customer 05", 15.15, true),
-            new Customer("Customer 06", 124.56, true),
-            new Customer("Customer 07", 488.00, true),
-            new Customer("Customer 08", 7.85, false),
-            new Customer("Customer 09", 600.00, false),
-            new Customer("Customer 10", 164.88, false)};
+    private String name;
+    private Customer customer = new Customer("", 0, true);
+
+//    private Customer[] customers = {
+//            new Customer("Customer 01", 152.44, true),
+//            new Customer("Customer 02", 327.20, true),
+//            new Customer("Customer 03", 564.51, false),
+//            new Customer("Customer 04", 522.22, false),
+//            new Customer("Customer 05", 15.15, true),
+//            new Customer("Customer 06", 124.56, true),
+//            new Customer("Customer 07", 488.00, true),
+//            new Customer("Customer 08", 7.85, false),
+//            new Customer("Customer 09", 600.00, false),
+//            new Customer("Customer 10", 164.88, false)};
 
     private static Counter[] counters = {
             new Counter("Counter 01", 0, true),
@@ -21,27 +27,27 @@ public class Bank {
 //                new Counter("Counter 05", 1000, true)
     };
 
+    public Bank(String name) {
+        this.name = name;
+    }
+
     public static void main(String[] args) {
-        bankSimulation(customers, counters);
+        Bank bank = new Bank("Bank");
+        bank.bankSimulation(counters);
 
     }
 
-    private static void bankSimulation(Customer[] customerInput, Counter[] counterInput) {
-        int counterBreakOrRefillMoney = 1;
-        for (Customer customer : customerInput) {
-//            System.out.println("-----");
-//            printCounters();
+    private void bankSimulation(Counter[] counterInput) {
+        //        for (Customer customer : customerInput) {
+////            System.out.println("-----");
+////            printCounters();
+        for (int i = 1; i < 11; i++) {
+            customer.generateCustomer(i);
+
             System.out.println("-----");
             System.out.println(customer.getName());
             for (Counter co : counterInput) {
-                if (co.getCounterRefill()) {
-                    co.setCounterRefillTime(co.getCounterRefillTime() + counterBreakOrRefillMoney);
-                }
-                if (co.getCounterBreak()) {
-                    co.setCounterBreakTime(co.getCounterBreakTime() + counterBreakOrRefillMoney);
-                }
-                co.checkIfOnBreakForRefill();
-                co.checkIfOnBreak();
+                co.counterState();
             }
             for (Counter counter : counterInput) {
                 if (customer.getMoney() == 0) {
@@ -49,6 +55,7 @@ public class Bank {
                 }
                 if (counter.getCounterOpen()) {
                     if (counter.checkNoMoney(customer)) {
+                        counter.getStats().add(new Customer(customer.getName(), customer.getMoney(), customer.getDeposit()));
                         counter.moneyBusiness(customer);
                         counter.setCounterToBreak();
                     }
@@ -58,6 +65,10 @@ public class Bank {
                     System.out.println();
                 }
             }
+        }
+        System.out.println("==========");
+        for (Counter counter : counterInput) {
+            counter.statistic();
         }
     }
 
