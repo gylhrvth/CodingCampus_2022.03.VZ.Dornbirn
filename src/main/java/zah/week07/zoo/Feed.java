@@ -7,7 +7,6 @@ public class Feed {
     private String unit;
     private int unitPrice;
 
-
     public Feed(String name, String unit, int unitPrice) {
         this.name = name;
         this.unit = unit;

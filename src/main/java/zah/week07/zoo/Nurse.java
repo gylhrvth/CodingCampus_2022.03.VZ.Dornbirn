@@ -16,7 +16,6 @@ public class Nurse {
         tasks = new Vector<>();
     }
 
-
     public String toString(String indention) {
         String out = indention + name + "\n";
         for (Enclosure enc : tasks) {

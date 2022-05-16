@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Vector;
 
-public class Carer {
+public class Caretaker {
 
     private String name;
 
@@ -14,7 +14,7 @@ public class Carer {
 
     private Animal bestBuddy;
 
-    public Carer(Zoo zoo, String name, Animal bestBuddy) {
+    public Caretaker(Zoo zoo, String name, Animal bestBuddy) {
 
         this.name = name;
         this.zoo = zoo;
@@ -126,4 +126,5 @@ public class Carer {
             System.out.println(name + " has nothing to do");
         }
     }
+
 }

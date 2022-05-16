@@ -41,7 +41,6 @@ public class Customer {
             if (!c.getCoffeeBreak()) {
                 return c;
             }
-
         }
         return null;
     }

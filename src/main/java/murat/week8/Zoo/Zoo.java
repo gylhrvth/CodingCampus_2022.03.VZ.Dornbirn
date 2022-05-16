@@ -11,7 +11,7 @@ public class Zoo {
 
     private List<Enclosure> enclosures = new Vector<>();
 
-    private List<Carer> carers = new Vector<>();
+    private List<Caretaker> caretakers = new Vector<>();
 
     private List<Veterinarian> vets = new Vector<>();
 
@@ -44,9 +44,9 @@ public class Zoo {
         return enclosures;
     }
 
-    public List<Carer> getCarers() {
+    public List<Caretaker> getCarers() {
 
-        return carers;
+        return caretakers;
     }
 
     public List<Veterinarian> getVets() {
@@ -67,7 +67,7 @@ public class Zoo {
         }
         System.out.println();
         System.out.println(UNDERLINE + "Employees:" + UNDERLINE_RESET + "\n_________________________");
-        for (Carer c : carers) {
+        for (Caretaker c : caretakers) {
             c.printStructure();
         }
     }
@@ -85,10 +85,10 @@ public class Zoo {
         return enc;
     }
 
-    public Carer addCarer(String name, Animal bestBuddy) {
+    public Caretaker addCaretaker(String name, Animal bestBuddy) {
 
-        Carer c = new Carer(this, name, bestBuddy);
-        carers.add(c);
+        Caretaker c = new Caretaker(this, name, bestBuddy);
+        caretakers.add(c);
         return c;
     }
 
@@ -119,8 +119,8 @@ public class Zoo {
 
     // For all carers
     public void simulation01(){
-        for (Carer aCarer : carers) {
-                aCarer.simulation01InAnEnclosure();
+        for (Caretaker aCaretaker : caretakers) {
+                aCaretaker.simulation01InAnEnclosure();
             }
     }
 
@@ -137,7 +137,7 @@ public class Zoo {
     public void simulation03() {
 
         Random rand = new Random();
-        int randomNumber = rand.nextInt(30, 100);
+
         Animal weakestAnimal = null;
 
         int count = 0;
@@ -159,6 +159,8 @@ public class Zoo {
                     }
                 }
             }
+
+            int randomNumber = rand.nextInt(30, 100);
 
             if (weakestAnimal.getHealth() >= weakestAnimal.getMaxHealth()) {
                 System.out.println("All animals are healthy");
@@ -193,6 +195,7 @@ public class Zoo {
 
         return foodConsumptionAtThisZoo;
     }
+
 
     public static final String ANSI_RED = "\u001B[31m";
 

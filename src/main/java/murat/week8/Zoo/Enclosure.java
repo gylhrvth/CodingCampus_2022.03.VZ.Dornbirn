@@ -7,7 +7,7 @@ public class Enclosure {
 
     private List<Animal> animals = new Vector<>();
 
-    private List<Carer> carers = new Vector<>();
+    private List<Caretaker> caretakers = new Vector<>();
 
     private List<Veterinarian> vets = new Vector<>();
 
@@ -21,9 +21,9 @@ public class Enclosure {
         this.alreadyCared = cared;
     }
 
-    public List<Carer> getCarers() {
+    public List<Caretaker> getCarers() {
 
-        return carers;
+        return caretakers;
     }
 
     public String getName() {

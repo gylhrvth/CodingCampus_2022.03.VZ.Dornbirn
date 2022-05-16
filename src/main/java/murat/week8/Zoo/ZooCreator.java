@@ -39,23 +39,23 @@ public class ZooCreator {
         des.addAnimal("Cameron", "Camel", 80.0f, 90, 80.0f, foodHay, 2500);
         des.addAnimal("Charlie", "Chameleon", 20.0f, 100, 70.0f, foodInsect, 100);
 
-        Carer carerPeter = zooDarica.addCarer("Peter", terr.getAnimals().get(0));  // Best buddy Ronald the Rooster
-        carerPeter.addTask("Terrarium");
-        carerPeter.addTask("Grassland");
-        carerPeter.addTask("Desert");
+        Caretaker caretakerPeter = zooDarica.addCaretaker("Peter", terr.getAnimals().get(0));  // Best buddy Ronald the Rooster
+        caretakerPeter.addTask("Terrarium");
+        caretakerPeter.addTask("Grassland");
+        caretakerPeter.addTask("Desert");
 
-        Carer carerTim = zooDarica.addCarer("Tim", reed.getAnimals().get(1));     // Best buddy Earl the Eagle
-        carerTim.addTask("Reed");
-        carerTim.addTask("Grassland");
-        carerTim.addTask("Desert");
+        Caretaker caretakerTim = zooDarica.addCaretaker("Tim", reed.getAnimals().get(1));     // Best buddy Earl the Eagle
+        caretakerTim.addTask("Reed");
+        caretakerTim.addTask("Grassland");
+        caretakerTim.addTask("Desert");
 
-        Carer carerBeatrice = zooDarica.addCarer("Beatrice", terr.getAnimals().get(1));   // Best buddy Lionel the Lion
-        carerBeatrice.addTask("Reed");
-        carerBeatrice.addTask("Terrarium");
-        carerBeatrice.addTask("Desert");
-        carerBeatrice.addTask("Alpine Meadow");
+        Caretaker caretakerBeatrice = zooDarica.addCaretaker("Beatrice", terr.getAnimals().get(1));   // Best buddy Lionel the Lion
+        caretakerBeatrice.addTask("Reed");
+        caretakerBeatrice.addTask("Terrarium");
+        caretakerBeatrice.addTask("Desert");
+        caretakerBeatrice.addTask("Alpine Meadow");
 
-        Carer[] cList = {carerPeter, carerTim, carerBeatrice};
+        Caretaker[] cList = {caretakerPeter, caretakerTim, caretakerBeatrice};
 
         Veterinarian vetFlo = zooDarica.addVet("Florence Nightingale");
         Veterinarian vetPast = zooDarica.addVet("Louis Pasteur");
