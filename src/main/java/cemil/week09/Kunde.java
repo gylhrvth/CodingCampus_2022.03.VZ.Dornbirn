@@ -5,6 +5,7 @@ public class Kunde {
     private String name;
     private int money;
 
+
     public Kunde(String name, int money) {
         this.name = name;
         this.money = money;
@@ -16,6 +17,10 @@ public class Kunde {
 
     public int getMoney() {
         return money;
+    }
+
+    public void simulate(){
+
     }
 
     @Override

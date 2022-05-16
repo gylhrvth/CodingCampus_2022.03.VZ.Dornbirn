@@ -1,7 +1,7 @@
 package cemil.week08.zoo;
 
 
-import gyula.week08.zoo.Enclosure;
+
 
 import java.util.HashMap;
 import java.util.List;

@@ -2,14 +2,20 @@ package cemil.week09;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 public class Bank {
 
     private String name;
-    private List<Schalter> schalters = new ArrayList<>();
+    private List<Schalter> schalters = new Vector<>();
 
     public Bank(String name) {
         this.name = name;
+    }
+
+
+    public List<Schalter> getSchalters() {
+        return schalters;
     }
 
     public void makeBusiness(Kunde kunde, int amount) {
@@ -41,4 +47,5 @@ public class Bank {
         return builder.toString();
 
     }
+
 }

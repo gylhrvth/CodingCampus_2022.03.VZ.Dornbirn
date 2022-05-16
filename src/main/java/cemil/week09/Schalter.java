@@ -1,8 +1,12 @@
 package cemil.week09;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Schalter {
 
     private String name;
+    private List<Kunde> kundes = new ArrayList<>();
 
     public Schalter(String name) {
         this.name = name;
@@ -14,25 +18,12 @@ public class Schalter {
     }
 
 
-
     public void makeBusiness(Kunde kunde, int amount) {
 
+        for (Kunde k : kundes) {
+            System.out.println(k);
+        }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     public static final String ANSI_RED = "\u001B[31m";
