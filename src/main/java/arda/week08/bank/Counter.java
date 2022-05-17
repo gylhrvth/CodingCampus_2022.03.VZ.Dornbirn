@@ -53,24 +53,28 @@ public class Counter {
                         System.out.println(YELLOW + "Counter" + counterNumber + " is " + RESET + RED + "unoccupied." + RESET);
                     }
                 } else if (tick == 1) {
-                    if (rand.nextInt(100) > 20) {
+                    if (rand.nextInt(2) + 1 == 1) {
                         if (withdrawnMoney > moneyInCounter) {
-
-                            System.out.println(currentCustomer + " has withdrawn " + RED + withdrawnMoney + "€" + RESET + " at counter" + counterNumber + ".");
-                            changeMoneyAmount(withdrawnMoney * (-1));
-                            System.out.println("counter" + counterNumber + " has " + (moneyInCounter) + "€ left.");
-
+                            System.out.println(YELLOW + currentCustomer + " has to wait for counter" + counterNumber + " to " + RESET + RED + "refill." + RESET);
                             System.out.println(YELLOW + currentCustomer + RESET + RED + " has to wait for the counter to refill." + RESET);
                             bank.letCustomerWait(currentCustomer);
                             removeCustomer();
                             currentState = COUNTER_STATE.MONEY_REFILL;
                             tick = 20;
                             System.out.println(YELLOW + "Counter" + counterNumber + " is being " + RESET + RED + "refilled" + RESET);
+                        } else {
+                            chanceToFart();
+                            changeMoneyAmount(withdrawnMoney * (-1));
+                            System.out.println(WHITE+"-----------------------------------------------------------"+RESET);
+                            System.out.println(currentCustomer + " has withdrawn " + RED + withdrawnMoney + "€" + RESET + " at counter" + counterNumber + ".");
+                            System.out.println("counter" + counterNumber + " has " + (moneyInCounter) + "€ left.");
                         }
                     } else {
                         int depositedMoney = rand.nextInt(currentCustomer.getCash()) + 5;
-                        System.out.println(currentCustomer + " has deposited " + RED + depositedMoney + "€" + RESET + " at counter" + counterNumber + ".");
+                        chanceToFart();
                         changeMoneyAmount(depositedMoney);
+                        System.out.println(WHITE+"-----------------------------------------------------------"+RESET);
+                        System.out.println(currentCustomer + " has deposited " + RED + depositedMoney + "€" + RESET + " at counter" + counterNumber + ".");
                         System.out.println("counter" + counterNumber + " has " + RED + (moneyInCounter) + "€" + RESET + " left.");
                     }
                 }
@@ -111,6 +115,13 @@ public class Counter {
 
     public int getMoneyInCounter() {
         return moneyInCounter;
+    }
+
+    public void chanceToFart() {
+        if (rand.nextInt(5) + 1 == 5) {
+            System.out.println(WHITE+"-----------------------------------------------------------"+RESET);
+            System.out.println(RED + currentCustomer + " has farted loudly." + RESET);
+        }
     }
 
     public void changeMoneyAmount(int amount) {

@@ -25,7 +25,7 @@ public class BankCreator {
         for (int i = 0; i < 100; i++) {
             customerGenerator(bank);
             bank.simulate();
-            System.out.println(bank);
+//            System.out.println(bank);
         }
     }
 
