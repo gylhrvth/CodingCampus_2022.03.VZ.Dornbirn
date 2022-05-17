@@ -11,32 +11,49 @@ public class Customer {
     private Counter counter;
     private Bank bank;
 
-    public Customer(String name) {
+    public Customer(Bank bank, String name) {
         this.name = name;
+        this.bank = bank;
 
     }
 
 
-    public void withdraw(int amount, Counter counter) {
-        if (amount <= counter.getCapacity() && !counter.getCoffeeBreak()) {
-            counter.setCapacity(counter.getCapacity() - amount);
-            System.out.println("\u001B[31m" + Customer.this.getName() + " withdrawed " + amount + "€ from " + counter + "\u001B[0m");
-        } else {
-            System.out.println("Not possible");
-            counter.setCoffeBreak(true);
+    public void withdraw(int amount) {
+        for (Counter counter : this.bank.getListOfCounters()) {
+            if (amount <= counter.getCapacity() && !counter.getCoffeeBreak()) {
+                counter.setCapacity(counter.getCapacity() - amount);
+                System.out.println("\u001B[32m" + name + " withdrawed " + amount + "€ from " + counter + "\u001B[0m");
+                if (random.nextInt(100) <= 20) {
+                    counter.setCoffeBreak(true);
+                    System.out.println("We are currently taking a break!");
+                    break;
+                }
+                break;
+
+            } else {
+                System.out.println("\u001B[31m" + "Withdraw not possible" + " (Amount: " + amount + " Capacity: " + counter.getCapacity() + " Coffebreak: " + counter.getCoffeeBreak() + "\u001B[0m");
+                counter.setCoffeBreak(true); // refill
+            }
         }
     }
 
-    public void deposit(int amount, Counter counter) {
-        if (amount + counter.getCapacity() <= counter.getMaxCapacity() && !counter.getCoffeeBreak()) {
-            counter.setCapacity(counter.getCapacity() + amount);
-            System.out.println("\u001B[32m" + Customer.this.getName() + " deposited " + amount + "€ to " + counter + "\u001B[0m");
-        } else {
-            System.out.println("Not possible");
-            counter.setCoffeBreak(true);
+    public void deposit(int amount) {
+        for (Counter counter : this.bank.getListOfCounters()) {
+            if (!counter.getCoffeeBreak()) {
+                counter.setCapacity(counter.getCapacity() + amount);
+                System.out.println("\u001B[32m" + name + " deposited " + amount + "€ to " + counter + "\u001B[0m");
+                if (random.nextInt(100) <= 20) {
+                    counter.setCoffeBreak(true);
+                    System.out.println("We are currently taking a break!");
+                    break;
+                }
+                break;
+            } else {
+                System.out.println("\u001B[31m" + "Deposit not possible" + " (Amount: " + amount + " Capacity: " + counter.getCapacity() + " Coffebreak: " + counter.getCoffeeBreak() + "\u001B[0m");
+
+            }
         }
     }
-
 
 
     public int getMoney() {
@@ -63,5 +80,9 @@ public class Customer {
                 ", name='" + name + '\'' +
                 ", counter=" + counter +
                 '}';
+    }
+
+    public Bank getBank() {
+        return bank;
     }
 }
