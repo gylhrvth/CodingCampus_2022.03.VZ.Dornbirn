@@ -43,4 +43,8 @@ public class Counter {
     public void withdraw(float amount) {
         capacity -= amount;
     }
+
+    public boolean getCoffeeBreak() {
+        return coffeBreak;
+    }
 }

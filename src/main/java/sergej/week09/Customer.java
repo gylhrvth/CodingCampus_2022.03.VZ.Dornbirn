@@ -15,36 +15,41 @@ public class Customer {
         this.bank = bank;
     }
 
-    public void deposit(float amount) {
-        for (Counter c : bank.getListOfCounters()) {
-            if (amount + c.getCapacity() <= c.getMaxCapacity() && !c.isCoffeBreak()) {
-                c.setCapacity(amount + c.getCapacity());
-                System.out.println("deposited " + amount + "€ to " + c);
-                bank.removeCustomer(this);
+    public void deposit(int amount) {
+        for (Counter counter : this.bank.getListOfCounters()) {
+            if (!counter.getCoffeeBreak()) {
+                counter.setCapacity(counter.getCapacity() + amount);
+                System.out.println("\u001B[32m" + Customer.this.getName() + " deposited " + amount + "€ to " + counter + "\u001B[0m");
                 if (random.nextInt(100) <= 20) {
-                    System.out.println("We take a break!");
-                    c.setCoffeBreak(true);
+                    counter.setCoffeBreak(true);
+                    System.out.println("We are currently taking a break!");
                     break;
                 }
                 break;
             } else {
-                System.out.println(" deposited " + amount + "€ to " + c + "Not possible");
+                System.out.println("\u001B[31m" + "Deposit not possible" + " (Amount: " + amount + " Capacity: " + counter.getCapacity() + " Coffebreak: " + counter.getCoffeeBreak() + "\u001B[0m");
+
             }
         }
     }
 
-    public void withdraw(float amount) {
-        for (Counter c : bank.getListOfCounters()) {
-            if (amount <= c.getCapacity() && !c.isCoffeBreak()) {
-                c.withdraw(amount);
-                System.out.println("withdrawn " + amount + "€ from " + c);
+    public void withdraw(int amount) {
+        for (Counter counter : this.bank.getListOfCounters()) {
+            if (amount <= counter.getCapacity() && !counter.getCoffeeBreak()) {
+                counter.setCapacity(counter.getCapacity() - amount);
+                System.out.println("\u001B[32m" + Customer.this.getName() + " withdrawn " + amount + "€ from " + counter + "\u001B[0m");
+                if (random.nextInt(100) <= 20) {
+                    counter.setCoffeBreak(true);
+                    System.out.println("We are currently taking a break!");
+                    break;
+                }
                 break;
+
             } else {
-                System.out.println("Withdraw not possible");
-                c.setCoffeBreak(true); // refill
+                System.out.println("\u001B[31m" + "Withdraw not possible" + " (Amount: " + amount + " Capacity: " + counter.getCapacity() + " Coffebreak: " + counter.getCoffeeBreak() + "\u001B[0m");
+                counter.setCoffeBreak(true); // refill
             }
         }
-
     }
 
     public String getName() {

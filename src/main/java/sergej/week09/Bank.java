@@ -36,6 +36,10 @@ public class Bank {
         return listOfCounters;
     }
 
+    public List<Customer> getListOfCustomer() {
+        return listOfCustomer;
+    }
+
     public void removeCustomer(Customer customer) {
         listOfCustomer.remove(customer);
     }
