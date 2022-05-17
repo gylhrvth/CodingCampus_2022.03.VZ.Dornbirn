@@ -1,4 +1,4 @@
-package cemil.week10;
+package cemil.week10.bank;
 
 import java.util.Random;
 import java.util.Vector;
@@ -33,6 +33,7 @@ public class Cashier {
     }
 
     public void setBank(Bank bank) {
+
         if (this.bank == null) {
             this.bank = bank;
         }
