@@ -1,4 +1,4 @@
-package lukas.week8.day5;
+package lukas.opencv;
 
 import nu.pattern.OpenCV;
 import org.opencv.core.*;
