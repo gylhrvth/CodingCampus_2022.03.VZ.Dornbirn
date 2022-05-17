@@ -1,4 +1,4 @@
-package sergej.week09;
+package sergej.week09.Bank;
 
 
 public class Counter {
