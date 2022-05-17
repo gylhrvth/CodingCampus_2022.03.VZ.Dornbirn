@@ -1,4 +1,4 @@
-package murat.week9;
+package murat.week9.bank;
 
 import murat.Colors;
 

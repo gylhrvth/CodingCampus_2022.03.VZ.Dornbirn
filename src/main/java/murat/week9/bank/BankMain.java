@@ -1,4 +1,4 @@
-package murat.week9;
+package murat.week9.bank;
 
 public class BankMain {
     public static void main(String[] args) {
