@@ -16,4 +16,9 @@ public class Doctor extends Employee {
                 ", licenceNr='" + licenceNr + '\'' +
                 '}';
     }
+
+    @Override
+    public void sayHello() {
+        System.out.println("Hello, my name is " + getName() + ". I'm your new doctor.");
+    }
 }

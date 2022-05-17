@@ -16,10 +16,11 @@ public class Bank {
         this.listOfCustomer = new Vector<>();
     }
 
-    public void addCounter(Counter counter){
+    public void addCounter(Counter counter) {
         listOfCounters.add(counter);
     }
-    public void addCustomer(Customer costumer){
+
+    public void addCustomer(Customer costumer) {
         listOfCustomer.add(costumer);
     }
 
@@ -27,11 +28,15 @@ public class Bank {
     public String toString() {
         return "Bank{" +
                 "name='" + name + '\'' +
-                ", listOfCounters=" + listOfCounters +
+                ", listOfCounters=" + listOfCounters + listOfCustomer +
                 '}';
     }
 
     public List<Counter> getListOfCounters() {
         return listOfCounters;
+    }
+
+    public void removeCustomer(Customer customer) {
+        listOfCustomer.remove(customer);
     }
 }

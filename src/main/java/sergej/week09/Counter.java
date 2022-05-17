@@ -39,4 +39,8 @@ public class Counter {
     public void setCoffeBreak(boolean coffeBreak) {
         this.coffeBreak = coffeBreak;
     }
+
+    public void withdraw(float amount) {
+        capacity -= amount;
+    }
 }

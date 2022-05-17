@@ -20,4 +20,8 @@ public class Employee {
     public String getName() {
         return name;
     }
+
+    public void sayHello() {
+        System.out.println("I'm " + name + " and I'm an employee.");
+    }
 }

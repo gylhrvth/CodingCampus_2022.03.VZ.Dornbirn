@@ -1,29 +1,48 @@
 package sergej.week09;
 
 
+import java.util.Random;
+
 public class Customer {
 
     private String name;
+    private Bank bank;
+    private Random random = new Random();
 
 
-    public Customer(String name) {
+    public Customer(Bank bank, String name) {
         this.name = name;
+        this.bank = bank;
     }
 
-    public void deposit(float amount, Counter counter) {
-        if (amount + counter.getCapacity() <= counter.getMaxCapacity() && !counter.isCoffeBreak()) {
-            counter.setCapacity(amount + counter.getCapacity());
-        } else {
-            System.out.println(" deposited " + amount + "€ to " + counter + "Not possible");
+    public void deposit(float amount) {
+        for (Counter c : bank.getListOfCounters()) {
+            if (amount + c.getCapacity() <= c.getMaxCapacity() && !c.isCoffeBreak()) {
+                c.setCapacity(amount + c.getCapacity());
+                System.out.println("deposited " + amount + "€ to " + c);
+                bank.removeCustomer(this);
+                if (random.nextInt(100) <= 20) {
+                    System.out.println("We take a break!");
+                    c.setCoffeBreak(true);
+                    break;
+                }
+                break;
+            } else {
+                System.out.println(" deposited " + amount + "€ to " + c + "Not possible");
+            }
         }
     }
 
-    public void withdraw(float amount, Counter counter) {
-        if (amount <= counter.getCapacity() && !counter.isCoffeBreak()) {
-            counter.setCapacity(counter.getCapacity() - amount);
-        } else {
-            System.out.println("Withdraw not possible");
-            counter.setCoffeBreak(true);
+    public void withdraw(float amount) {
+        for (Counter c : bank.getListOfCounters()) {
+            if (amount <= c.getCapacity() && !c.isCoffeBreak()) {
+                c.withdraw(amount);
+                System.out.println("withdrawn " + amount + "€ from " + c);
+                break;
+            } else {
+                System.out.println("Withdraw not possible");
+                c.setCoffeBreak(true); // refill
+            }
         }
 
     }
