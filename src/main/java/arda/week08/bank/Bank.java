@@ -11,7 +11,7 @@ public class Bank {
 
     private String bankName;
     public List<Counter> counters = new ArrayList<>();
-    private List<Customer> customers = new ArrayList<>();
+    private List<Customer> waitingCustomers = new ArrayList<>();
 
     public Bank(String bankName) {
         this.bankName = bankName;
@@ -21,13 +21,14 @@ public class Bank {
         return counters;
     }
 
-    public List<Customer> getCustomers() {
-        return customers;
+    public List<Customer> getWaitingCustomers() {
+        return waitingCustomers;
     }
 
     public void addCounter(Counter counter) {
         if (!counters.contains(counter)) {
             counters.add(counter);
+            counter.setBank(this);
         } else {
             System.out.println("Counter could not be added");
         }
@@ -42,34 +43,42 @@ public class Bank {
     }
 
     public void removeCustomer(Customer customer) {
-        if (customers.contains(customer)) {
-            customers.remove(customer);
+        if (waitingCustomers.contains(customer)) {
+            waitingCustomers.remove(customer);
         } else {
             System.out.println("customer could not be removed.");
         }
     }
 
-    public void simulateDays(int daysToSimulate) {
-        System.out.println();
-        System.out.println(GREEN + "day " + daysToSimulate + " has started!" + RESET);
-        for (Customer customer : customers) {
-            customer.simulateDay(daysToSimulate);
+    public void addCustomer(Customer customer) {
+        if (!waitingCustomers.contains(customer)) {
+            waitingCustomers.add(customer);
         }
+    }
+
+    public void simulate() {
+        for (Counter counter : counters) {
+            counter.simulate();
+        }
+    }
+
+    public Customer getNextCustomer() {
+        if (waitingCustomers.size() > 0) {
+            return waitingCustomers.remove(0);
+        }
+        return null;
+    }
+
+    public void letCustomerWait(Customer customer) {
+        waitingCustomers.add(0, customer);
     }
 
     @Override
     public String toString() {
-        String output = "Bank: " + WHITE + bankName + RESET + "\n";
+        String output = "Bank: " + WHITE + bankName + RESET + "\n" + waitingCustomers;
         for (Counter counter : getCounters()) {
             output += "   " + counter + "\n";
         }
         return output;
-    }
-
-    public Counter getNextFreeCounter() {
-        for (Counter c : counters) {
-            if (c.isAvailable()) return c;
-        }
-        return null;
     }
 }
