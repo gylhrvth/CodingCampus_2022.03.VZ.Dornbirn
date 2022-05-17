@@ -5,20 +5,10 @@ public class BankMain {
 
         Bank ba = Bank.createABank("Bank Austria");
 
-        System.out.println(ba + "\n");
+        System.out.println("\nCOUNTERS AND CUSTOMERS-----------------------\n" + ba + "\n");
 
         ba.bankSimulation();
 
-        System.out.println("\nMoney at the bank");
-        for (int i = 0; i < ba.getCounters().size(); i++) {
-            System.out.println(ba.getCounters().get(i).getMoneyAvailable());
-        }
-
-        System.out.println("\nCustomers satisfied");
-        for (int i = 0; i < ba.getCustomers().size(); i++) {
-            System.out.println(ba.getCustomers().get(i).getSatisfied());
-        }
-
+        ba.counterStats();
     }
-
 }
