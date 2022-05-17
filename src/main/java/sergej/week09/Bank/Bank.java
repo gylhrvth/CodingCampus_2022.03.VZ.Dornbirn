@@ -1,4 +1,4 @@
-package sergej.week09;
+package sergej.week09.Bank;
 
 
 import java.util.List;
