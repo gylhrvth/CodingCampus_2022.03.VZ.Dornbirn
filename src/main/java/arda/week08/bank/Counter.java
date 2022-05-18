@@ -65,7 +65,7 @@ public class Counter {
                         } else {
                             chanceToFart();
                             changeMoneyAmount(withdrawnMoney * (-1));
-                            System.out.println(WHITE+"-----------------------------------------------------------"+RESET);
+                            System.out.println(WHITE + "-----------------------------------------------------------" + RESET);
                             System.out.println(currentCustomer + " has withdrawn " + RED + withdrawnMoney + "€" + RESET + " at counter" + counterNumber + ".");
                             System.out.println("counter" + counterNumber + " has " + (moneyInCounter) + "€ left.");
                         }
@@ -73,7 +73,7 @@ public class Counter {
                         int depositedMoney = rand.nextInt(currentCustomer.getCash()) + 5;
                         chanceToFart();
                         changeMoneyAmount(depositedMoney);
-                        System.out.println(WHITE+"-----------------------------------------------------------"+RESET);
+                        System.out.println(WHITE + "-----------------------------------------------------------" + RESET);
                         System.out.println(currentCustomer + " has deposited " + RED + depositedMoney + "€" + RESET + " at counter" + counterNumber + ".");
                         System.out.println("counter" + counterNumber + " has " + RED + (moneyInCounter) + "€" + RESET + " left.");
                     }
@@ -119,7 +119,7 @@ public class Counter {
 
     public void chanceToFart() {
         if (rand.nextInt(5) + 1 == 5) {
-            System.out.println(WHITE+"-----------------------------------------------------------"+RESET);
+            System.out.println(WHITE + "-----------------------------------------------------------" + RESET);
             System.out.println(RED + currentCustomer + " has farted loudly." + RESET);
         }
     }
@@ -129,6 +129,10 @@ public class Counter {
         if (moneyInCounter <= 0) {
             refillMoney();
         }
+    }
+
+    public boolean isAvailable() {
+        return currentState == COUNTER_STATE.UNOCCUPIED;
     }
 
     @Override

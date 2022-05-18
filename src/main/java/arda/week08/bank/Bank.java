@@ -62,6 +62,10 @@ public class Bank {
         }
     }
 
+    public void dayEnd(){
+
+    }
+
     public Customer getNextCustomer() {
         if (waitingCustomers.size() > 0) {
             return waitingCustomers.remove(0);
