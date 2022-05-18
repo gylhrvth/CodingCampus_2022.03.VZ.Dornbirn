@@ -14,7 +14,7 @@ public class BankMain {
             hypo.addCashier(c);
         }
         /* Start der Simulation */
-        int maxTick = 200;
+        int maxTick = 100;
         for (int i = 1; i <= maxTick; i++) {
             generateCustomer(hypo);
             hypo.simulateTick();
@@ -26,7 +26,7 @@ public class BankMain {
     }
 
     private static void generateCustomer(Bank bank) {
-        if (rand.nextInt(100) < 10){
+        while (rand.nextInt(100) < 20){
             Customer.TRANSACTION t = Customer.TRANSACTION.WITHDRAW;
             if (rand.nextInt(100) < 20){
                 t = Customer.TRANSACTION.DEPOSIT;
