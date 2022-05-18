@@ -63,4 +63,9 @@ public class Bank {
         }
         return true;
     }
+
+    public int getWaitingCustomerCount(){
+        return waitingCustomers.size();
+    }
+
 }
