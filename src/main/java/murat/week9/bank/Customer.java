@@ -1,9 +1,6 @@
-package murat.week9;
+package murat.week9.bank;
 
 import murat.Colors;
-import zah.week07.zoo.Zoo;
-
-import java.util.List;
 
 public class Customer {
     private String name;
@@ -12,14 +9,14 @@ public class Customer {
 
     private float money;
 
-    private boolean satisfied;
+    private boolean served;
 
     public Customer(String name, boolean payOrWithdraw, float money, boolean satisfied) {
 
         this.name = name;
         this.payOrWithdraw = payOrWithdraw;
         this.money = money;
-        this.satisfied = satisfied;
+        this.served = satisfied;
     }
 
     public String getName() {
@@ -37,9 +34,9 @@ public class Customer {
         return money;
     }
 
-    public boolean getSatisfied() {
+    public boolean getServed() {
 
-        return satisfied;
+        return served;
     }
 
     public void setName(String name) {
@@ -52,14 +49,9 @@ public class Customer {
         this.money = money;
     }
 
-    public void setPayOrWithdraw(boolean payOrWithdraw) {
+    public void setServed(boolean served) {
 
-        this.payOrWithdraw = payOrWithdraw;
-    }
-
-    public void setSatisfied(boolean satisfied) {
-
-        this.satisfied = satisfied;
+        this.served = served;
     }
 
     @Override

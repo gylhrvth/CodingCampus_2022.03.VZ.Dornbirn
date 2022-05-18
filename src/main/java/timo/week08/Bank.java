@@ -8,10 +8,12 @@ public class Bank {
 
     private String name;
     private List<Counter> listOfCounters;
+    private List<Customer> customers;
 
     public Bank(String name) {
         this.name = name;
         this.listOfCounters = new Vector<>();
+        this.customers = new Vector<>();
     }
 
     public void addCounter(Counter counter){
@@ -26,5 +28,15 @@ public class Bank {
     public List<Counter> getListOfCounters() {
         return listOfCounters;
     }
+
+    public void addCustomer(Customer customer) {
+        customers.add(customer);
+    }
+
+    public List<Customer> getCustomers() {
+        return customers;
+    }
 }
+
+
 

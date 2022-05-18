@@ -1,4 +1,4 @@
-package cemil.week10;
+package cemil.week10.bank;
 
 
 public class Customer {

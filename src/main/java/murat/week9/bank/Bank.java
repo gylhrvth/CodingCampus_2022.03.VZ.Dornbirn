@@ -1,4 +1,4 @@
-package murat.week9;
+package murat.week9.bank;
 
 import murat.Colors;
 
@@ -26,11 +26,6 @@ public class Bank {
     public List<Counter> getCounters() {
 
         return counters;
-    }
-
-    public List<Customer> getCustomers() {
-
-        return customers;
     }
 
     public void setName(String name) {
@@ -77,6 +72,7 @@ public class Bank {
         Bank aBank = new Bank(bankName);
         Random rand = new Random();
 
+        // Customer pool
         String[] letters = {"Tom", "Leonardo", "Kate", "Julia", "Bob", "Mia", "Aaron", "Kirk", "Isabella",
                 "Sophia", "Jack", "Charlie", "Edward", "Arthur", "Charlotte", "Alice", "Teddy", "Lucas",
                 "Eva", "Hugo", "Harriet", "Albert", "David", "Matilda"};
@@ -85,8 +81,8 @@ public class Bank {
             aBank.addCounter(i, true, i * 1000);
         }
 
-        int limit = rand.nextInt(10);
-        for (int i = 1; i <= 5; i++) {
+        int limit = rand.nextInt(5, 10);
+        for (int i = 1; i <= limit; i++) {
             aBank.addCustomer(letters[rand.nextInt(letters.length)], rand.nextBoolean(), (float) (i * 1000 / 5), false);
         }
         return aBank;
@@ -107,20 +103,23 @@ public class Bank {
                     if (!counters.get(j).thereIsNoMoneyAtACounter(customers.get(i))) {
 
                         // If a customer is not served
-                        if (!customers.get(i).getSatisfied()) {
+                        if (!customers.get(i).getServed()) {
 
                             // Transaction done
                             counters.get(j).transactionACustomerAtACounter(customers.get(i));
+
+                            // Add customers to counters for statistic purposes
+                            counters.get(j).addCustomer(customers.get(i));
 
                             // Counter is occupied
                             counters.get(j).setFree(false);
 
                             // Customer is served
-                            customers.get(i).setSatisfied(true);
+                            customers.get(i).setServed(true);
 
                             System.out.println("Situation: " + (i + 1) + " Customer: " + customers.get(i) + " is at the counter " + counters.get(j) + " and " +
                                     (customers.get(i).isPayOrWithdraw() ? Colors.ANSI_GREEN + "pays " + customers.get(i).getMoney() + Colors.ANSI_RESET : Colors.ANSI_RED + "withdraws " + customers.get(i).getMoney() + Colors.ANSI_RESET));
-                            System.out.println("Situation: " + (i + 1) + ": Money at the counter " + Colors.ANSI_YELLOW + Colors.BOLD + Colors.BG_BLACK + counters.get(j).getMoneyAvailable() + Colors.ANSI_RESET);
+                            System.out.println("Situation: " + (i + 1) + " Money at the counter " + Colors.ANSI_YELLOW + Colors.BOLD + Colors.BG_BLACK + counters.get(j).getMoneyAvailable() + Colors.ANSI_RESET);
 
                             // Open a new random counter
                             if (Counter.allCountersAreOccupied(counters)) {
@@ -128,21 +127,23 @@ public class Bank {
                                 System.out.println("Situation: " + (i + 1) + " Counter " + counters.get(rand.nextInt(counters.size() - 1)) + " is FREE!");
                             }
                         }
-
                     } else {  // In case of no money at a counter
                         counters.get(j).setMoneyAvailable(5000);
                         counters.get(j).setFree(false);
                         System.out.println("Situation: " + (i + 1) + " Counter " + counters.get(j) + " filled the money box");
-                        i--;
+                        i--;  // Take the same customer
                         counters.get(rand.nextInt(counters.size() - 1)).setFree(true);
                         System.out.println("Situation: " + (i + 1) + " Counter " + counters.get(rand.nextInt(counters.size() - 1)) + " is FREE!");
                     }
-
-                } else {
-
-                    // System.out.println("Situation: " + (i + 1) + " Customer: " + customers.get(i) + " is waiting!!!");
                 }
             }
+        }
+    }
+
+    public void counterStats() {
+
+        for (Counter counter : counters) {
+            counter.customerStatsForACounter();
         }
     }
 }

@@ -1,9 +1,9 @@
-package murat.week9;
+package murat.week9.bank;
 
 import murat.Colors;
 
 import java.util.List;
-import java.util.Random;
+import java.util.Vector;
 
 public class Counter {
     private int counterNumber;
@@ -11,6 +11,8 @@ public class Counter {
     private boolean free;
 
     private float moneyAvailable;
+
+    private List<Customer> customersAtACounter = new Vector<>();
 
     public Counter(int counterNumber, boolean free, float moneyAvailable) {
 
@@ -34,11 +36,6 @@ public class Counter {
         return moneyAvailable;
     }
 
-    public void setCounterNumber(int counterNumber) {
-
-        this.counterNumber = counterNumber;
-    }
-
     public void setFree(boolean free) {
 
         this.free = free;
@@ -53,6 +50,11 @@ public class Counter {
     public String toString() {
 
         return Colors.ANSI_BLUE + counterNumber + " " + free + " " + moneyAvailable + Colors.ANSI_RESET;
+    }
+
+    public void addCustomer(Customer cus) {
+
+        customersAtACounter.add(cus);
     }
 
     public void transactionACustomerAtACounter(Customer cus) {
@@ -72,11 +74,11 @@ public class Counter {
 
         boolean allCountersOccupied = true;
 
-        for (int i = 0; i < counters.size(); i++) {
-            if (counters.get(i).isFree()) {
+        for (Counter counter : counters)
+            if (counter.isFree()) {
                 allCountersOccupied = false;
+                break;
             }
-        }
 
         return allCountersOccupied;
     }
@@ -86,21 +88,26 @@ public class Counter {
         boolean thereIsNoMoney = false;
 
         // If customer withdraws and there is no money at the counter
-        if ((this.getMoneyAvailable() - cus.getMoney() <= 0) && !cus.isPayOrWithdraw()) {
-            thereIsNoMoney = true;
-        }
+        if ((this.getMoneyAvailable() - cus.getMoney() <= 0) && !cus.isPayOrWithdraw()) thereIsNoMoney = true;
         return thereIsNoMoney;
     }
 
-    public boolean takeABreak() {
+    public void customerStatsForACounter() {
 
-        Random rand = new Random();
-        boolean breakTime = false;
-        int randomNumber = rand.nextInt(10);
+        System.out.println(Colors.ANSI_RED + "\nCounter: " + this.getCounterNumber() + " STATS------------------------" + Colors.ANSI_RESET);
+        float totalTransaction = 0;
+        for (Customer customer : customersAtACounter) {
 
-        if (randomNumber <= 2) {
-            breakTime = true;
+            if (customer.isPayOrWithdraw()) {
+                totalTransaction += customer.getMoney();
+            } else {
+                totalTransaction -= customer.getMoney();
+            }
+
+            System.out.println(customer.getName() + " " + (customer.isPayOrWithdraw() ? "paid " : " withdrew ") + customer.getMoney());
         }
-        return breakTime;
+
+        System.out.println("Total transaction " + Colors.ANSI_RED + totalTransaction + Colors.ANSI_RESET);
     }
+
 }
