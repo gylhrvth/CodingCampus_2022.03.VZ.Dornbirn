@@ -3,17 +3,19 @@ package zah.week09.carSimulator;
 public class Tank {
 
 
+    public static float getTankContent;
     private static float tankCapacity;
     private Car car;
     private static float tankContent;
 
-    public Tank( float tankCapacity) {
-        this.tankCapacity=tankCapacity;
-        this.tankContent=tankCapacity;
-        this.car =null;
+    public Tank(float tankCapacity) {
+        this.tankCapacity = tankCapacity;
+        this.tankContent = tankCapacity;
+        this.car = null;
 
 
     }
+
     public void setCar(Car car) {
         this.car = car;
     }
@@ -29,7 +31,9 @@ public class Tank {
     public float getTankCapacity() {
         return tankCapacity;
     }
+
     public static void refill() {
+
         tankContent = tankCapacity;
 
 
