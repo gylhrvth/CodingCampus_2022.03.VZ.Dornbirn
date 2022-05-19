@@ -28,18 +28,18 @@ public class Tank {
         return content;
     }
 
-    public void setFuelContent(float fuelContent) {
-        this.content = fuelContent;
+    public void setFuelContent(float content) {
+        this.content = content;
     }
 
 
     public int consumeFuel(int kilometer, Car car) {
         int possibleDistance = 0;
 
-        float literPerKm = (0.004f * car.getWeight() + 0.02f * car.getEngine().getkW()) / 100;
-        possibleDistance = (int) Math.floor( content / literPerKm);
+       // float literPerKm = (0.004f * car.getWeight() + 0.02f * car.getEngine().getkW()) / 100;
+        possibleDistance = (int) Math.floor( content / car.getLiterPerKm());
         int actualDrivingDistance = Math.min(kilometer, possibleDistance);
-         content -= (literPerKm * actualDrivingDistance);
+         content -= (car.getLiterPerKm() * actualDrivingDistance);
 
         return actualDrivingDistance;
 

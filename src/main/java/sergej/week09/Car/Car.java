@@ -24,20 +24,20 @@ public class Car {
     }
 
     public void drive(int kilometer) {
-        //float litrePer100Km = (weight * 0.004f + 0.02f * engine.getPower()) / 100;
-        //float distanceTravelled = fueltank.getCapacity() / litrePer100Km;
-        //float kmToGo = kilometer - distanceTravelled;
+        float litrePer100Km = (weight * 0.004f + 0.02f * engine.getPower()) / 100;
+        float distanceTravelled = fueltank.getCapacity() / litrePer100Km;
+        float kmToGo = kilometer - distanceTravelled;
 
         float tempTank = 0;
 
         for (int i = 0; i < kilometer; i++) {
-           // tempTank += litrePer100Km;
+           tempTank += litrePer100Km;
             engine.drive(i, kilometer);
             if(engine.motorCheck()== Engine.ENGINE_STATE.BROKEN){
                 break;
             }
-        }
-           /* engine.setMileage(i);
+
+           engine.setMileage(i);
             if (random.nextInt(100) <= engine.getMileage()/1000) {
                 engine.setEnginestate(Engine.ENGINE_STATE.BROKEN);
                 System.out.println(engine.getMileage());
@@ -61,8 +61,8 @@ public class Car {
 
         System.out.println("The " + manufatcurer + " " + modell + " drove " + kilometer + "km");
 
-    }*/
     }
+
 
     public int refuel() {
         return fueltank.setCapacity(random.nextInt(50));
