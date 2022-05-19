@@ -57,10 +57,12 @@ public class Car {
         while (km > 0 && tank.getTankContent() > fluelperKm) {
             ++driving;
             --km;
-           //tank.getTankContent() -= fluelperKm;
+
+            Tank.setTankContent(tank.getTankContent()-fluelperKm);
+
         }
         engine.drive(driving);
-        System.out.println(getManufacturer() + " has driving  " + driving + " km and " + tank.getTankContent() + " l fluel left");
+        System.out.println(getManufacturer() + " has driving  " + driving + " km and " + String.format("%.2f",tank.getTankContent()) + " l fluel left");
 
 
         return driving;
