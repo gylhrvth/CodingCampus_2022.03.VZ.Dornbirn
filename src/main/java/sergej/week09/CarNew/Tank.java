@@ -3,8 +3,8 @@ package sergej.week09.CarNew;
 
 public class Tank {
 
-    private int capacity;
-    private int content;
+    private float capacity;
+    private float content;
 
 
     public Tank(int capacity) {
@@ -14,21 +14,21 @@ public class Tank {
     }
 
 
-    public int getCapacity() {
+    public float getCapacity() {
         return capacity;
     }
 
 
 
-    public void setCapacity(int capacity) {
+    public void setCapacity(float capacity) {
         this.capacity = capacity;
     }
 
-    public int getFuelContent() {
+    public float getFuelContent() {
         return content;
     }
 
-    public void setFuelContent(int fuelContent) {
+    public void setFuelContent(float fuelContent) {
         this.content = fuelContent;
     }
 
