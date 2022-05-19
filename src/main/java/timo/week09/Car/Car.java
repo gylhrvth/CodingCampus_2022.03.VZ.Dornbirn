@@ -7,6 +7,7 @@ public class Car {
     private Engine engine;
     private int weight;
 
+
     private enum driveType {
         GASOLINE,
         DIESEL,
@@ -24,17 +25,15 @@ public class Car {
     }
 
 
-
    public int startDrive(int kilometer) {
        System.out.println("The " + brand + " " + model + " has started the engine.");
-       int distance = engine.driveCar(kilometer, this);
-       return distance;
+       return engine.driveCar(kilometer, this);
    }
 
 
     public void refuel() {
+        System.out.println("The " + brand + " " + model + " was refueled with " + (tank.getFuelCapacity() - tank.getFuelContent()) + " litre.");
         tank.setFuelContent(tank.getFuelCapacity());
-        System.out.println("The " + brand + " " + model + " was refueled.");
     }
 
     public int getWeight() {
@@ -57,8 +56,17 @@ public class Car {
         return engine;
     }
 
+    public void setEngine(Engine engine) {
+        this.engine = engine;
+    }
+
     @Override
     public String toString() {
         return brand + " " + model;
     }
+
+    public boolean isBroken() {
+        return engine.isBroken();
+    }
+
 }

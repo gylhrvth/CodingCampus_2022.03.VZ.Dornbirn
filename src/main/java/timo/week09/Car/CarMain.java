@@ -15,15 +15,17 @@ public class CarMain {
         Car car1 = new Car("Mazda", "RX-8", wankel, tank1, 1379);
 
 
-        int kmGoal = 1000;
+        int kmGoal = 10000;
 
         while (kmGoal > 0) {
             int km = car1.startDrive(kmGoal);
-            if (wankel.isBroken()) {
-                repairStation.replaceEngine(car1.getEngine());
+            System.out.println("The " + car1 + " has driven " + km + " km distance.");
+            if (car1.isBroken()) {
+                repairStation.replaceEngine(car1);
             }
             kmGoal -= km;
-            if (kmGoal > 0) {
+            Tank t = car1.getTank();
+            if (t.getFuelContent() < 0.1 * t.getFuelCapacity()) {
                 car1.refuel();
             }
             if (kmGoal <= 0) {
