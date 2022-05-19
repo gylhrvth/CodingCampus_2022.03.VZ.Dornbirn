@@ -1,4 +1,4 @@
-package arda.week09;
+package arda.week09.carsimulation;
 
 public class TestDrive {
     static final String GREEN = "\033[0;92m";

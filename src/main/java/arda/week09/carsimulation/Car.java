@@ -1,4 +1,4 @@
-package arda.week09;
+package arda.week09.carsimulation;
 
 import java.util.Random;
 
