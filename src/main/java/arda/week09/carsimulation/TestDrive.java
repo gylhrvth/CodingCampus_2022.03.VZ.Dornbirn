@@ -20,7 +20,7 @@ public class TestDrive {
         FuelTank audiTank = new FuelTank(74, 68, Car.FuelSource.Diesel);
         FuelTank lexusTank = new FuelTank(60, 46, Car.FuelSource.Gasoline);
         Battery teslaBattery = new Battery(90, 65, Car.FuelSource.Electricity);
-        FuelTank wayneIncTank = new FuelTank(100, 56, Car.FuelSource.Diesel);
+        FuelTank wayneIncTank = new FuelTank(100, 56, Car.FuelSource.Gasoline);
 
         Car bmw = new Car("BMW", "M50D", 400, bmwTank, 1950, engine);
         Car audi = new Car("AUDI", "A6", 326, audiTank, 1890, engine);
@@ -30,7 +30,7 @@ public class TestDrive {
         Crappycar hotDogCar = new Crappycar("GIANT WIENER", "HOTDOG", 59, bmwTank, 3045, engine);
 
         //for (int i = 1; i < 10; i++) {
-        simCarDrivin(hotDogCar, 3000);
+        simCarDrivin(batmobile, 3000);
         //}
     }
 
@@ -48,9 +48,7 @@ public class TestDrive {
                     while (distDestination > 0) {
                         int actualDriving = car.drive(distDestination);
                         distDestination -= actualDriving;
-                        if(Math.random()>0.5){
-                            throw new RuntimeException("WTF");
-                        }if (!car.isCarBrokenDown() && car.isOutOfFuel()) {
+                        if (!car.isCarBrokenDown() && car.isOutOfFuel()) {
                             System.out.println("out of fuel");
                             currentState = CarState.REFUELING;
                             break;
