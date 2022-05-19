@@ -3,40 +3,43 @@ package cemil.week10.carSimulation;
 public class Car {
     private String name;
     private String model;
-    private int hP;
+    private Engine engine;
     private int weight;
-    private int tankCapacity;
+    private float tankCapacity;
     private int driveToLeft = 0;
-    private int tankRefill;
+    private float tankContent;
+    private RepairStation repairStation;
 
 
     private enum FUEL {
+
         PETROL,
         DIESEL,
         GAS,
         ELECTRIC
     }
 
-    public Car(String name, String model, int hP, int weight, int tankCapacity) {
+    public Car(String name, String model, Engine engine, int weight, int tankCapacity) {
         this.name = name;
         this.model = model;
-        this.hP = hP;
+        this.engine = engine;
         this.weight = weight;
         this.tankCapacity = tankCapacity;
-        tankRefill = tankCapacity;
+        tankContent = tankCapacity;
+
     }
 
     public int drive(int km) {
         int driving = 0;
-        float a = 0.00004f;
-        float b = 0.0002f;
-        float fluelperKm = a * weight + b * hP;
-        while (km > 0 && tankCapacity > fluelperKm) {
+        float fluelperKm = 0.00004f * weight + 0.0002f * (float) engine.getHp();
+        while (km > 0 && tankContent >= fluelperKm) {
             ++driving;
             --km;
-
+            tankContent -= fluelperKm;
         }
-        System.out.println(getName() + " has driving " + (driving - tankCapacity) + " km with " + tankCapacity + " Liter " + fluelperKm);
+        System.out.println(getName() + " has driving " + driving + " km and " + String.format("%.2f", tankContent) + " l fuel left.");
+//        System.out.println(name + " " + model + " " + engine);
+//        System.out.println(engine.getCubicCapacity() + "...." + engine.getHp());
 
 
         return driving;
@@ -44,22 +47,26 @@ public class Car {
     }
 
     public void refill() {
-        tankCapacity = tankRefill;
-        System.out.println(name + model);
+        tankContent = tankCapacity;
+
     }
+
+    public void replaceEngine(double motor, double hp) {
+        engine = new Engine(motor, hp);
+        System.out.println(engine);
+    }
+//
+//    public Engine getEngine() {
+//        return engine;
+//    }
+
 
     public String getName() {
         return name;
     }
-    //    @Override
-//    public String toString() {
-//        String output = "";
-//        output += name + " ";
-//        output += model + " ";
-//        output += ",Horspower: " + hP + " ";
-//        output += ",Weight: " + weight + " ";
-//        output += ",Tank Capacity: " + tankCapacity + " ";
-//        output += ",Fuel = " + FUEL.DIESEL;
-//        return output;
-//    }
+
+    public float getTankCapacity() {
+        return tankCapacity;
+    }
+
 }
