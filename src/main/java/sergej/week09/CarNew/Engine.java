@@ -1,4 +1,5 @@
-package timo.week09.Car;
+package sergej.week09.CarNew;
+
 
 import java.util.Random;
 
@@ -37,10 +38,10 @@ public class Engine {
         for (int i = 0; i <= kilometer; i++) {
             kmDriven++;
             motorKm++;
-            if (t.consumeFuel(1, car) == 1){
+            if (t.consumeFuel(1, car) == 1) {
                 if (random.nextInt(1000000) <= motorKm) {
                     setBroken();
-                    System.out.println("\u001B[31m" + "Your engine broke at " + motorKm + "km" + "\u001B[0m");
+                    System.out.println("\u001B[31m" + "Your engine broke at " + i + "km" + "\u001B[0m");
                     break;
                 }
             } else {
@@ -48,8 +49,7 @@ public class Engine {
                 break;
             }
         }
+
         return kmDriven;
     }
-
 }
-

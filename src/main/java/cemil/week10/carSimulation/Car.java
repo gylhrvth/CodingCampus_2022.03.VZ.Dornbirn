@@ -5,9 +5,9 @@ public class Car {
     private String model;
     private int hP;
     private int weight;
-    private int tankCapacity;
+    private float tankCapacity;
     private int driveToLeft = 0;
-    private int tankRefill;
+    private float tankContent;
 
 
     private enum FUEL {
@@ -23,20 +23,18 @@ public class Car {
         this.hP = hP;
         this.weight = weight;
         this.tankCapacity = tankCapacity;
-        tankRefill = tankCapacity;
+        tankContent = tankCapacity;
     }
 
     public int drive(int km) {
         int driving = 0;
-        float a = 0.00004f;
-        float b = 0.0002f;
-        float fluelperKm = a * weight + b * hP;
-        while (km > 0 && tankCapacity > fluelperKm) {
+        float fluelperKm = 0.00004f * weight + 0.0002f * hP;
+        while (km > 0 && tankContent >= fluelperKm) {
             ++driving;
             --km;
-
+            tankContent -= fluelperKm;
         }
-        System.out.println(getName() + " has driving " + (driving - tankCapacity) + " km with " + tankCapacity + " Liter " + fluelperKm);
+        System.out.println(getName() + " has driving " + driving + " km and " + String.format("%.2f", tankContent) + " l fuel left.");
 
 
         return driving;
@@ -44,22 +42,16 @@ public class Car {
     }
 
     public void refill() {
-        tankCapacity = tankRefill;
-        System.out.println(name + model);
+        tankContent = tankCapacity;
+
     }
 
     public String getName() {
         return name;
     }
-    //    @Override
-//    public String toString() {
-//        String output = "";
-//        output += name + " ";
-//        output += model + " ";
-//        output += ",Horspower: " + hP + " ";
-//        output += ",Weight: " + weight + " ";
-//        output += ",Tank Capacity: " + tankCapacity + " ";
-//        output += ",Fuel = " + FUEL.DIESEL;
-//        return output;
-//    }
+
+    public float getTankCapacity() {
+        return tankCapacity;
+    }
+
 }

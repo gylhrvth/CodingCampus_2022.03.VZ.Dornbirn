@@ -19,21 +19,25 @@ public class OpenCVTest {
     public static void main(String[] args) {
         OpenCV.loadLocally();
         //The paths won't work in a bundled application...
-        File images = new File("src/main/resources/opencv/images/");
+        File imageFolder = new File("src/main/resources/opencv/images/");
+        //Load CascadeClassifier
+        CascadeClassifier cascadeClassifier = new CascadeClassifier();
+        cascadeClassifier.load("src/main/resources/opencv/haarcascade/haarcascade_frontalface_alt.xml");
         //Face recognition for every image in opencv/images folder
-        for (File image : images.listFiles()) {
-            recogniseFace(image.getAbsolutePath(), "assets/tmp/detected_" + image.getName().replaceAll("\\..*", "") + ".jpg");
+        long start = System.currentTimeMillis();
+        File[] images = imageFolder.listFiles();
+        for (File image : images) {
+            recogniseFace(image.getAbsolutePath(), "assets/tmp/detected_" + image.getName().replaceAll("\\..*", "") + ".jpg", cascadeClassifier);
         }
+        System.out.println("Detection for " + images.length + " images took: " + (System.currentTimeMillis() - start) + "ms");
         //Otherwise the program stops with a negative value
         System.exit(0);
     }
 
-    private static void recogniseFace(String path, String output) {
+    private static void recogniseFace(String path, String output, CascadeClassifier cascadeClassifier) {
         Mat loadedImage = Imgcodecs.imread(path);
         MatOfRect facesDetected = new MatOfRect();
-        CascadeClassifier cascadeClassifier = new CascadeClassifier();
         int minFaceSize = Math.round(loadedImage.rows() * 0.1f);
-        cascadeClassifier.load("src/main/resources/opencv/haarcascade/haarcascade_frontalface_alt.xml");
         cascadeClassifier.detectMultiScale(loadedImage,
                 facesDetected,
                 1.1,
