@@ -6,55 +6,70 @@ public class Car {
 
     private Random random = new Random();
 
-    private String manufatcurer;
+    String manufatcurer;
     private String modell;
-    private int power;
-    private int fueltank;
+    private Engine engine;
+    private Fueltank fueltank;
     private int weight;
 
     private enum DRIVE_TYPE {GASOLINE, DIESEL, ELECTRIC}
 
-    public Car(String manufatcurer, String modell, int power, int fueltank, int weight) {
+    public Car(String manufatcurer, String modell, Engine engine, Fueltank fueltank, int weight) {
         this.manufatcurer = manufatcurer;
         this.modell = modell;
-        this.power = power;
-        this.fueltank = fueltank;
         this.weight = weight;
+        this.engine = engine;
+        engine.setCar(this);
+        this.fueltank = fueltank;
     }
 
     public void drive(int kilometer) {
-        float litrePer100Km = (weight * 0.004f + 0.02f * power) / 100;
-        float distanceTravelled = fueltank / litrePer100Km;
-        float kmToGo = kilometer - distanceTravelled;
+        //float litrePer100Km = (weight * 0.004f + 0.02f * engine.getPower()) / 100;
+        //float distanceTravelled = fueltank.getCapacity() / litrePer100Km;
+        //float kmToGo = kilometer - distanceTravelled;
 
         float tempTank = 0;
 
         for (int i = 0; i < kilometer; i++) {
-            tempTank += litrePer100Km;
+           // tempTank += litrePer100Km;
+            engine.drive(i, kilometer);
+            if(engine.motorCheck()== Engine.ENGINE_STATE.BROKEN){
+                break;
+            }
+        }
+           /* engine.setMileage(i);
+            if (random.nextInt(100) <= engine.getMileage()/1000) {
+                engine.setEnginestate(Engine.ENGINE_STATE.BROKEN);
+                System.out.println(engine.getMileage());
+                System.out.println("Your engine Broke!");
+                break;
+            }
             if (i % random.nextInt(1, 25) == 0) {
-                System.out.println("You travelled " + i + "km so far u still got " + (fueltank - tempTank) + "l of your tank left" + "(fuel consumption " + i * litrePer100Km + "l)");
+                System.out.println(manufatcurer + " travelled " + i + "km so far u still got " + (fueltank.getCapacity() - tempTank) + "l of your tank left" + "(fuel consumption " + i * litrePer100Km + "l)");
                 System.out.println("you still got " + (kilometer - i) + "km to go to reach your goal");
+                System.out.println("Yor engines mileage is:" + engine.getMileage());
             }
 
-            if (fueltank - tempTank <= 0) {
-                System.out.println("YOu ran out of fuel you still have " + (kilometer - i) + "km to go!");
-                fueltank = refuel();
+            if (fueltank.getCapacity() - tempTank <= 0) {
+                System.out.println(manufatcurer + " ran out of fuel you still have " + (kilometer - i) + "km to go!");
+                fueltank.setCapacity(refuel());
                 tempTank = 0;
-                System.out.println("You refuelled " + fueltank);
+                System.out.println("You refuelled " + fueltank.getCapacity() + " litres");
             }
 
         }
 
         System.out.println("The " + manufatcurer + " " + modell + " drove " + kilometer + "km");
 
-    }
-
-    public int getFueltank() {
-        return fueltank;
+    }*/
     }
 
     public int refuel() {
-        fueltank = random.nextInt(50);
-        return fueltank;
+        return fueltank.setCapacity(random.nextInt(50));
+
+    }
+
+    public int getWeight() {
+        return weight;
     }
 }

@@ -1,12 +1,16 @@
-package timo.week09.Car;
+package sergej.week09.CarNew;
+
+
+import java.util.Random;
 
 public class Car {
+    Random random = new Random();
+
     private String brand;
     private String model;
     private Tank tank;
     private Engine engine;
     private int weight;
-
 
     private enum driveType {
         GASOLINE,
@@ -25,15 +29,16 @@ public class Car {
     }
 
 
-   public int startDrive(int kilometer) {
-       System.out.println("The " + brand + " " + model + " has started the engine.");
-       return engine.driveCar(kilometer, this);
-   }
+    public int startDrive(int kilometer) {
+        System.out.println("The " + brand + " " + model + " has started the engine.");
+        return engine.driveCar(kilometer, this);
+
+    }
 
 
     public void refuel() {
-        System.out.println("The " + brand + " " + model + " was refueled with " + (tank.getFuelCapacity() - tank.getFuelContent()) + " litre.");
-        tank.setFuelContent(tank.getFuelCapacity());
+        System.out.println("The " + brand + " " + model + " was refueled with " + (tank.getFuelCapacity() - tank.getFuelContent()) + " litre");
+
     }
 
     public int getWeight() {
@@ -65,8 +70,9 @@ public class Car {
         return brand + " " + model;
     }
 
-    public boolean isBroken() {
+    public boolean isBroken(){
         return engine.isBroken();
     }
-
 }
+
+

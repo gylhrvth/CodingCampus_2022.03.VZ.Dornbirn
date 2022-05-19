@@ -1,11 +1,14 @@
 package arda.week09;
 
+import java.util.Random;
+
 public class Car {
     static final String RESET = "\033[0m";
     static final String RED = "\033[1;31m";
     static final String YELLOW = "\033[0;93m";
     static final String GREEN = "\033[0;92m";
     static final String WHITE = "\033[0;97m";
+    static final String RED_BOLD_BRIGHT = "\033[1;91m";
     private String manufacturer;
     private String model;
     private int hp;
@@ -14,6 +17,9 @@ public class Car {
     private int weight;
     private float currentFuelAmount;
     private FuelSource fuelSource;
+    private Engine engine;
+    private Random rand = new Random();
+    private int drivenKm = 0;
 
     public enum FuelSource {
         Gasoline,
@@ -21,28 +27,32 @@ public class Car {
         Electricity,
     }
 
-    public Car(String manufacturer, String model, int hp, float tankCap, float currentFuelAmount, FuelSource fuelSource, int weight) {
+    public Car(String manufacturer, String model, int hp, Tank tank, int weight, Engine engine) {
         this.manufacturer = manufacturer;
         this.model = model;
         this.hp = hp;
-        this.tankCap = tankCap;
+        this.tankCap = tank.getTankCap();
         this.weight = weight;
-        this.fuelSource = fuelSource;
-        this.currentFuelAmount = currentFuelAmount;
+        this.fuelSource = tank.getFuelSource();
+        this.currentFuelAmount = tank.getCurrentFuelAmount();
+        this.engine = engine;
     }
 
     public int drive(int kilometer) {
         float fuelPerKm = 0.00004f * weight + 0.0002f * hp;
         int maxKm = (int) (currentFuelAmount / fuelPerKm);
         int kmDriven = Math.min(kilometer, maxKm);
+        drivenKm += kmDriven;
         currentFuelAmount -= (kmDriven * fuelPerKm);
+
         if (kmDriven != kilometer) {
             System.out.println("-------------------------------------------------");
-            System.out.printf("%s %s" + YELLOW + " has driven" + RESET + RED + " %dkm (of %dkm)." + RESET + YELLOW + " With " + RESET + RED + "%.2fl" + RESET + YELLOW + " of fuel left!%n" + RESET, manufacturer, model, kmDriven, kilometer, currentFuelAmount);
+            System.out.printf("%s %s" + YELLOW + " has driven" + RESET + RED + " %dkm (of %dkm). " + RESET + YELLOW + "%.2fl of fuel left!%n" + RESET, manufacturer, model, kmDriven, kilometer, currentFuelAmount);
         } else {
             System.out.println("-------------------------------------------------");
-            System.out.printf("%s %s" + GREEN + " has arrived at its destination with %.2fl of fuel left!%n" + RESET, manufacturer, model, currentFuelAmount);
+            System.out.printf("%s %s" + GREEN + " has arrived at its destination. %.2fl of fuel left!%n" + RESET, manufacturer, model, currentFuelAmount);
         }
+        return kmDriven;
 /*
         while (maxKm != kilometer && currentFuelAmount > 0) {
             ++kmDriven;
@@ -59,12 +69,19 @@ public class Car {
             }
         }
  */
-        return kmDriven;
+    }
+
+    public void kmTEST() {
+        System.out.println(drivenKm);
+    }
+
+    public boolean isCarBrokenDown() {
+        return engine.isEngineBroken();
     }
 
     public void refuel() {
         System.out.println("-------------------------------------------------");
-        System.out.println(manufacturer + " " + model + YELLOW + " has been refilled with " + RESET + RED + String.format("%2f", tankCap - currentFuelAmount) + " of " + fuelSource + "." + RESET);
+        System.out.println(manufacturer + " " + model + YELLOW + " has been refilled with " + RESET + RED + String.format("%.2f", tankCap - currentFuelAmount) + " of " + fuelSource + "." + RESET);
         currentFuelAmount = tankCap;
     }
 
@@ -90,6 +107,14 @@ public class Car {
 
     public int getWeight() {
         return weight;
+    }
+
+    public Engine getEngine() {
+        return engine;
+    }
+
+    public void replaceEngine(Engine eng) {
+        this.engine = eng;
     }
 
     @Override
