@@ -21,11 +21,13 @@ public class CarMain {
 
             while (kmGoal > 0) {
                 int km = car1.startDrive(kmGoal);
+                System.out.println("The "+car1+" has driven "+km+" km distance.");
                 if (engine.isBroken()) {
-                    repairStation.replaceEngine(car1.getEngine());
+                    repairStation.replaceEngine(car1);
                 }
                 kmGoal -= km;
-                if (kmGoal > 0) {
+                Tank t = car1.getTank();
+                if (t.getFuelContent() < 0.1 * t.getFuelCapacity()) {
                     car1.refuel();
                 }
                 if (kmGoal <= 0) {

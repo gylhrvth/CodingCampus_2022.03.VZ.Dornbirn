@@ -9,10 +9,11 @@ public class RepairStation {
     }
 
 
-    public Engine replaceEngine (Engine engine) {
-        engine = new Engine("Replacement engine", engine.getkW());
+    public Engine replaceEngine (Car car) {
+        Engine newEngine = new Engine("Replacement engine", car.getEngine().getkW());
+        car.setEngine(newEngine);
         System.out.println("The engine has been replaced!");
-        return engine;
+        return newEngine;
     }
 
 }
