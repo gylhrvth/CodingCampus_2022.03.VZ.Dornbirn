@@ -12,7 +12,7 @@ public class FileTraversal {
     public static void fileLister(File[] file) {
         if (file != null) {
             for (int i = 0; i < file.length; i++) {
-                System.out.printf("%s %n", (file[i].isDirectory()) ? "D:" + file[i].getName() : (file[i].isFile()) ? "F:" + file[i].getName() : "");
+                System.out.printf("%s %n", (file[i].isDirectory()) ? "D:" + file[i].getName() : (file[i].isFile()) ? "    F:" + file[i].getName() : "");
                 if (file[i].isDirectory()){
                     fileLister(file[i].listFiles());
                 }

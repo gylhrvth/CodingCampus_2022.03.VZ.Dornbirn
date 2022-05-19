@@ -1,7 +1,6 @@
 package cemil.week10.bank;
 
 import java.util.Vector;
-import static arda.week09.bank.Totallybankstuff.*;
 
 public class Bank {
     private String name;
@@ -16,7 +15,6 @@ public class Bank {
         if (!waitingCustomers.contains(c)) {
             waitingCustomers.add(c);
         }
-        main(new String[]{});
     }
 
     public void addCashier(Cashier c){
