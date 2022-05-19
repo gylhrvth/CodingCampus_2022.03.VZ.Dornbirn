@@ -37,7 +37,7 @@ public class Car {
 
 
     public void refuel() {
-        System.out.println("The " + brand + " " + model + " was refueled with " + (tank.getFuelCapacity() - tank.getFuelContent()) + " litre");
+        System.out.println("The " + brand + " " + model + " was refueled with " + (tank.getCapacity() - tank.getFuelContent()) + " litre");
 
     }
 
