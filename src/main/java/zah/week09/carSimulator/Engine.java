@@ -25,4 +25,8 @@ public class Engine {
     public void drive(int km){
         kilometers += km;
     }
+
+    public String getModelOfEngine() {
+        return modelOfEngine;
+    }
 }

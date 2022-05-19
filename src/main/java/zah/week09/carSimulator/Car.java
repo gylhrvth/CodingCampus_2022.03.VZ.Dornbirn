@@ -6,11 +6,11 @@ import java.util.Vector;
 public class Car {
     private String manufacturer;
     private String model;
-    private float tankCapacity;
+    //private float tankCapacity;
     private int weight;
-    private float tankContent;
+    //private float tankContent;
     private Engine engine;
-    private List<Tank> tanks;
+    private Tank tank;
 
 
     private enum DRIVE_TYPE {
@@ -21,24 +21,21 @@ public class Car {
     }
 
 
-    public Car(String manufacturer, String model, Engine engine, float tankCapacity, int weight) {
+    public Car(String manufacturer, String model, Engine engine,Tank tank, int weight) {
         this.manufacturer = manufacturer;
         this.model = model;
 
-        this.tankCapacity = tankCapacity;
+        //this.tankCapacity = tankCapacity;
         this.weight = weight;
-        this.tankContent = tankCapacity;
+        //this.tankContent = tankCapacity;
         this.engine = engine;
+        this.tank=tank;
         engine.setCar(this);
-        this.tanks = new Vector<>();
+
 
     }
 
-    public void addTank(Tank t) {
-        if (!tanks.contains(t)) {
-            tanks.add(t);
-        }
-    }
+
 
 
     public void replaceEngine(Engine e) {
@@ -47,37 +44,9 @@ public class Car {
         e.setCar(this);
     }
 
-    public void refill() {
-        tankContent = tankCapacity;
-
-
-    }
-
-
-    public String toString(String id) {
-        String out = id + manufacturer + "\n";
-        out += model + "\n";
-
-        return out;
-
-    }
-
-    @Override
-    public String toString() {
-        return toString("");
-    }
 
     public String getManufacturer() {
         return manufacturer;
-    }
-
-
-    public int getTankCapacity() {
-        return (int) tankCapacity;
-    }
-
-    public void setTankCapacity(int tankCapacity) {
-        this.tankCapacity = tankCapacity;
     }
 
     public int drive(int km) {
@@ -85,13 +54,13 @@ public class Car {
         float a = 0.00004f;
         float b = 0.0002f;
         float fluelperKm = a * weight + b * engine.getkW();
-        while (km > 0 && tankContent > fluelperKm) {
+        while (km > 0 && tank.getTankContent() > fluelperKm) {
             ++driving;
             --km;
-            tankContent -= fluelperKm;
+           //tank.getTankContent() -= fluelperKm;
         }
         engine.drive(driving);
-        System.out.println(getManufacturer() + " has driving  " + driving + " km and " + tankContent + " l fluel left");
+        System.out.println(getManufacturer() + " has driving  " + driving + " km and " + tank.getTankContent() + " l fluel left");
 
 
         return driving;

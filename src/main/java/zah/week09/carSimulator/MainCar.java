@@ -8,8 +8,8 @@ public class MainCar {
     public static void main(String[] args) {
 
 
-        Car car = new Car("BMW", "420 Coupe", new Engine("M35", 180,0), 60, 2000);
-       // car.drive(1000);
+        Car car = new Car("BMW", "420 Coupe", new Engine("M35", 180, 0), 60, 2000);
+        // car.drive(1000);
 
 
         int kmGoal = 1000;
@@ -23,4 +23,6 @@ public class MainCar {
             }
         }
     }
+
+
 }
