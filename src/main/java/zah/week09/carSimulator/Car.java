@@ -21,7 +21,7 @@ public class Car {
     }
 
 
-    public Car(String manufacturer, String model, Engine engine,Tank tank, int weight) {
+    public Car(String manufacturer, String model, Engine engine, Tank tank, int weight) {
         this.manufacturer = manufacturer;
         this.model = model;
 
@@ -29,21 +29,17 @@ public class Car {
         this.weight = weight;
         //this.tankContent = tankCapacity;
         this.engine = engine;
-        this.tank=tank;
+        this.tank = tank;
         engine.setCar(this);
 
-
     }
-
-
-
 
     public void replaceEngine(Engine e) {
         engine.setCar(null);
         engine = e;
         e.setCar(this);
-    }
 
+    }
 
     public String getManufacturer() {
         return manufacturer;
@@ -57,15 +53,15 @@ public class Car {
         while (km > 0 && tank.getTankContent() > fluelperKm) {
             ++driving;
             --km;
-
-            Tank.setTankContent(tank.getTankContent()-fluelperKm);
-
+            Tank.setTankContent(tank.getTankContent() - fluelperKm);
         }
-        engine.drive(driving);
-        System.out.println(getManufacturer() + " has driving  " + driving + " km and " + String.format("%.2f",tank.getTankContent()) + " l fluel left");
+        //engine.driveCar(driving);
+
+        System.out.println(getManufacturer() + " " + engine.getModelOfEngine() + " has driving  " + driving + " km and " + String.format("%.2f", tank.getTankContent()) + " l fluel left");
 
 
         return driving;
 
     }
+
 }

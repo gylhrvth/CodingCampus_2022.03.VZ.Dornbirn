@@ -1,4 +1,4 @@
-package arda.week09;
+package arda.week09.carsimulation;
 
 public class Crappycar extends Car {
     private Engine engine;

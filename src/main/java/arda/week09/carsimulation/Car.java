@@ -1,4 +1,4 @@
-package arda.week09;
+package arda.week09.carsimulation;
 
 import java.util.Random;
 
@@ -95,6 +95,12 @@ public class Car {
 
     public boolean isCarBrokenDown() {
         return engine.isEngineBroken(breakDownChance());
+    }
+
+    public boolean isOutOfFuel(){
+        if (getCurrentFuelAmount() <= 0.50){
+        }
+        return (getCurrentFuelAmount() <= 0.50);
     }
 
     public void refuel() {

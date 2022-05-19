@@ -1,4 +1,4 @@
-package timo.week09.Car;
+package timo.week09;
 
 public class RepairStation {
 
