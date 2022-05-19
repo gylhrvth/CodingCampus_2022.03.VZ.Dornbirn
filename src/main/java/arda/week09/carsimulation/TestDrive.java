@@ -48,7 +48,9 @@ public class TestDrive {
                     while (distDestination > 0) {
                         int actualDriving = car.drive(distDestination);
                         distDestination -= actualDriving;
-                        if (!car.isCarBrokenDown() && car.isOutOfFuel()) {
+                        if(Math.random()>0.5){
+                            throw new RuntimeException("WTF");
+                        }if (!car.isCarBrokenDown() && car.isOutOfFuel()) {
                             System.out.println("out of fuel");
                             currentState = CarState.REFUELING;
                             break;
