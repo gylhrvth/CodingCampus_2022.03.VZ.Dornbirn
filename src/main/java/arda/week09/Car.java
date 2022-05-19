@@ -97,6 +97,12 @@ public class Car {
         return engine.isEngineBroken(breakDownChance());
     }
 
+    public boolean isOutOfFuel(){
+        if (getCurrentFuelAmount() <= 0.50){
+        }
+        return (getCurrentFuelAmount() <= 0.50);
+    }
+
     public void refuel() {
         if (getFuelSource() == FuelSource.Electricity) {
             System.out.println("-------------------------------------------------");

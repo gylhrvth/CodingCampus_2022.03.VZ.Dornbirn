@@ -27,7 +27,7 @@ public class TestDrive {
         Car lexus = new Car("LEXUS", "RS200", 200, lexusTank, 1360, engine);
         Car tesla = new Car("TESLA", "MODEL S", 1000, teslaBattery, 1340, engine);
         Aerodynamiccar batmobile = new Aerodynamiccar("[REDACTED]", "BATMOBILE", 2050, wayneIncTank, 1450, engine);
-        Crappycar hotDogCar = new Crappycar("GIANT WIENER","HOTDOG",59,bmwTank,3045,engine);
+        Crappycar hotDogCar = new Crappycar("GIANT WIENER", "HOTDOG", 59, bmwTank, 3045, engine);
 
         //for (int i = 1; i < 10; i++) {
         simCarDrivin(hotDogCar, 3000);
@@ -48,9 +48,11 @@ public class TestDrive {
                     while (distDestination > 0) {
                         int actualDriving = car.drive(distDestination);
                         distDestination -= actualDriving;
-                        if (!car.isCarBrokenDown()) {
-                            car.refuel();
-                        } else {
+                        if (!car.isCarBrokenDown() && car.isOutOfFuel()) {
+                            System.out.println("out of fuel");
+                            currentState = CarState.REFUELING;
+                            break;
+                        } else if (car.isCarBrokenDown()) {
                             System.out.println("-------------------------------------------------");
                             System.out.println(RED + "[" + car + " has broken down]" + RESET);
                             currentState = CarState.BROKEN_DOWN;
@@ -61,6 +63,10 @@ public class TestDrive {
                 case BROKEN_DOWN:
                     car.replaceEngine(new Engine(85));
                     currentState = CarState.IDLE;
+                    break;
+                case REFUELING:
+                    car.refuel();
+                    currentState = CarState.DRIVING;
                     break;
             }
         }
