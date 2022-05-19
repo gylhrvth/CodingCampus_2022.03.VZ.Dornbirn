@@ -1,13 +1,12 @@
-package sergej.week09.CarNew;
-
+package timo.week09;
 
 public class Tank {
-
     private float capacity;
     private float content;
 
 
-    public Tank(int capacity) {
+
+    public Tank(float capacity) {
         this.capacity = capacity;
         this.content = capacity;
 
@@ -18,17 +17,11 @@ public class Tank {
         return capacity;
     }
 
-
-
-    public void setCapacity(float capacity) {
-        this.capacity = capacity;
-    }
-
-    public float getFuelContent() {
+    public float getContent() {
         return content;
     }
 
-    public void setFuelContent(float content) {
+    public void setContent(float content) {
         this.content = content;
     }
 
@@ -37,12 +30,13 @@ public class Tank {
         int possibleDistance = 0;
 
        // float literPerKm = (0.004f * car.getWeight() + 0.02f * car.getEngine().getkW()) / 100;
-        possibleDistance = (int) Math.floor( content / car.getLiterPerKm());
+        possibleDistance = (int) Math.floor(content / car.getLiterPerKm());
         int actualDrivingDistance = Math.min(kilometer, possibleDistance);
-         content -= (car.getLiterPerKm() * actualDrivingDistance);
+        content -= (car.getLiterPerKm() * actualDrivingDistance);
 
         return actualDrivingDistance;
 
     }
+
 
 }

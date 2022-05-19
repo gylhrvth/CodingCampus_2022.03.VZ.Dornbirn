@@ -1,16 +1,15 @@
-package sergej.week09.CarNew;
-
+package timo.week09;
 
 import java.util.Random;
 
 public class Car {
     Random random = new Random();
-
     protected String brand;
     protected String model;
     protected Tank tank;
     protected Engine engine;
     protected int weight;
+
 
     private enum driveType {
         GASOLINE,
@@ -27,6 +26,13 @@ public class Car {
         this.tank = tank;
         this.weight = weight;
     }
+
+
+   /*public int startDrive(int kilometer) {
+       System.out.println("The " + brand + " " + model + " has started the engine.");
+       return engine.driveCar(kilometer, this);
+   }
+   */
 
     public int startDrive2(int kilometer) {
         System.out.println("The " + brand + " " + model + " is driving...");
@@ -50,22 +56,9 @@ public class Car {
     }
 
 
-    public int startDrive(int kilometer) {
-        System.out.println("The " + brand + " " + model + " has started the engine.");
-        return engine.driveCar(kilometer, this);
-
-    }
-
-
     public void refuel() {
-        System.out.println("The " + brand + " " + model + " was refueled with " + (tank.getCapacity() - tank.getFuelContent()) + " litre");
-        tank.setFuelContent(tank.getCapacity());
-
-    }
-
-    public float getLiterPerKm() {
-        float literPerKm = (0.004f * weight + 0.02f * engine.getkW()) / 100;
-        return literPerKm;
+        System.out.println("The " + brand + " " + model + " was refueled with " + (tank.getCapacity() - tank.getContent()) + " litres/watts.");
+        tank.setContent(tank.getCapacity());
     }
 
     public int getWeight() {
@@ -100,6 +93,10 @@ public class Car {
     public boolean isBroken() {
         return engine.isBroken();
     }
+
+    public float getLiterPerKm() {
+        float literPerKm = (0.004f * weight + 0.02f * engine.getkW()) / 100;
+        return literPerKm;
+    }
+
 }
-
-

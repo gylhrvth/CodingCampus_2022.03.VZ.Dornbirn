@@ -1,4 +1,4 @@
-package arda.week09;
+package arda.week09.carsimulation;
 
 import java.util.Random;
 
@@ -13,13 +13,14 @@ public class Car {
     private String model;
     private int hp;
     private float tankCap;
-    private String fuel;
     private int weight;
     private float currentFuelAmount;
     private FuelSource fuelSource;
     private Engine engine;
     private Random rand = new Random();
     private int drivenKm = 0;
+    private Tank tank;
+    private int chance;
 
     public enum FuelSource {
         Gasoline,
@@ -36,21 +37,33 @@ public class Car {
         this.fuelSource = tank.getFuelSource();
         this.currentFuelAmount = tank.getCurrentFuelAmount();
         this.engine = engine;
+        this.tank = tank;
+    }
+
+    protected float calculateFuel() {
+        return 0.00004f * weight + 0.0002f * hp;
     }
 
     public int drive(int kilometer) {
-        float fuelPerKm = 0.00004f * weight + 0.0002f * hp;
+        float fuelPerKm = calculateFuel();
         int maxKm = (int) (currentFuelAmount / fuelPerKm);
         int kmDriven = Math.min(kilometer, maxKm);
         drivenKm += kmDriven;
         currentFuelAmount -= (kmDriven * fuelPerKm);
-
-        if (kmDriven != kilometer) {
+        if (getFuelSource() == FuelSource.Electricity) {
+            if (kmDriven != kilometer) {
+                System.out.println("-------------------------------------------------");
+                System.out.printf("%s %s" + YELLOW + " has driven" + RESET + RED + " %dkm (of %dkm). " + RESET + YELLOW + "%.2f charges of " + getFuelSource() + " left!%n" + RESET, manufacturer, model, kmDriven, kilometer, currentFuelAmount);
+            } else {
+                System.out.println("-------------------------------------------------");
+                System.out.printf("%s %s" + GREEN + " has arrived at its destination. %.2f charges of " + getFuelSource() + " left!%n" + RESET, manufacturer, model, currentFuelAmount);
+            }
+        } else if (kmDriven != kilometer) {
             System.out.println("-------------------------------------------------");
-            System.out.printf("%s %s" + YELLOW + " has driven" + RESET + RED + " %dkm (of %dkm). " + RESET + YELLOW + "%.2fl of fuel left!%n" + RESET, manufacturer, model, kmDriven, kilometer, currentFuelAmount);
+            System.out.printf("%s %s" + YELLOW + " has driven" + RESET + RED + " %dkm (of %dkm). " + RESET + YELLOW + "%.2fl of " + getFuelSource() + " left!%n" + RESET, manufacturer, model, kmDriven, kilometer, currentFuelAmount);
         } else {
             System.out.println("-------------------------------------------------");
-            System.out.printf("%s %s" + GREEN + " has arrived at its destination. %.2fl of fuel left!%n" + RESET, manufacturer, model, currentFuelAmount);
+            System.out.printf("%s %s" + GREEN + " has arrived at its destination. %.2fl of " + getFuelSource() + " left!%n" + RESET, manufacturer, model, currentFuelAmount);
         }
         return kmDriven;
 /*
@@ -75,22 +88,39 @@ public class Car {
         System.out.println(drivenKm);
     }
 
+    protected int breakDownChance() {
+        chance = 2;
+        return chance;
+    }
+
     public boolean isCarBrokenDown() {
-        return engine.isEngineBroken();
+        return engine.isEngineBroken(breakDownChance());
+    }
+
+    public boolean isOutOfFuel(){
+        if (getCurrentFuelAmount() <= 0.50){
+        }
+        return (getCurrentFuelAmount() <= 0.50);
     }
 
     public void refuel() {
-        System.out.println("-------------------------------------------------");
-        System.out.println(manufacturer + " " + model + YELLOW + " has been refilled with " + RESET + RED + String.format("%.2f", tankCap - currentFuelAmount) + " of " + fuelSource + "." + RESET);
-        currentFuelAmount = tankCap;
+        if (getFuelSource() == FuelSource.Electricity) {
+            System.out.println("-------------------------------------------------");
+            System.out.println(manufacturer + " " + model + YELLOW + " has been Fully charged with " + RESET + RED + String.format("%.2f watts", tankCap - currentFuelAmount) + " of " + fuelSource + "." + RESET);
+            currentFuelAmount = tankCap;
+        } else {
+            System.out.println("-------------------------------------------------");
+            System.out.println(manufacturer + " " + model + YELLOW + " has been refilled with " + RESET + RED + String.format("%.2fl", tankCap - currentFuelAmount) + " of " + fuelSource + "." + RESET);
+            currentFuelAmount = tankCap;
+        }
     }
 
     public int getHp() {
         return hp;
     }
 
-    public float getTankCap() {
-        return tankCap;
+    public Tank getTank() {
+        return tank;
     }
 
     public FuelSource getFuelSource() {
@@ -99,10 +129,6 @@ public class Car {
 
     public float getCurrentFuelAmount() {
         return currentFuelAmount;
-    }
-
-    public String getFuel() {
-        return fuel;
     }
 
     public int getWeight() {
@@ -114,6 +140,8 @@ public class Car {
     }
 
     public void replaceEngine(Engine eng) {
+        System.out.println("-------------------------------------------------");
+        System.out.println(GREEN + "[The engine of " + manufacturer + " " + model + " has been replaced!]" + RESET);
         this.engine = eng;
     }
 

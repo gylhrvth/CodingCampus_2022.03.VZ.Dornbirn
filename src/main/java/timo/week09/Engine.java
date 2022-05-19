@@ -1,4 +1,4 @@
-package timo.week09.Car;
+package timo.week09;
 
 import java.util.Random;
 
@@ -51,5 +51,8 @@ public class Engine {
         return kmDriven;
     }
 
+    public int getMotorKm() {
+        return motorKm;
+    }
 }
 

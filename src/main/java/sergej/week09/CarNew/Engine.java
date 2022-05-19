@@ -52,4 +52,8 @@ public class Engine {
 
         return kmDriven;
     }
+
+    public int getMotorKm() {
+        return motorKm;
+    }
 }
