@@ -114,36 +114,67 @@ public class Car {
     public void refill() {
 
         fuelLevel = tank.getCapacity();
-        System.out.println(tank.getCapacity() + " liters filled!");
+        System.out.println(Colors.ANSI_GREEN + tank.getCapacity() + " liters filled!" + Colors.ANSI_RESET);
 
     }
 
     public void driveToTarget(int targetInKm) {
 
-        int updatedTarget = 0;
+        int updatedTarget;
         int refillCounter = 0;
+        boolean engineDefect = false;
 
-        int drivenOrRemainingKm = drive(targetInKm);
+        header(targetInKm);
 
+        // Initial drive with initial fuel level
+        int remainingKm = drive(targetInKm);
 
-        if (drivenOrRemainingKm < targetInKm) {
-
-            updatedTarget = drivenOrRemainingKm;
-
+        // If there is still way to go
+        if (remainingKm < targetInKm) {
+            updatedTarget = remainingKm;
 
             while (fuelLevel == 0) {
+
+                // Fill up the tank
                 refill();
                 refillCounter++;
-                updatedTarget = drive(updatedTarget);
 
+                // Check the engine condition
+                engineDefect = Engine.possibilityOfADefectedEngine(targetInKm - updatedTarget);
+                if (engineDefect) {
+                    System.out.println(Colors.ANSI_RED + "ENGINE IS DEFECT! ---> Please drive to the repair station" + Colors.ANSI_RESET);
+                    break;
+                } else {
+                    System.out.println(Colors.ANSI_GREEN + "Engine is in a good condition" + Colors.ANSI_RESET);
+                }
+                updatedTarget = drive(updatedTarget);
             }
 
+            // Stats
             if (fuelLevel > 0) {
-                System.out.println(Colors.ANSI_GREEN + "STATS:--------------------------------\n" +
-                        "Target reached! (" + targetInKm + " km)\n" +
-                        "Remaining fuel: " + Colors.ANSI_GREEN + fuelLevel + " liters. \n" +
-                        refillCounter + " times filled up!" + Colors.ANSI_RESET);
+                stats(engineDefect, targetInKm, refillCounter, (targetInKm - updatedTarget));
             }
         }
+    }
+
+    public void stats(boolean engineDefect, int targetInKm, int refillCounter, int remainingKm) {
+
+        if (!engineDefect) {
+            System.out.println(Colors.ANSI_GREEN + "STATS:-------------------------------------------------------------------------\n" +
+                    "Target reached! (" + targetInKm + " km)\n" +
+                    "Remaining fuel: " + Colors.ANSI_GREEN + fuelLevel + " liters. \n" +
+                    refillCounter + " times filled up!" + Colors.ANSI_RESET);
+        } else {
+            System.out.println(Colors.ANSI_GREEN + "STATS:-------------------------------------------------------------------------\n" +
+                    "Remaining Km (" + remainingKm + " km)\n" +
+                    "Remaining fuel: " + Colors.ANSI_GREEN + fuelLevel + " liters. \n" +
+                    refillCounter + " times filled up!" + Colors.ANSI_RESET);
+        }
+    }
+
+    public void header(int targetInKm) {
+        System.out.println(Colors.ANSI_BLUE + "\nTarget = " + Colors.ANSI_RESET + Colors.ANSI_YELLOW + targetInKm + " km" + Colors.ANSI_RESET +
+                Colors.ANSI_BLUE + "\nInitial Tank Level = " + Colors.ANSI_RESET + Colors.ANSI_YELLOW + fuelLevel + " liters" + Colors.ANSI_RESET +
+                Colors.ANSI_BLUE + "\nJOURNEY STARTS\n------------------------------------------------" + Colors.ANSI_RESET);
     }
 }
