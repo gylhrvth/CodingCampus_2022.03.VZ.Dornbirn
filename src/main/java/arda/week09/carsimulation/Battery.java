@@ -1,4 +1,4 @@
-package arda.week09;
+package arda.week09.carsimulation;
 
 public class Battery extends Tank {
     public Battery(int charge, int currentCharge, Car.FuelSource fuelSource) {

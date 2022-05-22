@@ -22,11 +22,19 @@ public class Engine {
         return kW;
     }
 
-    public void drive(int km){
+    public void driveCar(int km) {
         kilometers += km;
     }
 
     public String getModelOfEngine() {
         return modelOfEngine;
+    }
+
+    public void setModelOfEngine(String modelOfEngine) {
+        this.modelOfEngine = modelOfEngine;
+    }
+
+    public boolean brokenEngine() {
+        return true;
     }
 }

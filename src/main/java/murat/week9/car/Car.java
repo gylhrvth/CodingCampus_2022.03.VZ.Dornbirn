@@ -1,26 +1,31 @@
 package murat.week9.car;
 
-import lukas.week4.day3.Color;
 import murat.Colors;
 
 public class Car {
 
     private String producer;
     private String model;
-    private int horsePower;
-    private float tankCapacity;
+
     private float fuelLevel;
 
-    private enum DRIVING_TYPE {
+    private Tank tank;
+
+    private Engine engine;
+
+    public enum DrivingType {
         GASOLINE, DIESEL, GAS, ELECTRICITY,
     }
 
-    public Car(String producer, String model, int horsePower, float tankCapacity, float fuelLevel) {
+    DrivingType driveType;
+
+    public Car(String producer, String model, DrivingType driveType, float fuelLevel, Tank tank, Engine engine) {
         this.producer = producer;
         this.model = model;
-        this.horsePower = horsePower;
-        this.tankCapacity = tankCapacity;
         this.fuelLevel = fuelLevel;
+        this.driveType = driveType;
+        this.tank = tank;
+        this.engine = engine;
     }
 
     public String getProducer() {
@@ -31,16 +36,21 @@ public class Car {
         return model;
     }
 
-    public int getHorsePower() {
-        return horsePower;
-    }
-
-    public float getTankCapacity() {
-        return tankCapacity;
-    }
 
     public float getFuelLevel() {
         return fuelLevel;
+    }
+
+    public Tank getTank() {
+        return tank;
+    }
+
+    public Engine getEngine() {
+        return engine;
+    }
+
+    public DrivingType getDriveType() {
+        return driveType;
     }
 
     public void setProducer(String producer) {
@@ -51,21 +61,32 @@ public class Car {
         this.model = model;
     }
 
-    public void setHorsePower(int horsePower) {
-        this.horsePower = horsePower;
-    }
-
-    public void setTankCapacity(float tankCapacity) {
-        this.tankCapacity = tankCapacity;
-    }
-
     public void setFuelLevel(float fuelLevel) {
         this.fuelLevel = fuelLevel;
     }
 
+    public void setTank(Tank tank) {
+        this.tank = tank;
+    }
+
+    public void setEngine(Engine engine) {
+        this.engine = engine;
+    }
+
+    public void setDriveType(DrivingType driveType) {
+        this.driveType = driveType;
+    }
+
     @Override
     public String toString() {
-        return "Car{" + "producer='" + producer + '\'' + ", model='" + model + '\'' + ", horsePower=" + horsePower + ", tankCapacity=" + tankCapacity + ", fuelLevel=" + fuelLevel + '}';
+        return "Car{" +
+                "producer='" + producer + '\'' +
+                ", model='" + model + '\'' +
+                ", fuelLevel=" + fuelLevel +
+                ", tank=" + tank +
+                ", engine=" + engine +
+                ", driveType=" + driveType +
+                '}';
     }
 
     public float fuelConsumptionPerKm() {
@@ -91,28 +112,69 @@ public class Car {
     }
 
     public void refill() {
-        fuelLevel = tankCapacity;
-        System.out.println(tankCapacity + " liters filled!");
+
+        fuelLevel = tank.getCapacity();
+        System.out.println(Colors.ANSI_GREEN + tank.getCapacity() + " liters filled!" + Colors.ANSI_RESET);
+
     }
 
     public void driveToTarget(int targetInKm) {
 
-        int updatedTarget = 0;
+        int updatedTarget;
+        int refillCounter = 0;
+        boolean engineDefect = false;
 
-        int drivenOrRemainingKm = drive(targetInKm);
+        header(targetInKm);
 
-        if (drivenOrRemainingKm < targetInKm) {
+        // Initial drive with initial fuel level
+        int remainingKm = drive(targetInKm);
 
-            updatedTarget = drivenOrRemainingKm;
+        // If there is still way to go
+        if (remainingKm < targetInKm) {
+            updatedTarget = remainingKm;
 
             while (fuelLevel == 0) {
+
+                // Fill up the tank
                 refill();
+                refillCounter++;
+
+                // Check the engine condition
+                engineDefect = Engine.possibilityOfADefectedEngine(targetInKm - updatedTarget);
+                if (engineDefect) {
+                    System.out.println(Colors.ANSI_RED + "ENGINE IS DEFECT! ---> Please drive to the repair station" + Colors.ANSI_RESET);
+                    break;
+                } else {
+                    System.out.println(Colors.ANSI_GREEN + "Engine is in a good condition" + Colors.ANSI_RESET);
+                }
                 updatedTarget = drive(updatedTarget);
             }
 
+            // Stats
             if (fuelLevel > 0) {
-                System.out.println(Colors.ANSI_GREEN + "Target reached! (" + targetInKm + " km)" + " Remaining fuel: " + Colors.ANSI_GREEN + fuelLevel + Colors.ANSI_RESET + " liters.");
+                stats(engineDefect, targetInKm, refillCounter, (targetInKm - updatedTarget));
             }
         }
+    }
+
+    public void stats(boolean engineDefect, int targetInKm, int refillCounter, int remainingKm) {
+
+        if (!engineDefect) {
+            System.out.println(Colors.ANSI_GREEN + "STATS:-------------------------------------------------------------------------\n" +
+                    "Target reached! (" + targetInKm + " km)\n" +
+                    "Remaining fuel: " + Colors.ANSI_GREEN + fuelLevel + " liters. \n" +
+                    refillCounter + " times filled up!" + Colors.ANSI_RESET);
+        } else {
+            System.out.println(Colors.ANSI_GREEN + "STATS:-------------------------------------------------------------------------\n" +
+                    "Remaining Km (" + remainingKm + " km)\n" +
+                    "Remaining fuel: " + Colors.ANSI_GREEN + fuelLevel + " liters. \n" +
+                    refillCounter + " times filled up!" + Colors.ANSI_RESET);
+        }
+    }
+
+    public void header(int targetInKm) {
+        System.out.println(Colors.ANSI_BLUE + "\nTarget = " + Colors.ANSI_RESET + Colors.ANSI_YELLOW + targetInKm + " km" + Colors.ANSI_RESET +
+                Colors.ANSI_BLUE + "\nInitial Tank Level = " + Colors.ANSI_RESET + Colors.ANSI_YELLOW + fuelLevel + " liters" + Colors.ANSI_RESET +
+                Colors.ANSI_BLUE + "\nJOURNEY STARTS\n------------------------------------------------" + Colors.ANSI_RESET);
     }
 }
