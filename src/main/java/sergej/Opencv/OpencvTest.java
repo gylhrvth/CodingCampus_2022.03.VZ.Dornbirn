@@ -65,7 +65,7 @@ public class OpencvTest {
         jframe.pack();
 
         //whiteball hsv color code upper lower limits
-        int sensitivity = 70;
+        int sensitivity = 30;
         Scalar whitelower = new Scalar(0, 0, 255 - sensitivity);
         Scalar whiteupper = new Scalar(255, sensitivity, 255);
         //green zero hsv color code upper lower limits
@@ -73,21 +73,6 @@ public class OpencvTest {
         Scalar greenupper = new Scalar(70, 255, 255);
 
 
-        Mat dst = new Mat();
-        Mat hsv = new Mat();
-        Mat mask = new Mat();
-        Mat erode = new Mat();
-        Mat dilate = new Mat();
-        Mat hierachy = new Mat();
-        List<MatOfPoint> contours = new ArrayList<>();
-
-        Mat dstG = new Mat();
-        Mat hsvG = new Mat();
-        Mat maskG = new Mat();
-        Mat erodeG = new Mat();
-        Mat dilateG = new Mat();
-        Mat hierachyG = new Mat();
-        List<MatOfPoint> contoursG = new ArrayList<>();
 
         int elementType = Imgproc.CV_SHAPE_ELLIPSE;
         int kernelSize = 4;
@@ -96,6 +81,21 @@ public class OpencvTest {
 
         while (true) {
             if (capture.read(frame)) {
+                Mat dst = new Mat();
+                Mat hsv = new Mat();
+                Mat mask = new Mat();
+                Mat erode = new Mat();
+                Mat dilate = new Mat();
+                Mat hierachy = new Mat();
+                List<MatOfPoint> contours = new ArrayList<>();
+
+                Mat dstG = new Mat();
+                Mat hsvG = new Mat();
+                Mat maskG = new Mat();
+                Mat erodeG = new Mat();
+                Mat dilateG = new Mat();
+                Mat hierachyG = new Mat();
+                List<MatOfPoint> contoursG = new ArrayList<>();
                 // Filtering the white ball
                 Imgproc.GaussianBlur(frame, dst, new Size(11, 11), 0); // make it blurry
                 Mat blurred = dst;
@@ -104,53 +104,15 @@ public class OpencvTest {
                 Imgproc.erode(mask, erode, element); // erode
                 Imgproc.dilate(erode, dilate, element); // dilate
                 //Track ball
-               /* Imgproc.findContours(mask, contours, hierachy, Imgproc.RETR_CCOMP, Imgproc.CHAIN_APPROX_SIMPLE);
-                // Iterator<MatOfPoint> it = contours.iterator();
-
+                Imgproc.findContours(dilate, contours, hierachy, Imgproc.RETR_CCOMP, Imgproc.CHAIN_APPROX_SIMPLE);
 
                 // test4
                 if (hierachy.size().height > 0 && hierachy.size().width > 0) {
                     for (int i = 0; i >= 0; i = (int) hierachy.get(0, i)[0]) {
-                        Imgproc.drawContours(frame, contours, i, new Scalar(250, 0, 0));
+                        Imgproc.drawContours(frame, contours, -1, new Scalar(0, 0, 255),3);
 
                     }
-                }*/
-
-
-                //test3
-              /*  if (contours.size() > 0) {
-                    MatOfPoint2f contours2f = new MatOfPoint2f();
-                    contours2f.fromList(it.next().toList());
-                    float[] radius = new float[1];
-                    Point center = new Point();
-                    Imgproc.minEnclosingCircle(contours2f, center, radius);
-                    if (radius[0] < 10) {
-                        Imgproc.circle(frame, center, (int) radius[0], new Scalar(0, 255, 255), 2);
-                        Imgproc.circle(frame, center, 5, new Scalar(0, 0, 255), -1);
-                    }
-
-                }*/
-                //test2
-
-               /*for (int i = 0; i < contours.size(); i++) {
-                    MatOfPoint2f contours2f = new MatOfPoint2f();
-                    contours2f.fromList(contours.get(i).toList());
-                    float[] radius = new float[1];
-                    Point center = new Point();
-                    Imgproc.minEnclosingCircle(contours2f, center, radius);
-                    double a = Imgproc.contourArea(contours.get(i));
-                    if (radius[0] < 50) {
-                        Imgproc.circle(frame, center, (int)radius[0], new Scalar(0, 255, 255), 2);
-                        Imgproc.circle(frame, center, 5, new Scalar(0, 0, 255), -1);}
-
-                }*/
-                //Test1
-                /*if (it.hasNext()) {
-                    System.out.println(it.next());
-                    double c =  Math.max(it.next().elemSize(),Imgproc.contourArea(count));
-                    float x,y,radius = Imgproc.minEnclosingCircle(pts,c,radiusF);
-                    Imgproc.circle(frame, new Scalar(0, 0, 255), 3);
-                }*/
+                }
 
 
                 // Filtering the green zero
@@ -161,8 +123,8 @@ public class OpencvTest {
                 Imgproc.erode(maskG, erodeG, element); // erode
                 Imgproc.dilate(erodeG, dilateG, element); // dilate
 
+
                 Imgproc.findContours(dilateG, contoursG, hierachyG, Imgproc.RETR_CCOMP, Imgproc.CHAIN_APPROX_SIMPLE);
-                // Iterator<MatOfPoint> it = contours.iterator();
 
 
                 // testZeroGreen4
