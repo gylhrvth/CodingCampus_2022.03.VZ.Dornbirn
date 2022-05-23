@@ -1,0 +1,42 @@
+h1, h2{
+  font-family: 'Teko', sans-serif;
+  color: purple;
+}
+h1{
+  font-weight: 700;
+}
+h2{
+  font-weight: 400;
+}
+
+.redborder {
+  border: 1px red solid;
+}
+
+.greentext {
+  color: green;
+}
+
+#ChapterHTMLTags{
+  border-bottom: 4px black dashed;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+}
+
+.content > * {
+  background-color: bisque;
+}
+
+.blass {
+  width: 300px;
+  height: 600px;
+  background-image: url(https://www.digitalcampusvorarlberg.at/fileadmin/_processed_/3/a/csm_team-gyula-horvath_13624b3b15.jpg);
+}
+
+.blass.blass:hover{
+  background-color: rgba(240, 240, 240, 0.95);
+  background-blend-mode: soft-light;
+}

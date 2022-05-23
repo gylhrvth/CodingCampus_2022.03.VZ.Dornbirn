@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;700&family=Teko:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body onload="createContent()">
+  <div class="content">
+    <div>
+      <h1>Test</h1>
+      <p class="redborder">Hello World!</p>            
+    </div>
+    <div>
+      <p>Second paragraph</p>
+    </div>
+    <div class="blass">
+    </div>
+  </div>
+  <div>
+    <iframe width="900" height="506" src="https://www.youtube.com/embed/EumXak7TyQ0?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
+  <div id="startpunkt"></div>
+
+  <script>
+      function createContent(){
+        let rootElement = document.getElementById("startpunkt")
+
+          for (let index = 0; index < 20; index++) {
+            let element = document.createElement("h1");
+            element.innerHTML = "Header " + index;
+            
+            if (index % 2 == 0){
+              element.classList.add("greentext")
+            }
+
+            rootElement.appendChild(element)
+          }
+        }
+  </script>
+</body>
+</html>
