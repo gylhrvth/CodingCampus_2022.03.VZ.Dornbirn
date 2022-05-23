@@ -1,6 +1,18 @@
-h2,h3,h4,h5,h6{
+h1,h2,h3,h4,h5,h6{
+    text-align: center;
+}
+
+.redtext{
     color:rgb(243, 8, 8) ;
+}
+.wichtig {
+    font-weight: 700;
 }
 h1{
     color: rgb(0, 0, 0);
+}
+
+.spec1 {
+    margin-left: 15%;
+    width: 70%;
 }
