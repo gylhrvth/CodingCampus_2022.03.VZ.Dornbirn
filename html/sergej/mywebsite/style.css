@@ -1,0 +1,34 @@
+.border{
+    border: 3px;
+    border:solid;
+    border-color: aquamarine;
+}
+
+.background{
+    background-color: hsl(120, 90%, 35%);
+        border:2px solid rgb(10, 46, 16);
+        margin-top: 0;
+
+}
+
+.textcenter{
+    text-align: center;
+}
+
+.paddingdown{
+    padding-bottom: 100px;
+}
+
+.textfonts{
+    font-family: 'Poppins', sans-serif;
+}
+
+.div_backgrndimg
+{
+    background-repeat: repeat-x;
+    background-image: url("treeline-clipart-14.jpg");
+    width:600px;
+    height:150px;
+    padding-top: 50px;
+    z-index: -1;
+}
