@@ -19,6 +19,11 @@ h2{
 
 .greentext {
     color: hsl(140, 100%, 18%);
+   border-style: solid;
+   margin-left: 900px;
+   border-radius: 10px;
+   
+
 }
 .redtext{
     color: rgb(190, 25, 25);
