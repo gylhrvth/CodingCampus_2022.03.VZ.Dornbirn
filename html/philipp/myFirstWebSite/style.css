@@ -1,0 +1,48 @@
+.bgImage{
+    background: url(img7.jpg);
+    background-size: cover;
+    background-color: rgba(240, 240, 240, 0.463);
+    background-blend-mode: soft-light;
+
+}
+.body{
+    text-indent:10%; 
+    font-size:110%; 
+    font-family: 'Courier New', Courier, monospace;
+    
+}
+a {
+    text-decoration: none;
+  }
+  
+a:hover {
+    text-decoration: underline brown;
+  }
+
+h1{
+    font-size: 35pt;
+}
+
+h2{
+    color:brown;
+    margin-top: 20pt;
+    margin-bottom: 10pt;
+}
+h3{
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+.distance{
+    margin-top: 0%;
+    font-weight: 500;
+}
+
+body > img {
+    margin-top: 2%;
+    
+}
+.link.link:hover{
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
