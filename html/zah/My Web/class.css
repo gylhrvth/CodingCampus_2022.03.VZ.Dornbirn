@@ -19,12 +19,14 @@ h2{
 
 .greentext {
     color: hsl(140, 100%, 18%);
-   border-style: solid;
-   margin-left: 900px;
-   border-radius: 10px;
-   
-
+    height: 200px;
+    width: 100%;
+    font-size: 19px;
+    
+    
+  
 }
+
 .redtext{
     color: rgb(190, 25, 25);
 }
@@ -32,9 +34,42 @@ h2{
     text-align: center;
     text-decoration:line-through;
     text-decoration-color: green ;
+    border-style:solid;
+    margin-right: 900px;
+    float: left;
+    border-radius: 10px;
 }
 .spanny{
     font-family: 'Smooch', cursive;
 
+}
+.image{
+    width: 200px;
+    float: left;
+}
+.picture{
+    width: 200px;
+    float: right;
+}
+.menu{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    padding-inline-start: 0px;
+}
+.menu > li{
+    color: white;
+        background-color: hsl(240, 90%, 40%);
+        font-style: ;
+        font-size: 24px;
+        flex-grow: 1;
+        margin-right: 2px;
+}
+.menu > li:hover{
+    background-color: hsl(120, 90%, 30%);
+}
+.none{
+    color: white;
 }
 
