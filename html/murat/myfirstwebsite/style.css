@@ -1,0 +1,10 @@
+.parent {
+    text-align: left;
+    width: 100%;
+}
+
+.child {
+    display: inline-block;
+    vertical-align: left;
+    width: 100%;
+}

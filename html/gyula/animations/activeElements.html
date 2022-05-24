@@ -1,0 +1,32 @@
+<html>
+<head>
+  <style>
+    p{
+      text-align: center;
+    }
+.bigtext {
+  font-size: 60px;
+  transition: font-size 0.5s;
+  transition-delay: 2s;
+}
+
+button{
+  border-radius: 10px;
+  font-size: 32px;
+  background-color: green;
+  color: black;
+  box-shadow: 5px 5px #999;
+}
+button:active{
+  transition: all 0.3s;
+  transform: translateY(3px);
+  box-shadow: 2px 2px #333;
+}
+  </style>  
+</head>
+  <body onload="document.getElementById('titel').classList.add('bigtext')">
+    <p id="titel">Hello World!</p>
+
+    <button>Click me</button>
+  </body>
+</html>
