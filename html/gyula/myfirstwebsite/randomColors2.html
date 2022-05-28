@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <style>
+button {
+  box-shadow: -2px 2px #777;
+}
+.pressedButton{
+  box-shadow: 0px 0px #444;
+  transform: translate(-2px, 2px);
+}
+    </style>  
+  </head>
+  <body id="body">
+    <button onclick="pressButton(this)">Change color</button>
+
+    <script>
+function pressButton(button){
+  button.classList.toggle("pressedButton")
+  setTimeout(generateColor, 20, button);
+}
+
+async function generateColor(button){
+  if (button.classList.contains('pressedButton')){
+      changeColor()
+      setTimeout(generateColor, 200, button)
+  }
+}
+
+function changeColor(){
+  let color = Math.floor(360 * Math.random())
+document.getElementById('body').style.backgroundColor = `hsl(${color}, 70%, 35%)`
+}
+
+    </script>
+  </body>
+</html>

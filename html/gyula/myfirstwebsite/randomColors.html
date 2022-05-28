@@ -1,0 +1,14 @@
+<html>
+  <head></head>
+  <body id="body">
+    <button onclick="changeColor()">Change color</button>
+
+    <script>
+function changeColor(){
+  let color = Math.floor(360 * Math.random())
+document.getElementById('body').style.backgroundColor = `hsl(${color}, 80%, 55%)`
+}
+
+    </script>
+  </body>
+</html>
