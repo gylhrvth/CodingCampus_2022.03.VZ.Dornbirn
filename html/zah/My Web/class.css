@@ -3,9 +3,9 @@ h1,h2{
 }
 h1{
     color:hsl(56, 87%, 46%);
-    text-align: center;
+    text-align: left;
     font-size: xx-large;
-    text-decoration: underline;
+    background-color: red;
     text-decoration-color: hsl(56, 87%, 36%);;
 
 }
@@ -43,13 +43,11 @@ h2{
     font-family: 'Smooch', cursive;
 
 }
-.image{
-    width: 200px;
-    float: left;
-}
+
 .picture{
-    width: 200px;
-    float: right;
+    width: 180px;
+    float: left;
+    
 }
 .menu{
     list-style-type: none;
@@ -57,19 +55,46 @@ h2{
     flex-direction: row;
     justify-content: space-between; 
     padding-inline-start: 0px;
+
 }
-.menu > li{
-    color: white;
-        background-color: hsl(240, 90%, 40%);
+.menu > div{
+    color: black;
         font-style: bold ;
         font-size: 24px;
-        flex-grow: 1;
         margin-right: 2px;
-}
-.menu > li:hover{
-    background-color: hsl(120, 90%, 30%);
-}
-.none{
-    color: white;
+    
+        
+
 }
 
+.homeMenu {
+    display: none;
+    position: absolute;
+    
+    min-width: 120px;
+    z-index: 2;
+    font-size: 16px;
+}
+.homeDropDown:hover { 
+   /* background-color: #cfcfcf;*/
+    transform: scale(1,2);
+}
+.homeMenu > p:hover {
+    background-color: #cfcfcf;
+
+    
+}
+
+.homeDropDown{
+    position: relative;
+}
+.homeDropDown:hover .homeMenu{
+    display: block;
+}
+.menuname {
+    padding-left: 6px;
+}
+
+.textOriented{
+    display: flex;
+}
