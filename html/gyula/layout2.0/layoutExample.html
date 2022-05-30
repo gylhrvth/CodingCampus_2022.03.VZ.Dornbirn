@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+body{
+  margin: 0;
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+}
+
+.header{
+  padding: 1em 4em 1em 4em;
+  background-color: blueviolet;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.header > div {
+  margin: 0 4px 0 4px;
+  background-color: aliceblue;
+}
+
+#homeMenu {
+  display: none;
+  position: absolute;
+  background-color: #AAA;
+  z-index: 2;
+}
+
+.homeMenuContainer:hover #homeMenu {
+  display: block;
+}
+
+
+.main {
+  background-color: violet;
+  min-height: 20em;
+}
+
+.footer {
+  background-color: brown;
+  min-height: 2em;
+}
+
+.imageInCenter {
+  background-color: gold;
+  height: 300px;
+  width: 100%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="homeMenuContainer">
+      <p>Home</p>
+      <div id="homeMenu">
+        <p>Hello</p>
+        <p>World</p>
+        <p>Eins</p>
+        <p>Zwei</p>
+      </div>      
+    </div>
+    <div>
+      <p>Team</p>
+    </div>
+    <div><p>Projects</p></div>
+    <div><p>Contact</p></div>
+  </div>
+  <div class="main">
+      <p>1 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum, soluta consequatur vitae iusto impedit officiis aspernatur nulla cupiditate maiores perferendis iste! Aspernatur totam fuga ipsum omnis necessitatibus maxime libero cupiditate.</p>
+      <p>2 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum, soluta consequatur vitae iusto impedit officiis aspernatur nulla cupiditate maiores perferendis iste! Aspernatur totam fuga ipsum omnis necessitatibus maxime libero cupiditate.</p>
+      <p>3 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum, soluta consequatur vitae iusto impedit officiis aspernatur nulla cupiditate maiores perferendis iste! Aspernatur totam fuga ipsum omnis necessitatibus maxime libero cupiditate.</p>
+      <p>4 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum, soluta consequatur vitae iusto impedit officiis aspernatur nulla cupiditate maiores perferendis iste! Aspernatur totam fuga ipsum omnis necessitatibus maxime libero cupiditate.</p>
+      <p>5 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum, soluta consequatur vitae iusto impedit officiis aspernatur nulla cupiditate maiores perferendis iste! Aspernatur totam fuga ipsum omnis necessitatibus maxime libero cupiditate.</p>
+      <p>6 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum, soluta consequatur vitae iusto impedit officiis aspernatur nulla cupiditate maiores perferendis iste! Aspernatur totam fuga ipsum omnis necessitatibus maxime libero cupiditate.</p>
+      <div class="imageInCenter">
+        <img src="https://www.digitalcampusvorarlberg.at/typo3conf/ext/local/Resources/Public/Frontend/Static/images/logo.svg" alt="">
+      </div>
+  </div>
+  <div class="footer"></div>
+
+
+</body>
+</html>

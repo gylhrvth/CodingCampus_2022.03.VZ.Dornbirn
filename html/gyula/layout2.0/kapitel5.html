@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<style>
+  body{
+    margin: 0;
+  }
+
+  .topMenu{
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+  }
+
+  .icon {
+    margin: 4px;
+    width: 120px;
+    height: auto;
+  }
+  .topMenuRight{
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    align-content: start;
+  }
+
+  .topMenuRight>p{
+    margin-top: 0;
+  }
+
+  .header {
+    position: relative;
+    background-color: aquamarine;
+  }
+
+  .bigbgimg {
+    width: 100% ;
+    padding-top: 60px;
+  }
+  .header > h1 {
+    position: absolute;
+    color: white;
+    font-size: 10vw;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    
+  }
+</style>
+</head>
+<body>
+  <div class="topMenu">
+    <img class="icon" src="https://www.digitalcampusvorarlberg.at/typo3conf/ext/local/Resources/Public/Frontend/Static/images/logo.svg" alt="">
+    <div class="topMenuRight">
+      <p><a href="#">DE</a></p>
+      <p>|<a href="#">EN</a></p>
+      <img class="menu" src="https://www.digitalcampusvorarlberg.at/typo3conf/ext/local/Resources/Public/Frontend/Static/images/logo.svg" alt="">      
+    </div>
+  </div>
+  <div class="header">
+    <img class="bigbgimg" src="https://www.digitalcampusvorarlberg.at/typo3conf/ext/local/Resources/Public/Frontend/Static/images/logo.svg" alt="">      
+    <h1>Hello World!</h1>
+  </div>
+</body>
+</html>
