@@ -1,0 +1,75 @@
+h1,h2{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h1{
+    color:hsl(56, 87%, 46%);
+    text-align: center;
+    font-size: xx-large;
+    text-decoration: underline;
+    text-decoration-color: hsl(56, 87%, 36%);;
+
+}
+h2{
+    color: aquamarine;
+    text-align: center;
+    font-size: xx-large;
+    text-decoration:underline;
+    text-decoration-color: rgb(30, 65, 53);
+}
+
+.greentext {
+    color: hsl(140, 100%, 18%);
+    height: 200px;
+    width: 100%;
+    font-size: 19px;
+    
+    
+  
+}
+
+.redtext{
+    color: rgb(190, 25, 25);
+}
+.styletext{
+    text-align: center;
+    text-decoration:line-through;
+    text-decoration-color: green ;
+    border-style:solid;
+    margin-right: 900px;
+    float: left;
+    border-radius: 10px;
+}
+.spanny{
+    font-family: 'Smooch', cursive;
+
+}
+.image{
+    width: 200px;
+    float: left;
+}
+.picture{
+    width: 200px;
+    float: right;
+}
+.menu{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    padding-inline-start: 0px;
+}
+.menu > li{
+    color: white;
+        background-color: hsl(240, 90%, 40%);
+        font-style: bold ;
+        font-size: 24px;
+        flex-grow: 1;
+        margin-right: 2px;
+}
+.menu > li:hover{
+    background-color: hsl(120, 90%, 30%);
+}
+.none{
+    color: white;
+}
+
