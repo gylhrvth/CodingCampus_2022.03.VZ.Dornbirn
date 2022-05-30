@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DerStandard</title>
+    <link rel="icon" type="image/x-icon" href="resource/derstandard-logo-700x513.jpg">
+
+    <style>
+         ul {
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between; 
+        padding-inline-start: 1px;
+      }
+      ul > li {
+        color: rgb(51, 46, 46);
+        background-color: hsl(240, 2%, 85%);
+        font-size: 24px;
+        flex-grow: 1;
+        margin-right: 2px;
+      }
+      ul > li:hover {
+        background-color: hsl(240, 1%, 75%);
+      }
+
+      .placeholder{
+        flex-grow: 100;
+        background-color: white;
+      }
+      .grid-container{
+        display: grid;
+        grid-template-columns: 35% 35% auto;
+        grid-column-gap: 4px;
+        
+      }
+      .grid-item {
+        font-size: 25px;
+        background-color: hsla(240, 4%, 95%, 0.564);
+        color: black;
+
+      }
+
+      .grid-containerRow{
+        display: grid;
+        grid-template-rows: 30%  30% 40%;
+        grid-column-gap: 4px;
+        background-color: hsl(240, 1%, 75%);
+        
+      }
+
+      .floatImage{
+        float: left;
+        top: 1cm;
+        left:1cm;
+        width:20%;
+      }
+
+    
+      .grid-containerX4{
+        display: grid;
+        grid-template-columns: 25% 25% 25% 25%;
+        grid-column-gap: 4px;
+        
+      }
+
+      .floatImageTop{
+        float: center;
+        top: 1cm;
+        left:1cm;
+        width:30%;
+      }
+
+      .grid-itemBorder {
+        font-size: 25px;
+        background-color: hsla(240, 4%, 95%, 0.564);
+        color: black;
+        border-bottom: 2px solid hsl(240, 1%, 75%);
+      }
+
+
+      
+    </style>
+</head>
+<body style="background-color: hsl(240, 2%, 85%) ;">
+    <h1>DerStandard</h1>
+    <ul>
+        <li>Datum</li>
+        <li>International</li>
+        <li>Inland</li>
+        <li>Wirtschaft</li>
+        <li>Web</li>
+        <li>Sport</li>
+        <li>Panorama</li>
+        <li>Kultur</li>
+        <li>Etat</li>
+        <li>Wissenschaft</li>
+        <li>Lifestyle</li>
+        <li>Diskurs</li>
+        <li>Karriere</li>
+        <li>Immobilien</li>
+        <li>Zukunft</li>
+        <li>mehr...</li>
+      </ul>
+
+    <div class="grid-container">
+
+      <div class="grid-item"><img src="resource/RauchBKA.jpg" alt="pic1"></div>
+      <div class="grid-item">CORONA-MASSNAHME
+
+        Maskenpflicht in Handel und Öffis fällt ab Juni, Impfpflicht ruht weiter <br>
+        Wirtschaftsvertreter reagierten positiv auf Ankündigungen des Bundes, die Corona-Regeln zu lockern – Bundesland Wien berät noch in Krisenstab darüber
+        
+        Ende der Corona-Tests: Das letzte Gurgeln an Schulen am 1. Juni 69
+        Masken-Pause: Opposition und Wissenschafter mit Ankündigungen unzufrieden 5.227</div>
+      <div class="grid-item"><div class="grid-containerRow">
+                             <div class="grid-itemBorder"><img class="floatImage" src="resource/PK.jpg" alt="p2"><p>teetetetetete bsljlksjglksjlkgjklsjlks balbalbal</p></div>
+                             <div class="grid-itemBorder"><img class="floatImage" src="resource/xinjang.jpg" alt="p3"><p>teteteteet blb bal babal bababball alal balabl</p></div>
+                             <div class="grid-itemBorder"><img class="floatImage" src="resource/APA-fohringerr.jpg" alt="p4"><p>tetetette blabll ablalabla ab labab ljfj gg</p></div>
+      </div></div>
+
+    </div>
+
+    <div class="grid-containerX4">
+        <div style=" background-color: hsl(240, 2%, 85%)" class="grid-itemBorder"><img class="floatImageTop" src="resource/schwechat.jpg" alt="p"><p>tetetetetetete blab ab labal balbalb abalba </p></div>
+        <div style=" background-color: hsl(240, 2%, 85%)" class="grid-itemBorder"><img class="floatImageTop" src="resource/Joe-Biden.jpg" alt="p2"><p>teteteetetetete blalab abal abal ala lalba lala</p></div>
+        <div style=" background-color: hsl(240, 2%, 85%)" class="grid-itemBorder"><img class="floatImageTop" src="resource/Olga_1.jpg" alt="p4"><p>tetetetetetete blablaaba labalba balbal ba</p></div>
+        <div style=" background-color: hsl(240, 2%, 85%)"class="grid-itemBorder"><img class="floatImageTop" src="resource/hasvvv.jpg" alt="p5"><p>teteteteetetetetetet blablababal aba lbalba lablal abalba </p></div>
+
+    </div>
+
+
+    
+</body>
+</html>

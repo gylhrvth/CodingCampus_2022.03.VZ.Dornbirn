@@ -23,12 +23,11 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.div_backgrndimg
+.top_backgrndimg
 {
     background-repeat: repeat-x;
     background-image: url("treeline-clipart-14.jpg");
-    width:600px;
     height:150px;
     padding-top: 50px;
-    z-index: -1;
+    z-index: 1;
 }
