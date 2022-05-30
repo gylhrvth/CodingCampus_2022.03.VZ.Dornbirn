@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <style>
+        
+
+    .container {
+      display: block;
+      position: relative;
+      padding-left: 35px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      font-size: 24px;
+      border-bottom: 2px solid hsl(240, 1%, 75%);
+    }
+
+    .container input {
+     display: none
+    }
+
+    .checkmark::before {
+     content: "";
+     height: 25px;
+     width: 25px;
+     background-color: #eee;
+     position: absolute;
+     left:0;
+     top:0;
+     border-radius: 50%;
+    }
+
+    .container:hover input~.checkmark::before {
+     background-color: #ccc;
+    }
+
+
+    .container input:checked~.checkmark::before {
+     background-color: #050607;
+    }
+
+
+    .container input:checked~.checkmark:after {
+     display: block;
+     left: 9px;
+     top: 5px;
+     width: 5px;
+     height: 10px;
+     border: solid white;
+     border-width: 0 3px 3px 0;
+     transform: rotate(45deg);
+     content: "";
+     position: absolute;
+    }
+
+    .container input:checked~.checkmark {
+     text-decoration: line-through
+    }
+
+    .containerEntry {
+      display: block;
+      position: relative;
+      padding-left: 35px;
+      cursor: pointer;
+      font-size: 24px;
+      margin-top: 10%;
+      color: rgb(24, 15, 201);
+      
+    }
+
+    .checkmarkEntry::before {
+     content: "";
+     height: 25px;
+     width: 25px;
+     background-color: rgb(39, 22, 218);
+     position: absolute;
+     left:0;
+     top:0;
+     border-radius: 50%;
+    }
+
+    .todolist{
+        position: relative;
+        margin-bottom: 25%;
+
+    }
+
+</style>
+        <body>
+        <div class="todolist">
+        <h1 style="margin-bottom: 50px;">Todo List</h1>
+        <label class="container">
+          <input type="checkbox">
+          <span class="checkmark">Milch 🥛</span>
+        </label>
+        <label class="container">
+          <input type="checkbox">
+          <span class="checkmark">Kuchen 🍰</span>
+        </label>
+        <label class="container">
+          <input type="checkbox">
+          <span class="checkmark">Schokolade 🍫</span>
+        </label>
+        <label class="container">
+          <input type="checkbox">
+          <span class="checkmark">Kaffee ☕</span>
+        </label>
+         </div>
+        <label class="containerEntry">
+            <span class="checkmarkEntry">Neuer Eintrag</span>
+          </label>
+        
+      
+
+        </body>
+</html>

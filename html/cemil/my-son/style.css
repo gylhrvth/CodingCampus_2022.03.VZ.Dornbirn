@@ -16,3 +16,41 @@ h1{
     margin-left: 15%;
     width: 70%;
 }
+.whitetext{
+    color: rgb(255, 255, 255);
+}
+
+.floatimg{
+    float: left;
+    
+    
+      
+        
+}
+.backgroundfloat{
+    background-image: url(https://media0.giphy.com/media/Ah2YxX0t177pu/giphy-downsized-large.gif);
+    background-repeat: round;
+}
+ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+    ul > li{
+        color:#000;
+        font-size: 20px;
+        flex-grow: 0;
+        border-style:solid ;
+        border-radius: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
+        
+    }
+    ul > li:hover{
+        color: #900;
+        font-size: 150%;
+       
+    }
+
+
