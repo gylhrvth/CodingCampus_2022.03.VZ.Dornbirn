@@ -76,11 +76,15 @@
      content: "";
      height: 25px;
      width: 25px;
-     background-color: rgb(39, 22, 218);
+     background-color: rgb(24, 15, 201);
      position: absolute;
      left:0;
      top:0;
      border-radius: 50%;
+
+    }
+    .containerEntry:hover {
+     background-color: aqua;
     }
 
     .todolist{
@@ -89,8 +93,19 @@
 
     }
 
+    .placeholder{
+        flex-grow: 100;
+        background-color: white;
+    }
+    .gridcontainer{
+      display: grid;
+      grid-template-columns: 10% 80% 10%;
+    }
+
 </style>
         <body>
+          <div class="gridcontainer">
+            <div class="placeholder"></div>
         <div class="todolist">
         <h1 style="margin-bottom: 50px;">Todo List</h1>
         <label class="container">
@@ -109,12 +124,11 @@
           <input type="checkbox">
           <span class="checkmark">Kaffee ☕</span>
         </label>
-         </div>
         <label class="containerEntry">
-            <span class="checkmarkEntry">Neuer Eintrag</span>
-          </label>
-        
-      
-
+          <span class="checkmarkEntry">Neuer Eintrag</span>
+        </label>
+         </div>
+        </div>
+        <div class="placeholder"></div>
         </body>
 </html>
