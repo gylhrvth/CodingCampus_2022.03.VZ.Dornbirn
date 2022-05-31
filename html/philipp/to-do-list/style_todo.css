@@ -1,0 +1,106 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 10%;
+    margin-right: 15%;
+}
+
+.header{
+    font-size: 34px;
+    font-weight: bold;
+    margin: 3% 0 5% 0;
+}
+
+.main{
+    display: grid;
+    grid-template-rows: auto;
+    align-items: center;
+                            
+}
+
+.toDoItem{
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    column-gap: 15px;
+    align-items: center;
+    border-bottom: 1pt solid rgb(215, 214, 214);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.xmark{
+    height: 18px;
+    filter:opacity(20%)
+}
+
+.xmark:hover{
+    height: 18px;
+    filter:opacity(100%)
+}
+
+.checkBox{
+    height: 18px;
+}
+
+
+.checkBox.ready{
+    content: url(check.png);
+    z-index: 1;
+}
+
+.main > p {
+    font-size: 18px;
+}
+
+.toDoItem:hover {
+    background-color:rgba(243, 241, 241, 0.514);
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.toDoItem.ready{
+    color:grey;
+    text-decoration:line-through;
+    border-radius: 5px;
+    cursor: pointer; 
+}
+
+.footer{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 15px;
+    align-items: center;
+    color:blue;
+    margin: 10% 0 0 0;
+    padding-left: 10px;
+}
+
+.footer > * {
+    padding: 0;
+    
+}
+
+.footer > img {
+    height: 18px;
+    filter:invert() sepia(100%) brightness(30%) saturate(1000%) hue-rotate(180deg) saturate(10000%) brightness(90%);
+}
+.footer > p {
+    font-size: 18px;
+}
+
+.footer > p:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+.toDoEditor {
+    border: none;
+    width: 90%;
+}
+
+.toDoEditor:focus-visible {
+    outline: none;
+}
+
+

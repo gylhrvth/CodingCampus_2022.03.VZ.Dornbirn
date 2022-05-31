@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-List</title>
+    <link rel="stylesheet" href="style_todo.css">
+</head>
+<body>
+    <div class="header">Todo List</div>
+    <div class="main" id="newtoDoItem"></div>
+
+        <div class="toDoItem" id="deleteItem">
+            <img class="checkBox" onclick="toogleToDoItem()" src="oval.png" alt="oval"></img>
+            <p contentEditable="true">Milch</p>
+            <img class="xmark" onclick="deleteItem()" src="x-mark.png" alt="x-mark"></img>
+        </div> 
+
+    </div>
+    <div class="footer">
+        <img src="plus.png" alt="plus button">
+        <p onclick="createNewElement();">Neuer Eintrag</p>   
+    </div>
+
+
+<script>
+    function toogleToDoItem(){
+        let allToDos = document.querySelectorAll(".toDoItem")
+        allToDos.forEach(todo => {
+            todo.addEventListener("click", e => {
+                todo.classList.toggle("ready")              
+        })
+        })
+        let allCheckBoxes=document.querySelectorAll(".checkBox")
+        allCheckBoxes.forEach(check =>{
+            check.addEventListener("click", e => {
+                check.classList.toggle("ready")
+            })
+        })
+    }
+    function deleteItem() {
+        var deleteI =
+        document.getElementById("deleteItem");
+        deleteI.parentNode.removeChild(deleteI);
+    }
+
+    function createNewElement() {
+	let txtNewInputBox = document.createElement('div');
+    txtNewInputBox.classList.add("toDoItem")
+    txtNewInputBox.setAttribute('id', 'deleteItem');
+
+    let oval = document.createElement('img')
+    oval.className="checkBox"
+    oval.setAttribute("onclick","toogleToDoItem()")
+    oval.src = 'oval.png'
+    oval.alt = "oval"
+    txtNewInputBox.appendChild(oval)
+
+    let p = document.createElement('p')
+    p.contentEditable = "true"
+    let input = document.createElement("input")
+    input.classList.add("toDoEditor")
+    input.addEventListener("focusout", () => {
+        replaceEditorToText(input)
+    })
+    input.addEventListener("keydown", () => {
+        if (event.key === 'Enter'){
+            replaceEditorToText(input)
+        }
+    })
+    p.appendChild(input)
+    txtNewInputBox.appendChild(p)
+    
+    let xmark = document.createElement('img')
+    xmark.className="xmark"
+    xmark.setAttribute("onclick","deleteItem()")
+    xmark.src = 'x-mark.png'
+    xmark.alt = "x-mark"
+    txtNewInputBox.appendChild(xmark)
+
+
+    // Finally put it where it is supposed to appear.
+	document.getElementById('newtoDoItem').prepend(txtNewInputBox);
+    }
+
+    function replaceEditorToText(editor){
+        console.log("replaceEdiotr", editor)
+        let value = editor.value
+        editor.parentNode.innerHTML = value;
+    }
+    
+
+</script>
+
+</body>
+</html>
