@@ -1,25 +1,69 @@
 .grid-col{
     display: grid;
     grid-template-columns: 65% auto;
-    grid-column-gap: 4px;
+    grid-column-gap: 8px;
 }
 
 .grid-col-even{
     display: grid;
     grid-template-columns: 50% 50%;
+    grid-column-gap: 8px;
 }
 
 .grid-col-odd{
     display: grid;
     grid-template-columns: 30% 30% 30%;
+    grid-column-gap: 8px;
 }
 .grid-row{
     display: grid;
     grid-template-rows: 30% 30% auto;
+    grid-row-gap:8px;
+    
+
 }
 
 .grid-item{
-font-size: 25px;
-background-color: hsla(240, 79%, 52%, 0.564);
+font-size: 24px;
+background-color: rgba(33, 9, 110, 0.479);
+color: rgba(255, 255, 255, 0.788);
+border-radius: 0.6em;
+margin-bottom: 10%;
+}
+
+.grid-item-chart{
+font-size: 24px;
+background-color: rgba(33, 9, 110, 0.479);
 color: rgb(185, 47, 47);
+border-radius: 0.6em;
+
+}
+
+.grid-item-chart-row{
+    display: grid;
+    grid-template-rows: 90% 10%;
+    margin-bottom: 10%;
+    margin-top: 5%;
+    
+    
+}
+
+.grid-item-chart-col{
+    display: grid;
+    grid-template-columns: 10% 90%;
+}
+
+.grid-item-vertical-axis{
+    font-size: 24px;
+    background-color: rgba(33, 9, 110, 0.479);
+    color: rgba(255, 255, 255, 0.788);
+    display: block;
+    padding: 12px;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    line-height: 2;
+}
+
+li{
+    border-bottom: 1px solid white;
 }
