@@ -1,0 +1,25 @@
+.grid-col{
+    display: grid;
+    grid-template-columns: 65% auto;
+    grid-column-gap: 4px;
+}
+
+.grid-col-even{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.grid-col-odd{
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+}
+.grid-row{
+    display: grid;
+    grid-template-rows: 30% 30% auto;
+}
+
+.grid-item{
+font-size: 25px;
+background-color: hsla(240, 79%, 52%, 0.564);
+color: rgb(185, 47, 47);
+}
