@@ -3,10 +3,13 @@ h1,h2{
 }
 h1{
     color:hsl(56, 87%, 46%);
-    text-align: left;
+    display: flex;
     font-size: xx-large;
-    background-color: red;
-    text-decoration-color: hsl(56, 87%, 36%);;
+    background-color: rgb(80, 61, 61);
+    text-decoration-color: hsl(56, 87%, 36%);
+    margin-top: 20px;
+    width: 100%;
+    height: 100%;
 
 }
 h2{
@@ -44,6 +47,7 @@ h2{
 
 }
 
+
 .picture{
     width: 180px;
     float: left;
@@ -66,11 +70,11 @@ h2{
         
 
 }
-
+/* DropMenu*/
 .homeMenu {
     display: none;
     position: absolute;
-    
+
     min-width: 120px;
     z-index: 2;
     font-size: 16px;
@@ -81,8 +85,6 @@ h2{
 }
 .homeMenu > p:hover {
     background-color: #cfcfcf;
-
-    
 }
 
 .homeDropDown{
@@ -96,5 +98,42 @@ h2{
 }
 
 .textOriented{
+    margin: 0;
     display: flex;
+    
 }
+.textOriented > p{
+    border-style: solid;
+    text-decoration-color: black;
+}
+/* Search Menu*/
+.searchMenu{
+    display: flex;
+    float: right;
+}
+
+/* 3 Line Menu*/
+.container {
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+  
+  .change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+  }
+  
+  .change .bar2 {opacity: 0;}
+  
+  .change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+  }
