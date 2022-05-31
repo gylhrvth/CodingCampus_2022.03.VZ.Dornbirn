@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="index.js"></script>
+<style>
+  .radioButtons {
+    display: none;
+  }
+
+  .radioButtons.visible{
+    display: block;
+  }
+
+  #bestJokes{
+    margin-top: 24px;
+    border: 2px solid gray;
+    max-height: 400px;
+    overflow-y: scroll;
+  }
+</style>
+</head>
+<body>
+  <h1 id="textOutput" onclick="sayHello()">Hello World!</h1>
+  <input id="textInput" onkeyup="textChange()" type="text">
+  <button id="buttonInput" onclick="buttonClick()">Change Color</button>
+  
+
+  <div style="margin-top: 12px;">  
+    <button onclick="toggleRadioButtons()">Toggle Visibility</button>
+
+    <div id="radioButtonsField" class="radioButtons">
+      <input type="radio" id="html" name="fav_language" value="HTML">
+      <label for="html">HTML</label><br>
+      <input type="radio" id="css" name="fav_language" value="CSS">
+      <label for="css">CSS</label><br>
+      <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+      <label for="javascript">JavaScript</label>
+    </div>
+  </div>
+
+
+  <div id="bestJokes">
+    <button onclick="generateJoke()">Generate Jokes</button>
+  </div>
+
+
+  <script>
+    let myText = "Hello"
+    let myDouble = 3.1415
+    let myObject = {
+      id: 3,
+      name: "Gyula",
+      age: 999
+    }
+
+    console.log('mynNumber == "3"', myNumber == "3")
+    console.log('mynNumber === "3"', myNumber === "3")
+    
+    for (let index = 1; index <= 10; ++index){
+      if (index === myObject.id){
+        console.log("Hello DCV", myNumber, myText, myDouble, myObject)
+      } else {
+        console.log(index)
+      }
+    }
+
+    const arrayTest = [10, 20, 30, 40, 50]
+    for (let index=0; index<arrayTest.length;++index){
+      console.log("ArrayTest: ", index, arrayTest[index])
+    }
+    arrayTest.forEach(element => {
+      console.log("I've found", element)
+    });
+    const copyOfArray = [...arrayTest, 100]
+    console.log(copyOfArray)
+
+
+  </script>
+</body>
+</html>
