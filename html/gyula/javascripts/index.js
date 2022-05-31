@@ -66,6 +66,14 @@ function generateJoke(){
     authorElement.innerText = element.author
     divElement.appendChild(authorElement)
 
+    let deleteButton = document.createElement("button")
+    deleteButton.innerText = "X"
+    divElement.appendChild(deleteButton)
+
+    deleteButton.addEventListener("click", () => {
+      parent.removeChild(divElement)
+    })
+
     parent.appendChild(divElement)    
   });
 }
