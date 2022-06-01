@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+.bdo-text{
+  text-align: right;
+  transition: letter-spacing 0.2s linear;
+}
+
+.important{
+  letter-spacing: 0.5em;
+  transition: letter-spacing 0.5s linear;
+  background-color: hsl(60, 85%, 50%);
+  transition: background-color 10s ease-in-out;
+}
+
+.todoTable{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 8px;
+}
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="index.js"></script>
+</body>
+</html>
