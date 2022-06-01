@@ -1,3 +1,8 @@
+body {
+  margin: 0 0 8px 0;
+  background-color: rgb(214, 212, 194);
+}
+
 
 .header{
   
@@ -5,7 +10,7 @@
   padding: 1em 2em 1em 2em;
   background-color: #04AA6D;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 150px 1fr;
   
   
 }
@@ -69,17 +74,35 @@
     background-color: #ddd;
     color: black;
   }
-  .active {
-    font-size: xx-large;
-    background-color: #04AA6D;
-    color: white;
-    
-    margin-right: 900px;
-    margin-left: 1350px;
-    
-    
-   
+  
+
+  .search {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    justify-content: space-between;
   }
+  .search a{
+    display: flex;
+  float: left;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 25px;
+  }
+  .search a:hover{
+    display: flex;
+  }
+  .search input[type=text]{
+  float: right;
+  padding: 5px;
+  margin-top: 5px;
+  margin-right: 16px;
+  border: none;
+  font-size: 17px;
+ 
+  }
+ 
+  
   
   
   

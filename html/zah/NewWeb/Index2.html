@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyWeb</title>
     <link rel="stylesheet" href="class2.css">
+    <script src="index.js"></script>
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
    
 
     
@@ -13,8 +16,9 @@
 
     
 </head>
-<body style="background-color: rgb(214, 212, 194);">
+<body>
     <div class="header">
+   
       <!-- X Menu-->
     <div class="container" onclick="myFunction(this)">
         <div class="bar1"></div>
@@ -28,24 +32,24 @@
         <a href="newIndex.html">About</a>
   </div>
   <a href="javascript:void(0);" class="container" onclick="myFunction()">
-   
   </a>
 </div>
 </div>
-<script>
-  function myFunction(x) {
-    x.classList.toggle("change");
-    var x = document.getElementById("myLinks");
-    if (x.style.display === "block") {
-      x.style.display = "none";
-    } else {
-      x.style.display = "block";
-    }
-  }
-  </script>
 
+<div class="search">
+  <div>
+    
+    <a href="Index2.html"><span class="material-symbols-outlined">home</span>&nbsp;Home</a> 
+    <a href="#"><span class="material-symbols-outlined"></span>&nbsp;News</a> 
+    <a href="#"><span class="material-symbols-outlined"></span>&nbsp;Weather</a> 
+    
+  
+  </div>
+  <div>
+    <input type="text" placeholder="Search...">
+  </div>
 
-<div class="active" >Logo</div>
+</div>
 
 
 </div>
