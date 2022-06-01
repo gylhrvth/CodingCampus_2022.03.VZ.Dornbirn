@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyWeb</title>
+    <link rel="stylesheet" href="class2.css">
+   
+
+    
+
+
+    
+</head>
+<body style="background-color: rgb(214, 212, 194);">
+    <div class="header">
+      <!-- X Menu-->
+    <div class="container" onclick="myFunction(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      <!--DropDown Menu-->
+      <div class="topnav">
+        <div id="myLinks">
+        <a href="newIndex.html">News</a>
+        <a href="newIndex.html">Contact</a>
+        <a href="newIndex.html">About</a>
+  </div>
+  <a href="javascript:void(0);" class="container" onclick="myFunction()">
+   
+  </a>
+</div>
+</div>
+<script>
+  function myFunction(x) {
+    x.classList.toggle("change");
+    var x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }
+  </script>
+
+
+<div class="active" >Logo</div>
+
+
+</div>
+      <h3>Breaking News </h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dictum imperdiet nibh, vel placerat nisl interdum nec. Donec volutpat hendrerit hendrerit</p>
+
+    
+      
+
+    
+</body>
+</html>
