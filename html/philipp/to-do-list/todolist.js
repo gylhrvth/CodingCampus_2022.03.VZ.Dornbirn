@@ -35,9 +35,16 @@ function createNewElement() {
         p.addEventListener("click", () => {replaceTextToEditor(p)})
         txtNewInputBox.appendChild(p)
 
+    let drag = document.createElement('img')
+        drag.className="drag"
+        drag.src = 'drag.png'
+        drag.alt = "drag"
+        drag.addEventListener("click", () => {deleteItem(txtNewInputBox)})
+        txtNewInputBox.appendChild(drag)
+
+
     let xmark = document.createElement('img')
         xmark.className="xmark"
-
         xmark.src = 'x-mark.png'
         xmark.alt = "x-mark"
         xmark.addEventListener("click", () => {deleteItem(txtNewInputBox)})
@@ -61,7 +68,7 @@ function replaceEditorToText(editor){
     if (value === ""){
         deleteItem(paragraph.parentElement)
     }
-    paragraph.innerHTML = value;
+    paragraph.innerHTML = value
     paragraph.classList.remove("inEditing")
 }
 

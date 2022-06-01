@@ -19,7 +19,7 @@ body{
 
 .toDoItem{
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto 1fr auto auto;
     column-gap: 15px;
     align-items: center;
     border-bottom: 1pt solid rgb(215, 214, 214);
@@ -33,6 +33,16 @@ body{
 }
 
 .xmark:hover{
+    height: 18px;
+    filter:opacity(100%)
+}
+
+.drag{
+    height: 18px;
+    filter:opacity(20%)
+}
+
+.drag:hover{
     height: 18px;
     filter:opacity(100%)
 }

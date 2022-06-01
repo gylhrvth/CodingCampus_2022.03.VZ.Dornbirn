@@ -13,12 +13,14 @@
     <div class="main" id="newtoDoItem">
         <div class="toDoItem">
             <img class="checkBox" onclick="toogleToDoItem(this)" src="oval.png" alt="oval"></img>
-            <p>Milk</p>
+            <p onclick="replaceTextToEditor(this)">Milk</p>
+            <img class="drag" onclick="deleteItem(this.parentElement)" src="drag.png" alt="drag"></img>
             <img class="xmark" onclick="deleteItem(this.parentElement)" src="x-mark.png" alt="x-mark"></img>
         </div> 
         <div class="toDoItem">
             <img class="checkBox" onclick="toogleToDoItem(this)" src="oval.png" alt="oval"></img>
-            <p>Coffee</p>
+            <p onclick="replaceTextToEditor(this)">Coffee</p>
+            <img class="drag" onclick="deleteItem(this.parentElement)" src="drag.png" alt="drag"></img>
             <img class="xmark" onclick="deleteItem(this.parentElement)" src="x-mark.png" alt="x-mark"></img>
         </div> 
     </div>
