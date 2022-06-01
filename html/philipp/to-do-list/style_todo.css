@@ -42,7 +42,7 @@ body{
 }
 
 
-.checkBox.ready{
+.toDoItem.ready > .checkBox{
     content: url(check.png);
     z-index: 1;
 }
