@@ -3,10 +3,13 @@ h1,h2{
 }
 h1{
     color:hsl(56, 87%, 46%);
-    text-align: center;
+    display: flex;
     font-size: xx-large;
-    text-decoration: underline;
-    text-decoration-color: hsl(56, 87%, 36%);;
+    background-color: rgb(80, 61, 61);
+    text-decoration-color: hsl(56, 87%, 36%);
+    margin-top: 20px;
+    width: 100%;
+    height: 100%;
 
 }
 h2{
@@ -43,13 +46,12 @@ h2{
     font-family: 'Smooch', cursive;
 
 }
-.image{
-    width: 200px;
-    float: left;
-}
+
+
 .picture{
-    width: 200px;
-    float: right;
+    width: 180px;
+    float: left;
+    
 }
 .menu{
     list-style-type: none;
@@ -57,19 +59,81 @@ h2{
     flex-direction: row;
     justify-content: space-between; 
     padding-inline-start: 0px;
+
 }
-.menu > li{
-    color: white;
-        background-color: hsl(240, 90%, 40%);
+.menu > div{
+    color: black;
         font-style: bold ;
         font-size: 24px;
-        flex-grow: 1;
         margin-right: 2px;
+    
+        
+
 }
-.menu > li:hover{
-    background-color: hsl(120, 90%, 30%);
+/* DropMenu*/
+.homeMenu {
+    display: none;
+    position: absolute;
+
+    min-width: 120px;
+    z-index: 2;
+    font-size: 16px;
 }
-.none{
-    color: white;
+.homeDropDown:hover { 
+   /* background-color: #cfcfcf;*/
+    transform: scale(1,2);
+}
+.homeMenu > p:hover {
+    background-color: #cfcfcf;
 }
 
+.homeDropDown{
+    position: relative;
+}
+.homeDropDown:hover .homeMenu{
+    display: block;
+}
+.menuname {
+    padding-left: 6px;
+}
+
+.textOriented{
+    margin: 0;
+    display: flex;
+    
+}
+.textOriented > p{
+    border-style: solid;
+    text-decoration-color: black;
+}
+/* Search Menu*/
+.searchMenu{
+    display: flex;
+    float: right;
+}
+
+/* 3 Line Menu*/
+.container {
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+  
+  .change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+  }
+  
+  .change .bar2 {opacity: 0;}
+  
+  .change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+  }
