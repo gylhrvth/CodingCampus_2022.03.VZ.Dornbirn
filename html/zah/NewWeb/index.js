@@ -8,3 +8,8 @@
       x.style.display = "block";
     }
   }
+  let parent = document.getElementsByName("header")
+  let child = document.getElementsByName("heder1")
+  child.classList.add(parent)
+
+  

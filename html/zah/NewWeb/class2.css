@@ -4,107 +4,119 @@ body {
 }
 
 
-.header{
-  
+.header {
+  position: fixed;
+  top: 0;
+  width: 98%;
   margin: 0;
   padding: 1em 2em 1em 2em;
   background-color: #04AA6D;
   display: grid;
   grid-template-columns: 150px 1fr;
-  
-  
+
+
 }
 
 .container {
-    display: inline-block;
-    cursor: pointer;
-  }
-  
-  .bar1, .bar2, .bar3 {
-    width: 35px;
-    height: 5px;
-    background-color: #333;
-    margin: 6px 0;
-    transition: 0.4s;
-  }
-  
-  .change .bar1 {
-    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-    transform: rotate(-45deg) translate(-9px, 6px);
-  }
-  
-  .change .bar2 {opacity: 0;}
-  
-  .change .bar3 {
-    -webkit-transform: rotate(45deg) translate(-8px, -8px);
-    transform: rotate(45deg) translate(-8px, -8px);
-  }
-  
-  
-  .topnav {
-    overflow: hidden;
-    background-color: #333;
-    position: relative;
-    width: 100%;
-  }
-  
-  .topnav #myLinks {
-    display: none;
-    
-  }
-  
-  .topnav a {
-    color: white;
-    padding: 14px 16px;
-    text-decoration: none;
-    text-align: left;
-    font-size: 17px;
-    display: block;
-  }
-  
-  .topnav a.container {
-    
-    display: block;
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  
-  .topnav a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  
+  display: inline-block;
+  cursor: pointer;
+}
 
-  .search {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    justify-content: space-between;
-  }
-  .search a{
-    display: flex;
+.bar1,
+.bar2,
+.bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  position: relative;
+  width: 100%;
+}
+
+.topnav #myLinks {
+  display: none;
+
+}
+
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  text-align: left;
+  font-size: 17px;
+  display: block;
+}
+
+.topnav a.container {
+
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
+.search {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  justify-content: space-between;
+}
+
+.search a {
+  display: flex;
   float: left;
   padding: 10px;
   color: white;
   text-decoration: none;
   font-size: 25px;
-  }
-  .search a:hover{
-    display: flex;
-  }
-  .search input[type=text]{
+}
+
+.search a:hover {
+  display: flex;
+}
+
+.search input[type=text] {
   float: right;
   padding: 5px;
   margin-top: 5px;
   margin-right: 16px;
   border: none;
   font-size: 17px;
- 
-  }
- 
-  
-  
-  
-  
-  
-  
+
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.text p {
+  font-size: xx-large;
+}
