@@ -7,6 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>To Do List</title>
   <link rel="stylesheet" href="stylesheet.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
   <style>
     .container {
       display: block;
@@ -75,7 +78,7 @@
 
     }
 
-    .checkmarkEntry::before {
+    .checkmarkEntry {
       content: "";
       height: 25px;
       width: 25px;
@@ -84,6 +87,20 @@
       left: 0;
       top: 0;
       border-radius: 50%;
+
+    }
+
+    .checkmarkEntry::before {
+      display: block;
+      left: 9px;
+      top: 5px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      transform: rotate(45deg);
+      content: "";
+      position: absolute;
 
     }
 
@@ -102,6 +119,18 @@
       width: 80%;
       padding-left: 10%;
     }
+
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 800,
+        'GRAD' 0,
+        'opsz' 48;
+      display: table-cell;
+      position: absolute;
+      padding-left: 85%;
+    }
+  </style>
   </style>
 </head>
 
@@ -113,18 +142,22 @@
       <label class="container" draggable="true">
         <input type="checkbox">
         <span class="checkmark">Milch 🥛</span>
+        <span class="material-symbols-outlined">delete</span>
       </label>
       <label class="container" draggable="true">
         <input type="checkbox">
         <span class="checkmark">Kuchen 🍰</span>
+        <span class="material-symbols-outlined">delete</span>
       </label>
       <label class="container" draggable="true">
         <input type="checkbox">
         <span class="checkmark">Schokolade 🍫</span>
+        <span class="material-symbols-outlined">delete</span>
       </label>
       <label class="container" draggable="true">
         <input type="checkbox">
         <span class="checkmark">Kaffee ☕</span>
+        <span class="material-symbols-outlined">delete</span>
       </label>
     </div>
     <div>
