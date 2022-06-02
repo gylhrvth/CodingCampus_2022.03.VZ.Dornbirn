@@ -4,29 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do-List</title>
-    <script src="todolist.js"></script>
+    <title>A Simple To-Do-List</title>
     <link rel="stylesheet" href="style_todo.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
     <div class="header">Todo List</div>
-    <div class="main" id="newtoDoItem">
-        <div class="toDoItem">
-            <img class="checkBox" onclick="toogleToDoItem(this)" src="oval.png" alt="oval"></img>
-            <p onclick="replaceTextToEditor(this)">Milk</p>
-            <img class="drag" onclick="deleteItem(this.parentElement)" src="drag.png" alt="drag"></img>
+    <div class="main container" name="container" id="newtoDoItem">
+        <div class="toDoItem draggable" name="draggable" draggable="true">
+            <img class="checkBox" onclick="toggleToDoItem(this)" src="oval.png" alt="oval"></img>
+            <p>Milk</p>
+            <img class="edit" onclick="replaceTextToEditor(this.previousElementSibling)" src="edit.png" alt="edit"></img>
             <img class="xmark" onclick="deleteItem(this.parentElement)" src="x-mark.png" alt="x-mark"></img>
         </div> 
-        <div class="toDoItem">
-            <img class="checkBox" onclick="toogleToDoItem(this)" src="oval.png" alt="oval"></img>
-            <p onclick="replaceTextToEditor(this)">Coffee</p>
-            <img class="drag" onclick="deleteItem(this.parentElement)" src="drag.png" alt="drag"></img>
+        <div class="toDoItem draggable" name="draggable" draggable="true">
+            <img class="checkBox" onclick="toggleToDoItem(this)" src="oval.png" alt="oval"></img>
+            <p>Coffee</p>
+            <img class="edit" onclick="replaceTextToEditor(this.previousElementSibling)" src="edit.png" alt="edit"></img>
             <img class="xmark" onclick="deleteItem(this.parentElement)" src="x-mark.png" alt="x-mark"></img>
         </div> 
+        <div class="toDoItem draggable" name="draggable" draggable="true">
+            <img class="checkBox" onclick="toggleToDoItem(this)" src="oval.png" alt="oval"></img>
+            <p>Sugar</p>
+            <img class="edit" onclick="replaceTextToEditor(this.previousElementSibling)" src="edit.png" alt="edit"></img>
+            <img class="xmark" onclick="deleteItem(this.parentElement)" src="x-mark.png" alt="x-mark"></img>
+        </div> 
+        <div class="toDoItem draggable" name="draggable" draggable="true">
+            <img class="checkBox" onclick="toggleToDoItem(this)" src="oval.png" alt="oval"></img>
+            <p>Chocolate</p>
+            <img class="edit" onclick="replaceTextToEditor(this.previousElementSibling)" src="edit.png" alt="edit"></img>
+            <img class="xmark" onclick="deleteItem(this.parentElement)" src="x-mark.png" alt="x-mark"></img>
+        </div> 
+        
     </div>
     <div class="footer">
         <img src="plus.png" alt="plus button">
         <p onclick="createNewElement();">Neuer Eintrag</p>   
     </div>
+    <script src="todolist.js"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@ body{
 .header{
     font-size: 34px;
     font-weight: bold;
-    margin: 3% 0 5% 0;
+    margin: 5% 0 5% 0;
 }
 
 .main{
@@ -37,12 +37,12 @@ body{
     filter:opacity(100%)
 }
 
-.drag{
+.edit{
     height: 18px;
     filter:opacity(20%)
 }
 
-.drag:hover{
+.edit:hover{
     height: 18px;
     filter:opacity(100%)
 }
@@ -81,7 +81,7 @@ body{
     column-gap: 15px;
     align-items: center;
     color:blue;
-    margin: 10% 0 0 0;
+    margin: 3% 0 0 0;
     padding-left: 10px;
 }
 
