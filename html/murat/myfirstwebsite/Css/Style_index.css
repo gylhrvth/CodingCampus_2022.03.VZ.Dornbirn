@@ -1,136 +1,128 @@
-
 body {
 
     background-color: aqua;
 }
-    #Container1{
+
+#Container1 {
     border: 10px;
     border: solid;
     border-color: black;
 
-    }
+}
 
-        #Top{
-            border: 10px;
-            border: solid;
-            border-color: black;
-            border-radius: 50px;
-            background-color: gold;
-        }
+#Top {
+    border: 10px;
+    border: solid;
+    border-color: black;
+    border-radius: 50px;
+    background-color: gold;
+}
 
-            #Division1{ 
+#Division1 {}
 
-            }
-            
-                ul {
-                    list-style-type: none;
-                    text-align:center;
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-between; 
-                    padding-inline-start: 0px;
-                }
-                ul > li {
-                    color: white;
-                    background-color: red;
-                    font-size: 24px;
-                    flex-grow: 1;
-                    margin-right: 2px;
-                    border-radius: 50px;
-                }
-                ul > li:hover {
-                    background-color: white;
-                    color: black;
-                }
+ul {
+    list-style-type: none;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-inline-start: 0px;
+}
 
-                    ul>li>a{
-                        text-decoration: none;
-                        color: white;
-                    }
+ul>li {
+    color: white;
+    background-color: red;
+    font-size: 24px;
+    flex-grow: 1;
+    margin-right: 2px;
+    border-radius: 50px;
+}
 
-                    ul>li>a:hover{
-                        text-decoration: none;
-                        color: black;
-                    }
+ul>li:hover {
+    background-color: white;
+    color: black;
+}
 
+ul>li>a {
+    text-decoration: none;
+    color: white;
+}
 
-        #MiddleTop{
-
-            border: 10px;
-            border: solid;
-            border-color: red;
-
-        }
-
-            #Division2{
-
-            }
-
-            
-        #MiddleBottom{
-
-            border: 1px;
-            border: solid;
-            border-color: black;
-
-        }
-
-            #Division3{
-
-            }
-
-                #Description{
-                    padding: 20px;
-                }
+ul>li>a:hover {
+    text-decoration: none;
+    color: black;
+}
 
 
-        #Bottom{
-            display: grid;
-            grid-template-columns: 33% 33% 33%;
-            background-color: bisque;
-            border: 1px;
-            border: solid;
-            border-color: black;
-        }
+#MiddleTop {
 
-            #Division4{
-                background-color: rgb(207, 231, 236);
-                color: black;
-                margin:20px;
-                border-radius: 10px;
-                border:dotted;
-            }
+    border: 10px;
+    border: solid;
+    border-color: red;
 
-                #History{
-                    padding: 20px;
-                }
+}
 
-            #Division5{
-
-                background-color: rgb(207, 231, 236);
-                color: black;
-                margin:20px;
-                border-radius: 10px;
-                border:dotted;
-            }
-
-                #Universe{
-                    padding: 20px;
-                }
-
-            #Division6{
-
-                background-color: rgb(207, 231, 236);
-                color: black;
-                margin:20px;
-                border-radius: 10px;
-                border:dotted;
-            }
-
-                #Generations{
-                    padding: 20px;
-                }
+#Division2 {}
 
 
+#MiddleBottom {
+
+    border: 1px;
+    border: solid;
+    border-color: black;
+
+}
+
+#Division3 {}
+
+#Description {
+    padding: 20px;
+}
 
 
+#Bottom {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    background-color: bisque;
+    border: 1px;
+    border: solid;
+    border-color: black;
+}
+
+#Division4 {
+    background-color: rgb(207, 231, 236);
+    color: black;
+    margin: 20px;
+    border-radius: 10px;
+    border: dotted;
+}
+
+#History {
+    padding: 20px;
+}
+
+#Division5 {
+
+    background-color: rgb(207, 231, 236);
+    color: black;
+    margin: 20px;
+    border-radius: 10px;
+    border: dotted;
+}
+
+#Universe {
+    padding: 20px;
+}
+
+#Division6 {
+
+    background-color: rgb(207, 231, 236);
+    color: black;
+    margin: 20px;
+    border-radius: 10px;
+    border: dotted;
+}
+
+#Generations {
+    padding: 20px;
+}
