@@ -111,12 +111,20 @@ body {
 
 }
 
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
 
-.text p {
+
+
+.testing{
+  font-size: xx-large;
+}
+.top{
+  font-size: xx-large;
+  margin-top: 80px;
+}
+h3{
+  font-size: xx-large;
+  margin-top: 80px;
+}
+h4{
   font-size: xx-large;
 }
