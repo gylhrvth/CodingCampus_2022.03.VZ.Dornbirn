@@ -1,0 +1,81 @@
+.videoBg {
+    background-image: url(hp.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -2;
+    text-align: left;
+    color: rgb(2, 2, 2);
+
+}
+
+.tab {
+    display: flex;
+    background-color: hwb(0 3% 80%);
+    color: hsl(120, 20%, 99%);
+    list-style-type: none;
+    padding: 1rem;
+    justify-content: space-around;
+    text-decoration: none;
+}
+
+li {
+    padding: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: hsl(120, 20%, 99%);
+}
+
+h1 {
+    color: hwb(0 3% 70%);
+    z-index: 10;
+}
+
+p {
+    color: hwb(0 100% 0%);
+    z-index: 10%;
+}
+
+.aplay {
+    margin: 20px;
+}
+
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+    color: hwb(0 3% 70%);
+    cursor: pointer;
+    padding: 18px 0px 18px 0px;
+    width: 100%;
+    text-align: center;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active,
+.accordion:hover {
+    background-color: #ccc;
+}
+
+.accordion:after {
+    content: '\02795';
+    /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-right: 25px;
+}
+
+.active:after {
+    content: "\2796";
+    /* Unicode character for "minus" sign (-) */
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+}
