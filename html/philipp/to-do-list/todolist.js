@@ -1,3 +1,5 @@
+console.log("todolist.js loaded")
+
 function toggleToDoItem(oval) {
   let parent = oval.parentElement
   parent.classList.toggle("ready")
@@ -7,10 +9,12 @@ function toggleToDoItem(oval) {
     parentsParent.removeChild(parent)
     parentsParent.appendChild(parent)
   }
+  putTasksToString()
 }
 
 function deleteItem(deleteI) {
   deleteI.parentElement.removeChild(deleteI);
+  putTasksToString()
 }
 
 function createNewElement() {
@@ -48,9 +52,7 @@ function createNewElement() {
 
   setDragListener(txtNewInputBox)
   p.appendChild(input)
-  /*
-          p.addEventListener("click", () => {replaceTextToEditor(p)})
-          */
+
   txtNewInputBox.appendChild(p)
 
   let drag = document.createElement('img')
@@ -67,16 +69,20 @@ function createNewElement() {
   xmark.alt = "x-mark"
   xmark.addEventListener("click", () => { deleteItem(txtNewInputBox) })
   txtNewInputBox.appendChild(xmark)
-
+ 
   // Finally put it where it is supposed to appear.
   let parent = document.getElementById('newtoDoItem')
   if (parent.firstChild == undefined) {
     parent.appendChild(txtNewInputBox);
+
   } else {
     parent.insertBefore(txtNewInputBox, parent.firstChild)
+
   }
   input.focus()
 
+ putTasksToString()
+ 
 }
 
 function replaceEditorToText(editor) {
@@ -89,6 +95,7 @@ function replaceEditorToText(editor) {
 
   paragraph.innerHTML = value;
   paragraph.classList.remove("inEditing")
+  putTasksToString()
 }
 
 function replaceTextToEditor(paragraph) {
@@ -110,6 +117,7 @@ function replaceTextToEditor(paragraph) {
   })
   paragraph.classList.add("inEditing")
   paragraph.appendChild(input)
+  putTasksToString()
 }
 
 function setDragListener(node) {
@@ -119,29 +127,32 @@ function setDragListener(node) {
 
   node.addEventListener('dragend', () => {
     node.classList.remove('dragging')
+    putTasksToString()
   })
 }
 
-/*Drag and Drop*/
-const containers = document.getElementsByName("container");
-const draggables = document.getElementsByName("draggable")
+function init() {
+  /*Drag and Drop*/
+  const containers = document.getElementsByName("container");
+  const draggables = document.getElementsByName("draggable")
 
-draggables.forEach(draggable => {
-  setDragListener(draggable)
-})
-
-containers.forEach(container => {
-  container.addEventListener('dragover', e => {
-    e.preventDefault()
-    const afterElement = getDragAfterElement(container, e.clientY)
-    const draggable = document.querySelector('.dragging')
-    if (afterElement == null) {
-      container.appendChild(draggable)
-    } else {
-      container.insertBefore(draggable, afterElement)
-    }
+  draggables.forEach(draggable => {
+    setDragListener(draggable)
   })
-})
+
+  containers.forEach(container => {
+    container.addEventListener('dragover', e => {
+      e.preventDefault()
+      const afterElement = getDragAfterElement(container, e.clientY)
+      const draggable = document.querySelector('.dragging')
+      if (afterElement == null) {
+        container.appendChild(draggable)
+      } else {
+        container.insertBefore(draggable, afterElement)
+      }
+    })
+  })
+}
 
 function getDragAfterElement(container, y) {
   const draggableElements = [...container.querySelectorAll('.draggable:not(.dragging)')]
