@@ -4,8 +4,33 @@ async function getOrders() {
     try {
         let response = await fetch("http://localhost:8080/orders", { method: "GET" });
         if (response.ok) {
-            let order = (await response.json())._embedded;
-            orderHtml.innerHTML = JSON.stringify(order);
+            let orders = (await response.json())._embedded;
+            var tmp = ""
+            for (order of orders.orderList) {
+                tmp += order.id + " " + order.description + " " + order.status + "<br>"
+            }
+            orderHtml.innerHTML = tmp
+        } else {
+            orderHtml.innerHTML = "No orders could be loaded"
+        }
+    } catch (err) {
+        orderHtml.innerHTML = "No orders could be loaded"
+    }
+}
+
+async function statusOrder() {
+    const orderHtml = document.getElementById("ordersStat")
+    orderHtml.innerHTML = "Loading... Please wait";
+    let id = document.getElementById("numStat")
+    let orderNo = id.value;
+    try {
+        let response = await fetch("http://localhost:8080/orders/" + orderNo, { method: "GET" });
+        if (response.ok) {
+            const json = await response.json()
+            let status = json.status;
+            let idOrder = json.id;
+            let des = json.description;
+            orderHtml.innerHTML = idOrder + "<br>" + des + "<br>" + status + "<br>";
         } else {
             orderHtml.innerHTML = "No orders could be loaded"
         }
@@ -51,6 +76,44 @@ async function completeOrder() {
     }
     getOrders()
 }
+
+async function editOrder() {
+    const orderHtml = document.getElementById("ordersEd")
+    orderHtml.innerHTML = "Loading... Please wait";
+    let numEdVar = document.getElementById("numEd")
+    let numEdVarVal = numEdVar.value;
+    let numEdDesVar = document.getElementById("numEdDes")
+    let numEdDesVarVal = numEdDesVar.value;
+
+    try {
+        let response = await fetch("http://localhost:8080/orders/" + numEdVarVal, {
+            // Adding method type
+            method: "PUT",
+            // Adding body or contents to send
+            body: JSON.stringify({
+                description: numEdDesVarVal,
+            }),
+
+            // Adding headers to the request
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        });
+        if (response.ok) {
+            const json = await response.json()
+            let status = json.status;
+            let idOrder = json.id;
+            let des = json.description;
+            orderHtml.innerHTML = idOrder + "<br>" + des + "<br>" + status + "<br>";
+        } else {
+            orderHtml.innerHTML = "No orders could be loaded"
+        }
+    } catch (err) {
+        orderHtml.innerHTML = "No orders could be loaded"
+    }
+    getOrders()
+}
+
 
 async function createOrder() {
     const orderHtml = document.getElementById("ordersCre")

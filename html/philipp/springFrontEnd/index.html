@@ -22,8 +22,16 @@
     <h1>Orders</h1>
 
     <h2>Get orders</h2>
-
     <div id="ordersGet"></div>
+
+    <h2>Get order Status</h2>
+    <div>
+        <p>Please enter order id<br>
+            <input id="numStat" type="text" name="" value="">
+        </p>
+    </div>
+    <button onclick="statusOrder()">Status Order</button>
+    <div id="ordersStat"></div>
 
     <h2>Complete order</h2>
     <div>
@@ -48,6 +56,9 @@
     <div>
         <p>Please enter order id<br>
             <input id="numEd" type="text" name="" value="">
+        </p>
+        <p>Please enter new description<br>
+            <input id="numEdDes" type="text" name="" value="">
         </p>
     </div>
     <button onclick="editOrder()">Edit Order</button>
