@@ -35,6 +35,7 @@ h1 {
 p {
     color: hwb(0 100% 0%);
     z-index: 10%;
+    width: 95%;
 }
 
 .aplay {
@@ -56,7 +57,9 @@ p {
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .active,
 .accordion:hover {
-    background-color: #ccc;
+    background-color: hwb(0 72% 28%);
+    opacity: 0.5;
+
 }
 
 .accordion:after {
@@ -78,4 +81,20 @@ p {
     padding: 0 18px;
     display: none;
     overflow: hidden;
+}
+
+
+
+.movieImg {
+    width: 100%;
+    height: auto;
+}
+
+.box {
+    display: grid;
+    grid-template-columns: auto 35%;
+}
+
+.cen {
+    align-self: center;
 }
