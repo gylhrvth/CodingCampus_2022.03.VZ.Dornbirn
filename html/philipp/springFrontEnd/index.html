@@ -9,78 +9,86 @@
     <script src="index.js"></script>
     <style>
         body {
-            margin: 5%
+
+            text-align: center;
+            display: grid;
+            justify-items: center;
         }
 
         h2 {
             border-top: 5px solid black;
+        }
+
+        .grid {
+            width: 500px;
         }
     </style>
 </head>
 
 <body onload="getOrders()">
     <h1>Orders</h1>
+    <div class="grid">
+        <h2>Get orders</h2>
+        <div id="ordersGet"></div>
 
-    <h2>Get orders</h2>
-    <div id="ordersGet"></div>
+        <h2>Get order Status</h2>
+        <div>
+            <p>Please enter order id<br>
+                <input id="numStat" type="text" name="" value="">
+            </p>
+        </div>
+        <button onclick="statusOrder()">Status Order</button>
+        <div id="ordersStat"></div>
 
-    <h2>Get order Status</h2>
-    <div>
-        <p>Please enter order id<br>
-            <input id="numStat" type="text" name="" value="">
-        </p>
+        <h2>Complete order</h2>
+        <div>
+            <p>Please enter order id<br>
+                <input id="numCom" type="text" name="" value="">
+            </p>
+        </div>
+        <button onclick="completeOrder()">Complete Order</button>
+        <div id="ordersCom"></div>
+
+
+        <h2>Create order</h2>
+        <div>
+            <p>Please enter order description<br>
+                <input id="description" type="text" name="" value="">
+            </p>
+        </div>
+        <button onclick="createOrder()">Create Order</button>
+        <div id="ordersCre"></div>
+
+        <h2>Edit order</h2>
+        <div>
+            <p>Please enter order id<br>
+                <input id="numEd" type="text" name="" value="">
+            </p>
+            <p>Please enter new description<br>
+                <input id="numEdDes" type="text" name="" value="Please enter new name">
+            </p>
+        </div>
+        <button onclick="editOrder()">Edit Order</button>
+        <div id="ordersEd"></div>
+
+        <h2>Cancel order</h2>
+        <div>
+            <p>Please enter order id<br>
+                <input id="number" type="text" name="" value="">
+            </p>
+        </div>
+        <button onclick="cancelOrder()">Cancel Order</button>
+        <div id="ordersCal"></div>
+
+        <h2 style="color:red">Delete order</h2>
+        <div>
+            <p>Please enter order id<br>
+                <input id="numDel" type="text" name="" value="">
+            </p>
+        </div>
+        <button onclick="deleteOrder()">Delete Order</button>
+        <div id="ordersDel"></div>
     </div>
-    <button onclick="statusOrder()">Status Order</button>
-    <div id="ordersStat"></div>
-
-    <h2>Complete order</h2>
-    <div>
-        <p>Please enter order id<br>
-            <input id="numCom" type="text" name="" value="">
-        </p>
-    </div>
-    <button onclick="completeOrder()">Complete Order</button>
-    <div id="ordersCom"></div>
-
-
-    <h2>Create order</h2>
-    <div>
-        <p>Please enter order description<br>
-            <input id="description" type="text" name="" value="">
-        </p>
-    </div>
-    <button onclick="createOrder()">Create Order</button>
-    <div id="ordersCre"></div>
-
-    <h2>Edit order</h2>
-    <div>
-        <p>Please enter order id<br>
-            <input id="numEd" type="text" name="" value="">
-        </p>
-        <p>Please enter new description<br>
-            <input id="numEdDes" type="text" name="" value="">
-        </p>
-    </div>
-    <button onclick="editOrder()">Edit Order</button>
-    <div id="ordersEd"></div>
-
-    <h2>Cancel order</h2>
-    <div>
-        <p>Please enter order id<br>
-            <input id="number" type="text" name="" value="">
-        </p>
-    </div>
-    <button onclick="cancelOrder()">Cancel Order</button>
-    <div id="ordersCal"></div>
-
-    <h2 style="color:red">Delete order</h2>
-    <div>
-        <p>Please enter order id<br>
-            <input id="numDel" type="text" name="" value="">
-        </p>
-    </div>
-    <button onclick="deleteOrder()">Delete Order</button>
-    <div id="ordersDel"></div>
 </body>
 
 </html>
