@@ -65,7 +65,7 @@
                 <input id="numEd" type="text" name="" value="">
             </p>
             <p>Please enter new description<br>
-                <input id="numEdDes" type="text" name="" value="Please enter new name">
+                <input id="numEdDes" type="text" name="" value="">
             </p>
         </div>
         <button onclick="editOrder()">Edit Order</button>
@@ -79,6 +79,15 @@
         </div>
         <button onclick="cancelOrder()">Cancel Order</button>
         <div id="ordersCal"></div>
+
+        <h2 style="color:orange">Reset order to status IN_PROGRESS</h2>
+        <div>
+            <p>Please enter order id<br>
+                <input id="numProg" type="text" name="" value="">
+            </p>
+        </div>
+        <button onclick="changeStatusProgress()">Change status to IN_PROGRESS</button>
+        <div id="ordersProg"></div>
 
         <h2 style="color:red">Delete order</h2>
         <div>

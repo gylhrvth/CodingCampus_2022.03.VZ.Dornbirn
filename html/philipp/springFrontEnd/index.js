@@ -106,10 +106,12 @@ async function editOrder() {
             let des = json.description;
             orderHtml.innerHTML = idOrder + "<br>" + des + "<br>" + status + "<br>";
         } else {
-            orderHtml.innerHTML = "No orders could be loaded"
+            orderHtml.innerHTML =
+                "Error: The id is not correct or the description is not between 3 and 200 Characters long"
         }
     } catch (err) {
-        orderHtml.innerHTML = "No orders could be loaded"
+        orderHtml.innerHTML =
+            "Error: The id is not correct or the description is not between 3 and 200 Characters long"
     }
     getOrders()
 }
@@ -157,6 +159,41 @@ async function deleteOrder() {
         let response = await fetch("http://localhost:8080/orders/" + orderNo, { method: "DELETE" });
         if (response.ok) {
             orderHtml.innerHTML = "id " + orderNo + " has been deleted!";
+        } else {
+            orderHtml.innerHTML = "No orders could be loaded"
+        }
+    } catch (err) {
+        orderHtml.innerHTML = "No orders could be loaded"
+    }
+    getOrders()
+}
+async function changeStatusProgress() {
+    const orderHtml = document.getElementById("ordersProg")
+    orderHtml.innerHTML = "Loading... Please wait";
+    let numEdVar = document.getElementById("numProg")
+    let numEdVarVal = numEdVar.value;
+    let statusProg = "0";
+
+    try {
+        let response = await fetch("http://localhost:8080/orders/" + numEdVarVal, {
+            // Adding method type
+            method: "PUT",
+            // Adding body or contents to send
+            body: JSON.stringify({
+                status: statusProg,
+            }),
+
+            // Adding headers to the request
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        });
+        if (response.ok) {
+            const json = await response.json()
+            let status = json.status;
+            let idOrder = json.id;
+            let des = json.description;
+            orderHtml.innerHTML = idOrder + "<br>" + des + "<br>" + status + "<br>";
         } else {
             orderHtml.innerHTML = "No orders could be loaded"
         }
