@@ -2,7 +2,7 @@ async function getOrders() {
     const orderHtml = document.getElementById("ordersGet")
     orderHtml.innerHTML = "Loading... Please wait";
     try {
-        let response = await fetch("http://localhost:8080/orders", { method: "GET" });
+        let response = await fetch("http://localhost:8080/orders/", { method: "GET" });
         if (response.ok) {
             let orders = (await response.json())._embedded;
             var tmp = ""
@@ -45,7 +45,7 @@ async function cancelOrder() {
     let id = document.getElementById("number")
     let orderNo = id.value;
     try {
-        let response = await fetch("http://localhost:8080/orders/" + orderNo + "/cancel", { method: "DELETE" });
+        let response = await fetch("http://localhost:8080/orders/" + orderNo + "/cancel/", { method: "DELETE" });
         if (response.ok) {
             let order = (await response.json()).status;
             orderHtml.innerHTML = JSON.stringify(order);
@@ -64,7 +64,7 @@ async function completeOrder() {
     let id = document.getElementById("numCom")
     let orderNo = id.value;
     try {
-        let response = await fetch("http://localhost:8080/orders/" + orderNo + "/complete", { method: "PUT" });
+        let response = await fetch("http://localhost:8080/orders/" + orderNo + "/complete/", { method: "PUT" });
         if (response.ok) {
             let order = (await response.json()).status;
             orderHtml.innerHTML = JSON.stringify(order);
@@ -167,33 +167,17 @@ async function deleteOrder() {
     }
     getOrders()
 }
+
 async function changeStatusProgress() {
     const orderHtml = document.getElementById("ordersProg")
     orderHtml.innerHTML = "Loading... Please wait";
-    let numEdVar = document.getElementById("numProg")
-    let numEdVarVal = numEdVar.value;
-    let statusProg = "0";
-
+    let id = document.getElementById("numProg")
+    let orderNo = id.value;
     try {
-        let response = await fetch("http://localhost:8080/orders/" + numEdVarVal, {
-            // Adding method type
-            method: "PUT",
-            // Adding body or contents to send
-            body: JSON.stringify({
-                status: statusProg,
-            }),
-
-            // Adding headers to the request
-            headers: {
-                "Content-type": "application/json; charset=UTF-8"
-            }
-        });
+        let response = await fetch("http://localhost:8080/orders/" + orderNo + "/reset/", { method: "PUT" });
         if (response.ok) {
-            const json = await response.json()
-            let status = json.status;
-            let idOrder = json.id;
-            let des = json.description;
-            orderHtml.innerHTML = idOrder + "<br>" + des + "<br>" + status + "<br>";
+            let order = (await response.json()).status;
+            orderHtml.innerHTML = JSON.stringify(order);
         } else {
             orderHtml.innerHTML = "No orders could be loaded"
         }
