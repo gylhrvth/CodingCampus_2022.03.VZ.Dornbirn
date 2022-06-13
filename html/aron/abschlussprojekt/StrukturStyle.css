@@ -1,0 +1,57 @@
+
+
+body{
+    background-color:var(--text-color-3);
+    color: var(--text-color-4);
+    
+    }
+
+.normalBlockContainer {
+    min-height: 100px;
+}
+
+h1 {
+    font-size: 60px;
+}
+
+.MichUberschrift {
+    font-family: 'Montserrat', sans-serif;
+    background-color:var(--text-color-3);
+    color: var(--text-color-4);
+    display: grid;
+    margin-left: 100px;
+    margin-bottom: 100px;
+    font-size: 40px;
+   
+}
+
+
+
+ol {
+    
+    padding: 0;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+  }
+  
+  ol a {
+    position: relative;
+    display: block;
+    padding: 2vw 2vw 2vw 2vw;
+    margin: 1vw 0;
+    background: #4B4B4B;
+    color:white;
+    text-decoration: none;
+    border-radius: .3em;
+    transition: .3s ease-out;
+    top: 10px;
+    text-align: center;
+    font-size: 30px;
+   
+    
+ 
+  }
+  
+  ol a:hover { background: #E9E4E0; }
+  ol a:hover {color:#4B4B4B;}
+
+

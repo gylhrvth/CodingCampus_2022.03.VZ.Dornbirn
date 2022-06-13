@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    font-weight: 300;
+
+}
+
+
+
+
+.topMenu {
+    position: fixed;
+    padding: 1em 0em 1em 0em;
+    z-index: 2;
+    width: 100%;
+    height: 40px;
+    background-color: var(--text-color-3);
+}
+
+.topMenu>a>img {
+    position: absolute;
+    background-color: var(--text-color-3);
+
+}
+
+.menuContainer {
+    text-align: right;
+    display: grid;
+    background-color: var(--text-color-3);
+    grid-template-columns: auto;
+    justify-content: end;
+    column-gap: 1cm;
+    padding-right: 5px;
+    color:var( -- --text-color-4)
+}
+
+.headerTop {
+    padding-top: 110px
+}
+
+.DarkButton {
+    color: var(--text-color-3);
+    background-color: var(--text-color-4);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    border-radius: 10px;
+
+}
+
+
+
+.menuList {
+    color: var(--text-color-4);
+    font-size: clamp(6px, 5vw, 18px);
+    text-decoration: none;
+    top: 10px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+
+.menuList:hover {
+    font-size: 30px;
+    transition: font-size 0.5s;
+    color: #451B61;
+}
+
+.icon {
+    padding: 0em 4em 0em 1em;
+    bottom: 10px;
+    width: 110px;
+    height: 50px;
+}
+
+
+
+
+.footer1 {
+    display: grid;
+    font-family: sans-serif;
+
+    grid-template-columns: auto 1fr auto auto;
+    background-color: var(--text-color-3);
+    color: var(--text-color-4);
+    padding-top: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: relative;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    column-gap: 1cm;
+
+
+
+}
+
+
+
+.footer2 {
+    display: grid;
+    font-family: sans-serif;
+    margin-top: 10%;
+    grid-template-columns: auto 1fr auto auto;
+    background-color: var(--text-color-3);
+    color: var(--text-color-4);
+    padding-top: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: relative;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    column-gap: 1cm;
+    bottom: 0px;
+}
+
+
+@media only screen and (min-width: 768px) {
+    .menuContainer {
+        grid-template-columns: auto auto auto 1fr auto;
+        padding-left: 25%;
+    }
+
+    .headerTop {
+        padding-top: 70px
+    }
+
+}

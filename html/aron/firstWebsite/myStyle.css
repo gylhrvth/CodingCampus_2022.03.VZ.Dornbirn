@@ -6,22 +6,27 @@ h4,
 h5,
 h6 {
     text-align: center;
-    background-color:#74066d86;
+   
     color: rgb(255, 255, 255);
 }
 
 h1 {
-    font-size: 48px;
+    font-size: 100px;
+    font-weight: 5000;
+    font-family: 'Major Mono Display', monospace;
+    transition: font-size 0.5s;
+    transition-delay : 1s;
+  
 }
 
 h2 {
-    font-size: 24px;
+    font-size: 50px;
 }
 
 p {
     font: bolder;
     font-size: medium;
-    margin-left:110px; margin-right:110px ; 
+    margin-left:120px; margin-right:120px ; 
 
 }
 
@@ -40,4 +45,27 @@ p {
 .loremLeft {
     width:20%; 
     margin-left: 180px;
+}
+h3{
+    font-size: 20px;
+    background-color:#74066d86;
+}
+
+h4{
+    font-size: 20px;
+    background-color:#74066d86;
+
+}
+
+h5{
+    font-size: 20px;
+    background-color:#74066d86;
+    
+}
+
+h6{
+    font-size: 10px;
+    background-color:#74066d86;
+     
+  
 }

@@ -1,0 +1,71 @@
+
+
+.bigbgimg {
+  width: 100%;
+  height: auto;
+}
+
+.Logo {
+  position: absolute;
+  width: 30%;
+  height: 20%;
+  padding:5% 0em 0em 29%;
+
+}
+
+.buttonContainer {
+  position: absolute;
+  bottom: 5%;
+  left: 40%;
+}
+
+button {
+  border-radius: 10px;
+  font-size: 8.5vw;
+  background-color: rgb(27, 255, 27);
+  color: white;
+}
+
+
+
+.imageContainer {
+  position: relative;
+}
+
+.Center {
+  margin-top: -2px;
+  background-color: var(--text-color-3);
+  color: var(--text-color-4);
+  width: 100%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+
+
+}
+
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(24px, 5vw, 60px);
+  margin-left: 100px;
+}
+
+.textBeschreibung1 {
+  font-family: 'Montserrat', sans-serif;
+  margin-left: 100px;
+  margin-right: 100px;
+  font-size: clamp(14px, 5vw, 24px);
+
+
+
+}
+
+.textBeschreibung2 {
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+  font-size: clamp(14px, 5vw, 24px);
+  margin-bottom: 5%;
+}
+

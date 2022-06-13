@@ -1,0 +1,85 @@
+
+
+body{
+  background-color: var(--text-color-1);
+  
+  }
+
+.normalBlockContainer {
+  min-height: 100px;
+}
+
+h1 {
+  font-size: 60px;
+}
+
+.MichUberschrift {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--text-color-1);
+  color: var(--text-color-2);
+  padding-left: 5%;
+  font-size: 20px;
+}
+
+
+
+.textBeschreibung3 {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--text-color-1);
+  color: var(--text-color-2);
+  
+}
+
+.picture {
+  position: relative;
+  width: 35%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--text-color-1);
+  color: var(--text-color-2);
+}
+
+.imageContainer {
+  position: relative;
+}
+
+table {
+  border-spacing: 0px;
+}
+
+table,
+row,
+td {
+  padding: 0px;
+  margin: 0px;
+}
+
+
+.Center {
+ 
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  background-color: var(--text-color-3);
+  color: var(--text-color-4);
+}
+
+
+.uberschriftCenter {
+  margin-top: 0px;
+  padding-left: 5%;
+  font-size: 60px;
+  padding-top: 2%;
+}
+
+.textBeschreibung2 {
+  text-align: center;
+  font-size: 20px;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 5%;
+  padding-top: 3%;
+
+
+}
+
