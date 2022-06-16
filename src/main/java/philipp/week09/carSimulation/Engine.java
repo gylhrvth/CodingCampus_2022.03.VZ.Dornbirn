@@ -24,7 +24,7 @@ public class Engine {
     }
 
     public void randomSetEngineBroken(Car car, float remKmToDrive) {
-        if (rand.nextFloat(5000) <= kmDriven) {
+        if (rand.nextFloat(100000) <= kmDriven) {
             engineState = Engine.EngineState.BROKEN;
             System.out.println("\u001B[35m" + "Your engine broke " + remKmToDrive + "km before the destination" + "\u001B[0m");
             System.out.println("\033[0;35m" + "The car has " + car.getTank().getFuelInTank() + " of fuel." + "\033[0m");
