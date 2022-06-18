@@ -1,5 +1,8 @@
 
-let isDarkMode = true
+let isDarkModeText = window.localStorage.getItem("dark-mode")
+let isDarkMode = (isDarkModeText === "false" ? false : true)
+
+
 function myFunctionButton() {
     isDarkMode = !isDarkMode
     setColorSchema()
@@ -8,11 +11,11 @@ function myFunctionButton() {
 
 
 function pageInit() {
-    isDarkMode = true
     setColorSchema()
 }
 
 function setColorSchema() {
+    window.localStorage.setItem("dark-mode", isDarkMode)
     if (isDarkMode) {
         document.documentElement.style.setProperty("--text-color-1", "#2d0f53")
         document.documentElement.style.setProperty("--text-color-2", "#485058")
