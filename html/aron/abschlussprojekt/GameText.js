@@ -9,22 +9,23 @@ export const gameText = [
                 text: "Next",
                 nextText: 2
             },
-           ]
+        ]
     },
-     {
+    {
         id: 2,
         img: "Picture/Festung_Kingdom.jpg",
         text: "Story 2",
+        type: "fight",
         options: [
             {
-                text: "Next",
-                nextText: 3
-            },
-            {
-                text: "Back",
+                text: "Alles geht zum Ende",
                 nextText: 1
             },
-           ]
+            {
+                text: "Gewonnen",
+                nextText: 3
+            },
+        ]
     },
     {
         id: 3,
@@ -39,95 +40,12 @@ export const gameText = [
                 text: "Back",
                 nextText: 2
             },
-           ]
-    },
-    {
-        id: 4,
-        img: "Picture/king.jpg",
-        text: "Story 3",
-        options: [
-            {   
-                text: "Bandit",
-              
-                nextText: 5
-            },
-            {   
-               
-                text: "Mercenary",
-                nextText: 6
-            },
-            {   
-               
-                text: "Magician",
-                nextText: 7
-            },
-            {   
-               
-                text: "Vagabond",
-                nextText: 8
-            },
-           
-           ] 
-    },
-    {
-        id: 5,
-        img: "Picture/Picture_Bandit_Hero.webp",
-        text: "Bandit\n*Strength:3/5\n*Intelligence:2/5\n*Dexterity:5/5",
-        options: [
-            {   
-                 text: "Next",
-                nextText: 9
-            },
-            {
-                text: "Back",
-                nextText: 4
-            },
         ]
     },
+
     {
-        id: 6,
-        img: "Picture/Picture_Mercenary+.webp",
-        text: "Mercenary\n*Strength:5/5\n*Intelligence:2/5\n*Dexterity:3/5",
-        options: [
-            {   
-                 text: "Next",
-                nextText: 9
-            },
-            {
-                text: "Back",
-                nextText: 4
-            },
-        ]
-    },
-    {
-        id: 7,
-        img: "Picture/Picture_Magician.png",
-        text: "Magician\n*Strength:2/5\n*Intelligence:5/5\n*Dexterity:3/5",
-        options: [
-            {   
-                 text: "Next",
-                nextText: 9
-            },
-            {
-                text: "Back",
-                nextText: 4
-            },
-        ]
-    },
-    {
-        id: 8,
-        img: "Picture/Picture_Vagabond.webp",
-        text: "Vagabond\n*Strength:4/5\n*Intelligence:3/5\n*Dexterity:3/5",
-        options: [
-            {   
-                 text: "Next",
-                nextText: 9
-            },
-            {
-                text: "Back",
-                nextText: 4
-            },
-        ]
+
+
     },
     {
         id: 9,
@@ -138,8 +56,8 @@ export const gameText = [
                 text: "Next",
                 nextText: 10
             },
-        
-           ]
+
+        ]
     },
     {
         id: 10,
@@ -154,8 +72,8 @@ export const gameText = [
                 text: "Back",
                 nextText: 4
             },
-        
-           ]
+
+        ]
     },
     {
         id: 11,
@@ -170,8 +88,8 @@ export const gameText = [
                 text: "Back",
                 nextText: 4
             },
-        
-           ]
+
+        ]
     },
     {
         id: 12,
@@ -186,52 +104,11 @@ export const gameText = [
                 text: "Back",
                 nextText: 4
             },
-        
-           ]
-    },
-    {
-        id: 13,
-        img:  "Picture/Picture_Bandit.webp",
-        text: "Gegener L1",
-        options: [
-            {
-                text: "Fight",
-                nextText: 14
-            }, {
-                text: "Hidden",
-                nextText: 15
-            }, {
-                text: "Escape",
-                nextText: 15
-            },
-        
-           ]
-    },
 
- 
+        ]
+    },
+  
 ]
 
 
 
-
-
-
-
-
-     // action: {
-
-        // },
-
- // {
-            //     conditiopn: "",
-            //     text: "attack",
-            //     nextState: 3
-            // }, 
-   // {
-    //     id: 2,
-    //     text: "Apfelsaft"
-    // },
-    // {
-    //     id: 3,
-    //     text: "Berber"
-    // },
