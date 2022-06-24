@@ -37,11 +37,11 @@ public class House {
     }
 
     private String printPersons(List<Person> persons) {
-        String s = "";
+        StringBuilder s = new StringBuilder();
         for (Person p : persons) {
-            s += p.toString();
+            s.append(p.toString());
         }
-        return s;
+        return s.toString();
     }
 
 
