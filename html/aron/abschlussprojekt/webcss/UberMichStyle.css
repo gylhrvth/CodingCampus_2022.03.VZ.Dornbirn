@@ -5,13 +5,23 @@ body{
   
   }
 
+
 .normalBlockContainer {
   min-height: 100px;
+  
 }
+
 
 h1 {
   font-size: 60px;
 }
+.picture{
+  object-fit: contain;
+float: right;
+width: 17%;
+
+}
+
 
 .MichUberschrift {
   font-family: 'Montserrat', sans-serif;
@@ -27,17 +37,10 @@ h1 {
   font-family: 'Montserrat', sans-serif;
   background-color: var(--text-color-1);
   color: var(--text-color-2);
-  
+
 }
 
-.picture {
-  position: relative;
-  width: 35%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: var(--text-color-1);
-  color: var(--text-color-2);
-}
+
 
 .imageContainer {
   position: relative;
