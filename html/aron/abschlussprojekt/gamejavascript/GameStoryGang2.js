@@ -133,12 +133,7 @@ export const gameStoryGang2 = [
                     return ["gameStoryGang2", 9]
                 }
             },
-            {
-                text: "Back",
-                transition: (state) => {
-                    return ["gameStoryGang2", 7]
-                }
-            },
+           
         ]
     },
     {

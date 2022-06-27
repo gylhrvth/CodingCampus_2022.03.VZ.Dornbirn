@@ -179,5 +179,73 @@ export const gameDialog = [
             nextNode("gameStoryGang2Alternativ", 2)
         }
     },
-
+    {
+        id: 9,
+        img: "../Picture/king.jpg",
+        text: "Story 3",
+        options: [
+            {
+                text: "Burgermeister SG2",
+                transition: (state) => {
+                    return ["gameStoryGang1", 10]
+                }
+            },
+            {
+                text: "Bar SG2/1",
+                transition: (state) => {
+                    return ["gameStoryGang1Alternativ", 1]
+                }
+            },
+        ]
+    },
+    {
+        id: 10,
+        img: "../Picture/Guard.jpg",
+        text: "Entscheidung des Burgermeister",
+        init: async (state, nextNode) => {
+            await new Promise(resolve => setTimeout(resolve, 0));
+            if (state.stats.intelligence > 1) {
+                if (Math.random() > 0.10) {
+                    nextNode("gameStoryGang1", 11)
+                    return
+                }
+            }
+            nextNode("gameStoryGang1Alternativ", 2)
+        }
+    },
+    {
+        id: 11,
+        img: "../Picture/king.jpg",
+        text: "Story 3",
+        options: [
+            {
+                text: "Burgermeister SG2",
+                transition: (state) => {
+                    return ["gameStoryGang3", 5]
+                }
+            },
+            {
+                text: "Bar SG2/1",
+                transition: (state) => {
+                    return ["gameStoryGang3Alternativ", 1]
+                }
+            },
+        ]
+    },
+    {
+        id: 12,
+        img: "../Picture/Guard.jpg",
+        text: "Entscheidung des Burgermeister",
+        init: async (state, nextNode) => {
+            await new Promise(resolve => setTimeout(resolve, 0));
+            if (state.stats.intelligence > 1) {
+                if (Math.random() > 0.10) {
+                    nextNode("gameStoryGang3", 5)
+                    return
+                }
+            }
+            nextNode("gameStoryGang3Alternativ", 1)
+            nextNode("gameStoryGang1Alternativ", 11)
+        }
+    },
 ]

@@ -119,6 +119,71 @@ export const gameFight = [
         },
 
     },
+    {
+        id: 8,
+        img: "../Picture/Picture_Bandit.webp",
+        text: "Gegener L1",
+        options: [
+            {
+                text: "Fight",
+                transition: (state) => {
+                    return ["gameFight", 6]
+                },
+            },
+
+            {
+                text: "Hidden",
+                transition: (state) => {
+                    return ["gameFight", 7]
+                },
+            },
+        
+        ]
+    },
+    {
+        id: 9,
+        text: "Es wird gekämpft!!!!1111!!!!",
+        init: async (state, nextNode) => {
+            await new Promise(resolve => setTimeout(resolve, 3000));
+            if (state.stats.strength > 4) {
+                if (Math.random() > 0.30) {
+                    nextNode("gameWin", 4)
+                    return
+                }
+            }
+            nextNode("gameDeath", 1)
+        }
+    },
+    {
+        id: 10,
+        text: "Hidden",
+        init: async (state, nextNode) => {
+            await new Promise(resolve => setTimeout(resolve, 3000));
+            if (state.stats.dexterity> 2) {
+                if (Math.random() > 0.30) {
+                    nextNode("gameWin", 4)
+                    return
+                }
+            }
+            nextNode("gameDeath", 4)
+        },
+
+    },
+    {
+        id: 4,
+        text: "Es wird gekämpft!!!!1111!!!!",
+        init: async (state, nextNode) => {
+            await new Promise(resolve => setTimeout(resolve, 3000));
+            if (state.stats.intelligence > 2) {
+                if (Math.random() > 0.30) {
+                    nextNode("gameWin", 7)
+                    return
+                }
+            }
+            nextNode("gameDeath", 4)
+        },
+    },
+    
     
     
 
