@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="stylesheet.css">
+<html class="backround">
+    <script src="index.js"></script>
+    <head>
+        <title>
+            todolist
+        </title>
+    </head>
+    <body>
+        <div class="boxcontainer">
+            <div class="box">
+                <div class="header">
+                    Todolist
+                </div>
+                <div id="container">
+
+                </div>
+                <div class="inputfieldcontainer">
+                    <input id="inputfield" type="text" class="invisible"
+                        onkeydown="createentry(event)"
+                        placeholder="Type here...">
+                </div>
+                <button id="button" onclick="openinputfield()"
+                    class="addentry">
+                    add new entry
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

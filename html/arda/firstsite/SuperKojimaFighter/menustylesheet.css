@@ -1,0 +1,106 @@
+.titlescreen {
+    top: 3%;
+    height: fit-content;
+    position: relative;
+    justify-items: center;
+}
+
+.titlescreentext {
+    position: absolute;
+    width: 1090px;
+    top: 110px;
+    font-family: fantasy;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 260px;
+
+    text-align: center;
+
+    color: #000000;
+
+    mix-blend-mode: overlay;
+    text-shadow: 9px 28px 9px rgba(0, 0, 0, 0.56);
+
+    animation-name: titletextanim;
+    animation-duration: 1s;
+}
+
+@keyframes titletextanim {
+    0% {
+        font-size: 1px
+    }
+}
+
+.titlescreensubtext {
+    position: absolute;
+    top: 220px;
+    left: 300px;
+
+    color: rgb(145, 0, 0);
+    font-family: fantasy;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 80px;
+
+    text-shadow: 13px 0px 8px rgba(0, 0, 0, 0.6);
+
+    animation-name: subtextanim;
+    animation-duration: 1.5s;
+}
+
+@keyframes subtextanim {
+    0% {
+        left: -1px;
+        font-size: 1px;
+    }
+}
+
+.titlescreenbg {
+    width: 1090px;
+    height: 576px;
+    border-style: solid;
+    border-width: 4px;
+}
+
+.button {
+    font-family: fantasy;
+    font-style: italic;
+    letter-spacing: 2px;
+    font-weight: 300;
+    font-size: large;
+    text-shadow: 2px 2px 2px black;
+
+    color: white;
+    background: linear-gradient(180deg, #640000 0%, #F03535 45.83%, #850000 76.04%);
+    position: absolute;
+    width: 212px;
+    height: 42px;
+    top: 400px;
+    left: 41%;
+    border-radius: 7px;
+    border-width: 0px;
+    cursor: pointer;
+    transition: 0.5s;
+    box-shadow: 2px 3px 3px black;
+    animation-name: buttonappear;
+    animation-duration: 5s;
+}
+
+.button:hover {
+    font-size: larger;
+    background: linear-gradient(180deg, #640000 0%, #4e1212 45.83%, #850000 76.04%);
+    color: white;
+    width: 215px;
+    height: 45px;
+
+}
+
+@keyframes buttonappear {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

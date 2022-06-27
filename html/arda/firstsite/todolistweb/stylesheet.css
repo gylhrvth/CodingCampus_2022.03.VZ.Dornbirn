@@ -1,0 +1,85 @@
+.backround {
+    background: url(https://www.wallpapertip.com/wmimgs/53-537197_computer-desk-background.jpg);
+    background-repeat: repeat-y;
+}
+
+.boxcontainer {
+    display: grid;
+    justify-content: center;
+}
+
+.box {
+    background: url(https://blog.hdwallsource.com/wp-content/uploads/2016/01/paper-wallpaper-45968-47250-hd-wallpapers.jpg);
+    width: 350px;
+    border: 3px solid rgb(0, 0, 0);
+    padding: 30px;
+}
+
+.header {
+    font: bold;
+    font-weight: bold;
+    font-size: 2em;
+    border-style: solid;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    padding: 3px;
+    text-align: center;
+}
+
+.addentry {
+    margin-left: 33%;
+    font: message-box;
+    font-weight: bold;
+    border-style: solid;
+    cursor: pointer;
+    padding: 1%;
+    width: fit-content;
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.436);
+}
+
+.addentry:hover {
+    background-color: rgba(255, 255, 255, 0.797);
+}
+
+.addentry:active {
+    box-shadow: 1px 2px rgba(0, 0, 0, 0.436);
+}
+
+.inputfieldcontainer {
+    grid-row: 53;
+    text-align: center;
+}
+
+.inputfield {
+    visibility: hidden;
+}
+
+.inputfield.visible {
+    visibility: visible;
+}
+
+.gridentry {
+    border-style: dashed;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    border-bottom-width: 2px;
+    text-align: right;
+    margin-top: 3%;
+    font: message-box;
+    font-weight: bold;
+}
+
+.invisible {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+.inputfieldcontainer {
+    margin-top: 15%;
+    margin-left: 26%;
+}

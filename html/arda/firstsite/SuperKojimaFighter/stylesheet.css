@@ -1,0 +1,265 @@
+@font-face {
+    font-family: "SuperStreetFighter";
+    src: url("fonts/hyper-street-fighter-2-color.ttf");
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.body {
+    display: grid;
+    justify-content: center;
+    background: url("https://cdn.hipwallpaper.com/i/80/9/NtVSWZ.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.canvascontainer {
+    position: relative;
+    display: inline-block;
+    margin-top: 2%;
+}
+
+.childcontainer {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    padding-top: 35px;
+    padding-left: 45px;
+    padding-right: 45px;
+}
+
+.containertext {
+    color: white;
+    display: none;
+    width: 556px;
+
+    padding: 30px;
+    padding-right: 127px;
+    padding-left: 127px;
+
+    float: left;
+
+    font-family: fantasy;
+    letter-spacing: 2px;
+    font-weight: 300;
+    font-size: 25px;
+    text-shadow: 2px 2px 2px black;
+    text-align: center;
+
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+
+    background: linear-gradient(180deg, #640000 0%, #F03535 45.83%, #850000 76.04%);
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.438);
+    user-select: none;
+
+}
+
+.show {
+    display: block;
+}
+
+.playerhealth {
+    position: absolute;
+    background: linear-gradient(#dfcd2a 0%, #ffee55 45.83%, #dfcd2a 76.04%);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    transition: width 1s;
+}
+
+.playerhealthbar {
+    background: linear-gradient(180deg, #851111 0%, #bb1f1f 45.83%, #851111 76.04%);
+    width: 100%;
+}
+
+.parentplayerhealthbar {
+    margin-top: 4px;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+
+    border-style: outset;
+    border-right-style: none;
+    border-width: 3px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+
+    height: 30px;
+    width: 100%;
+}
+
+.enemyhealth {
+    position: absolute;
+    background: linear-gradient(#dfcd2a 0%, #ffee55 45.83%, #dfcd2a 76.04%);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: width 1s;
+}
+
+.enemyhealthbar {
+    background: linear-gradient(180deg, #851111 0%, #bb1f1f 45.83%, #851111 76.04%);
+    width: 100%;
+}
+
+.parentenemyhealthbar {
+    margin-top: 4px;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+
+    border-style: outset;
+    border-left-style: none;
+    border-width: 3px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+
+    height: 30px;
+    width: 100%;
+}
+
+.timerbox {
+    width: 100px;
+    height: 40px;
+    flex-shrink: 0;
+    border-color: white;
+    border-left-style: solid;
+    border-right-style: solid;
+}
+
+.timerboxtext {
+    color: rgb(255, 187, 0);
+    text-shadow: 4px 2px 0 #000000;
+    text-align: center;
+    padding-top: 4px;
+    padding-left: 4px;
+    font-weight: 200;
+    font-size: 30px;
+    font-family: 'Press Start 2P', cursive;
+    user-select: none;
+}
+
+.displaytext {
+    font-family: 'Press Start 2P', cursive;
+    position: absolute;
+    font-weight: normal;
+    font-size: 25px;
+    color: white;
+    text-shadow: 4px 3px 0px #000000;
+    display: flex;
+    justify-content: center;
+    top: 150px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 300px;
+    user-select: none;
+}
+
+.displaynamep1 {
+    font-family: 'Press Start 2P', cursive;
+    font-weight: normal;
+    font-size: 23px;
+    color: white;
+    text-shadow: 4px 3px 0px #000000;
+
+    top: 30px;
+    bottom: 0;
+    left: 0px;
+    right: 0;
+    height: 300px;
+    position: absolute;
+
+    user-select: none;
+}
+
+.displaynamep2 {
+    font-family: 'Press Start 2P', cursive;
+    font-weight: normal;
+    font-size: 23px;
+    color: white;
+    text-shadow: 4px 3px 0px #000000;
+
+    top: 30px;
+    position: absolute;
+
+    user-select: none;
+}
+
+.gridcontainer {
+    overflow: hidden;
+    display: grid;
+    background-color: rgb(255, 255, 255);
+}
+
+.griditem {
+    color: white;
+    background: linear-gradient(180deg, #640000 0%, #F03535 45.83%, #850000 76.04%);
+    padding: 15px;
+    grid-row: 1;
+
+    font-family: fantasy;
+    font-style: italic;
+    letter-spacing: 2px;
+    font-weight: 300;
+    font-size: 25px;
+    text-shadow: 2px 2px 2px black;
+    text-align: center;
+
+    border: 1px;
+    border-color: black;
+    border-style: solid;
+    user-select: none;
+}
+
+.griditem:hover {
+    cursor: pointer;
+    background: linear-gradient(180deg, #940000 0%, #db5f5f 45.83%, #940000 76.04%);
+}
+
+.griditem:active {
+    background: linear-gradient(180deg, #640000 0%, #4e1212 45.83%, #850000 76.04%);
+}
+
+.creditstext {
+    color: white;
+    display: none;
+    width: 542px;
+
+    padding: 30px;
+    padding-right: 127px;
+    padding-left: 127px;
+
+    float: right;
+
+    font-family: fantasy;
+    letter-spacing: 2px;
+    font-weight: 300;
+    font-size: 25px;
+    text-shadow: 2px 2px 2px black;
+    text-align: left;
+
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+
+    background: linear-gradient(180deg, #640000 0%, #F03535 45.83%, #850000 76.04%);
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.438);
+    user-select: none;
+}
+
+.showcredits {
+    display: block;
+}
+
+.link {
+    text-decoration: none;
+    color: red;
+}
