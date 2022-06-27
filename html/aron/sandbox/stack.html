@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="stack_push()">Add</button>
+    <button onclick="stack_pop()">Remove</button>
+
+
+    <script>
+        let counter = 1
+        let gameState = {
+            "userName": "Aron",
+            "age": 33,
+            "price": "priceless",
+            "stack": [] 
+        }
+
+        function stack_push() {
+            gameState.stack.push({
+                "counter":counter,
+                "color": "black"
+            })
+            ++counter
+            print_stack_content()
+        }
+
+        function stack_pop() {
+            let value = gameState.stack.pop()
+            console.log("The value " + value + " has been received from the stack")
+            print_stack_content()
+        }
+
+        function print_stack_content() {
+
+            let text = JSON.stringify(gameState)
+            console.log("stack as Text  ", text)
+            console.log("stack as Object", JSON.parse(text))
+        }
+
+        print_stack_content()
+    </script>
+</body>
+
+</html>

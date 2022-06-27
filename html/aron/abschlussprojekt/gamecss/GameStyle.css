@@ -24,14 +24,12 @@ body {
 }
 
 .MainPicture {
-    background-image: "Picture/Main_Picture.jpg";
     height: 73vh;
     width: 100vw;
     object-fit: contain;
 
 
 }
-
 
 
 .btn-grid {
@@ -55,6 +53,8 @@ body {
     border-color: black;
 
 }
+
+
 
 .MainText {
     color: #2d0f53;

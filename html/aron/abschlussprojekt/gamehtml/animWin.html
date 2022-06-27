@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../gamecss/GameStyle.css">
+    <script type="module" defer src="../gamejavascript/GameJavaScript.js"></script>
+    <title>Animation</title>
+
+    <style >
+        .youWin {
+            width: 60vw;
+            height: 70vh;
+            display: grid;
+            align-content: center;
+            justify-content: center;
+            background-color: rgb(255, 223, 120);
+            color: #8d7800;
+            text-shadow: #ffbb00;
+            animation: bigger 6s ease-in-out forwards;
+            margin-left: 340px;
+
+
+        }
+
+        .youWin>p {
+            animation: 3s rotator 6s infinite;
+        }
+
+
+        @keyframes bigger {
+            100% {
+                font-size: 10vw;
+                text-shadow: 0.1vw 0.1vw #9e8100;
+            }
+        }
+
+        @keyframes rotator {
+            0% {
+                transform: rotatey(0turn);
+            }
+
+            50% {
+                transform: rotatey(1turn);
+            }
+
+            100% {
+                transform: rotatey(0turn);
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <audio autoplay>
+        <source src="../Sound/Quest Complete.mp3" />
+    </audio>
+    <div class="youWin">
+        <p>YOU WIN</p>
+    </div>
+</body>
+
+</html>
