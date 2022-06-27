@@ -25,15 +25,13 @@ public class PrintText {
 
     private static int getPrintAmount() {
         System.out.println("How many times you want to print your text.");
-        int i = Integer.MIN_VALUE;
-        while (i == Integer.MIN_VALUE) {
+        while (true) {
             try {
                 String x = sc.nextLine();
-                i = Integer.parseInt(x);
+                return Integer.parseInt(x);
             } catch (NumberFormatException nfe) {
                 System.out.println("This is not valid number. \nPlease enter a number:");
             }
         }
-        return i;
     }
 }

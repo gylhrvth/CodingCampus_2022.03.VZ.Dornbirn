@@ -1,0 +1,200 @@
+.backround{
+    background: url(https://i2.wp.com/thepointsguy.com/wp-content/uploads/2019/10/iStock-1146706870.jpg?fit=2048%2C2048px&quality=1#038;ssl=1);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.map{
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+    border: 4px;
+    border-style: solid;
+    z-index: 0;
+}
+.border{
+    border: 3px;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-color: black;
+    background-image: linear-gradient(rgba(231, 222, 201, 0.842),rgba(128, 128, 128, 0));
+}
+.head{
+    padding-top: 1%;
+    text-align: center;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-decoration: underline;
+}
+.locationicon{
+    z-index: 1;
+    position: absolute;
+    max-height: 2%;
+    left: 65.7%;
+    top: 22.9%;
+}
+.icon{
+    font-weight: 300;
+    font: icon;
+    position: absolute;
+    margin-left: 28%;
+    margin-top: 16%;
+    margin-bottom: auto;
+    margin-right: auto;
+}
+.icon2{
+    font-weight: 300;
+    font: icon;
+    position: absolute;
+    margin-left: 35.5%;
+    margin-top: 25.9%;
+}
+.icon3{
+    font-weight: 300;
+    font: icon;
+    position: absolute;
+    margin-left: 37.5%;
+    margin-top: 20%;
+}
+.gridcontainer{
+    overflow: hidden;
+    display: grid;
+    width: fit-content;
+    position: absolute;
+    top:14%;
+    left: 24%;
+    background-color: rgba(255, 255, 255, 0.671);
+    margin-block-start: 0;
+    margin-block-end: 0;
+    z-index: 1;
+}
+.griditem{
+    padding: 10px;
+    text-align: center;
+    font-size: 30px;
+    grid-row: 1;
+    border: 1px;    
+    border-style: solid;
+}
+.gridsearchbar{
+    padding: 10px;
+    font-size: 25px;
+    grid-row: 1;
+    border: 1px;    
+    border-style: solid;
+}
+.gridsearchbar input[type=text]{
+    padding: 6px;
+    margin-top: 2px;
+    font-size: 17px;
+    border: none;
+}
+.griditem:active{
+    color: aliceblue;
+}
+.griditem:hover{
+    background-color: rgba(255, 255, 255, 0.671);
+}
+.iconcontainer{ 
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: center;
+    align-content: center;
+    width: fit-content;
+    z-index: 1;
+}    
+.iconcontainer>*{
+    text-align: center;
+}
+.widgetcontainer{
+    position: absolute;
+    left: 60%;
+    top: 26%;
+}
+.photoWithTitleAndSubtitle{
+   max-height: 210px;
+}
+.widget{
+    position: absolute;
+    max-height: 210px;
+    width: 260px;
+    border-radius: 7%;
+    box-shadow: 3px 5px rgba(0, 0, 0, 0.415);
+    z-index: 1;   
+}
+.widget:hover{
+    box-shadow: 3px 5px rgba(0, 0, 0, 0.63);
+}
+.widget:active{
+    box-shadow: 2px 3px rgba(0, 0, 0, 0.63);
+}
+.widgetcommon {
+    font-weight: 100;
+    font: caption;
+    font-size: small;
+    position: absolute;
+    color: white;
+    width: 500px;
+    z-index: 2;    
+}
+.widgettextbottom{
+    top: 165px;
+    left: 10px;
+}
+.widgetcontainergym{
+    position: absolute;
+    left: 60%;
+    top: 55.5%;
+}
+.widgetgym:hover{
+    box-shadow: 3px 5px rgba(0, 0, 0, 0.63);
+}
+.widgetgym:active{
+    box-shadow: 2px 3px rgba(0, 0, 0, 0.63);
+}
+.widgettextbottomgym{
+    top: 165px;
+    left: 10px;
+}
+.widgettexttopgym{
+    font-size: larger;
+    top: 140px;
+    left: 10px;
+}
+.widgettexttop{
+    font-size: larger;
+    top: 140px;
+    left: 10px;
+}
+.widgetheadertext{
+    position: absolute;
+    font: caption;
+    font-size: 1.5em;
+    font-weight: bolder;
+    text-align: right;
+    text-align-last: left;
+    left: 60.5%;
+    top: 15%;
+    z-index: 1;
+}
+.widgetheadertextsmall{
+    position: absolute;
+    font: caption;
+    font-size: smaller;
+    font-weight: 300;
+    text-align: left;
+    text-align-last: left;
+    left: 60.5%;
+    top: 23%;
+    z-index: 1;
+}
+.widgetheadertextlocation{
+    position: absolute;
+    font: caption;
+    font-size: medium;
+    font-weight: bolder;
+    text-align: right;
+    text-align-last: left;
+    left: 66.6%;
+    top: 22.8%;
+    z-index: 1;
+}

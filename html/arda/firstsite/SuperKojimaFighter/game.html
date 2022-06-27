@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="stylesheet.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="favicon" type="image/x-icon" href="resources/favicon.ico">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+            rel="stylesheet">
+        <title>Fight for your life!</title>
+    </head>
+    <body id="body" class="body">
+        <div class="canvascontainer">
+            <div class="childcontainer">
+                <!-- player health -->
+                <div class="parentplayerhealthbar">
+                    <div class="playerhealthbar"></div>
+                    <div id="playerhealth" class="playerhealth"></div>
+                    <div id="displaynamep1" class="displaynamep1"></div>
+                </div>
+                <!-- timer -->
+                <div class="timerbox"><div id="timer" class="timerboxtext">99</div></div>
+                <!-- enemy health -->
+                <div class="parentenemyhealthbar">
+                    <div class="enemyhealthbar"></div>
+                    <div id="enemyhealth" class="enemyhealth"></div>
+                    <div id="displaynamep2" class="displaynamep2">Ryu</div>
+                </div>
+            </div>
+            <div id="displaytext" class="displaytext"></div>
+            <canvas></canvas>
+            <div class="gridcontainer">
+                <div id="controls" class="griditem">Controls</div>
+                <div id="creditsbtn" class="griditem">Credits</div>
+            </div>
+            <div id="containertext" class="containertext">
+                Player 1 Controls: <br>
+                A to move left <br>
+                D to move right <br>
+                W to jump <br>
+                F to punch <br>
+                G to kick <br>
+                S to block <br>
+                <br>
+                <br>
+                Player 2 Controls: <br>
+                ArrowLeft to move left <br>
+                ArrowRight to move right <br>
+                ArrowUp to jump <br>
+                I to punch <br>
+                O to kick <br>
+                ArrowDown to block <br> <br>
+                Press F5 to play again
+            </div>
+            <div id="creditstext" class="creditstext">
+                I followed <a
+                    href="https://www.youtube.com/watch?v=vyqbNFMDRGQ&t=542s"
+                    target="_blank"
+                    class="link">THIS</a>
+                tutorial to make the game.
+                <br> <br>
+                As of right now all assets have not been made by me. That is
+                subject to
+                change in the future.
+                <br> <br>
+                want to know more about <a
+                    href="../personalsite/index.html"
+                    class="link">ME?</a>
+            </div>
+        </div>
+        <script defer src="js/classes.js"></script>
+        <script defer src="js/index.js"></script>
+        <script src="js/menu.js"></script>
+    </body>
+</html>

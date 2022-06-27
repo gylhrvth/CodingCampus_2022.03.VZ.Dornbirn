@@ -1,0 +1,202 @@
+.header {
+    font-family: 'Quantico', sans-serif;
+    font-weight: 200;
+    color: white;
+    margin-left: 400vw;
+    margin-right: 400vw;
+    margin-bottom: 0px;
+    border: 3px;
+    border-style: solid;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-color: blue;
+    background-color: blue;
+    padding-left: 12px;
+    text-align: left;
+}
+
+.body {
+    font-family: 'Quantico', sans-serif;
+    font-weight: 300;
+    color: black;
+    background-color: rgb(168, 168, 157);
+    border: 3px;
+    border-top-color: none;
+    border-color: blue;
+    border-style: solid;
+    margin-top: 0px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-left: 400vw;
+    margin-right: 400vw;
+    text-align: center;
+}
+
+.headerfour {
+    font-family: 'Quantico', sans-serif;
+    font-weight: 200;
+    color: white;
+    margin-left: 235px;
+    margin-right: 650px;
+    margin-bottom: 0px;
+    border: 3px;
+    border-style: solid;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-color: blue;
+    background-color: blue;
+    padding-left: 12px;
+    text-align: left;
+
+}
+
+.bodyfour {
+    font-family: 'Quantico', sans-serif;
+    font-weight: 300;
+    color: black;
+    background-color: rgb(168, 168, 157);
+    border: 3px;
+    border-top-color: none;
+    border-color: blue;
+    border-style: solid;
+    margin-top: 0px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-left: 235px;
+    margin-right: 650px;
+    text-align: center;
+}
+
+.headertwo {
+    font-family: 'Quantico', sans-serif;
+    font-weight: 200;
+    color: white;
+    margin-left: 150px;
+    margin-right: 850px;
+    margin-bottom: 0px;
+    border: 3px;
+    border-style: solid;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-color: blue;
+    background-color: blue;
+    padding-left: 12px;
+    text-align: left;
+
+}
+
+.bodytwo {
+    font-family: 'Quantico', sans-serif;
+    font-weight: 300;
+    color: black;
+    background-color: rgb(168, 168, 157);
+    border: 3px;
+    border-top-color: none;
+    border-color: blue;
+    border-style: solid;
+    margin-top: 0px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-left: 150px;
+    margin-right: 850px;
+    text-align: center;
+}
+
+.headerthree {
+    font-family: 'Quantico', sans-serif;
+    font-weight: 200;
+    color: white;
+    margin-left: 500px;
+    margin-right: 450px;
+    margin-bottom: 0px;
+    border: 3px;
+    border-style: solid;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-color: blue;
+    background-color: blue;
+    padding-left: 12px;
+    text-align: left;
+
+}
+
+.bodythree {
+    font-family: 'Quantico', sans-serif;
+    font-weight: 300;
+    color: black;
+    background-color: rgb(168, 168, 157);
+    border: 3px;
+    border-top-color: none;
+    border-color: blue;
+    border-style: solid;
+    margin-top: 0px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-left: 500px;
+    margin-right: 450px;
+    text-align: center;
+}
+
+.secondbody {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: white;
+    font-weight: 800;
+    border: 5px;
+    border-style: outset;
+    padding: 5px;
+    margin-left: 400px;
+    margin-right: 400px;
+    text-align: center;
+    font: icon;
+}
+
+.backround {
+    background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapertag.com%2Fwallpaper%2Ffull%2F5%2F0%2F9%2F244331-doom-wallpaper-1920x1080-1920x1080-ipad-retina.jpg&f=1&nofb=1);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.redirect {
+    font-family: 'Quantico', sans-serif;
+    background-color: rgb(168, 168, 157);
+    font-weight: 300;
+    text-align: center;
+    border: 3px;
+    border-color: rgb(75, 75, 75);
+    border-style: outset;
+    margin-left: 250px;
+    margin-right: 250px;
+}
+
+.redirect.redirect:hover {
+    background-color: rgb(145, 145, 145);
+}
+
+.button {
+    font-family: 'Quantico', sans-serif;
+    padding: 5px 25px;
+    text-align: center;
+    cursor: pointer;
+    color: black;
+    background-color: rgb(168, 168, 157);
+    border: 3px;
+    border-style: outset;
+    border-color: grey;
+    border-radius: 10px;
+    box-shadow: 0 4px #999;
+}
+
+.button:hover {
+    background-color: grey;
+}
+
+.button:active {
+    background-color: rgb(102, 102, 102);
+    box-shadow: 0 4px #666;
+    transform: translateY(4px);
+}
+
+.button>div {
+    font-size: 2em;
+    font-weight: 300;
+}
