@@ -28,6 +28,6 @@ var btn = document.getElementById("playbtn").addEventListener("click", () => {
     menutheme.pause()
     playbtnsound.play()
     setTimeout(() => {
-        window.location = "index.html"
+        window.location = "game.html"
     }, 1000)
 })
