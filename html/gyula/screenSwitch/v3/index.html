@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      margin-block-start: 0;
+      margin-block-end: 0;
+    }
+
+    .page1 {
+      background-color: lightcoral;
+      height: 100vh;
+    }
+
+    .page2 {
+      background-color: lightgreen;
+      height: 100vh;
+    }    
+  </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+      function switchPage1(){
+        let divE = document.createElement('div')
+        divE.classList.add('page1')
+        let h1E = document.createElement('h1')
+        h1E.innerText = 'Page 1'
+        divE.appendChild(h1E)
+
+        let pE = document.createElement('p')
+        pE.innerText = 'Klick here'
+
+        let buttonE = document.createElement('button')
+        buttonE.innerText = 'Page 2'
+        buttonE.addEventListener('click', switchPage2)
+        pE.appendChild(buttonE)
+        divE.appendChild(pE)
+
+        let app = document.getElementById('app')
+        app.innerHTML = ""
+        app.appendChild(divE)
+      }
+
+      function switchPage2(){
+        let divE = document.createElement('div')
+        divE.classList.add('page2')
+        let h1E = document.createElement('h1')
+        h1E.innerText = 'Page 1'
+        divE.appendChild(h1E)
+
+        let pE = document.createElement('p')
+        pE.innerText = 'Klick here'
+
+        let buttonE = document.createElement('button')
+        buttonE.innerText = 'Page 1'
+        buttonE.addEventListener('click', switchPage1)
+        pE.appendChild(buttonE)
+        divE.appendChild(pE)
+
+        let app = document.getElementById('app')
+        app.innerHTML = ""
+        app.appendChild(divE)
+      }
+
+      switchPage1()
+    </script>
+</body>
+</html>
