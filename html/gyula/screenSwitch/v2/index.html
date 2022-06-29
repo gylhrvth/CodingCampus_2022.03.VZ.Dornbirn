@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      margin-block-start: 0;
+      margin-block-end: 0;
+    }
+
+    .page1 {
+      background-color: lightcoral;
+    }
+
+    .page2 {
+      background-color: lightgreen;
+    }
+
+    .page.show {
+      height: 100vh;
+      transition: height 0.4s;
+    }
+
+    .page:not(.show){
+      height: 0vh;
+      overflow: hidden;
+      transition: height 0.4s;
+    }
+    
+  </style>
+</head>
+<body>
+    <div class="page1 page show">
+      <h1>Page 1</h1>
+      <p>Klick here
+        <button onclick="switchPage2()">Page 2</button>
+      </p>
+    </div>
+    <div class="page2 page">
+      <h1>Page 2</h1>
+      <p>Klick here
+        <button onclick="switchPage1()">Page 1</button>
+      </p>
+    </div>
+
+
+    <script>
+      function switchPage1(){
+        let pages = [...document.getElementsByClassName('page')]
+        pages.forEach(element => {
+          element.classList.remove("show")
+        });
+        let selectedPage = [...document.getElementsByClassName('page1')]
+        selectedPage.forEach(element => {
+          element.classList.add("show")
+        });
+
+      }
+
+      function switchPage2(){
+        let pages = [...document.getElementsByClassName('page')]
+        pages.forEach(element => {
+          element.classList.remove("show")
+        });
+        let selectedPage = [...document.getElementsByClassName('page2')]
+        selectedPage.forEach(element => {
+          element.classList.add("show")
+        });
+
+      }
+    </script>
+</body>
+</html>
