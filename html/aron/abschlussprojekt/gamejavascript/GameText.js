@@ -119,6 +119,256 @@ export const gameText = [
 
         ]
     },
+    {
+        id: 8,
+        img: "../Picture/Picture_Road.jpg",
+        text: "Fight VIzB",
+        options: [
+            {
+                text: "Next",
+                transition: (state) => {
+                    return ["gameFight",8]
+                }
+            },
+
+        ]
+    },
+    {
+        id: 9,
+        img: "../Picture/Picture_Road.jpg",
+        text: "Fight VIzB",
+        options: [
+            {
+                text: "Next",
+                transition: (state) => {
+                    return ["gameText",10]
+                }
+            },
+
+        ]
+    },
+    {
+        id: 10,
+        img: "../Picture/Picture_Road.jpg",
+        text: "Fight VIzB",
+        options: [
+            {
+                text: "Next",
+                transition: (state) => {
+                    return ["gameText",11]
+                }
+            },
+            {
+                text: "Back",
+                transition: (state) => {
+                    return ["gameText", 9]
+                }
+            },
+
+        ]
+    },
+    {
+        id: 11,
+        img: "../Picture/Picture_Road.jpg",
+        text: "Fight VIzB",
+        options: [
+            {
+                text: "Next",
+                transition: (state) => {
+                    return ["gameText",11]
+                }
+            },
+            {
+                text: "Back",
+                transition: (state) => {
+                    return ["gameText", 9]
+                }
+            },
+
+        ]
+    },
+    {
+        id: 11,
+        img: "../Picture/Picture_Road.jpg",
+        text: "Fight VIzB",
+        options: [
+            {
+                text: "Next",
+                transition: (state) => {
+                    return ["gameText",11]
+                }
+            },
+            {
+                text: "Back",
+                transition: (state) => {
+                    return ["gameText", 9]
+                }
+            },
+
+        ]
+    },
+    {
+        id: 9,
+        img: "../Picture/Picture_Road.jpg",
+        text: "Fight VIzB",
+        options: [
+            {
+                text: "Next",
+                transition: (state) => {
+                    return ["gameDialog",13]
+                }
+            },
+
+        ]
+    },
+    {
+    id: 10,
+    img: "../Picture/Picture_Road.jpg",
+    text: "Fight VIzB",
+    options: [
+        {
+            text: "Next",
+            transition: (state) => {
+                return ["gameText",11]
+            }
+        },
+
+    ]
+},
+{
+    id: 11,
+    img: "../Picture/Picture_Road.jpg",
+    text: "Fight VIzB",
+    options: [
+        {
+            text: "Next",
+            transition: (state) => {
+                return ["gameText",12]
+            }
+        },
+        {
+            text: "Back",
+            transition: (state) => {
+                return ["gameText", 10]
+            }
+        },
+
+    ]
+},
+{
+    id: 12,
+    img: "../Picture/Picture_Road.jpg",
+    text: "Fight VIzB",
+    options: [
+        {
+            text: "Next",
+            transition: (state) => {
+                return ["gameText",13]
+            }
+        },
+        {
+            text: "Back",
+            transition: (state) => {
+                return ["gameText", 11]
+            }
+        },
+
+    ]
+},
+{
+    id: 13,
+    img: "../Picture/Picture_Road.jpg",
+    text: "Fight VIzB",
+    options: [
+        {
+            text: "Story Gang 4/2",
+            transition: (state) => {
+                return ["gameStoryGang4",1]
+            }
+        },
+        {
+            text: "Back",
+            transition: (state) => {
+                return ["gameText", 12]
+            }
+        },
+
+    ]
+},
+{
+    id: 14,
+    img: "../Picture/Picture_Road.jpg",
+    text: "Fight VIzB",
+    options: [
+        {
+            text: "Next",
+            transition: (state) => {
+                return ["gameText",15]
+            }
+        },
+
+    ]
+},
+{
+    id: 15,
+    img: "../Picture/Picture_Road.jpg",
+    text: "Fight VIzB",
+    options: [
+        {
+            text: "Next",
+            transition: (state) => {
+                return ["gameText",16]
+            }
+        },
+        {
+            text: "Back",
+            transition: (state) => {
+                return ["gameText", 14]
+            }
+        },
+
+    ]
+},
+{
+    id: 16,
+    img: "../Picture/Picture_Road.jpg",
+    text: "Fight VIzB",
+    options: [
+        {
+            text: "Next",
+            transition: (state) => {
+                return ["gameText",17]
+            }
+        },
+        {
+            text: "Back",
+            transition: (state) => {
+                return ["gameText", 15]
+            }
+        },
+
+    ]
+},
+{
+    id: 17,
+    img: "../Picture/Picture_Road.jpg",
+    text: "Fight VIzB",
+    options: [
+        {
+            text: "Story Gang 4/2",
+            transition: (state) => {
+                return ["gameStoryGang5",1]
+            }
+        },
+        {
+            text: "Back",
+            transition: (state) => {
+                return ["gameText", 16]
+            }
+        },
+
+    ]
+},
 
 
 ]

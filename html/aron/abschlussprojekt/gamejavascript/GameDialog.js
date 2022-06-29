@@ -245,7 +245,26 @@ export const gameDialog = [
                 }
             }
             nextNode("gameStoryGang3Alternativ", 1)
-            nextNode("gameStoryGang1Alternativ", 11)
+            nextNode("gameFight",11)
         }
+    },
+    {
+        id: 13,
+        img: "../Picture/king.jpg",
+        text: "Story 3",
+        options: [
+            {
+                text: "Flucht",
+                transition: (state) => {
+                    return ["gameText", 10]
+                }
+            },
+            {
+                text: "Fight",
+                transition: (state) => {
+                    return ["gameFight", 12]
+                }
+            },
+        ]
     },
 ]

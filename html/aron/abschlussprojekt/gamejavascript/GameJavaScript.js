@@ -4,9 +4,12 @@ import { gameDialog } from './GameDialog.js';
 import { gameStoryGang1 } from './GameStoryGang1.js';
 import { gameStoryGang2 } from './GameStoryGang2.js';
 import { gameStoryGang3 } from './GameStoryGang3.js';
+import { gameStoryGang4 } from './GameStoryGang4.js';
+import { gameStoryGang5 } from './GameStoryGang5.js';
 import { gameStoryGang1Alternativ } from './GameStoryGang1Alternativ.js';
 import { gameStoryGang2Alternativ } from './GameStoryGang2Alternativ.js';
 import { gameStoryGang3Alternativ } from './GameStoryGang3Alternativ.js';
+import { gameStoryGang5Alternativ } from './GameStoryGang5Alternativ.js';
 import { gameDeath } from './GameDeath.js';
 import { gameWin } from './GameWin.js';
 
@@ -17,9 +20,12 @@ const game = {
     "gameStoryGang1": gameStoryGang1,
     "gameStoryGang2": gameStoryGang2,
     "gameStoryGang3": gameStoryGang3,
+    "gameStoryGang4": gameStoryGang4,
+    "gameStoryGang5": gameStoryGang5,
     "gameStoryGang1Alternativ": gameStoryGang1Alternativ,
     "gameStoryGang2Alternativ": gameStoryGang2Alternativ,
     "gameStoryGang3Alternativ": gameStoryGang3Alternativ,
+    "gameStoryGang5Alternativ": gameStoryGang5Alternativ,
     "gameDeath": gameDeath,
     "gameWin": gameWin,
 }

@@ -84,7 +84,7 @@ export const gameStoryGang1Alternativ = [
                 {
                     text: "Next",
                     transition: (state) => {
-                        return ["gameFight", 3]
+                        return ["gameText",8]
                     }
                 },
             

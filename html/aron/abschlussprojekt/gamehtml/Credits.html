@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../gamecss/GameStyle.css">
+    <script type="module" defer src="../gamejavascript/GameJavaScript.js"></script>
+    <title>Animation</title>
+
+    <style>
+
+
+
+        .youdied {
+            object-fit: contain;
+
+            width: 60vw;
+            height: 70vh;
+            display: grid;
+            align-content: center;
+            justify-content: center;
+            background-color: black;
+            color: white;
+            text-shadow:whitesmoke;
+            animation: bigger 6s ease-in-out forwards;
+            margin-left: 340px;
+        }
+
+        .youdied>p {
+            animation: 3s rotator 6s infinite;
+        }
+
+
+   
+    </style>
+</head>
+
+<body>
+    <audio  autoplay>
+        <source src="../Sound\2-20 Epilogue (Alternative Edit).mp3" />
+    </audio>
+    <div class="youdied">
+        <p><h1>No Human</h1>
+        <h2>Game by Aron Darius Redl<br>
+        Game Art by CD Project Red<br>
+        FromSoftware<br>
+        Game Sound by CD Project Red<br>
+        FromSoftware
+    </h2></p>
+    </div>
+</body>
+
+</html>

@@ -23,7 +23,7 @@ export const gameStoryGang3Alternativ = [
             {
                 text: "Next",
                 transition: (state) => {
-                    return ["gameFight", 3]
+                    return ["gameFight", 15]
                 }
             },
         
@@ -122,6 +122,21 @@ export const gameStoryGang3Alternativ = [
                     return ["gameStoryGang3Alternativ", 6]
                 }
             },
+          
+           ]
+    },
+    {
+        id: 6,
+        img: "../Picture/Festung_Kingdom.jpg",
+        text: "StoryG2/2",
+        options: [
+            {
+                text: "Next",
+                transition: (state) => {
+                    return ["gameText", 8]
+                }
+            },
+        
           
            ]
     },

@@ -27,7 +27,7 @@ export const gameDeath = [
             {
                 text: "Continue",
                 transition: (state) => {
-                    return ["gameStoryGang1", 8]
+                    return ["gameText", 7]
                 }
             },
             {
@@ -46,7 +46,7 @@ export const gameDeath = [
             {
                 text: "Continue",
                 transition: (state) => {
-                    return ["gameText", 7]
+                    return ["gameStoryGang3",1]
                 }
             },
             {
@@ -65,7 +65,26 @@ export const gameDeath = [
             {
                 text: "Continue",
                 transition: (state) => {
-                    return ["gameStoryGang2Altenativ", 5]
+                    return ["gameStoryGang1Altenativ", 5]
+                }
+            },
+            {
+                text: "New Game",
+                transition: (state) => {
+                    return ["gameText", 1]
+                }
+            },
+        ]
+    },
+    {
+        id: 4,
+        htmlSrc : "../gamehtml/anim.html",
+        img: "",
+        options: [
+            {
+                text: "Continue",
+                transition: (state) => {
+                    return ["gameText", 8]
                 }
             },
             {

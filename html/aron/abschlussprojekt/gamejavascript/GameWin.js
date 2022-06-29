@@ -78,7 +78,7 @@ export const gameWin = [
             {
                 text: "Continue",
                 transition: (state) => {
-                    return ["gameStoryGang3", 1]
+                    return ["gameStoryGang4", 1]
                 }
             },
 
@@ -93,6 +93,20 @@ export const gameWin = [
                 text: "Continue",
                 transition: (state) => {
                     return ["gameStoryGang3Alternativ", 3]
+                }
+            },
+
+        ]
+    },
+    {
+        id: 8,
+        htmlSrc: "../gamehtml/animWin.html",
+        img: "",
+        options: [
+            {
+                text: "Continue",
+                transition: (state) => {
+                    return ["gameText", 9]
                 }
             },
 
