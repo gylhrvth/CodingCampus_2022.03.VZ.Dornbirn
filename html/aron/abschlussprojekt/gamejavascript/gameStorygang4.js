@@ -3,7 +3,7 @@ export const gameStoryGang4 = [
     {
         id: 1,
         img: "../Picture/DorfGate.jpg",
-        text: "StoryG2 Dorf Tor",
+        text: "StoryG2 Dorf ",
         options: [
             {
                 text: "Next",
