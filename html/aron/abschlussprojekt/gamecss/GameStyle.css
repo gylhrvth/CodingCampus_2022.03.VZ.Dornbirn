@@ -1,18 +1,22 @@
 body {
     box-sizing: border-box;
     background-color: #080728;
-   
+
     overflow: hidden;
     padding: 0.5%;
-    
+
 }
+
 .container {
-    object-fit:contain;
+    object-fit: contain;
+    position: relative;
     width: 100%;
-    max-width:auto;
+    height: 100vh;
+    max-width: auto;
     border: 1px solid #451B61;
-  }
-  .steurungbtn{
+}
+
+.steurungbtn {
     background: rgb(0, 0, 0);
     background: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
@@ -22,7 +26,7 @@ body {
     font-size: 30px;
     border: 1px solid #451B61;
 
-  }
+}
 
 .btn-grid {
 
@@ -57,7 +61,7 @@ body {
     padding-left: 1%;
     padding-top: 1%;
     padding-bottom: 2%;
-    padding-right:1% ;
+    padding-right: 1%;
     font-size: 25px;
     border: 1px solid #451B61;
 
@@ -67,4 +71,19 @@ body {
 
 .btn-grid {
     grid-template-columns: auto;
+}
+
+#myPicture {
+    object-fit: cover;
+    /* Do not scale the image */
+    object-position: center;
+    /* Center the image within the element */
+    width: 100%;
+    height: 100vh;
+}
+
+@media screen and (orientation: portrait) {
+    body {
+        height: 100vh;
+    }
 }

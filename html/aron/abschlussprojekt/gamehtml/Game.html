@@ -22,23 +22,26 @@
 <body>
     <div class="container">
 
-        <img id="myPicture" style="  object-fit: contain; width: 100%;max-height: 40%;">
+        <img id="myPicture">
         <div id="content"></div>
-        <div style="position: absolute; bottom: 0px; left: 18.4px; width: 98.08%;">
-            <div>
-                <button clasa=" steurungbtn" style=" display: flex;justify-content: right;">Steuerung</button>
-            </div>
+        <div style="position: absolute; bottom: 0px; left: 18.4px; width: 98.2%;">
             <div id="option-buttons" class="btn-grid; " style=" display: flex;justify-content: center;">
                 <button id="button_1" class="btn">Option 1</button>
                 <button id="button_2" class="btn">Option 2</button>
                 <button id="button_3" class="btn">Option 3</button>
                 <button id="button_4" class="btn">Option 4</button>
+                <button id ="option" clasa=" steurungbtn">Option</button>
             </div>
             <div id="text" class="MainText">Text</div>
         </div>
         </img>
     </div>
-
+    <input id="readTheInput" />
+    <script>
+       document.getElementById("clickButton").addEventListener("click", () =>{
+          document.getElementById("readTheInput").value += "JavaScript";
+       });
+    </script>
 </body>
 
 </html>
