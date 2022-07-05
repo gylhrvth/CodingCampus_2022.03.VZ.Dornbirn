@@ -7,12 +7,14 @@ export const gameDeath = [
         options: [
             {
                 text: "Continue",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     return ["gameText", 7]
                 }
             },
             {
                 text: "New Game",
+                keyboardKeyName: "Escape",
                 transition: (state) => {
                     return ["gameText", 1]
                 }
@@ -26,12 +28,14 @@ export const gameDeath = [
         options: [
             {
                 text: "Continue",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     return ["gameText", 7]
                 }
             },
             {
                 text: "New Game",
+                keyboardKeyName: "Escape",
                 transition: (state) => {
                     return ["gameText", 1]
                 }
@@ -45,12 +49,14 @@ export const gameDeath = [
         options: [
             {
                 text: "Continue",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     return ["gameStoryGang3",1]
                 }
             },
             {
                 text: "New Game",
+                keyboardKeyName: "Escape",
                 transition: (state) => {
                     return ["gameText", 1]
                 }
@@ -64,12 +70,14 @@ export const gameDeath = [
         options: [
             {
                 text: "Continue",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     return ["gameStoryGang1Altenativ", 5]
                 }
             },
             {
                 text: "New Game",
+                keyboardKeyName: "Escape",
                 transition: (state) => {
                     return ["gameText", 1]
                 }
@@ -83,12 +91,14 @@ export const gameDeath = [
         options: [
             {
                 text: "Continue",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     return ["gameText", 8]
                 }
             },
             {
                 text: "New Game",
+                keyboardKeyName: "Escape",
                 transition: (state) => {
                     return ["gameText", 1]
                 }

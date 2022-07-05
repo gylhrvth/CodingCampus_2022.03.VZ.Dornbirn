@@ -7,6 +7,7 @@ export const gameStoryGang1Alternativ = [
             options: [
                 {
                     text: "Next",
+                    keyboardKeyName: "Enter",
                     transition: (state) => {
                         return ["gameStoryGang1Alternativ", 3]
                     }
@@ -22,12 +23,14 @@ export const gameStoryGang1Alternativ = [
             options: [
                 {
                     text: "Next",
+                    keyboardKeyName: "Enter",
                     transition: (state) => {
                         return ["gameStoryGang1Alternativ", 3]
                     }
                 },
                 {
                     text: "Back",
+                    keyboardKeyName: "ArrowLeft",
                     transition: (state) => {
                         return ["gameStoryGang1Alternativ", 2]
                     }
@@ -43,12 +46,14 @@ export const gameStoryGang1Alternativ = [
             options: [
                 {
                     text: "Next",
+                    keyboardKeyName: "Enter",
                     transition: (state) => {
                         return ["gameStoryGang1Alternativ", 5]
                     }
                 },
                 {
                     text: "Back",
+                    keyboardKeyName: "ArrowLeft",
                     transition: (state) => {
                         return ["gameStoryGang1Alternativ", 3]
                     }
@@ -63,12 +68,14 @@ export const gameStoryGang1Alternativ = [
             options: [
                 {
                     text: "Next",
+                    keyboardKeyName: "Enter",
                     transition: (state) => {
                         return ["gameStoryGang1Alternativ", 6]
                     }
                 },
                 {
                     text: "Back",
+                    keyboardKeyName: "ArrowLeft",
                     transition: (state) => {
                         return ["gameStoryGang1Alternativ", 4]
                     }
@@ -83,6 +90,7 @@ export const gameStoryGang1Alternativ = [
             options: [
                 {
                     text: "Next",
+                    keyboardKeyName: "Enter",
                     transition: (state) => {
                         return ["gameText",8]
                     }

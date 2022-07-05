@@ -6,6 +6,7 @@ export const gameStoryGang2 = [
         options: [
             {
                 text: "Next",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     return ["gameStoryGang2", 2]
                 }
@@ -20,12 +21,14 @@ export const gameStoryGang2 = [
         options: [
             {
                 text: "Next",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     return ["gameStoryGang2", 3]
                 }
             },
             {
                 text: "Back",
+                keyboardKeyName: "ArrowLeft",
                 transition: (state) => {
                     return ["gameStoryGang2", 1]
                 }
@@ -39,12 +42,14 @@ export const gameStoryGang2 = [
         options: [
             {
                 text: "Next",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     return ["gameStoryGang2", 4]
                 }
             },
             {
                 text: "Back",
+                keyboardKeyName: "ArrowLeft",
                 transition: (state) => {
                     return ["gameStoryGang2", 2]
                 }
@@ -58,12 +63,14 @@ export const gameStoryGang2 = [
         options: [
             {
                 text: "Next",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     return ["gameStoryGang2", 5]
                 }
             },
             {
                 text: "Back",
+                keyboardKeyName: "ArrowLeft",
                 transition: (state) => {
                     return ["gameStoryGang2", 3]
                 }
@@ -77,12 +84,14 @@ export const gameStoryGang2 = [
         options: [
             {
                 text: "Kapitel: 2",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     return ["gameStoryGang2", 6]
                 }
             },
             {
                 text: "Back",
+                keyboardKeyName: "ArrowLeft",
                 transition: (state) => {
                     return ["gameStoryGang2", 4]
                 }
@@ -96,12 +105,14 @@ export const gameStoryGang2 = [
         options: [
             {
                 text: "Next",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     return ["gameStoryGang2", 7]
                 }
             },
             {
                 text: "Back",
+                keyboardKeyName: "ArrowLeft",
                 transition: (state) => {
                     return ["gameStoryGang2", 5]
                 }
@@ -115,6 +126,7 @@ export const gameStoryGang2 = [
         options: [
             {
                 text: "Next",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     return ["gameDialog", 7]
                 }
@@ -129,6 +141,7 @@ export const gameStoryGang2 = [
         options: [
             {
                 text: "Next",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     return ["gameStoryGang2", 9]
                 }
@@ -143,12 +156,14 @@ export const gameStoryGang2 = [
         options: [
             {
                 text: "Next",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     return ["gameStoryGang2", 10]
                 }
             },
             {
                 text: "Back",
+                keyboardKeyName: "ArrowLeft",
                 transition: (state) => {
                     return ["gameStoryGang2", 8]
                 }
@@ -162,6 +177,7 @@ export const gameStoryGang2 = [
         options: [
             {
                 text: "Next",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     return ["gameDialog", 8]
                 }
@@ -176,6 +192,7 @@ export const gameStoryGang2 = [
         options: [
             {
                 text: "Next",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     return ["gameStoryGang2", 12]
                 }
@@ -190,12 +207,14 @@ export const gameStoryGang2 = [
         options: [
             {
                 text: "Next",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     return ["gameStoryGang2", 13]
                 }
             },
             {
                 text: "Back",
+                keyboardKeyName: "ArrowLeft",
                 transition: (state) => {
                     return ["gameStoryGang2", 11]
                 }
@@ -209,12 +228,14 @@ export const gameStoryGang2 = [
         options: [
             {
                 text: "Kapitel: 3",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     return ["gameStoryGang2", 14]
                 }
             },
             {
                 text: "Back",
+                keyboardKeyName: "ArrowLeft",
                 transition: (state) => {
                     return ["gameStoryGang2", 12]
                 }

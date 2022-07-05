@@ -12,6 +12,7 @@ import { gameStoryGang3Alternativ } from './GameStoryGang3Alternativ.js';
 import { gameStoryGang5Alternativ } from './GameStoryGang5Alternativ.js';
 import { gameDeath } from './GameDeath.js';
 import { gameWin } from './GameWin.js';
+import { gameEnd } from './GameEnd.js';
 
 const game = {
     "gameText": gameText,
@@ -28,29 +29,57 @@ const game = {
     "gameStoryGang5Alternativ": gameStoryGang5Alternativ,
     "gameDeath": gameDeath,
     "gameWin": gameWin,
+    "gameEnd": gameEnd,
 }
-
-
 const textelement = document.getElementById('text')
 const optionButtonsElement = document.getElementById('option-buttons')
 
 let state = {}
-let storyStack = []
+let keyboardEventToClean = []
 
 function startGame() {
     state = {}
     showStoryNode("gameText", 1)
 }
 
-function addOptionButton(option) {
-    const button = document.createElement('button')
-    button.innerText = option.text
-    button.classList.add('btn')
-    button.addEventListener('click', () => selectOption(option))
-    optionButtonsElement.appendChild(button)
+function selectOptionEventHandler(event) {
+    
+    let option = this
+
+    if ((event.type === "keyup") &&
+        (option.keyboardKeyName != undefined) &&
+        (event.key === option.keyboardKeyName)) {
+        selectOption(option)
+    }
+    if (event.type === "click") {
+        selectOption(option)
+    }
 }
 
+function cleanKeyboardEventHandler() {
+
+    keyboardEventToClean.forEach(eventHandler => {
+        window.removeEventListener('keyup', eventHandler)
+    })
+    keyboardEventToClean = []
+}
+
+function addOptionButton(option) {
+    const button = document.createElement('button')
+    button.id = "button_1"
+    button.innerText = option.text
+    button.classList.add('btn')
+
+    let eventHandler = selectOptionEventHandler.bind(option)
+    keyboardEventToClean = [...keyboardEventToClean, eventHandler]
+
+    button.addEventListener('click', eventHandler)
+    window.addEventListener('keyup', eventHandler)
+    optionButtonsElement.appendChild(button)
+}
 async function showStoryNode(node, index) {
+    cleanKeyboardEventHandler()
+
     const myText = game[node].find(text => text.id === index)
     if (myText.init) {
         myText.init(state, showStoryNode)
@@ -76,90 +105,13 @@ async function showStoryNode(node, index) {
             }
         })
     }
-
-    // else if (myText.type === "dialog") {
-    //     // Start a dialog
-    //     if ((storyStack.length == 0) && (storyStack[storyStack.length - 1] != myText.id)) {
-    //         storyStack.push(myText.id)
-    //         showDialogNode(myText.dialog_start)
-    //     } else {
-    //         storyStack.pop()
-
-    //         myText.options.forEach(option => {
-    //             if (showOption(option)) {
-    //                 addOptionButton(option)
-    //             }
-    //         })
-    //     }
-
-    // } else if (myText.type === "fight") {
-    //     startFight(myText.fight_start)
-    // } else {
-    //     console.log("*** DATA ERROR: id= ", text.id, " has an invalid type attribute")
-    // }
-
 }
-
-function startFight(nextFightNr) {
-    const myText = gameFight.find(text => text.id == nextFightNr)
-
-    myText.options.forEach(option => {
-        if (showOption(option)) {
-            addOptionButton(option)
-        }
-    })
-}
-
-function showDialogNode(nextDialogNr) {
-    const mydialog = gameDialog.find(text => text.id == nextDialogNr)
-
-    textelement.innerText = mydialog.text
-    if (mydialog.img) {
-        document.getElementById("myPicture").src = mydialog.img
-    }
-
-    optionButtonsElement.innerHTML = ""
-    mydialog.options.forEach(option => {
-        if (showOption(option)) {
-            const button = document.createElement('button')
-            button.innerText = option.text
-            button.classList.add('btn')
-            button.addEventListener('click', () => {
-                if (option.nextText) {
-                    const nextTextNodeId = option.nextText
-                    state = Object.assign(state, option.setState)
-                    showDialogNode(nextTextNodeId)
-                } else if (option.back_to_story) {
-                    // Continue the story
-                    if (mydialog.modifyState) {
-                        mydialog.modifyState(state)
-                    }
-                    console.log("Stats: " + JSON.stringify(state))
-
-                    showStoryNode(storyStack[storyStack.length - 1])
-                } else {
-                    console.log("*** DATA ERROR: id= ", myDialg.id, " has an option ", option.text, " without nextText or back_to_story attribute")
-                }
-
-            })
-            optionButtonsElement.appendChild(button)
-        }
-    })
-}
-
-
 
 function showOption(option) {
     return true
 }
-
-
-
 function selectOption(option) {
     let transition = option.transition(state)
     showStoryNode(transition[0], transition[1])
 }
-
-
-
 startGame()

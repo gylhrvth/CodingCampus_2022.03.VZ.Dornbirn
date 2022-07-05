@@ -2,10 +2,11 @@ export const gameText = [
     {
         id: 1,
         img: "../Picture/Festung_Kingdom.jpg",
-        text: "Story",
+        text: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea ",
         options: [
             {
                 text: "Next",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     return ["gameText", 2]
                 }
@@ -19,12 +20,14 @@ export const gameText = [
         options: [
             {
                 text: "Next",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     return ["gameText", 3]
                 }
             },
             {
                 text: "Back",
+                keyboardKeyName: "ArrowLeft",
                 transition: (state) => {
                     return ["gameText", 1]
                 }
@@ -38,12 +41,14 @@ export const gameText = [
         options: [
             {
                 text: "Next",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     return ["gameDialog", 1]
                 }
             },
             {
                 text: "Back",
+                keyboardKeyName: "ArrowLeft",
                 transition: (state) => {
                     return ["gameText", 2]
                 }
@@ -52,18 +57,19 @@ export const gameText = [
     },
 
     {
-    id: 4,
-    img: "../Picture/king.jpg",
-    text: "Story",
-    options: [
-        {
-            text: "Next",
-            transition: (state) => {
-                return ["gameText", 5]
-            }
-        },
-    ]
-},
+        id: 4,
+        img: "../Picture/king.jpg",
+        text: "Story",
+        options: [
+            {
+                text: "Next",
+                keyboardKeyName: "Enter",
+                transition: (state) => {
+                    return ["gameText", 5]
+                }
+            },
+        ]
+    },
 
     {
         id: 5,
@@ -72,12 +78,14 @@ export const gameText = [
         options: [
             {
                 text: "Next",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     return ["gameText", 6]
                 }
             },
             {
                 text: "Back",
+                keyboardKeyName: "ArrowLeft",
                 transition: (state) => {
                     return ["gameText", 4]
                 }
@@ -92,12 +100,14 @@ export const gameText = [
         options: [
             {
                 text: "Next",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     return ["gameText", 7]
                 }
             },
             {
                 text: "Back",
+                keyboardKeyName: "ArrowLeft",
                 transition: (state) => {
                     return ["gameText", 5]
                 }
@@ -112,8 +122,9 @@ export const gameText = [
         options: [
             {
                 text: "Next",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
-                    return ["gameFight",1]
+                    return ["gameFight", 1]
                 }
             },
 
@@ -126,8 +137,9 @@ export const gameText = [
         options: [
             {
                 text: "Next",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
-                    return ["gameFight",8]
+                    return ["gameFight", 8]
                 }
             },
 
@@ -140,8 +152,9 @@ export const gameText = [
         options: [
             {
                 text: "Next",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
-                    return ["gameText",10]
+                    return ["gameText", 10]
                 }
             },
 
@@ -154,12 +167,14 @@ export const gameText = [
         options: [
             {
                 text: "Next",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
-                    return ["gameText",11]
+                    return ["gameText", 11]
                 }
             },
             {
                 text: "Back",
+                keyboardKeyName: "ArrowLeft",
                 transition: (state) => {
                     return ["gameText", 9]
                 }
@@ -174,12 +189,14 @@ export const gameText = [
         options: [
             {
                 text: "Next",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
-                    return ["gameText",11]
+                    return ["gameText", 11]
                 }
             },
             {
                 text: "Back",
+                keyboardKeyName: "ArrowLeft",
                 transition: (state) => {
                     return ["gameText", 9]
                 }
@@ -194,12 +211,14 @@ export const gameText = [
         options: [
             {
                 text: "Next",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
-                    return ["gameText",11]
+                    return ["gameText", 11]
                 }
             },
             {
                 text: "Back",
+                keyboardKeyName: "ArrowLeft",
                 transition: (state) => {
                     return ["gameText", 9]
                 }
@@ -214,161 +233,176 @@ export const gameText = [
         options: [
             {
                 text: "Next",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
-                    return ["gameDialog",13]
+                    return ["gameDialog", 13]
                 }
             },
 
         ]
     },
     {
-    id: 10,
-    img: "../Picture/Picture_Road.jpg",
-    text: "Fight VIzB",
-    options: [
-        {
-            text: "Next",
-            transition: (state) => {
-                return ["gameText",11]
-            }
-        },
+        id: 10,
+        img: "../Picture/Picture_Road.jpg",
+        text: "Fight VIzB",
+        options: [
+            {
+                text: "Next",
+                keyboardKeyName: "Enter",
+                transition: (state) => {
+                    return ["gameText", 11]
+                }
+            },
 
-    ]
-},
-{
-    id: 11,
-    img: "../Picture/Picture_Road.jpg",
-    text: "Fight VIzB",
-    options: [
-        {
-            text: "Next",
-            transition: (state) => {
-                return ["gameText",12]
-            }
-        },
-        {
-            text: "Back",
-            transition: (state) => {
-                return ["gameText", 10]
-            }
-        },
+        ]
+    },
+    {
+        id: 11,
+        img: "../Picture/Picture_Road.jpg",
+        text: "Fight VIzB",
+        options: [
+            {
+                text: "Next",
+                keyboardKeyName: "Enter",
+                transition: (state) => {
+                    return ["gameText", 12]
+                }
+            },
+            {
+                text: "Back",
+                keyboardKeyName: "ArrowLeft",
+                transition: (state) => {
+                    return ["gameText", 10]
+                }
+            },
 
-    ]
-},
-{
-    id: 12,
-    img: "../Picture/Picture_Road.jpg",
-    text: "Fight VIzB",
-    options: [
-        {
-            text: "Next",
-            transition: (state) => {
-                return ["gameText",13]
-            }
-        },
-        {
-            text: "Back",
-            transition: (state) => {
-                return ["gameText", 11]
-            }
-        },
+        ]
+    },
+    {
+        id: 12,
+        img: "../Picture/Picture_Road.jpg",
+        text: "Fight VIzB",
+        options: [
+            {
+                text: "Next",
+                keyboardKeyName: "Enter",
+                transition: (state) => {
+                    return ["gameText", 13]
+                }
+            },
+            {
+                text: "Back",
+                keyboardKeyName: "ArrowLeft",
+                transition: (state) => {
+                    return ["gameText", 11]
+                }
+            },
 
-    ]
-},
-{
-    id: 13,
-    img: "../Picture/Picture_Road.jpg",
-    text: "Fight VIzB",
-    options: [
-        {
-            text: "Story Gang 4/2",
-            transition: (state) => {
-                return ["gameStoryGang4",1]
-            }
-        },
-        {
-            text: "Back",
-            transition: (state) => {
-                return ["gameText", 12]
-            }
-        },
+        ]
+    },
+    {
+        id: 13,
+        img: "../Picture/Picture_Road.jpg",
+        text: "Fight VIzB",
+        options: [
+            {
+                text: "Story Gang 4/2",
+                keyboardKeyName: "Enter",
+                transition: (state) => {
+                    return ["gameStoryGang4", 1]
+                }
+            },
+            {
+                text: "Back",
+                keyboardKeyName: "ArrowLeft",
+                transition: (state) => {
+                    return ["gameText", 12]
+                }
+            },
 
-    ]
-},
-{
-    id: 14,
-    img: "../Picture/Picture_Road.jpg",
-    text: "Fight VIzB",
-    options: [
-        {
-            text: "Next",
-            transition: (state) => {
-                return ["gameText",15]
-            }
-        },
+        ]
+    },
+    {
+        id: 14,
+        img: "../Picture/Picture_Road.jpg",
+        text: "Fight VIzB",
+        options: [
+            {
+                text: "Next",
+                keyboardKeyName: "Enter",
+                transition: (state) => {
+                    return ["gameText", 15]
+                }
+            },
 
-    ]
-},
-{
-    id: 15,
-    img: "../Picture/Picture_Road.jpg",
-    text: "Fight VIzB",
-    options: [
-        {
-            text: "Next",
-            transition: (state) => {
-                return ["gameText",16]
-            }
-        },
-        {
-            text: "Back",
-            transition: (state) => {
-                return ["gameText", 14]
-            }
-        },
+        ]
+    },
+    {
+        id: 15,
+        img: "../Picture/Picture_Road.jpg",
+        text: "Fight VIzB",
+        options: [
+            {
+                text: "Next",
+                keyboardKeyName: "Enter",
+                transition: (state) => {
+                    return ["gameText", 16]
+                }
+            },
+            {
+                text: "Back",
+                keyboardKeyName: "ArrowLeft",
+                transition: (state) => {
+                    return ["gameText", 14]
+                }
+            },
 
-    ]
-},
-{
-    id: 16,
-    img: "../Picture/Picture_Road.jpg",
-    text: "Fight VIzB",
-    options: [
-        {
-            text: "Next",
-            transition: (state) => {
-                return ["gameText",17]
-            }
-        },
-        {
-            text: "Back",
-            transition: (state) => {
-                return ["gameText", 15]
-            }
-        },
+        ]
+    },
+    {
+        id: 16,
+        img: "../Picture/Picture_Road.jpg",
+        text: "Fight VIzB",
+        options: [
+            {
+                text: "Next",
+                keyboardKeyName: "Enter",
+                transition: (state) => {
+                    return ["gameText", 17]
+                }
+            },
+            {
+                text: "Back",
+                keyboardKeyName: "ArrowLeft",
+                transition: (state) => {
+                    return ["gameText", 15]
+                }
+            },
 
-    ]
-},
-{
-    id: 17,
-    img: "../Picture/Picture_Road.jpg",
-    text: "Fight VIzB",
-    options: [
-        {
-            text: "Story Gang 4/2",
-            transition: (state) => {
-                return ["gameStoryGang5",1]
-            }
-        },
-        {
-            text: "Back",
-            transition: (state) => {
-                return ["gameText", 16]
-            }
-        },
+        ]
+    },
+    {
+        id: 17,
+        img: "../Picture/Picture_Road.jpg",
+        text: "Fight VIzB",
+        options: [
+            {
+                text: "Story Gang 4/2",
+                keyboardKeyName: "Enter",
+                transition: (state) => {
+                    return ["gameStoryGang5", 1]
+                }
+            },
+            {
+                text: "Back",
+                keyboardKeyName: "ArrowLeft",
+                transition: (state) => {
+                    return ["gameText", 16]
+                }
+            },
 
-    ]
-},
+        ]
+    },
 
 
 ]

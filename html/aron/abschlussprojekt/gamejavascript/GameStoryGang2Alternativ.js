@@ -6,6 +6,7 @@ export const gameStoryGang2Alternativ = [
     options: [
         {
             text: "Next",
+            keyboardKeyName: "Enter",
             transition: (state) => {
                 return ["gameStoryGang2Alternativ", 3]
             }
@@ -20,6 +21,7 @@ export const gameStoryGang2Alternativ = [
     options: [
         {
             text: "Next",
+            keyboardKeyName: "Enter",
             transition: (state) => {
                 return ["gameStoryGang2Alternativ", 2]
             }
@@ -34,12 +36,14 @@ export const gameStoryGang2Alternativ = [
     options: [
         {
             text: "Next",
+            keyboardKeyName: "Enter",
             transition: (state) => {
                 return ["gameStoryGang2Alternativ", 3]
             }
         },
         {
             text: "Back",
+            keyboardKeyName: "ArrowLeft",
             transition: (state) => {
                 return ["gameStoryGang2Alternativ", 2]
             }
@@ -55,12 +59,14 @@ export const gameStoryGang2Alternativ = [
     options: [
         {
             text: "Next",
+            keyboardKeyName: "Enter",
             transition: (state) => {
                 return ["gameStoryGang2Alternativ", 5]
             }
         },
         {
             text: "Back",
+            keyboardKeyName: "ArrowLeft",
             transition: (state) => {
                 return ["gameStoryGang2Alternativ", 3]
             }
@@ -75,12 +81,14 @@ export const gameStoryGang2Alternativ = [
     options: [
         {
             text: "Next",
+            keyboardKeyName: "Enter",
             transition: (state) => {
                 return ["gameStoryGang2Alternativ", 6]
             }
         },
         {
             text: "Back",
+            keyboardKeyName: "ArrowLeft",
             transition: (state) => {
                 return ["gameStoryGang2Alternativ", 4]
             }
@@ -95,6 +103,7 @@ export const gameStoryGang2Alternativ = [
     options: [
         {
             text: "Next",
+            keyboardKeyName: "Enter",
             transition: (state) => {
                 return ["gameText", 8]
             }

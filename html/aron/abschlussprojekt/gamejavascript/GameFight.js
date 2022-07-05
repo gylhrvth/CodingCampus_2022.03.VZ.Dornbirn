@@ -6,6 +6,7 @@ export const gameFight = [
         options: [
             {
                 text: "Fight",
+                keyboardKeyName: "1",
                 transition: (state) => {
                     return ["gameFight", 2]
                 },
@@ -13,12 +14,14 @@ export const gameFight = [
 
             {
                 text: "Hidden",
+                keyboardKeyName: "2",
                 transition: (state) => {
                     return ["gameFight", 3]
                 },
             },
             {
                 text: "Escape",
+                keyboardKeyName: "3",
                 transition: (state) => {
                     return ["gameFight", 4]
                 },
@@ -33,6 +36,7 @@ export const gameFight = [
             await new Promise(resolve => setTimeout(resolve, 3000));
             if (state.stats.strength > 3) {
                 if (Math.random() > 0.10) {
+                    //wenn health <= 0 -> gameDeath, 1
                     nextNode("gameWin", 1)
                     return
                 }
@@ -76,6 +80,7 @@ export const gameFight = [
         options: [
             {
                 text: "Fight",
+                keyboardKeyName: "1",
                 transition: (state) => {
                     return ["gameFight", 6]
                 },
@@ -83,6 +88,7 @@ export const gameFight = [
 
             {
                 text: "Hidden",
+                keyboardKeyName: "2",
                 transition: (state) => {
                     return ["gameFight", 7]
                 },
@@ -126,6 +132,7 @@ export const gameFight = [
         options: [
             {
                 text: "Fight",
+                keyboardKeyName: "1",
                 transition: (state) => {
                     return ["gameFight", 9]
                 },
@@ -133,6 +140,7 @@ export const gameFight = [
 
             {
                 text: "Hidden",
+                keyboardKeyName: "2",
                 transition: (state) => {
                     return ["gameFight", 10]
                 },
@@ -256,4 +264,177 @@ export const gameFight = [
         },
 
     },
+    {
+        id: 17,
+        text: "Es wird gekämpft!!!!1111!!!!",
+        init: async (state, nextNode) => {
+            await new Promise(resolve => setTimeout(resolve, 3000));
+            if (state.stats.strength > 4) {
+                if (Math.random() > 0.30) {
+                    nextNode("gameFight", 18)
+                    return
+                }
+            }
+            nextNode("gameDeath", 1)
+        }
+    },
+    {
+        id: 18,
+        text: "Es wird gekämpft!!!!1111!!!!",
+        init: async (state, nextNode) => {
+            await new Promise(resolve => setTimeout(resolve, 3000));
+            if (state.stats.strength > 4) {
+                if (Math.random() > 0.30) {
+                    nextNode("gameFight", 19)
+                    return
+                }
+            }
+            nextNode("gameDeath", 1)
+        }
+    },
+    {
+        id: 19,
+        text: "Es wird gekämpft!!!!1111!!!!",
+        init: async (state, nextNode) => {
+            await new Promise(resolve => setTimeout(resolve, 3000));
+            if (state.stats.strength > 4) {
+                if (Math.random() > 0.30) {
+                    nextNode("gameWin", )
+                    return
+                }
+            }
+            nextNode("gameDeath", 1)
+        }
+    },
+    {
+        id: 20,
+        img: "../Picture/Picture_Bandit.webp",
+        text: "Gegener L1",
+        options: [
+            {
+                text: "Fight",
+                keyboardKeyName: "1",
+                transition: (state) => {
+                    return ["gameFight", 21]
+                },
+            },
+
+            {
+                text: "Hidden",
+                keyboardKeyName: "2",
+                transition: (state) => {
+                    return ["gameFight", 22]
+                },
+            },
+            {
+                text: "Escape",
+                keyboardKeyName: "3",
+                transition: (state) => {
+                    return ["gameFight", 23]
+                },
+            },
+
+        ]
+    },
+    {
+        id: 21,
+        text: "Es wird gekämpft!!!!1111!!!!",
+        init: async (state, nextNode) => {
+            await new Promise(resolve => setTimeout(resolve, 3000));
+            if (state.stats.strength > 3) {
+                if (Math.random() > 0.10) {
+                    //wenn health <= 0 -> gameDeath, 1
+                    nextNode("gameFight", 24)
+                    return
+                }
+            }
+          
+        }
+    },
+    {
+        id: 22,
+        text: "Es wird gekämpft!!!!1111!!!!",
+        init: async (state, nextNode) => {
+            await new Promise(resolve => setTimeout(resolve, 3000));
+            if (state.stats.dexterity> 3) {
+                if (Math.random() > 0.30) {
+                    nextNode("gameEnd", 3)
+                    return
+                }
+            }
+            
+        },
+
+    },
+    {
+        id: 23,
+        text: "Es wird gekämpft!!!!1111!!!!",
+        init: async (state, nextNode) => {
+            await new Promise(resolve => setTimeout(resolve, 3000));
+            if (state.stats.intelligence > 2) {
+                if (Math.random() > 0.30) {
+                    nextNode("gameEnd", 6)
+                    return
+                }
+            }
+           
+        },
+    },
+    {
+        id: 24,
+        text: "Es wird gekämpft!!!!1111!!!!",
+        init: async (state, nextNode) => {
+            await new Promise(resolve => setTimeout(resolve, 3000));
+            if (state.stats.strength > 4) {
+                if (Math.random() > 0.30) {
+                    nextNode("gameEnd",9 )
+                    return
+                }
+            }
+            nextNode("gameEnd", 12)
+        }
+    },
+    {
+        id: 15,
+        text: "Es wird gekämpft!!!!1111!!!!",
+        init: async (state, nextNode) => {
+            await new Promise(resolve => setTimeout(resolve, 3000));
+            if (state.stats.strength > 4) {
+                if (Math.random() > 0.30) {
+                    nextNode("gameFight", 26)
+                    return
+                }
+            }
+            nextNode("gameDeath", 1)
+        }
+    },
+    {
+        id: 26,
+        text: "Es wird gekämpft!!!!1111!!!!",
+        init: async (state, nextNode) => {
+            await new Promise(resolve => setTimeout(resolve, 3000));
+            if (state.stats.strength > 4) {
+                if (Math.random() > 0.30) {
+                    nextNode("gameFight", 27)
+                    return
+                }
+            }
+            nextNode("gameDeath", 1)
+        }
+    },
+    {
+        id: 27,
+        text: "Es wird gekämpft!!!!1111!!!!",
+        init: async (state, nextNode) => {
+            await new Promise(resolve => setTimeout(resolve, 3000));
+            if (state.stats.strength > 4) {
+                if (Math.random() > 0.30) {
+                    nextNode("gameWin", )
+                    return
+                }
+            }
+            nextNode("gameDeath", 1)
+        }
+    },
+  
 ]

@@ -6,13 +6,16 @@ export const gameDialog = [
         text: "Story 3",
         options: [
             {
+               
                 text: "Bandit",
+                keyboardKeyName: "1",
                 transition: (state) => {
                     return ["gameDialog", 2]
                 }
             },
             {
                 text: "Mercenary",
+                keyboardKeyName: "2",
                 transition: (state) => {
                     return ["gameDialog", 3]
                 }
@@ -20,6 +23,7 @@ export const gameDialog = [
             {
 
                 text: "Magician",
+                keyboardKeyName: "3",
                 transition: (state) => {
                     return ["gameDialog", 4]
                 }
@@ -27,6 +31,7 @@ export const gameDialog = [
             {
 
                 text: "Vagabond",
+                keyboardKeyName: "4",
                 transition: (state) => {
                     return ["gameDialog", 5]
                 }
@@ -41,6 +46,7 @@ export const gameDialog = [
         options: [
             {
                 text: "Next",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     state.stats = {
                         strength: 3,
@@ -52,6 +58,7 @@ export const gameDialog = [
             },
             {
                 text: "Back",
+                keyboardKeyName: "ArrowLeft",
                 transition: (state) => {
                     return ["gameText", 3]
                 }
@@ -65,6 +72,7 @@ export const gameDialog = [
         options: [
             {
                 text: "Next",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     state.stats = {
                         strength: 5,
@@ -76,6 +84,7 @@ export const gameDialog = [
             },
             {
                 text: "Back",
+                keyboardKeyName: "ArrowLeft",
                 transition: (state) => {
                     return ["gameText", 3]
                 }
@@ -89,6 +98,7 @@ export const gameDialog = [
         options: [
             {
                 text: "Next",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     state.stats = {
                         strength: 2,
@@ -100,6 +110,7 @@ export const gameDialog = [
             },
             {
                 text: "Back",
+                keyboardKeyName: "ArrowLeft",
                 transition: (state) => {
                     return ["gameText", 3]
                 }
@@ -113,6 +124,7 @@ export const gameDialog = [
         options: [
             {
                 text: "Next",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     state.stats = {
                         strength: 4,
@@ -124,6 +136,7 @@ export const gameDialog = [
             },
             {
                 text: "Back",
+                keyboardKeyName: "ArrowLeft",
                 transition: (state) => {
                     return ["gameText", 3]
                 }
@@ -152,12 +165,14 @@ export const gameDialog = [
         options: [
             {
                 text: "Burgermeister SG2",
+                keyboardKeyName: "1",
                 transition: (state) => {
                     return ["gameStoryGang2", 8]
                 }
             },
             {
                 text: "Bar SG2/1",
+                keyboardKeyName: "2",
                 transition: (state) => {
                     return ["gameStoryGang2Alternativ", 1]
                 }
@@ -186,12 +201,14 @@ export const gameDialog = [
         options: [
             {
                 text: "Burgermeister SG2",
+                keyboardKeyName: "1",
                 transition: (state) => {
                     return ["gameStoryGang1", 10]
                 }
             },
             {
                 text: "Bar SG2/1",
+                keyboardKeyName: "2",
                 transition: (state) => {
                     return ["gameStoryGang1Alternativ", 1]
                 }
@@ -220,12 +237,14 @@ export const gameDialog = [
         options: [
             {
                 text: "Burgermeister SG2",
+                keyboardKeyName: "1",
                 transition: (state) => {
                     return ["gameStoryGang3", 5]
                 }
             },
             {
                 text: "Bar SG2/1",
+                keyboardKeyName: "2",
                 transition: (state) => {
                     return ["gameStoryGang3Alternativ", 1]
                 }
@@ -255,16 +274,21 @@ export const gameDialog = [
         options: [
             {
                 text: "Flucht",
+                keyboardKeyName: "1",
                 transition: (state) => {
                     return ["gameText", 10]
                 }
             },
             {
                 text: "Fight",
+                keyboardKeyName: "2",
                 transition: (state) => {
                     return ["gameFight", 12]
                 }
             },
         ]
     },
+  
+    
+   
 ]

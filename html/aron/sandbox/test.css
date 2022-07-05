@@ -1,0 +1,10 @@
+.vnScreen
+{
+    border:2px solid black;
+}
+
+.vnContainer
+{
+    margin: 60px auto;
+    width: 800px;
+}

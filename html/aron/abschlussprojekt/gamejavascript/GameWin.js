@@ -7,6 +7,7 @@ export const gameWin = [
         options: [
             {
                 text: "Continue",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     return ["gameStoryGang2", 1]
                 }
@@ -21,6 +22,7 @@ export const gameWin = [
         options: [
             {
                 text: "Continue",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     return ["gameStoryGang1", 1]
                 }
@@ -35,6 +37,7 @@ export const gameWin = [
         options: [
             {
                 text: "Continue",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     return ["gameStoryGang3", 1]
                 }
@@ -49,6 +52,7 @@ export const gameWin = [
         options: [
             {
                 text: "Continue",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     return ["gameStoryGang3", 1]
                 }
@@ -63,6 +67,7 @@ export const gameWin = [
         options: [
             {
                 text: "Continue",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     return ["gameStoryGang3", 1]
                 }
@@ -77,6 +82,7 @@ export const gameWin = [
         options: [
             {
                 text: "Continue",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     return ["gameStoryGang4", 1]
                 }
@@ -91,6 +97,7 @@ export const gameWin = [
         options: [
             {
                 text: "Continue",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     return ["gameStoryGang3Alternativ", 3]
                 }
@@ -105,6 +112,7 @@ export const gameWin = [
         options: [
             {
                 text: "Continue",
+                keyboardKeyName: "Enter",
                 transition: (state) => {
                     return ["gameText", 9]
                 }

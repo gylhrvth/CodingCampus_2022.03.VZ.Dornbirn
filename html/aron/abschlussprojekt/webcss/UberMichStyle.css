@@ -1,24 +1,24 @@
-
-
-body{
+body {
   background-color: var(--text-color-1);
-  
-  }
+
+}
 
 
 .normalBlockContainer {
   min-height: 100px;
-  
+
 }
 
 
 h1 {
   font-size: 60px;
 }
-.picture{
+
+.picture {
   object-fit: contain;
-float: right;
-width: 17%;
+  margin-bottom: 0px;
+  float: right;
+  width: 15.3%;
 
 }
 
@@ -59,7 +59,7 @@ td {
 
 
 .Center {
- 
+
   width: 100%;
   font-family: 'Montserrat', sans-serif;
   text-align: center;
@@ -85,4 +85,3 @@ td {
 
 
 }
-

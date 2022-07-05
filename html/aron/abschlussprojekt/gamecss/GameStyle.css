@@ -1,77 +1,70 @@
 body {
-    margin-top: 1%;
-    margin-left: 2%;
-    margin-right: 2%;
-    margin-bottom: 1%;
+    box-sizing: border-box;
     background-color: #080728;
-    font-family: 'Montserrat', sans-serif;
+   
     overflow: hidden;
+    padding: 0.5%;
+    
 }
-
-
 .container {
-
-
-    background-color: #B09CBC;
-    border-radius: 15px;
-    box-shadow: 0 0 10px 2px;
-    height: max-content 88vh;
-    padding-top: 30px;
-    padding-bottom: 20px;
-
-
-
-}
-
-.MainPicture {
-    height: 73vh;
-    width: 100vw;
-    object-fit: contain;
-
-
-}
-
-
-.btn-grid {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.btn {
-    background-color: #ddedf8;
-    border: 1px solid #2d0f53;
+    object-fit:contain;
+    width: 100%;
+    max-width:auto;
+    border: 1px solid #451B61;
+  }
+  .steurungbtn{
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
     padding: 5px 10px;
-    color: #4B4B4B;
-    outline: none;
-    font-size: clamp(6px, 3vw, 32px);
+    color: white;
+    outline: #451B61;
+    font-size: 30px;
+    border: 1px solid #451B61;
+
+  }
+
+.btn-grid {
+
+    margin-left: 1%;
+    margin-bottom: 0.5%;
 }
+
+
+.btn {
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+    outline: #451B61;
+    font-size: 30px;
+    border: 1px solid #451B61;
+}
+
 
 .btn:hover {
     border-color: black;
-
+    background-color: #451B61;
 }
 
 
 
 .MainText {
-    color: #2d0f53;
-    font-size: 20px;
-    padding-left: 2%;
-    padding-right: 2%;
-    object-fit: contain;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    padding-left: 1%;
+    padding-top: 1%;
+    padding-bottom: 2%;
+    padding-right:1% ;
+    font-size: 25px;
+    border: 1px solid #451B61;
+
 }
 
 
-@media screen and (max-width: 500px) {
-    body {
-        background-color: lavender;
-    }
 
-    .btn-grid {
-        grid-template-columns: auto;
-    }
-
+.btn-grid {
+    grid-template-columns: auto;
 }

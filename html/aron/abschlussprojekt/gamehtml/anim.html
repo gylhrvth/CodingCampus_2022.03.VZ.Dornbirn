@@ -8,27 +8,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Splash&family=Wendy+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Splash&family=Wendy+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../gamecss/GameStyle.css">
-    <script type="module" defer src="../gamejavascript/GameJavaScript.js"></script>
     <title>Animation</title>
 
     <style>
-
-
-
         .youdied {
             object-fit: contain;
 
-            width: 60vw;
-            height: 70vh;
+            width: 100VW;
+            height: 100vh;
             display: grid;
+            justify-items: center;
             align-content: center;
             justify-content: center;
             background-color: black;
             color: #990000;
             text-shadow: #d40000;
             animation: bigger 6s ease-in-out forwards;
-            margin-left: 340px;
+            font-family: 'Splash', cursive;
+
         }
 
         .youdied>p {
@@ -61,7 +65,7 @@
 </head>
 
 <body>
-    <audio  autoplay>
+    <audio autoplay>
         <source src="../Sound/dark-souls-you-died-sound-effect.mp3" />
     </audio>
     <div class="youdied">
