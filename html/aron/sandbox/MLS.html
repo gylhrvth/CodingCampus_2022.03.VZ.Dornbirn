@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body data-lang="en">
+    <h1 class="mls" data-text="hello_world">Hello World</h1>
+    <p class="mls" data-text="danke_fuer_die_anwendung">Danke für die Anwendung diese Seite</p>
+</body>
+
+<script>
+    const translation = [
+        {
+            id: "hello_world",
+            de: "Hallo Welt!",
+            en: "Hello World!",
+            fr: "xxxx Worldous"
+        },
+        {
+            id: "danke_fuer_die_anwendung",
+            de: "Danke für die Anwendung diese Seite",
+            en: "Thank you",
+            fr: "Mercy vocous"
+        },
+    ]
+
+    let lang = document.body.dataset.lang
+    updateMLS(document.body.dataset.lang)
+
+    let olElement = document.createElement("ol")
+    for (let index = 0; index < 10; index++) {
+        let liElement = document.createElement("li")
+        liElement.classList.add("mls")
+        liElement.dataset.text = "danke_fuer_die_anwendung"
+        liElement.innerText = getTextFor(lang, liElement.dataset.text)
+        olElement.appendChild(liElement)
+    }
+    document.body.appendChild(olElement)
+
+
+    function updateMLS(lang) {
+        let mlsElement = document.getElementsByClassName("mls")
+        for (const element of mlsElement) {
+            const textChoosenLang = getTextFor(lang, element.dataset.text)
+            if (textChoosenLang != undefined) {
+                element.innerText = textChoosenLang
+            }
+        }
+    }
+
+
+
+
+    // Callback function to execute when mutations are observed
+    const handleLanguageChange = function (mutationList, observer) {
+        // Use traditional 'for loops' for IE 11
+        for (const mutation of mutationList) {
+            if ((mutation.type === 'attributes') && (mutation.attributeName === 'data-lang')) {
+                console.log('The ' + mutation.attributeName + ' attribute was modified.');
+                updateMLS(document.body.dataset.lang)
+            }
+        }
+    };
+
+    // Start observing the target node for configured mutations
+    new MutationObserver(handleLanguageChange).observe(document.body, { attributes: true, childList: true, subtree: true });
+
+
+
+
+    function getTextFor(lang, textId) {
+        const textAllLang = translation.find(text => text.id === textId)
+        return textAllLang[lang]
+    }
+
+
+    document.body.dataset.lang = "de"
+
+    /*
+        let langs = ["en", "de", "fr"]
+        let index = 0
+        setInterval(() => {
+            document.body.dataset.lang = langs[index]
+            index = (index + 1) % langs.length
+        }, 5000)
+    */
+</script>
+
+</html>

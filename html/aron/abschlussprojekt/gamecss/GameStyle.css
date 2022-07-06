@@ -82,8 +82,28 @@ body {
     height: 100vh;
 }
 
-@media screen and (orientation: portrait) {
-    body {
-        height: 100vh;
+@media only screen and (max-width:930px) {
+   
+    .MainText {
+        width: 95vw;
     }
+}
+
+@media only screen and (max-width:430px) {
+    
+    
+    #myPicture {
+        height: auto;
+    }
+
+    .btn{
+        font-size: 18.1px;
+    }
+
+    .MainText {
+        
+        width: 92.5vw;
+        margin-bottom: 11px;
+    }
+
 }

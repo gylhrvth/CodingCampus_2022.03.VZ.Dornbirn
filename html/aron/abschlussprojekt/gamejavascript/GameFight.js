@@ -8,7 +8,7 @@ export const gameFight = [
                 text: "Fight",
                 keyboardKeyName: "1",
                 transition: (state) => {
-                    return ["gameFight", 2]
+                    return ["../FightGame/index.html"]
                 },
             },
 

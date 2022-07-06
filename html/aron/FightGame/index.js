@@ -1,19 +1,23 @@
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
 
-canvas.width = 1024
-canvas.height = 576
+myWidth = 2380
+myHeight = 1190
 
-c.fillRect(0, 0, canvas.width, canvas.height)
+c.fillRect(0, 0, myWidth, myHeight)
 
-const gravity = 0.7
+const gravity = 0
 
 const background = new Sprite({
+
+
   position: {
     x: 0,
     y: 0
   },
-  imageSrc: './img/background.png'
+  scale: 2.5,
+
+  imageSrc: '../FightGame/img/FightForest2.jpg'
 })
 
 const shop = new Sprite({
@@ -21,7 +25,7 @@ const shop = new Sprite({
     x: 600,
     y: 128
   },
-  imageSrc: './img/shop.png',
+  imageSrc: '',
   scale: 2.75,
   framesMax: 6
 })
@@ -41,10 +45,10 @@ const player = new Fighter({
   },
   imageSrc: './img/samuraiMack/Idle.png',
   framesMax: 8,
-  scale: 2.5,
+  scale: 4.5,
   offset: {
-    x: 215,
-    y: 157
+    x: 200,
+    y: -600
   },
   sprites: {
     idle: {
@@ -102,10 +106,10 @@ const enemy = new Fighter({
   },
   imageSrc: './img/kenji/Idle.png',
   framesMax: 4,
-  scale: 2.5,
+  scale: 4.5,
   offset: {
-    x: 215,
-    y: 167
+    x: -1200,
+    y: -460
   },
   sprites: {
     idle: {
@@ -169,11 +173,11 @@ decreaseTimer()
 function animate() {
   window.requestAnimationFrame(animate)
   c.fillStyle = 'black'
-  c.fillRect(0, 0, canvas.width, canvas.height)
+  c.fillRect(0, 0, myWidth, myHeight)
   background.update()
   shop.update()
   c.fillStyle = 'rgba(255, 255, 255, 0.15)'
-  c.fillRect(0, 0, canvas.width, canvas.height)
+  c.fillRect(0, 0, myWidth, myHeight)
   player.update()
   enemy.update()
 
