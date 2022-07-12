@@ -10,19 +10,48 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap" rel="stylesheet">
-    <title>Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Germania+One&family=Splash&family=Wendy+One&display=swap"
+        rel="stylesheet">
+    <title>Game Menü</title>
 </head>
 
-<body>
-    <h1>MENÜ</h1>
+<body class="Background"></body>
 
-    <div>
-        <a class="MenuSelection" href="Game.html">Continue</a>
-    </div>
-    <div>
-        <a class="MenuSelection" href="Game.html">New Game</a>
-    </div>
+<audio autoplay loop>
+    <source src="../Sound/11. Whispers Of Oxenfurt.mp3">
+</audio>
+<h1 class="maintext">NOT A KNIGHT</h1>
 
+<div id="continue">
+    <a class="MenuSelection" href="Game.html">Continue</a>
+</div>
+<div>
+    <a class="MenuSelection" id="new_game" onclick="return clearStorage()" href="Game.html">New Game</a>
+</div>
+<a class="Optionbutton " href="Menue.html">Option</a>
+
+
+
+
+<script>
+
+    const GAME_STORAGE_KEY = "keyGame";
+    const loadedGame = localStorage.getItem(GAME_STORAGE_KEY)
+    if (!loadedGame) {
+        document.getElementById("continue").style.visibility = "hidden"
+    }
+    function clearStorage() {
+        localStorage.removeItem(GAME_STORAGE_KEY)
+        return true
+    }
+    function textBox() {
+        window.alert("The game works like this:\nWhat???")
+    }
+
+
+</script>
 </body>
 
 </html>

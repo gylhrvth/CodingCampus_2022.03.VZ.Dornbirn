@@ -8,7 +8,7 @@ export const gameFight = [
                 text: "Fight",
                 keyboardKeyName: "1",
                 transition: (state) => {
-                    return ["../FightGame/index.html"]
+                    return ["gameFight", 2]
                 },
             },
 
@@ -31,17 +31,24 @@ export const gameFight = [
     },
     {
         id: 2,
+        htmlSrc: "../FightGame/index.html",
         text: "Es wird gekämpft!!!!1111!!!!",
         init: async (state, nextNode) => {
-            await new Promise(resolve => setTimeout(resolve, 3000));
-            if (state.stats.strength > 3) {
-                if (Math.random() > 0.10) {
-                    //wenn health <= 0 -> gameDeath, 1
-                    nextNode("gameWin", 1)
+            while (true) {
+                await new Promise(resolve => setTimeout(resolve, 100));
+                const result = localStorage.getItem("gameResult")
+                if (result) {
+                    localStorage.removeItem("gameResult")
+                    if (result == "lost") {
+                        nextNode("gameDeath", 1)
+                    } else if (result == "won") {
+                        nextNode("gameWin", 1)
+                    } else if (result == "tie") {
+                        nextNode("gameWin", 1)
+                    }
                     return
                 }
             }
-            nextNode("gameDeath", 1)
         }
     },
     {
@@ -49,7 +56,7 @@ export const gameFight = [
         text: "Es wird gekämpft!!!!1111!!!!",
         init: async (state, nextNode) => {
             await new Promise(resolve => setTimeout(resolve, 3000));
-            if (state.stats.dexterity> 3) {
+            if (state.stats.dexterity > 3) {
                 if (Math.random() > 0.30) {
                     nextNode("gameWin", 2)
                     return
@@ -93,7 +100,7 @@ export const gameFight = [
                     return ["gameFight", 7]
                 },
             },
-        
+
         ]
     },
     {
@@ -115,7 +122,7 @@ export const gameFight = [
         text: "Hidden",
         init: async (state, nextNode) => {
             await new Promise(resolve => setTimeout(resolve, 3000));
-            if (state.stats.dexterity> 2) {
+            if (state.stats.dexterity > 2) {
                 if (Math.random() > 0.30) {
                     nextNode("gameWin", 3)
                     return
@@ -145,7 +152,7 @@ export const gameFight = [
                     return ["gameFight", 10]
                 },
             },
-        
+
         ]
     },
     {
@@ -167,7 +174,7 @@ export const gameFight = [
         text: "Hidden",
         init: async (state, nextNode) => {
             await new Promise(resolve => setTimeout(resolve, 3000));
-            if (state.stats.dexterity> 2) {
+            if (state.stats.dexterity > 2) {
                 if (Math.random() > 0.30) {
                     nextNode("gameWin", 8)
                     return
@@ -224,7 +231,7 @@ export const gameFight = [
         text: "Hidden",
         init: async (state, nextNode) => {
             await new Promise(resolve => setTimeout(resolve, 3000));
-            if (state.stats.dexterity> 2) {
+            if (state.stats.dexterity > 2) {
                 if (Math.random() > 0.30) {
                     nextNode("gameStorGang4", 5)
                     return
@@ -239,7 +246,7 @@ export const gameFight = [
         text: "Hidden",
         init: async (state, nextNode) => {
             await new Promise(resolve => setTimeout(resolve, 3000));
-            if (state.stats.dexterity> 2) {
+            if (state.stats.dexterity > 2) {
                 if (Math.random() > 0.30) {
                     nextNode("gameStorGang4", 6)
                     return
@@ -254,7 +261,7 @@ export const gameFight = [
         text: "Hidden",
         init: async (state, nextNode) => {
             await new Promise(resolve => setTimeout(resolve, 3000));
-            if (state.stats.dexterity> 2) {
+            if (state.stats.dexterity > 2) {
                 if (Math.random() > 0.30) {
                     nextNode("gameStorGang4", 7)
                     return
@@ -299,7 +306,7 @@ export const gameFight = [
             await new Promise(resolve => setTimeout(resolve, 3000));
             if (state.stats.strength > 4) {
                 if (Math.random() > 0.30) {
-                    nextNode("gameWin", )
+                    nextNode("gameWin",)
                     return
                 }
             }
@@ -348,7 +355,7 @@ export const gameFight = [
                     return
                 }
             }
-          
+
         }
     },
     {
@@ -356,13 +363,13 @@ export const gameFight = [
         text: "Es wird gekämpft!!!!1111!!!!",
         init: async (state, nextNode) => {
             await new Promise(resolve => setTimeout(resolve, 3000));
-            if (state.stats.dexterity> 3) {
+            if (state.stats.dexterity > 3) {
                 if (Math.random() > 0.30) {
                     nextNode("gameEnd", 3)
                     return
                 }
             }
-            
+
         },
 
     },
@@ -377,7 +384,7 @@ export const gameFight = [
                     return
                 }
             }
-           
+
         },
     },
     {
@@ -387,7 +394,7 @@ export const gameFight = [
             await new Promise(resolve => setTimeout(resolve, 3000));
             if (state.stats.strength > 4) {
                 if (Math.random() > 0.30) {
-                    nextNode("gameEnd",9 )
+                    nextNode("gameEnd", 9)
                     return
                 }
             }
@@ -429,12 +436,12 @@ export const gameFight = [
             await new Promise(resolve => setTimeout(resolve, 3000));
             if (state.stats.strength > 4) {
                 if (Math.random() > 0.30) {
-                    nextNode("gameWin", )
+                    nextNode("gameWin",)
                     return
                 }
             }
             nextNode("gameDeath", 1)
         }
     },
-  
+
 ]

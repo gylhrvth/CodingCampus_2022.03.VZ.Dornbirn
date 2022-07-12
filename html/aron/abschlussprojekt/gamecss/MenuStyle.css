@@ -1,16 +1,134 @@
-body{
-background-color: #080728;
-text-align: center;
-color:#B09CBC;
-font-size: 80px;
-font-family: 'Montserrat', sans-serif;
+body {
+    box-sizing: border-box;
+    overflow: hidden;
+    text-align: center;
+    color: #B09CBC;
+    font-family: 'Germania One', cursive;
+   
+
+}
+
+.maintext {
+    padding-top: 20px;
+    font-size: 120px;
+  
+    color: #451B61;
+    background-image: url('../Picture/SchriftRolleTransparent2.png');
+    background-size: 98% 65%;
+    background-repeat: no-repeat;
+padding-bottom: 100px;
+}
+
+
+.MenuSelection {
+    color: #B09CBC;
+    text-decoration: none;
+    font-size: 80px;
+    
+
+
+}
+
+.MenuSelection:hover {
+    color: #451B61;
+
+}
+
+.Background {
+    background-image: url('../Picture/MenuGif3.gif');
+    object-fit: cover;
+
+    object-position: center;
+
+    width: 100%;
+    height: 100vh;
+}
+
+.Optionbutton {
+    text-align: center;
+    color: #B09CBC;
+    font-size: 80px;
+    font-family: 'Germania One', cursive;
+    background: rgba(0, 0, 0, 0);
+    border: 0px;
+    text-decoration: none;
+}
+
+.Optionbutton:hover {
+    color: #451B61;
 
 }
 
 
-.MenuSelection{
-color: #B09CBC;
-text-decoration: none;
+@media only screen and (max-width:930px) {
 
-    
+    .maintext {
+        font-family: 'Germania One', cursive;
+        font-size: 80px;
+        background-size: 97% 100%;
+        background-repeat: no-repeat;
+    padding-bottom: 10px;
+    }
+
+    .MenuSelection {
+        font-size: 30px;
+    }
+
+    .Background {
+        background-image: url('../Picture/MenuGif3.gif');
+        background-size: cover;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .Optionbutton {
+        text-align: center;
+        color: #B09CBC;
+        font-size: 30px;
+        font-family: 'Germania One', cursive;
+        background: rgba(0, 0, 0, 0);
+        border: 0px;
+        text-decoration: none;
+    }
+}
+
+@media only screen and (max-width:430px) {
+
+
+    .maintext {
+        padding-top: 40px;
+        font-size: 60px;
+        font-family: 'Germania One', cursive;
+        background-size: 97% 35%;
+        background-repeat: no-repeat;
+    padding-bottom: 300px;
+
+    }
+
+    .MenuSelection {
+        padding-top: 60px;
+        font-size: 40px;
+    }
+
+    .Background {
+        background-image: url('../Picture/MenuGif3.gif');
+
+
+        object-fit: cover;
+
+        object-position: center;
+
+        width: 100%;
+        height: 100vh;
+    }
+
+    .Optionbutton {
+        text-align: center;
+        color: #B09CBC;
+        font-size: 40px;
+        font-family: 'Germania One', cursive;
+        background: rgba(0, 0, 0, 0);
+        border: 0px;
+        text-decoration: none;
+    }
 }
